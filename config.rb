@@ -28,7 +28,7 @@ ready do
 end
 
 activate :sprockets
-activate :livereload
+activate :livereload, host: 'localhost', port: '4568'
 
 activate :autoprefixer do |config|
   config.browsers = ['last 2 version', 'Firefox ESR']

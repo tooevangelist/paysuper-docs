@@ -1,5 +1,6 @@
 FROM ruby:2.4-slim-stretch
 EXPOSE 4567
+EXPOSE 4568
 
 LABEL maintainer="nikolay.bondarenko@protocol.one"
 
