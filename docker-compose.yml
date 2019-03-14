@@ -1,0 +1,7 @@
+paysuper-docs:
+  build: .
+  ports:
+    - 4567:4567
+  volumes:
+    - ./:/app
+  command: bundle exec middleman server
