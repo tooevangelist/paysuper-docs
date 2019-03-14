@@ -8,5 +8,4 @@ rvm:
 if: branch=master  
 cache: bundler
 script: 
-#  - chmod +x ./deploy.sh && ./deploy.sh -e
-  - bundle exec middleman build
+  - chmod +x ./deploy.sh && ./deploy.sh -e --source-only
