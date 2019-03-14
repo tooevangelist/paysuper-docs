@@ -9,3 +9,13 @@ if: branch=master
 cache: bundler
 script: 
   - chmod +x ./deploy.sh && ./deploy.sh -e --source-only
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep-history: true
+  target-branch: gh-pages
+  local-dir: ./build
+  on:
+    branch: master
