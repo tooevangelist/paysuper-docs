@@ -29,7 +29,7 @@ GEM
     fast_blank (1.0.0)
     fastimage (2.0.1)
       addressable (~> 2)
-    ffi (1.9.17)
+    ffi (1.9.24)
     haml (4.0.7)
       tilt
     hamster (3.0.0)
@@ -90,7 +90,7 @@ GEM
       rouge (~> 2.0)
     mini_portile2 (2.3.0)
     minitest (5.10.1)
-    nokogiri (1.8.2)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     padrino-helpers (0.13.3.3)
       i18n (~> 0.6, >= 0.6.7)
@@ -100,7 +100,7 @@ GEM
       activesupport (>= 3.1)
     parallel (1.10.0)
     public_suffix (2.0.5)
-    rack (2.0.5)
+    rack (2.0.6)
     rack-livereload (0.3.17)
       rack
     rb-fsevent (0.9.8)
@@ -130,9 +130,9 @@ DEPENDENCIES
   middleman-livereload (~> 3.4.6)
   middleman-sprockets (~> 4.1.0)
   middleman-syntax (~> 3.0.0)
-  nokogiri (~> 1.8.2)
+  nokogiri (~> 1.8.5)
   redcarpet (~> 3.4.0)
-  rouge (~> 2.0.5)
+  rouge (~> 2.0.6)
 
 RUBY VERSION
    ruby 2.3.3p222

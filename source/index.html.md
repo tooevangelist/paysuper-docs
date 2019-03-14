@@ -16,7 +16,7 @@ includes:
 search: true
 ---
 
-# Introduction1
+# Introduction
 ```global
 API Endpoint
 https://api.paysuper.io
