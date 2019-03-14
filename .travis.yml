@@ -5,6 +5,8 @@ language: ruby
 rvm:
   - 2.4.0
 
+if: branch=master  
 cache: bundler
 script: 
-  - chmod +x ./deploy.sh && ./deploy.sh -e
+#  - chmod +x ./deploy.sh && ./deploy.sh -e
+  - bundle exec middleman build
