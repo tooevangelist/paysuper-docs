@@ -1,8 +1,0 @@
-paysuper-docs:
-  build: .
-  ports:
-    - 4567:4567
-    - 4568:4568
-  volumes:
-    - ./:/app
-  command: bundle exec middleman server --watcher-force-polling

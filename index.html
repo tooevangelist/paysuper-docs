@@ -1,0 +1,1405 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>PaySuper API Documentation</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen-c3accb1f.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-21839eea.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-c5541673.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-1e815a84.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">curl</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+          <li>
+            <a href="#versioning" class="toc-h1 toc-link" data-title="Versioning">Versioning</a>
+          </li>
+          <li>
+            <a href="#compression" class="toc-h1 toc-link" data-title="Compression">Compression</a>
+          </li>
+          <li>
+            <a href="#pagination" class="toc-h1 toc-link" data-title="Pagination">Pagination</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#attributes" class="toc-h2 toc-link" data-title="Attributes">Attributes</a>
+                  </li>
+                  <li>
+                    <a href="#list-response-format" class="toc-h2 toc-link" data-title="List response format">List response format</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#orders" class="toc-h1 toc-link" data-title="Orders">Orders</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#the-order-object" class="toc-h2 toc-link" data-title="The Order object">The Order object</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#products" class="toc-h1 toc-link" data-title="Products">Products</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#the-product-object" class="toc-h2 toc-link" data-title="The Product object">The Product object</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#the-user-object" class="toc-h2 toc-link" data-title="The User object">The User object</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#payouts" class="toc-h1 toc-link" data-title="Payouts">Payouts</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#the-payout-object" class="toc-h2 toc-link" data-title="The Payout object">The Payout object</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#paysuper-notifications" class="toc-h1 toc-link" data-title="PaySuper Notifications">PaySuper Notifications</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#sign-requests" class="toc-h2 toc-link" data-title="Sign Requests">Sign Requests</a>
+                  </li>
+                  <li>
+                    <a href="#notification-types" class="toc-h2 toc-link" data-title="Notification types">Notification types</a>
+                  </li>
+                  <li>
+                    <a href="#the-notification-object" class="toc-h2 toc-link" data-title="The Notification object">The Notification object</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1><pre class="highlight plaintext"><code>API Endpoint
+https://api.paysuper.io
+</code></pre>
+<p>The PaySuper API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use 
+HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which can be understood 
+by off-the-shelf HTTP clients.</p>
+
+<p>JSON will be returned in all responses from the API, including errors.</p>
+
+<p>Authentication is performed through HTTP Basic Auth. Credentials can be found on your PaySuper project dashboard, in 
+the &quot;API Keys&quot; section.</p>
+<h1 id='authentication'>Authentication</h1><pre class="highlight shell tab-shell"><code><span class="c"># Example request</span>
+<span class="gp">$ </span>curl https://api.paysuper.io/orders <span class="se">\</span>
+   -u tkHCYYOUVrYyY5rBFZxNzgtt:
+
+<span class="c"># curl uses the -u flag to pass basic auth credentials</span>
+<span class="c"># (adding a colon after your secret API key will prevent it</span>
+<span class="c"># from asking you for a password).</span>
+</code></pre>
+<p>Authentication to the API occurs via HTTP Basic Auth. Provide your API secret key as the basic auth username. You do 
+not need to provide a password.</p>
+
+<p>All API requests must be made over HTTPS. Calls made over plain HTTP will fail. You must authenticate for all requests.
+You can manage your API keys from your account. Your API keys carry many privileges, so be sure to keep them secret!</p>
+<h1 id='errors'>Errors</h1><pre class="highlight plaintext"><code>HTTP status codes summary
+
+200 OK - Everything worked as expected.
+
+201 Created - Resource has been successfully created
+
+202 Accepted - Request has been accepted, but requires asynchronous work to be fully performed
+
+400 Bad Request - Request failed due to a combination of errors
+
+401 Unauthorized - No valid API credentials provided.
+
+402 Payment Required - Your request was in livemode while your account is not activated for live requests yet.
+
+403 Forbidden - You are not authorized to access the requested item.
+
+404 Not Found - The requested item doesn't exist.
+
+406 Unacceptable - Your request format was not supported. Use JSON.
+
+409 Conflict - The data you submitted is in conflict with existing data.
+
+422 Unprocessable Entity - Often missing a required parameter.
+
+429 Too Many Requests - You sent us too many API requests in a row. Please retry later.
+
+500, 502, 503, 504 Server errors - something went wrong on PaySupers's end.
+
+</code></pre>
+<p>PaySuper uses conventional HTTP response codes to indicate success or failure of an API request. In general, codes in 
+the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information
+(e.g. a required parameter was missing, a charge failed, etc.), and codes in the 5xx range indicate an error with 
+PaySupers&#39;s servers.</p>
+<h1 id='versioning'>Versioning</h1>
+<p>PaySuper is developed incrementally. We use <a href="https://semver.org/">semantic versioning</a> and approach to release new 
+versions of the specification. </p>
+
+<p>The content of each release is the result of the work of the project team located on github. All changes and additions 
+to each version of this specification are publicly discussed by the PaySuper working group.</p>
+
+<p>While making requests in PaySuper using HTTPS, the version is passed as a special HTTP header, which makes it easier to 
+choose the correct implementation of objects on the receiving and transmitting side. The version passed is specified as 
+major and minor of the version using semantic versioning. For the transmission version must use the header 
+<code>“x-paysuper-api-version: 1.0”</code>.</p>
+<h1 id='compression'>Compression</h1>
+<p>The amount of data transferred with notifications can be huge, and endpoints are required to support data compression 
+to reduce the amount and speed of data transfer over the network.  </p>
+
+<p>Endpoints that send HTTP 1.1 messages are required to send gzip-compressed data by specifying the appropriate value
+in the HTTP <a href="https://tools.ietf.org/html/rfc7231#section-5.3.4">Accept-Encoding header</a>.</p>
+
+<p>Receiving hosts are required to support gzip and respond to requests by passing an HTTP <a href="https://tools.ietf.org/html/rfc7231#section-3.1.2.2">Content-Encoding</a> header.</p>
+<h1 id='pagination'>Pagination</h1><pre class="highlight shell tab-shell"><code><span class="c"># Example request</span>
+<span class="gp">$ </span>curl https://api.paysuper.io/payouts?limit<span class="o">=</span>3 <span class="se">\</span>
+   -u tkHCYYOUVrYyY5rBFZxNzgtt:
+
+<span class="c"># Example response</span>
+<span class="o">{</span>
+  <span class="s2">"object"</span>: <span class="s2">"list"</span>,
+  <span class="s2">"has_more"</span>: <span class="nb">true</span>,
+  <span class="s2">"has_before"</span>: <span class="nb">false</span>,
+  <span class="s2">"total_count"</span>: 240,
+  <span class="s2">"data"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: <span class="s2">"po_1ED765CmSJsu7cy1iQZUkPKz"</span>,
+      <span class="s2">"object"</span>: <span class="s2">"payout"</span>,
+      <span class="s2">"type"</span>: <span class="s2">"bank_account"</span>,  
+      <span class="s2">"status"</span>: <span class="s2">"in_transit"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2018-07-10T14:27:54.691Z"</span>,
+      <span class="s2">"arrival_date"</span>: <span class="s2">"2018-07-10T14:27:54.691Z"</span>,
+      <span class="s2">"amount"</span>: <span class="s2">"2.00"</span>,
+      <span class="s2">"currency"</span>: <span class="s2">"USD"</span>,
+      <span class="s2">"payout_url"</span>: <span class="s2">"https://pay.super.com/receipts/long-id-string-for-receipt"</span>,
+      <span class="s2">"automatic"</span>: <span class="nb">true</span>,
+      <span class="s2">"description"</span>: <span class="s2">"PAYSUPER PAYOUT"</span>,
+      <span class="s2">"destination"</span>: <span class="s2">"ba_1ED765CmSJsu7cy1ZufOeBtW"</span>,
+      <span class="s2">"failure_balance_transaction"</span>: null,
+      <span class="s2">"failure_code"</span>: null,
+      <span class="s2">"failure_message"</span>: null,
+      <span class="s2">"live"</span>: <span class="nb">false</span>,
+      <span class="s2">"metadata"</span>: <span class="o">{}</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>...<span class="o">}</span>,
+    <span class="o">{</span>...<span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+<p>All top-level PaySuper API resources have support for bulk fetches &quot;list&quot; API methods. For instance, you can list users, list orders.
+Like Stripe, PaySuper uses cursor-based pagination using the parameter <code>starting_after</code>. Pass <code>starting_after</code> parameter 
+at the previous page last object id value to determine where to start in the list.</p>
+<h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>limit</strong></td>
+<td><strong>integer optional</strong>  A limit on the number of objects to be returned. Must be included between 1 and 100</td>
+</tr>
+<tr>
+<td><strong>starting_after</strong></td>
+<td><strong>string optional</strong> A cursor for use in pagination. <code>starting_after</code> is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with <code>obj_foo</code>, your subsequent call can include <code>starting_after=obj_foo</code> in order to fetch the next page of the list.</td>
+</tr>
+<tr>
+<td><strong>ending_before</strong></td>
+<td><strong>string optional</strong> A cursor for use in pagination. <code>ending_before</code> is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with <code>obj_bar</code>, your subsequent call can include <code>ending_before=obj_bar</code> in order to fetch the previous page of the list.</td>
+</tr>
+</tbody></table>
+<h3 id='list-response-format'>List response format</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>object</strong></td>
+<td><strong>string, value is &quot;list&quot;</strong></td>
+</tr>
+<tr>
+<td><strong>data</strong></td>
+<td><strong>array</strong> An array containing the actual response elements, paginated by any request parameters.</td>
+</tr>
+<tr>
+<td><strong>has_more</strong></td>
+<td><strong>boolean</strong> Whether or not there are more elements available after this page. If <code>false</code>, this page is the end of the list.</td>
+</tr>
+<tr>
+<td><strong>has_before</strong></td>
+<td><strong>boolean</strong> Whether or not there are more elements available before this page. If <code>false</code>, this page is the beginning of the list.</td>
+</tr>
+<tr>
+<td><strong>total_count</strong></td>
+<td><strong>boolean</strong> The total count of all recipients that match your filters, as if there was no pagination.</td>
+</tr>
+</tbody></table>
+<h1 id='orders'>Orders</h1>
+<p>Order objects are created to handle end customers&#39; purchases of previously defined products. You can create, retrieve,
+and pay individual orders, as well as list all orders. Orders are identified by a unique, random ID.</p>
+<h2 id='the-order-object'>The Order object</h2>
+<blockquote>
+<p>Example object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22d6d597-000f-5000-9000-145f6df21d6f"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22d6d597-000f-5000-9000-145f6df21d6f"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Order No. 72"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-10T14:27:54.691Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"canceled_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"canceled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cancellation_reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"refunded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"refunded_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"receipt_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jenny@example.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"receipt_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"receipt_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id-string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"receipt_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pay.super.com/receipts/long-id-string-for-receipt"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"agreement_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"agreement_accepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"notify_sale"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"notify_sale_email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"issuer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://buy.example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"embedded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone_verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NY"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some id"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"payout"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"effective_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.05"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"platform_fee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"effective_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.05"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NY"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vat|sales_tax|НДС"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank_card"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bank card *4444"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"saved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"first6"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555544"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last4"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4444"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"masked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5555 44** **** 4444"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expiry_month"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expiry_year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MasterCard"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hash"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"3ds"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"crypto_currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bincoin"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EgX1BRd6k9cbxcEgX1BRd6k9cbxcEgX1BRd6k9cbxc"</span><span class="w">      
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="s2">"wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yandex Money"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"410200391399912"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"effective_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prod_EgX1BRd6k9cbxc"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sku1234568"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Game"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super game steam keys"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-10T14:27:54.691Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-17T14:28:32.484Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"refund"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fraud"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID_FRAUD"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"receipt_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"receipt_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pay.super.com/receipts/long-id-string-for-receipt"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"some_data_from_create_payment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"any data"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Unique identifier for the object.</td>
+</tr>
+<tr>
+<td>transaction</td>
+<td>string</td>
+<td>Unique identifier for the transaction in payment system.</td>
+</tr>
+<tr>
+<td>object</td>
+<td>string</td>
+<td>String representing the object’s type. Objects of the same type share the same value.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>An arbitrary string attached to the object. Often useful for displaying to users.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>string</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> when an order has been created.</td>
+</tr>
+<tr>
+<td>canceled_at</td>
+<td>string</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> when an order has been canceled.</td>
+</tr>
+<tr>
+<td>canceled</td>
+<td>boolean</td>
+<td>True if current order object was canceled.</td>
+</tr>
+<tr>
+<td>cancellation_reason</td>
+<td>string</td>
+<td>String representing the cancellation reasons.</td>
+</tr>
+<tr>
+<td>refunded</td>
+<td>boolean</td>
+<td>True if current order object was refunded.</td>
+</tr>
+<tr>
+<td>refunded_at</td>
+<td>string</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> when an order has been refunded.</td>
+</tr>
+<tr>
+<td>receipt_email</td>
+<td>string</td>
+<td>String representing the customer email for receipt information. Could be different with user email.</td>
+</tr>
+<tr>
+<td>receipt_phone</td>
+<td>string</td>
+<td>String representing the customer phone for receipt information. Could be different with user phone.</td>
+</tr>
+<tr>
+<td>receipt_number</td>
+<td>string</td>
+<td>String representing the unique id for receipt.</td>
+</tr>
+<tr>
+<td>receipt_url</td>
+<td>string</td>
+<td>String representing the URL in PaySuper service for online access to given receipt.</td>
+</tr>
+<tr>
+<td>agreement_version</td>
+<td>string</td>
+<td>String representing the EULA agreement accepted by payment.</td>
+</tr>
+<tr>
+<td>agreement_accepted</td>
+<td>boolean</td>
+<td>True if agreement was accepted.</td>
+</tr>
+<tr>
+<td>notify_sale</td>
+<td>boolean</td>
+<td>True if user confirm to be informed about feature sales or discounts.</td>
+</tr>
+<tr>
+<td>notify_sale_email</td>
+<td>string</td>
+<td>String representing the customer email for sales.Could be different with user email.</td>
+</tr>
+<tr>
+<td>issuer.url</td>
+<td>string</td>
+<td>String representing the store reference URL.</td>
+</tr>
+<tr>
+<td>issuer.embedded</td>
+<td>boolean</td>
+<td>True if PaySuper embedded form was used to collect payment.</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>float</td>
+<td>A positive float with two decimal points(e.g., 1.00 to charge $1.00) representing how much to charge.</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a>, in lowercase.</td>
+</tr>
+<tr>
+<td>user</td>
+<td>object</td>
+<td>Object representing User for current Order.</td>
+</tr>
+<tr>
+<td>payout.amount</td>
+<td>float</td>
+<td>A positive float with two decimal points(e.g., 1.00 to charge $1.00) representing the possible payout.</td>
+</tr>
+<tr>
+<td>payout.currency</td>
+<td>string</td>
+<td>Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a>, in lowercase.</td>
+</tr>
+<tr>
+<td>payout.effective_rate</td>
+<td>float</td>
+<td>A positive float with two decimal points representing the actual rate of payout for the payment.</td>
+</tr>
+<tr>
+<td>platform_fee.amount</td>
+<td>float</td>
+<td>A positive float with two decimal points(e.g., 1.00 to charge $1.00) representing the PaySuper fee.</td>
+</tr>
+<tr>
+<td>platform_fee.currency</td>
+<td>string</td>
+<td>Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a>, in lowercase.</td>
+</tr>
+<tr>
+<td>platform_fee.effective_rate</td>
+<td>float</td>
+<td>A positive float with two decimal points representing the actual rate of the PaySuper fee for the payment.</td>
+</tr>
+<tr>
+<td>billing_address.country</td>
+<td>string</td>
+<td>String representing the the user`s country by payment form. Two-letter uppercase country code in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> format.</td>
+</tr>
+<tr>
+<td>billing_address.city</td>
+<td>string</td>
+<td>String representing the  user`s city by payment form .</td>
+</tr>
+<tr>
+<td>billing_address.postal_code</td>
+<td>string</td>
+<td>String representing the user`s postal code by payment form .</td>
+</tr>
+<tr>
+<td>billing_address.state</td>
+<td>string</td>
+<td>String representing the user`s State/County/Province/Region. by payment form .</td>
+</tr>
+<tr>
+<td>tax.type</td>
+<td>string</td>
+<td>String representing the tax type (sales tax for USA, vat for EU, НДС for Russia).</td>
+</tr>
+<tr>
+<td>tax.rate</td>
+<td>float</td>
+<td>A positive float with two decimal points representing current user location taxes.</td>
+</tr>
+<tr>
+<td>tax.amount</td>
+<td>float</td>
+<td>A positive float with two decimal points(e.g., 1.00 to charge $1.00) representing the tax amount.</td>
+</tr>
+<tr>
+<td>tax.currency</td>
+<td>string</td>
+<td>Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a>, in lowercase.</td>
+</tr>
+<tr>
+<td>method.type</td>
+<td>string</td>
+<td>String representing the payment method type. Some of method object fields available to specific type.</td>
+</tr>
+<tr>
+<td>method.title</td>
+<td>string</td>
+<td>String representing the human readable method name.</td>
+</tr>
+<tr>
+<td>method.saved</td>
+<td>boolean</td>
+<td>True is payment method was saved by user for future usage.</td>
+</tr>
+<tr>
+<td>method.card.first6</td>
+<td>string</td>
+<td>String representing the first 6 digits of the card. Available only for a card method.</td>
+</tr>
+<tr>
+<td>method.card.last4</td>
+<td>string</td>
+<td>String representing the last 4 digits of the card. Available only for a card method.</td>
+</tr>
+<tr>
+<td>method.card.expiry_month</td>
+<td>string</td>
+<td>String representing the validity month of the card. Available only for a card method.</td>
+</tr>
+<tr>
+<td>method.card.expiry_year</td>
+<td>string</td>
+<td>String representing the validity year of the card. Available only for a card method.</td>
+</tr>
+<tr>
+<td>method.card.brand</td>
+<td>string</td>
+<td>String representing the brand of the card issuer. Available only for a card method.</td>
+</tr>
+<tr>
+<td>method.card.fingerprint</td>
+<td>string</td>
+<td>String representing the internal fingerprint for given card. Available only for a card method.</td>
+</tr>
+<tr>
+<td>method.card.3ds</td>
+<td>boolean</td>
+<td>True is 3DS secure was used during payment. Available only for a card method.</td>
+</tr>
+<tr>
+<td>method.crypto_currency.brand</td>
+<td>string</td>
+<td>String representing the name of the crypto currency. Available only for a crypto currency.</td>
+</tr>
+<tr>
+<td>method.crypto_currency.address</td>
+<td>string</td>
+<td>String representing the customer address in the crypto currency. Available only for a crypto currency.</td>
+</tr>
+<tr>
+<td>method.wallet.brand</td>
+<td>string</td>
+<td>String representing the name of the wallet. Available only for an integrated wallet payment systems.</td>
+</tr>
+<tr>
+<td>method.wallet.account</td>
+<td>string</td>
+<td>String representing the customer identity in the wallet. Available only for an integrated wallet payment systems.</td>
+</tr>
+<tr>
+<td>method.fee.amount</td>
+<td>float</td>
+<td>A positive float with two decimal points(e.g., 1.00 to charge $1.00) representing the payment method fee.</td>
+</tr>
+<tr>
+<td>method.fee.currency</td>
+<td>string</td>
+<td>Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a>, in lowercase.</td>
+</tr>
+<tr>
+<td>method.fee.effective_rate</td>
+<td>float</td>
+<td>A positive float with two decimal points representing the actual rate of the payment method fee for the payment.</td>
+</tr>
+<tr>
+<td>items</td>
+<td>object[]</td>
+<td>Array of Product objects associated with current Order.</td>
+</tr>
+<tr>
+<td>refund.amount</td>
+<td>float</td>
+<td>A positive float with two decimal points(e.g., 1.00 to charge $1.00) representing the refund amount.</td>
+</tr>
+<tr>
+<td>refund.currency</td>
+<td>string</td>
+<td>Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a>, in lowercase.</td>
+</tr>
+<tr>
+<td>refund.reason</td>
+<td>string</td>
+<td>String representing the refund reasons.</td>
+</tr>
+<tr>
+<td>refund.code</td>
+<td>string</td>
+<td>String representing the PaySuper internal identity for refund reasons.</td>
+</tr>
+<tr>
+<td>refund.receipt_number</td>
+<td>string</td>
+<td>String representing the unique id for refund receipt.</td>
+</tr>
+<tr>
+<td>refund.receipt_url</td>
+<td>string</td>
+<td>String representing the URL in PaySuper service for online access to given refund receipt.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>object</td>
+<td>Set of key-value pairs that attached to an object on create order state.</td>
+</tr>
+</tbody></table>
+<h1 id='products'>Products</h1>
+<p>Store representations of digital products you sell in PaySuper.</p>
+<h2 id='the-product-object'>The Product object</h2>
+<blockquote>
+<p>Example object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prod_EgX1BRd6k9cbxc"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sku1234568"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Game"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super game steam keys"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-10T14:27:54.691Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-17T14:28:32.484Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Unique identifier for the object.</td>
+</tr>
+<tr>
+<td>object</td>
+<td>string</td>
+<td>String representing the object’s type. Objects of the same type share the same value.</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>string</td>
+<td>String representing the stock keeping unit.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>An arbitrary string attached to the object. Often useful for displaying to users.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>An arbitrary string attached to the object. Often useful for displaying to users.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>string</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> when a product has been created.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>string</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> when a product order has been updated.</td>
+</tr>
+<tr>
+<td>images</td>
+<td>string[]</td>
+<td>The array if URL to product images.</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>An arbitrary URL to product web page.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>object</td>
+<td>Set of key-value pairs that attached to an object on creating product.</td>
+</tr>
+</tbody></table>
+<h1 id='users'>Users</h1>
+<p>User represents one single customer in PaySuper system. We will generate unique identity for each customer and update
+user profile with any information we got from each payment. User profile also used as part of fraud protection in 
+PaySuper.</p>
+<h2 id='the-user-object'>The User object</h2>
+<blockquote>
+<p>Example object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@example.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email_verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"phone_verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NY"</span><span class="w">    
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Unique identifier for the object.</td>
+</tr>
+<tr>
+<td>object</td>
+<td>object</td>
+<td>The object representing user in PaySuper system. Objects of the same type share the same value.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>The name of user.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>The email of user.</td>
+</tr>
+<tr>
+<td>email_verified</td>
+<td>boolean</td>
+<td>True is user confirm they email.</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>string</td>
+<td>String representing the user`s phone.</td>
+</tr>
+<tr>
+<td>phone_verified</td>
+<td>boolean</td>
+<td>True is user confirm they phone.</td>
+</tr>
+<tr>
+<td>ip</td>
+<td>string</td>
+<td>String representing the user`s last used ip.</td>
+</tr>
+<tr>
+<td>locale</td>
+<td>string</td>
+<td>Preferred locale for the payment page in <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> language code format.</td>
+</tr>
+<tr>
+<td>address.country</td>
+<td>string</td>
+<td>String representing the  user`s country by given IP. Two-letter uppercase country code in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> format.</td>
+</tr>
+<tr>
+<td>address.city</td>
+<td>string</td>
+<td>String representing the  user`s city by given IP.</td>
+</tr>
+<tr>
+<td>address.postal_code</td>
+<td>string</td>
+<td>String representing the user`s postal code by given IP.</td>
+</tr>
+<tr>
+<td>address.state</td>
+<td>string</td>
+<td>String representing the user`s State/County/Province/Region. by given IP.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>object</td>
+<td>Set of key-value pairs that attached to an object on create order state.</td>
+</tr>
+</tbody></table>
+<h1 id='payouts'>Payouts</h1>
+<p>A Payout object represents the request to receive funds from PaySuper, or request status when you initiate a payout to
+either a bank account.</p>
+<h2 id='the-payout-object'>The Payout object</h2>
+<blockquote>
+<p>Example object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"po_1ED765CmSJsu7cy1iQZUkPKz"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"payout"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank_account"</span><span class="p">,</span><span class="w">  
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"in_transit"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-10T14:27:54.691Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"arrival_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-10T14:27:54.691Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"payout_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pay.super.com/receipts/long-id-string-for-receipt"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"automatic"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYSUPER PAYOUT"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ba_1ED765CmSJsu7cy1ZufOeBtW"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"failure_balance_transaction"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"failure_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"failure_message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"live"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Unique identifier for the object.</td>
+</tr>
+<tr>
+<td>object</td>
+<td>string</td>
+<td>String representing the object’s type. Objects of the same type share the same value.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>String representing the destination type - bank account or card.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>String representing the current payout status.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>string</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> when a product has been created.</td>
+</tr>
+<tr>
+<td>arrival_date</td>
+<td>string</td>
+<td>A forecast date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> when the payment should reach your Bank account.</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>float</td>
+<td>A positive float with two decimal points(e.g., 1.00 to charge $1.00) representing how much to payout.</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a>, in lowercase.</td>
+</tr>
+<tr>
+<td>payout_url</td>
+<td>string</td>
+<td>String representing the URL in PaySuper for details if given payout.</td>
+</tr>
+<tr>
+<td>automatic</td>
+<td>boolean</td>
+<td>True is payout was initiated by PaySuper system.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>An arbitrary string attached to the object.</td>
+</tr>
+<tr>
+<td>destination</td>
+<td>string</td>
+<td>ID of the bank account the payout was sent to.</td>
+</tr>
+<tr>
+<td>failure_balance_transaction</td>
+<td>string</td>
+<td>If the payout failed or was canceled, this will be the ID of the balance transaction that reversed the initial balance transaction, and puts the funds from the failed payout back in your balance.</td>
+</tr>
+<tr>
+<td>failure_code</td>
+<td>string</td>
+<td>Error code explaining reason for payout failure if available.</td>
+</tr>
+<tr>
+<td>failure_message</td>
+<td>Message to user further explaining reason for payout failure if available.</td>
+<td></td>
+</tr>
+<tr>
+<td>live</td>
+<td>boolean</td>
+<td>True is payout request originated from the live environment.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>object</td>
+<td>Set of key-value pairs that attached to an object on payout request.</td>
+</tr>
+</tbody></table>
+<h3 id='failure-codes'>Failure codes</h3>
+<p>Payouts can fail for a variety of reasons. The reason a given payout failed is available in a Payout object&#39;s failure_code 
+attribute. </p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account_closed</td>
+<td>The bank account has been closed.</td>
+</tr>
+<tr>
+<td>account_frozen</td>
+<td>The bank account has been frozen.</td>
+</tr>
+<tr>
+<td>could_not_process</td>
+<td>The bank could not process this payout.</td>
+</tr>
+<tr>
+<td>declined</td>
+<td>The bank has declined this transfer. Please contact the bank before retrying.</td>
+</tr>
+<tr>
+<td>invalid_account_number</td>
+<td>The account number is invalid.</td>
+</tr>
+<tr>
+<td>incorrect_account_holder_name</td>
+<td>Your bank notified us that the bank account holder name on file is incorrect.</td>
+</tr>
+<tr>
+<td>invalid_currency</td>
+<td>The bank was unable to process this payout because of its currency. This is probably because the bank account cannot accept payments in that currency.</td>
+</tr>
+<tr>
+<td>no_account</td>
+<td>The bank account details on file are probably incorrect. No bank account could be located with those details.</td>
+</tr>
+</tbody></table>
+<h1 id='paysuper-notifications'>PaySuper Notifications</h1>
+<p>Notifications help you to stay informed on everything that is going on with your transactions. The PaySuper system can
+send younotifications for a set of events during the flow, such as creating new accounts or transaction flow, making
+payouts, and so on. </p>
+
+<p>These notifications are sent as webhooks to the corresponding URLs configured on your server. </p>
+
+<p>In most cases, webhooks are triggered by user actions on your website or back-end related events like 
+refund a payment, notification about dispute and other.</p>
+<h2 id='sign-requests'>Sign Requests</h2>
+<blockquote>
+<p>Example object</p>
+</blockquote>
+<pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/your_endpoint</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">your.host</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Signature sh9b1r69bjqie88n5uizqcrerhee50dypsp195mh</span>
+</code></pre>
+<p>The PaySuper API uses secret keys to check notification requests. Your secret keys carry many privileges, so be sure to 
+keep them secure! Do not share your secret API keys in publicly accessible areas such as GitHub, client-side code, 
+and so forth.</p>
+
+<p>All API requests must be made over <a href="http://en.wikipedia.org/wiki/HTTP_Secure">HTTPS</a>. Calls made over plain HTTP will fail. API requests without authentication 
+will also fail.</p>
+
+<p>To check the digital signatures you should 
+1. Concatenate the request&#39;s JSON body with your project&#39;s secret key. The secret key should be added to end of JSON body.<br>
+2. Apply SHA-256 hashing to the resulting string.
+3. Compare the digital signatures with <code>Authorization</code> http header value.</p>
+<h2 id='notification-types'>Notification types</h2>
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Payload</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payment.success</td>
+<td>Order</td>
+<td>Sent when a user completes a payment.</td>
+</tr>
+<tr>
+<td>payment.chargeback</td>
+<td>Order</td>
+<td>Sent when a payment must be canceled for chargeback.</td>
+</tr>
+<tr>
+<td>payment.refund</td>
+<td>Order</td>
+<td>Sent when a payment must be canceled for refund for any reasons.</td>
+</tr>
+<tr>
+<td>payment.fraud</td>
+<td>Order</td>
+<td>Sent when a payment must be canceled for fraud protection system.</td>
+</tr>
+<tr>
+<td>payment.cancel</td>
+<td>Order</td>
+<td>Sent when a payment must be canceled for cancel for any reasons.</td>
+</tr>
+<tr>
+<td>user.validation</td>
+<td>User</td>
+<td>Check if a user exists in the external system.</td>
+</tr>
+<tr>
+<td>payout.created</td>
+<td>Payout</td>
+<td>Sent when a payout report created by PaySuper.</td>
+</tr>
+<tr>
+<td>payout.status</td>
+<td>Payout</td>
+<td>Sent when a payout request change they status for any reasons.</td>
+</tr>
+</tbody></table>
+<h2 id='the-notification-object'>The Notification object</h2>
+<p>The base object representing the web hook event from PaySuper system. </p>
+
+<blockquote>
+<p>Example object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22d6d597-000f-5000-9000-145f6df21d6f"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notification"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"payment.success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"live"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-10T14:27:54.691Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expires_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"delivery_try"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Unique identifier for the object.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>String representing the web hook’s type.</td>
+</tr>
+<tr>
+<td>event</td>
+<td>string</td>
+<td>String representing the event`s type.</td>
+</tr>
+<tr>
+<td>live</td>
+<td>boolean</td>
+<td>True is notification originated from the live environment.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>DateTime</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> when an event has been created.</td>
+</tr>
+<tr>
+<td>expires_at</td>
+<td>DateTime</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> when the event stops trying to deliver.</td>
+</tr>
+<tr>
+<td>delivery_try</td>
+<td>integer</td>
+<td>The current delivery try for this event</td>
+</tr>
+<tr>
+<td>object</td>
+<td>object</td>
+<td>The object representing payload of event with given type. Objects of the same type share the same value.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">curl</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
