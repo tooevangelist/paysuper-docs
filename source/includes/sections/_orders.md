@@ -9,8 +9,9 @@ and pay individual orders, as well as list all orders. Orders are identified by 
 ```json
 {
   "id": "22d6d597-000f-5000-9000-145f6df21d6f",
-  "transaction": "22d6d597-000f-5000-9000-145f6df21d6f",
+  "transaction": "df21d6145f6df21d6f9000",
   "object": "order",
+  "status": "created",
   "description": "Order No. 72",
   "created_at": "2018-07-10T14:27:54.691Z",
   "canceled_at": null,
@@ -69,7 +70,7 @@ and pay individual orders, as well as list all orders. Orders are identified by 
     "state": "NY"
   },
   "tax": {
-    "type": "vat|sales_tax|НДС",
+    "type": "vat|sales_tax",
     "rate": 0.10,
     "amount": "2.00",
     "currency": "USD"
@@ -130,12 +131,21 @@ and pay individual orders, as well as list all orders. Orders are identified by 
 }
 ```
 
+### Statuses
+|Name|Internal Id|Description|
+|---|---|---|
+|created|The order created but not processed yet.|
+|canceled|The order was canceled and money refunded to user.|
+|rejected|The order was rejected by payment system with any reasons.|
+|processed|The order was processed in payment system.|
+
 ### Attributes
 |Name|Type|Description|
 |---|---|---|
 |id|string| Unique identifier for the object.|
 |transaction|string|Unique identifier for the transaction in payment system.|
 |object|string| String representing the object’s type. Objects of the same type share the same value.|
+|status|string| String representing the order current status.|
 |description|string|An arbitrary string attached to the object. Often useful for displaying to users.|
 |created_at|string|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) when an order has been created.|
 |canceled_at|string|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) when an order has been canceled.|
@@ -166,7 +176,7 @@ and pay individual orders, as well as list all orders. Orders are identified by 
 |billing_address.city|string| String representing the  user`s city by payment form .|
 |billing_address.postal_code|string| String representing the user`s postal code by payment form .|
 |billing_address.state|string| String representing the user`s State/County/Province/Region. by payment form .|
-|tax.type|string|String representing the tax type (sales tax for USA, vat for EU, НДС for Russia).| 
+|tax.type|string|String representing the tax type (sales tax for USA, vat for EU, Russia).| 
 |tax.rate|float|A positive float with two decimal points representing current user location taxes.|
 |tax.amount|float|A positive float with two decimal points(e.g., 1.00 to charge $1.00) representing the tax amount.|
 |tax.currency|string|Three-letter [ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.|
@@ -234,8 +244,9 @@ $ curl https://api.paysuper.online/v1/orders \
 # Example response
 {
   "id": "22d6d597-000f-5000-9000-145f6df21d6f",
-  "transaction": "22d6d597-000f-5000-9000-145f6df21d6f",
+  "transaction": null,
   "object": "order",
+  "status": "created",
   "description": "Order No. 72",
   "created_at": "2018-07-10T14:27:54.691Z",
   "canceled_at": null,
@@ -247,8 +258,8 @@ $ curl https://api.paysuper.online/v1/orders \
   "receipt_phone": "",
   "receipt_number": "id-string",
   "receipt_url": "https://pay.super.com/receipts/long-id-string-for-receipt",
-  "agreement_version": "1.0",
-  "agreement_accepted": true,
+  "agreement_version": null,
+  "agreement_accepted": false,
   "notify_sale": false,
   "notify_sale_email": null,
   "issuer": {
@@ -275,17 +286,16 @@ $ curl https://api.paysuper.online/v1/orders \
       "externalId": "some id"
     }
   },
-  "platform_fee": {
-    "amount": "2.00",
-    "currency": "USD",
-    "effective_rate": "0.05"
-  },
+  "platform_fee": {},
   "items": [
     {
       "id": "prod_EgX1BRd6k9cbxc",
       "object": "product",
       "sku": "sku1234568",
       "name": "The Game",
+      "amount": 1.0, 
+      "currency": "usd",
+      "short": "game key",
       "description": "Super game steam keys",
       "created_at": "2018-07-10T14:27:54.691Z",
       "updated_at": "2018-07-17T14:28:32.484Z",
@@ -333,8 +343,9 @@ $ curl https://api.paysuper.online/v1/orders/22d6d597-000f-5000-9000-145f6df21d6
 # Example response
 {
   "id": "22d6d597-000f-5000-9000-145f6df21d6f",
-  "transaction": "22d6d597-000f-5000-9000-145f6df21d6f",
+  "transaction": "df21d6145f6df21d6f9000",
   "object": "order",
+  "status": "created",
   "description": "Order No. 72",
   "created_at": "2018-07-10T14:27:54.691Z",
   "canceled_at": null,
@@ -393,7 +404,7 @@ $ curl https://api.paysuper.online/v1/orders/22d6d597-000f-5000-9000-145f6df21d6
     "state": "NY"
   },
   "tax": {
-    "type": "vat|sales_tax|НДС",
+    "type": "vat|sales_tax",
     "rate": 0.10,
     "amount": "2.00",
     "currency": "USD"
@@ -432,6 +443,9 @@ $ curl https://api.paysuper.online/v1/orders/22d6d597-000f-5000-9000-145f6df21d6
       "object": "product",
       "sku": "sku1234568",
       "name": "The Game",
+      "amount": 1.0, 
+      "currency": "usd",
+      "short": "game key",
       "description": "Super game steam keys",
       "created_at": "2018-07-10T14:27:54.691Z",
       "updated_at": "2018-07-17T14:28:32.484Z",
@@ -483,7 +497,7 @@ $ curl https://api.paysuper.online/v1/orders/22d6d597-000f-5000-9000-145f6df21d6
 # Example response
 {
   "id": "22d6d597-000f-5000-9000-145f6df21d6f",
-  "transaction": "22d6d597-000f-5000-9000-145f6df21d6f",
+  "transaction": "df21d6145f6df21d6f9000",
   ...
   "metadata": {
     "some_data_from_create_payment": "any data",
@@ -531,8 +545,9 @@ $ curl https://api.paysuper.online/v1/orders/22d6d597-000f-5000-9000-145f6df21d6
   "data": [
     {
       "id": "22d6d597-000f-5000-9000-145f6df21d6f",
-      "transaction": "22d6d597-000f-5000-9000-145f6df21d6f",
+      "transaction": "df21d6145f6df21d6f9000",
       "object": "order",
+      "status": "created",
       "description": "Order No. 72",
       "created_at": "2018-07-10T14:27:54.691Z",
       "canceled_at": null,
@@ -622,6 +637,9 @@ $ curl https://api.paysuper.online/v1/orders/22d6d597-000f-5000-9000-145f6df21d6
           "object": "product",
           "sku": "sku1234568",
           "name": "The Game",
+          "amount": 1.0, 
+          "currency": "usd",
+          "short": "game key",
           "description": "Super game steam keys",
           "created_at": "2018-07-10T14:27:54.691Z",
           "updated_at": "2018-07-17T14:28:32.484Z",
