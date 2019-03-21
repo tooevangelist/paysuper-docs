@@ -11,16 +11,16 @@ Store representations of digital products you sell in PaySuper.
   "type": "product",
   "sku": "sku1234568",
   "name": "The Game",
-  "amount": 1.0, 
-  "currency": "usd",
+  "default_currency": "usd",
+  "enabled": true,
   "prices": [   
     {
       "amount": 1.0,
       "currency": "usd"
     }
   ],  
-  "short": "Game key",
-  "description": "Super game steam keys",
+  "description": "game key",
+  "long_description": "Super game steam keys",
   "created_at": "2018-07-10T14:27:54.691Z",
   "updated_at": "2018-07-17T14:28:32.484Z",
   "images": [],
@@ -37,11 +37,11 @@ Store representations of digital products you sell in PaySuper.
 |object|string| String representing the object’s type. Objects of the same type share the same value.|
 |sku|string|String representing the stock keeping unit.|
 |name|string|An arbitrary string attached to the object. Often useful for displaying to users.|
-|amount|float|A positive float with two decimal points(e.g., 1.00 to charge $1.00) representing the product price in default currency.| 
-|currency|string|Three-letter [ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.| 
+|default_currency|string|Three-letter [ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase, representing the product default currency.|
+|enabled|boolean| True is product available for purchase.| 
 |prices|array|The list of prices for all available regional prices for product.|
-|short|string|An arbitrary string attached to the object. Often useful for displaying to users.|
 |description|string|An arbitrary string attached to the object. Often useful for displaying to users.|
+|long_description|string|An arbitrary string attached to the object. Often useful for displaying to users.|
 |created_at|string|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) when a product has been created.|
 |updated_at|string|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) when a product order has been updated.|
 |images|string[]|The array if URL to product images.|
