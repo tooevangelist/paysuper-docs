@@ -1032,10 +1032,9 @@ POST /v1/orders
       <span class="s2">"object"</span>: <span class="s2">"product"</span>,
       <span class="s2">"sku"</span>: <span class="s2">"sku1234568"</span>,
       <span class="s2">"name"</span>: <span class="s2">"The Game"</span>,
-      <span class="s2">"amount"</span>: 1.0, 
-      <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
-      <span class="s2">"short"</span>: <span class="s2">"game key"</span>,
-      <span class="s2">"description"</span>: <span class="s2">"Super game steam keys"</span>,
+      <span class="s2">"default_currency"</span>: <span class="s2">"usd"</span>,
+      <span class="s2">"description"</span>: <span class="s2">"game key"</span>,
+      <span class="s2">"long_description"</span>: <span class="s2">"Super game steam keys"</span>,
       <span class="s2">"created_at"</span>: <span class="s2">"2018-07-10T14:27:54.691Z"</span>,
       <span class="s2">"updated_at"</span>: <span class="s2">"2018-07-17T14:28:32.484Z"</span>,
       <span class="s2">"images"</span>: <span class="o">[]</span>,
@@ -1206,10 +1205,9 @@ GET /v1/orders/:id
       <span class="s2">"object"</span>: <span class="s2">"product"</span>,
       <span class="s2">"sku"</span>: <span class="s2">"sku1234568"</span>,
       <span class="s2">"name"</span>: <span class="s2">"The Game"</span>,
-      <span class="s2">"amount"</span>: 1.0, 
-      <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
-      <span class="s2">"short"</span>: <span class="s2">"game key"</span>,
-      <span class="s2">"description"</span>: <span class="s2">"Super game steam keys"</span>,
+      <span class="s2">"default_currency"</span>: <span class="s2">"usd"</span>,
+      <span class="s2">"description"</span>: <span class="s2">"game key"</span>,
+      <span class="s2">"long_description"</span>: <span class="s2">"Super game steam keys"</span>,
       <span class="s2">"created_at"</span>: <span class="s2">"2018-07-10T14:27:54.691Z"</span>,
       <span class="s2">"updated_at"</span>: <span class="s2">"2018-07-17T14:28:32.484Z"</span>,
       <span class="s2">"images"</span>: <span class="o">[]</span>,
@@ -1423,10 +1421,9 @@ GET /v1/orders?limit=2
           <span class="s2">"object"</span>: <span class="s2">"product"</span>,
           <span class="s2">"sku"</span>: <span class="s2">"sku1234568"</span>,
           <span class="s2">"name"</span>: <span class="s2">"The Game"</span>,
-          <span class="s2">"amount"</span>: 1.0, 
-          <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
-          <span class="s2">"short"</span>: <span class="s2">"game key"</span>,
-          <span class="s2">"description"</span>: <span class="s2">"Super game steam keys"</span>,
+          <span class="s2">"default_currency"</span>: <span class="s2">"usd"</span>,
+          <span class="s2">"description"</span>: <span class="s2">"game key"</span>,
+          <span class="s2">"long_description"</span>: <span class="s2">"Super game steam keys"</span>,
           <span class="s2">"created_at"</span>: <span class="s2">"2018-07-10T14:27:54.691Z"</span>,
           <span class="s2">"updated_at"</span>: <span class="s2">"2018-07-17T14:28:32.484Z"</span>,
           <span class="s2">"images"</span>: <span class="o">[]</span>,
@@ -1547,16 +1544,16 @@ GET /v1/orders?limit=2
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sku1234568"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Game"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
-  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usd"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"default_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usd"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">   
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usd"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">  
-  </span><span class="s2">"short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Game key"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super game steam keys"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"game key"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"long_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super game steam keys"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-10T14:27:54.691Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-17T14:28:32.484Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
@@ -1592,14 +1589,14 @@ GET /v1/orders?limit=2
 <td>An arbitrary string attached to the object. Often useful for displaying to users.</td>
 </tr>
 <tr>
-<td>amount</td>
-<td>float</td>
-<td>A positive float with two decimal points(e.g., 1.00 to charge $1.00) representing the product price in default currency.</td>
+<td>default_currency</td>
+<td>string</td>
+<td>Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a>, in lowercase, representing the product default currency.</td>
 </tr>
 <tr>
-<td>currency</td>
-<td>string</td>
-<td>Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a>, in lowercase.</td>
+<td>enabled</td>
+<td>boolean</td>
+<td>True is product available for purchase.</td>
 </tr>
 <tr>
 <td>prices</td>
@@ -1607,12 +1604,12 @@ GET /v1/orders?limit=2
 <td>The list of prices for all available regional prices for product.</td>
 </tr>
 <tr>
-<td>short</td>
+<td>description</td>
 <td>string</td>
 <td>An arbitrary string attached to the object. Often useful for displaying to users.</td>
 </tr>
 <tr>
-<td>description</td>
+<td>long_description</td>
 <td>string</td>
 <td>An arbitrary string attached to the object. Often useful for displaying to users.</td>
 </tr>
