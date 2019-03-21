@@ -250,6 +250,18 @@
                   <li>
                     <a href="#the-order-object" class="toc-h2 toc-link" data-title="The Order object">The Order object</a>
                   </li>
+                  <li>
+                    <a href="#create-an-order" class="toc-h2 toc-link" data-title="Create an Order">Create an Order</a>
+                  </li>
+                  <li>
+                    <a href="#retrieve-a-order" class="toc-h2 toc-link" data-title="Retrieve a Order">Retrieve a Order</a>
+                  </li>
+                  <li>
+                    <a href="#update-an-order" class="toc-h2 toc-link" data-title="Update an Order">Update an Order</a>
+                  </li>
+                  <li>
+                    <a href="#list-all-orders" class="toc-h2 toc-link" data-title="List all Orders">List all Orders</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -466,8 +478,9 @@ and pay individual orders, as well as list all orders. Orders are identified by 
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22d6d597-000f-5000-9000-145f6df21d6f"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22d6d597-000f-5000-9000-145f6df21d6f"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"df21d6145f6df21d6f9000"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"created"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Order No. 72"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-10T14:27:54.691Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"canceled_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -526,7 +539,7 @@ and pay individual orders, as well as list all orders. Orders are identified by 
     </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NY"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vat|sales_tax|НДС"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vat|sales_tax"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.10</span><span class="p">,</span><span class="w">
     </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
@@ -585,7 +598,36 @@ and pay individual orders, as well as list all orders. Orders are identified by 
     </span><span class="s2">"some_data_from_create_payment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"any data"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='attributes'>Attributes</h3>
+</span></code></pre><h3 id='statuses'>Statuses</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Internal Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>created</td>
+<td>The order created but not processed yet.</td>
+<td></td>
+</tr>
+<tr>
+<td>canceled</td>
+<td>The order was canceled and money refunded to user.</td>
+<td></td>
+</tr>
+<tr>
+<td>rejected</td>
+<td>The order was rejected by payment system with any reasons.</td>
+<td></td>
+</tr>
+<tr>
+<td>processed</td>
+<td>The order was processed in payment system.</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='attributes'>Attributes</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -607,6 +649,11 @@ and pay individual orders, as well as list all orders. Orders are identified by 
 <td>object</td>
 <td>string</td>
 <td>String representing the object’s type. Objects of the same type share the same value.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>String representing the order current status.</td>
 </tr>
 <tr>
 <td>description</td>
@@ -761,7 +808,7 @@ and pay individual orders, as well as list all orders. Orders are identified by 
 <tr>
 <td>tax.type</td>
 <td>string</td>
-<td>String representing the tax type (sales tax for USA, vat for EU, НДС for Russia).</td>
+<td>String representing the tax type (sales tax for USA, vat for EU, Russia).</td>
 </tr>
 <tr>
 <td>tax.rate</td>
@@ -904,6 +951,591 @@ and pay individual orders, as well as list all orders. Orders are identified by 
 <td>Set of key-value pairs that attached to an object on create order state.</td>
 </tr>
 </tbody></table>
+<h2 id='create-an-order'>Create an Order</h2>
+<p>To charge a payment source, you should create a Order object. </p>
+<pre class="highlight plaintext"><code># Definition
+POST /v1/orders
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/v1/orders <span class="se">\</span>
+   -u tkHCYYOUVrYyY5rBFZxNzgtt <span class="se">\</span>
+   -d <span class="s1">'{
+     "amount": "2.00",
+     "currency": "USD",
+     "description": "Order No. 72",
+     "issuer": {
+       "url": "https://buy.example.com",
+       "embedded": true
+     },
+     "user": {
+       "id": "1234567890",
+       "metadata": {
+         "externalId": "some id"
+       }
+     },
+     "items": [
+       ...
+     ],
+     "metadata": {
+         "somedata": "value"
+     }
+   }'</span>
+
+<span class="c"># Example response</span>
+<span class="o">{</span>
+  <span class="s2">"id"</span>: <span class="s2">"22d6d597-000f-5000-9000-145f6df21d6f"</span>,
+  <span class="s2">"transaction"</span>: null,
+  <span class="s2">"object"</span>: <span class="s2">"order"</span>,
+  <span class="s2">"status"</span>: <span class="s2">"created"</span>,
+  <span class="s2">"description"</span>: <span class="s2">"Order No. 72"</span>,
+  <span class="s2">"created_at"</span>: <span class="s2">"2018-07-10T14:27:54.691Z"</span>,
+  <span class="s2">"canceled_at"</span>: null,
+  <span class="s2">"canceled"</span>: <span class="nb">false</span>,
+  <span class="s2">"cancellation_reason"</span>: null,
+  <span class="s2">"refunded"</span>: <span class="nb">false</span>,
+  <span class="s2">"refunded_at"</span>: null,
+  <span class="s2">"receipt_email"</span>: null,
+  <span class="s2">"receipt_phone"</span>: <span class="s2">""</span>,
+  <span class="s2">"receipt_number"</span>: <span class="s2">"id-string"</span>,
+  <span class="s2">"receipt_url"</span>: <span class="s2">"https://pay.super.com/receipts/long-id-string-for-receipt"</span>,
+  <span class="s2">"agreement_version"</span>: null,
+  <span class="s2">"agreement_accepted"</span>: <span class="nb">false</span>,
+  <span class="s2">"notify_sale"</span>: <span class="nb">false</span>,
+  <span class="s2">"notify_sale_email"</span>: null,
+  <span class="s2">"issuer"</span>: <span class="o">{</span>
+    <span class="s2">"url"</span>: <span class="s2">"https://buy.example.com"</span>,
+    <span class="s2">"embedded"</span>: <span class="nb">true</span>
+  <span class="o">}</span>,
+  <span class="s2">"amount"</span>: <span class="s2">"2.00"</span>,
+  <span class="s2">"currency"</span>: <span class="s2">"USD"</span>,
+  <span class="s2">"user"</span>: <span class="o">{</span>
+    <span class="s2">"id"</span>: <span class="s2">"1234567890"</span>,
+    <span class="s2">"object"</span>: <span class="s2">"user"</span>,
+    <span class="s2">"name"</span>: <span class="s2">"unknown"</span>,
+    <span class="s2">"email"</span>: <span class="s2">"test@example.com"</span>,
+    <span class="s2">"email_verified"</span>: <span class="nb">false</span>,
+    <span class="s2">"phone"</span>: <span class="s2">"12345"</span>,
+    <span class="s2">"phone_verified"</span>: <span class="nb">false</span>,
+    <span class="s2">"address"</span>: <span class="o">{</span>
+      <span class="s2">"country"</span>: <span class="s2">"US"</span>,
+      <span class="s2">"city"</span>: <span class="s2">"New York"</span>,
+      <span class="s2">"postal_code"</span>: <span class="s2">"123456"</span>,
+      <span class="s2">"state"</span>: <span class="s2">"NY"</span>
+    <span class="o">}</span>,
+    <span class="s2">"metadata"</span>: <span class="o">{</span>
+      <span class="s2">"externalId"</span>: <span class="s2">"some id"</span>
+    <span class="o">}</span>
+  <span class="o">}</span>,
+  <span class="s2">"platform_fee"</span>: <span class="o">{}</span>,
+  <span class="s2">"items"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: <span class="s2">"prod_EgX1BRd6k9cbxc"</span>,
+      <span class="s2">"object"</span>: <span class="s2">"product"</span>,
+      <span class="s2">"sku"</span>: <span class="s2">"sku1234568"</span>,
+      <span class="s2">"name"</span>: <span class="s2">"The Game"</span>,
+      <span class="s2">"amount"</span>: 1.0, 
+      <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
+      <span class="s2">"short"</span>: <span class="s2">"game key"</span>,
+      <span class="s2">"description"</span>: <span class="s2">"Super game steam keys"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2018-07-10T14:27:54.691Z"</span>,
+      <span class="s2">"updated_at"</span>: <span class="s2">"2018-07-17T14:28:32.484Z"</span>,
+      <span class="s2">"images"</span>: <span class="o">[]</span>,
+      <span class="s2">"url"</span>: null,
+      <span class="s2">"metadata"</span>: <span class="o">{}</span>
+    <span class="o">}</span>
+  <span class="o">]</span>, 
+  <span class="s2">"metadata"</span>: <span class="o">{</span>
+      <span class="s2">"somedata"</span>: <span class="s2">"value"</span>
+  <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre><h3 id='arguments'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>amount</td>
+<td>float</td>
+<td><strong>REQUIRED</strong> A positive float with two decimal points(e.g., 1.00 to charge $1.00) representing how much to charge.</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a>, in lowercase.</td>
+</tr>
+<tr>
+<td>user.id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Unique identifier for the user object.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td><em>optional</em> An arbitrary string which you can attach to a Order object. It is displayed when in the web interface alongside the charge.</td>
+</tr>
+<tr>
+<td>receipt_email</td>
+<td>string</td>
+<td><em>optional</em>  The email address to which this orders’s receipt will be sent. The receipt will not be sent until the order is paid, and no receipts will be sent for test mode orders. If this order is for a User with email, the email address specified here will override the users’s email address.</td>
+</tr>
+<tr>
+<td>items</td>
+<td>object[]</td>
+<td>Array of Product objects associated with current Order.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>object</td>
+<td>Set of key-value pairs that attached to an object on create order state.</td>
+</tr>
+</tbody></table>
+<h2 id='retrieve-a-order'>Retrieve a Order</h2>
+<p>Retrieves the details of an order that has previously been created. Supply the unique charge ID that was returned from your 
+previous request, and PaySuper will return the corresponding charge information. The same information is returned when 
+creating or refunding the order.</p>
+
+<p>Returns an order if a valid identifier was provided, and returns an error otherwise.</p>
+<pre class="highlight plaintext"><code># Definition
+GET /v1/orders/:id
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/v1/orders/22d6d597-000f-5000-9000-145f6df21d6f <span class="se">\</span>
+   -u tkHCYYOUVrYyY5rBFZxNzgtt 
+
+<span class="c"># Example response</span>
+<span class="o">{</span>
+  <span class="s2">"id"</span>: <span class="s2">"22d6d597-000f-5000-9000-145f6df21d6f"</span>,
+  <span class="s2">"transaction"</span>: <span class="s2">"df21d6145f6df21d6f9000"</span>,
+  <span class="s2">"object"</span>: <span class="s2">"order"</span>,
+  <span class="s2">"status"</span>: <span class="s2">"created"</span>,
+  <span class="s2">"description"</span>: <span class="s2">"Order No. 72"</span>,
+  <span class="s2">"created_at"</span>: <span class="s2">"2018-07-10T14:27:54.691Z"</span>,
+  <span class="s2">"canceled_at"</span>: null,
+  <span class="s2">"canceled"</span>: <span class="nb">false</span>,
+  <span class="s2">"cancellation_reason"</span>: null,
+  <span class="s2">"refunded"</span>: <span class="nb">false</span>,
+  <span class="s2">"refunded_at"</span>: null,
+  <span class="s2">"receipt_email"</span>: <span class="s2">"jenny@example.com"</span>,
+  <span class="s2">"receipt_phone"</span>: <span class="s2">""</span>,
+  <span class="s2">"receipt_number"</span>: <span class="s2">"id-string"</span>,
+  <span class="s2">"receipt_url"</span>: <span class="s2">"https://pay.super.com/receipts/long-id-string-for-receipt"</span>,
+  <span class="s2">"agreement_version"</span>: <span class="s2">"1.0"</span>,
+  <span class="s2">"agreement_accepted"</span>: <span class="nb">true</span>,
+  <span class="s2">"notify_sale"</span>: <span class="nb">false</span>,
+  <span class="s2">"notify_sale_email"</span>: null,
+  <span class="s2">"issuer"</span>: <span class="o">{</span>
+    <span class="s2">"url"</span>: <span class="s2">"https://buy.example.com"</span>,
+    <span class="s2">"embedded"</span>: <span class="nb">true</span>
+  <span class="o">}</span>,
+  <span class="s2">"amount"</span>: <span class="s2">"2.00"</span>,
+  <span class="s2">"currency"</span>: <span class="s2">"USD"</span>,
+  <span class="s2">"user"</span>: <span class="o">{</span>
+    <span class="s2">"id"</span>: <span class="s2">"1234567890"</span>,
+    <span class="s2">"object"</span>: <span class="s2">"user"</span>,
+    <span class="s2">"name"</span>: <span class="s2">"unknown"</span>,
+    <span class="s2">"email"</span>: <span class="s2">"test@example.com"</span>,
+    <span class="s2">"email_verified"</span>: <span class="nb">false</span>,
+    <span class="s2">"phone"</span>: <span class="s2">"12345"</span>,
+    <span class="s2">"phone_verified"</span>: <span class="nb">false</span>,
+    <span class="s2">"ip"</span>: <span class="s2">"127.0.0.1"</span>,
+    <span class="s2">"locale"</span>: <span class="s2">"en"</span>,
+    <span class="s2">"address"</span>: <span class="o">{</span>
+      <span class="s2">"country"</span>: <span class="s2">"US"</span>,
+      <span class="s2">"city"</span>: <span class="s2">"New York"</span>,
+      <span class="s2">"postal_code"</span>: <span class="s2">"123456"</span>,
+      <span class="s2">"state"</span>: <span class="s2">"NY"</span>
+    <span class="o">}</span>,
+    <span class="s2">"metadata"</span>: <span class="o">{</span>
+      <span class="s2">"externalId"</span>: <span class="s2">"some id"</span>
+    <span class="o">}</span>
+  <span class="o">}</span>,
+  <span class="s2">"payout"</span>: <span class="o">{</span>
+    <span class="s2">"amount"</span>: <span class="s2">"2.00"</span>,
+    <span class="s2">"currency"</span>: <span class="s2">"USD"</span>,
+    <span class="s2">"effective_rate"</span>: <span class="s2">"0.05"</span>
+  <span class="o">}</span>,
+  <span class="s2">"platform_fee"</span>: <span class="o">{</span>
+    <span class="s2">"amount"</span>: <span class="s2">"2.00"</span>,
+    <span class="s2">"currency"</span>: <span class="s2">"USD"</span>,
+    <span class="s2">"effective_rate"</span>: <span class="s2">"0.05"</span>
+  <span class="o">}</span>,
+  <span class="s2">"billing_address"</span>: <span class="o">{</span>
+    <span class="s2">"country"</span>: <span class="s2">"US"</span>,
+    <span class="s2">"city"</span>: <span class="s2">"New York"</span>,
+    <span class="s2">"postal_code"</span>: <span class="s2">"123456"</span>,
+    <span class="s2">"state"</span>: <span class="s2">"NY"</span>
+  <span class="o">}</span>,
+  <span class="s2">"tax"</span>: <span class="o">{</span>
+    <span class="s2">"type"</span>: <span class="s2">"vat|sales_tax"</span>,
+    <span class="s2">"rate"</span>: 0.10,
+    <span class="s2">"amount"</span>: <span class="s2">"2.00"</span>,
+    <span class="s2">"currency"</span>: <span class="s2">"USD"</span>
+  <span class="o">}</span>,
+  <span class="s2">"method"</span>: <span class="o">{</span>
+    <span class="s2">"type"</span>: <span class="s2">"bank_card"</span>,
+    <span class="s2">"title"</span>: <span class="s2">"Bank card *4444"</span>,
+    <span class="s2">"saved"</span>: <span class="nb">false</span>,
+    <span class="s2">"card"</span>: <span class="o">{</span>
+      <span class="s2">"first6"</span>: <span class="s2">"555544"</span>,
+      <span class="s2">"last4"</span>: <span class="s2">"4444"</span>,
+      <span class="s2">"masked"</span>: <span class="s2">"5555 44** **** 4444"</span>,
+      <span class="s2">"expiry_month"</span>: <span class="s2">"07"</span>,
+      <span class="s2">"expiry_year"</span>: <span class="s2">"2021"</span>,
+      <span class="s2">"brand"</span>: <span class="s2">"MasterCard"</span>,
+      <span class="s2">"fingerprint"</span>: <span class="s2">"hash"</span>,
+      <span class="s2">"3ds"</span>: <span class="nb">false</span>
+    <span class="o">}</span>,
+    <span class="s2">"crypto_currency"</span>: <span class="o">{</span>
+      <span class="s2">"brand"</span>: <span class="s2">"bincoin"</span>,
+      <span class="s2">"address"</span>: <span class="s2">"EgX1BRd6k9cbxcEgX1BRd6k9cbxcEgX1BRd6k9cbxc"</span>      
+    <span class="o">}</span>, 
+    <span class="s2">"wallet"</span>: <span class="o">{</span>
+      <span class="s2">"brand"</span>: <span class="s2">"Yandex Money"</span>,
+      <span class="s2">"account"</span>: <span class="s2">"410200391399912"</span>
+    <span class="o">}</span>,
+    <span class="s2">"fee"</span>: <span class="o">{</span>
+      <span class="s2">"value"</span>: <span class="s2">"2.00"</span>,
+      <span class="s2">"currency"</span>: <span class="s2">"USD"</span>,
+      <span class="s2">"effective_rate"</span>: <span class="s2">"0.1"</span>
+    <span class="o">}</span>
+  <span class="o">}</span>,
+  <span class="s2">"items"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: <span class="s2">"prod_EgX1BRd6k9cbxc"</span>,
+      <span class="s2">"object"</span>: <span class="s2">"product"</span>,
+      <span class="s2">"sku"</span>: <span class="s2">"sku1234568"</span>,
+      <span class="s2">"name"</span>: <span class="s2">"The Game"</span>,
+      <span class="s2">"amount"</span>: 1.0, 
+      <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
+      <span class="s2">"short"</span>: <span class="s2">"game key"</span>,
+      <span class="s2">"description"</span>: <span class="s2">"Super game steam keys"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2018-07-10T14:27:54.691Z"</span>,
+      <span class="s2">"updated_at"</span>: <span class="s2">"2018-07-17T14:28:32.484Z"</span>,
+      <span class="s2">"images"</span>: <span class="o">[]</span>,
+      <span class="s2">"url"</span>: null,
+      <span class="s2">"metadata"</span>: <span class="o">{}</span>
+    <span class="o">}</span>
+  <span class="o">]</span>,
+  <span class="s2">"refund"</span>: <span class="o">{</span>
+    <span class="s2">"amount"</span>: 100,
+    <span class="s2">"currency"</span>: <span class="s2">"USD"</span>,
+    <span class="s2">"reason"</span>: <span class="s2">"fraud"</span>,
+    <span class="s2">"code"</span>: <span class="s2">"ID_FRAUD"</span>,
+    <span class="s2">"receipt_number"</span>: <span class="s2">""</span>,
+    <span class="s2">"receipt_url"</span>: <span class="s2">"https://pay.super.com/receipts/long-id-string-for-receipt"</span>
+  <span class="o">}</span>,
+  <span class="s2">"metadata"</span>: <span class="o">{</span>
+    <span class="s2">"some_data_from_create_payment"</span>: <span class="s2">"any data"</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre><h3 id='arguments-2'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>order</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> The identifier of the Order to be retrieved.</td>
+</tr>
+</tbody></table>
+<h2 id='update-an-order'>Update an Order</h2>
+<p>Updates the specified order by setting the values of the parameters passed. Any parameters not provided 
+will be left unchanged.</p>
+<pre class="highlight plaintext"><code># Definition
+POST /v1/orders/:id
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/v1/orders/22d6d597-000f-5000-9000-145f6df21d6f <span class="se">\</span>
+   -u tkHCYYOUVrYyY5rBFZxNzgtt
+   -d <span class="s1">'{
+      "metadata": {
+        "order_aliase": "od_001"
+      }
+    }'</span> 
+
+<span class="c"># Example response</span>
+<span class="o">{</span>
+  <span class="s2">"id"</span>: <span class="s2">"22d6d597-000f-5000-9000-145f6df21d6f"</span>,
+  <span class="s2">"transaction"</span>: <span class="s2">"df21d6145f6df21d6f9000"</span>,
+  ...
+  <span class="s2">"metadata"</span>: <span class="o">{</span>
+    <span class="s2">"some_data_from_create_payment"</span>: <span class="s2">"any data"</span>,
+    <span class="s2">"order_aliase"</span>: <span class="s2">"od_001"</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre><h3 id='arguments-3'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>order</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> The identifier of the Order to be retrieved.</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>float</td>
+<td>A positive float with two decimal points(e.g., 1.00 to charge $1.00) representing how much to charge.</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a>, in lowercase.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>An arbitrary string which you can attach to a Order object. It is displayed when in the web interface alongside the charge.</td>
+</tr>
+<tr>
+<td>receipt_email</td>
+<td>string</td>
+<td>The email address to which this orders’s receipt will be sent. The receipt will not be sent until the order is paid, and no receipts will be sent for test mode orders. If this order is for a User with email, the email address specified here will override the users’s email address.</td>
+</tr>
+<tr>
+<td>items</td>
+<td>object[]</td>
+<td>Array of Product objects associated with current Order.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>object</td>
+<td>Set of key-value pairs that attached to an object on create order state.</td>
+</tr>
+</tbody></table>
+<h2 id='list-all-orders'>List all Orders</h2>
+<p>Returns a list of orders you’ve previously created. The orders are returned in sorted order, with the most recent charges 
+appearing first.</p>
+<pre class="highlight plaintext"><code># Definition
+GET /v1/orders?limit=2
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/v1/orders/22d6d597-000f-5000-9000-145f6df21d6f <span class="se">\</span>
+   -u tkHCYYOUVrYyY5rBFZxNzgtt <span class="se">\</span>
+   -G 
+
+<span class="c">#Example response</span>
+<span class="o">{</span>
+  <span class="s2">"object"</span>: <span class="s2">"list"</span>,
+  <span class="s2">"url"</span>: <span class="s2">"/v1/orders"</span>,
+  <span class="s2">"has_more"</span>: <span class="nb">true</span>,
+  <span class="s2">"has_before"</span>: <span class="nb">false</span>,
+  <span class="s2">"total_count"</span>: 10,
+  <span class="s2">"data"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: <span class="s2">"22d6d597-000f-5000-9000-145f6df21d6f"</span>,
+      <span class="s2">"transaction"</span>: <span class="s2">"df21d6145f6df21d6f9000"</span>,
+      <span class="s2">"object"</span>: <span class="s2">"order"</span>,
+      <span class="s2">"status"</span>: <span class="s2">"created"</span>,
+      <span class="s2">"description"</span>: <span class="s2">"Order No. 72"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2018-07-10T14:27:54.691Z"</span>,
+      <span class="s2">"canceled_at"</span>: null,
+      <span class="s2">"canceled"</span>: <span class="nb">false</span>,
+      <span class="s2">"cancellation_reason"</span>: null,
+      <span class="s2">"refunded"</span>: <span class="nb">false</span>,
+      <span class="s2">"refunded_at"</span>: null,
+      <span class="s2">"receipt_email"</span>: <span class="s2">"jenny@example.com"</span>,
+      <span class="s2">"receipt_phone"</span>: <span class="s2">""</span>,
+      <span class="s2">"receipt_number"</span>: <span class="s2">"id-string"</span>,
+      <span class="s2">"receipt_url"</span>: <span class="s2">"https://pay.super.com/receipts/long-id-string-for-receipt"</span>,
+      <span class="s2">"agreement_version"</span>: <span class="s2">"1.0"</span>,
+      <span class="s2">"agreement_accepted"</span>: <span class="nb">true</span>,
+      <span class="s2">"notify_sale"</span>: <span class="nb">false</span>,
+      <span class="s2">"notify_sale_email"</span>: null,
+      <span class="s2">"issuer"</span>: <span class="o">{</span>
+        <span class="s2">"url"</span>: <span class="s2">"https://buy.example.com"</span>,
+        <span class="s2">"embedded"</span>: <span class="nb">true</span>
+      <span class="o">}</span>,
+      <span class="s2">"amount"</span>: <span class="s2">"2.00"</span>,
+      <span class="s2">"currency"</span>: <span class="s2">"USD"</span>,
+      <span class="s2">"user"</span>: <span class="o">{</span>
+        <span class="s2">"id"</span>: <span class="s2">"1234567890"</span>,
+        <span class="s2">"object"</span>: <span class="s2">"user"</span>,
+        <span class="s2">"name"</span>: <span class="s2">"unknown"</span>,
+        <span class="s2">"email"</span>: null,
+        <span class="s2">"email_verified"</span>: <span class="nb">false</span>,
+        <span class="s2">"phone"</span>: null,
+        <span class="s2">"phone_verified"</span>: <span class="nb">false</span>,
+        <span class="s2">"ip"</span>: <span class="s2">"127.0.0.1"</span>,
+        <span class="s2">"locale"</span>: <span class="s2">"en"</span>,
+        <span class="s2">"address"</span>: <span class="o">{</span>
+          <span class="s2">"country"</span>: <span class="s2">"US"</span>,
+          <span class="s2">"city"</span>: <span class="s2">"New York"</span>,
+          <span class="s2">"postal_code"</span>: <span class="s2">"123456"</span>,
+          <span class="s2">"state"</span>: <span class="s2">"NY"</span>
+        <span class="o">}</span>,
+        <span class="s2">"metadata"</span>: <span class="o">{</span>
+          <span class="s2">"externalId"</span>: <span class="s2">"some id"</span>
+        <span class="o">}</span>
+      <span class="o">}</span>,
+      <span class="s2">"payout"</span>: <span class="o">{</span>
+        <span class="s2">"amount"</span>: <span class="s2">"2.00"</span>,
+        <span class="s2">"currency"</span>: <span class="s2">"USD"</span>,
+        <span class="s2">"effective_rate"</span>: <span class="s2">"0.05"</span>
+      <span class="o">}</span>,
+      <span class="s2">"platform_fee"</span>: <span class="o">{</span>
+        <span class="s2">"amount"</span>: <span class="s2">"2.00"</span>,
+        <span class="s2">"currency"</span>: <span class="s2">"USD"</span>,
+        <span class="s2">"effective_rate"</span>: <span class="s2">"0.05"</span>
+      <span class="o">}</span>,
+      <span class="s2">"billing_address"</span>: <span class="o">{</span>
+        <span class="s2">"country"</span>: <span class="s2">"US"</span>,
+        <span class="s2">"city"</span>: <span class="s2">"New York"</span>,
+        <span class="s2">"postal_code"</span>: <span class="s2">"123456"</span>,
+        <span class="s2">"state"</span>: <span class="s2">"NY"</span>
+      <span class="o">}</span>,
+      <span class="s2">"tax"</span>: <span class="o">{</span>
+        <span class="s2">"type"</span>: <span class="s2">"sales_tax"</span>,
+        <span class="s2">"rate"</span>: 0.10,
+        <span class="s2">"amount"</span>: <span class="s2">"2.00"</span>,
+        <span class="s2">"currency"</span>: <span class="s2">"USD"</span>
+      <span class="o">}</span>,
+      <span class="s2">"method"</span>: <span class="o">{</span>
+        <span class="s2">"type"</span>: <span class="s2">"bank_card"</span>,
+        <span class="s2">"title"</span>: <span class="s2">"Bank card *4444"</span>,
+        <span class="s2">"saved"</span>: <span class="nb">false</span>,
+        <span class="s2">"card"</span>: <span class="o">{</span>
+          <span class="s2">"first6"</span>: <span class="s2">"555544"</span>,
+          <span class="s2">"last4"</span>: <span class="s2">"4444"</span>,
+          <span class="s2">"masked"</span>: <span class="s2">"5555 44** **** 4444"</span>,
+          <span class="s2">"expiry_month"</span>: <span class="s2">"07"</span>,
+          <span class="s2">"expiry_year"</span>: <span class="s2">"2021"</span>,
+          <span class="s2">"brand"</span>: <span class="s2">"MasterCard"</span>,
+          <span class="s2">"fingerprint"</span>: <span class="s2">"hash"</span>,
+          <span class="s2">"3ds"</span>: <span class="nb">false</span>
+        <span class="o">}</span>,
+        <span class="s2">"fee"</span>: <span class="o">{</span>
+          <span class="s2">"value"</span>: <span class="s2">"2.00"</span>,
+          <span class="s2">"currency"</span>: <span class="s2">"USD"</span>,
+          <span class="s2">"effective_rate"</span>: <span class="s2">"0.1"</span>
+        <span class="o">}</span>
+      <span class="o">}</span>,
+      <span class="s2">"items"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+          <span class="s2">"id"</span>: <span class="s2">"prod_EgX1BRd6k9cbxc"</span>,
+          <span class="s2">"object"</span>: <span class="s2">"product"</span>,
+          <span class="s2">"sku"</span>: <span class="s2">"sku1234568"</span>,
+          <span class="s2">"name"</span>: <span class="s2">"The Game"</span>,
+          <span class="s2">"amount"</span>: 1.0, 
+          <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
+          <span class="s2">"short"</span>: <span class="s2">"game key"</span>,
+          <span class="s2">"description"</span>: <span class="s2">"Super game steam keys"</span>,
+          <span class="s2">"created_at"</span>: <span class="s2">"2018-07-10T14:27:54.691Z"</span>,
+          <span class="s2">"updated_at"</span>: <span class="s2">"2018-07-17T14:28:32.484Z"</span>,
+          <span class="s2">"images"</span>: <span class="o">[]</span>,
+          <span class="s2">"url"</span>: null,
+          <span class="s2">"metadata"</span>: <span class="o">{}</span>
+        <span class="o">}</span>
+      <span class="o">]</span>,
+      <span class="s2">"refund"</span>: <span class="o">{}</span>,
+      <span class="s2">"metadata"</span>: <span class="o">{</span>
+        <span class="s2">"some_data_from_create_payment"</span>: <span class="s2">"any data"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>...<span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre><h3 id='arguments-4'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>integer</td>
+<td>A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 10.</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>integer</td>
+<td>An offset from which you want to return the list of orders. The default is 0.</td>
+</tr>
+<tr>
+<td>country</td>
+<td>string[]</td>
+<td>A list of countries to get orders filtered by given values.</td>
+</tr>
+<tr>
+<td>method</td>
+<td>string[]</td>
+<td>A list of methods to get orders filtered by given values.</td>
+</tr>
+<tr>
+<td>project</td>
+<td>string[]</td>
+<td>A list of merchant projects to get orders filtered by given values.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>An order status to get orders only in provided status.</td>
+</tr>
+<tr>
+<td>user</td>
+<td>string</td>
+<td>Payer user identity. It may be string with user id, email or phone or user object dictionary.</td>
+</tr>
+<tr>
+<td>user.id</td>
+<td>string</td>
+<td>Unique identifier for the object.</td>
+</tr>
+<tr>
+<td>user.name</td>
+<td>string</td>
+<td>The name of user.</td>
+</tr>
+<tr>
+<td>user.email</td>
+<td>string</td>
+<td>The email of user.</td>
+</tr>
+<tr>
+<td>user.phone</td>
+<td>string</td>
+<td>String representing the user`s phone.</td>
+</tr>
+<tr>
+<td>user.ip</td>
+<td>string</td>
+<td>String representing the user`s last used ip.</td>
+</tr>
+<tr>
+<td>created</td>
+<td>string or object</td>
+<td>A filter on the list based on the object <code>created_at</code> field. The value can be a string with date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>, or it can be a dictionary.</td>
+</tr>
+<tr>
+<td>created.gt</td>
+<td>string</td>
+<td>Return results where the <code>created_at</code> field is greater than this value.</td>
+</tr>
+<tr>
+<td>created.gte</td>
+<td>string</td>
+<td>Return results where the <code>created_at</code> field is greater than or equal to this value.</td>
+</tr>
+<tr>
+<td>created.le</td>
+<td>string</td>
+<td>Return results where the <code>created_at</code> field is less than this value.</td>
+</tr>
+<tr>
+<td>created.lte</td>
+<td>string</td>
+<td>Return results where the <code>created_at</code> field is less than or equal to this value.</td>
+</tr>
+</tbody></table>
 <h1 id='products'>Products</h1>
 <p>Store representations of digital products you sell in PaySuper.</p>
 <h2 id='the-product-object'>The Product object</h2>
@@ -915,6 +1547,15 @@ and pay individual orders, as well as list all orders. Orders are identified by 
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sku1234568"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Game"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usd"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">   
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usd"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">  
+  </span><span class="s2">"short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Game key"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super game steam keys"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-10T14:27:54.691Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-17T14:28:32.484Z"</span><span class="p">,</span><span class="w">
@@ -947,6 +1588,26 @@ and pay individual orders, as well as list all orders. Orders are identified by 
 </tr>
 <tr>
 <td>name</td>
+<td>string</td>
+<td>An arbitrary string attached to the object. Often useful for displaying to users.</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>float</td>
+<td>A positive float with two decimal points(e.g., 1.00 to charge $1.00) representing the product price in default currency.</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a>, in lowercase.</td>
+</tr>
+<tr>
+<td>prices</td>
+<td>array</td>
+<td>The list of prices for all available regional prices for product.</td>
+</tr>
+<tr>
+<td>short</td>
 <td>string</td>
 <td>An arbitrary string attached to the object. Often useful for displaying to users.</td>
 </tr>
