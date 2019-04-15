@@ -270,6 +270,21 @@
                   <li>
                     <a href="#the-product-object" class="toc-h2 toc-link" data-title="The Product object">The Product object</a>
                   </li>
+                  <li>
+                    <a href="#create-a-product" class="toc-h2 toc-link" data-title="Create a Product">Create a Product</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-product" class="toc-h2 toc-link" data-title="Update a Product">Update a Product</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-product" class="toc-h2 toc-link" data-title="Get a Product">Get a Product</a>
+                  </li>
+                  <li>
+                    <a href="#delete-product" class="toc-h2 toc-link" data-title="Delete product">Delete product</a>
+                  </li>
+                  <li>
+                    <a href="#list-of-products" class="toc-h2 toc-link" data-title="List of products">List of products</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1540,25 +1555,41 @@ GET /v1/orders?limit=2
 <p>Example object</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prod_EgX1BRd6k9cbxc"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sku1234568"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Game"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"default_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usd"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">   
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usd"</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ca5124868add448289e432e"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"simple_product"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5be2e16701d96d00012d26c3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ru_0_gta_31"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GTA 3"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"default_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GTA 3 description"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"long_description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GTA 3 long description"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"seconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554321992</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"nanos"</span><span class="p">:</span><span class="w"> </span><span class="mi">11905100</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"seconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554321992</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"nanos"</span><span class="p">:</span><span class="w"> </span><span class="mi">11905100</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"http://some.host.ru/images/img1.jpg"</span><span class="p">,</span><span class="w"> </span><span class="s2">"http://some.host.ru/images/img2.jpg"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://mylanding.ru/games/gta3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"some_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_data"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">  
-  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"game key"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"long_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super game steam keys"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-10T14:27:54.691Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-17T14:28:32.484Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='attributes'>Attributes</h3>
 <table><thead>
@@ -1579,14 +1610,24 @@ GET /v1/orders?limit=2
 <td>String representing the object’s type. Objects of the same type share the same value.</td>
 </tr>
 <tr>
+<td>type</td>
+<td>string</td>
+<td>String representing the destination type - type of product.</td>
+</tr>
+<tr>
+<td>project_id</td>
+<td>string</td>
+<td>Identifier of project, with which the product is associated.</td>
+</tr>
+<tr>
 <td>sku</td>
 <td>string</td>
 <td>String representing the stock keeping unit.</td>
 </tr>
 <tr>
 <td>name</td>
-<td>string</td>
-<td>An arbitrary string attached to the object. Often useful for displaying to users.</td>
+<td>map[string]string</td>
+<td>An map object, where keys are locales, and values is product name in key&#39;s locale.</td>
 </tr>
 <tr>
 <td>default_currency</td>
@@ -1605,13 +1646,13 @@ GET /v1/orders?limit=2
 </tr>
 <tr>
 <td>description</td>
-<td>string</td>
-<td>An arbitrary string attached to the object. Often useful for displaying to users.</td>
+<td>map[string]string</td>
+<td>An map object, where keys are locales, and values is product description in key&#39;s locale.</td>
 </tr>
 <tr>
 <td>long_description</td>
-<td>string</td>
-<td>An arbitrary string attached to the object. Often useful for displaying to users.</td>
+<td>map[string]string</td>
+<td>An map object, where keys are locales, and values is product long description in key&#39;s locale.</td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -1621,7 +1662,7 @@ GET /v1/orders?limit=2
 <tr>
 <td>updated_at</td>
 <td>string</td>
-<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> when a product order has been updated.</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> when a product has been updated.</td>
 </tr>
 <tr>
 <td>images</td>
@@ -1637,6 +1678,436 @@ GET /v1/orders?limit=2
 <td>metadata</td>
 <td>object</td>
 <td>Set of key-value pairs that attached to an object on creating product.</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-product'>Create a Product</h2><pre class="highlight plaintext"><code># Definition
+POST /admin/api/v1/products
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/admin/api/v1/products
+   -X POST -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Authorization: Bearer %access_token_here%"</span> <span class="se">\</span>
+   -d <span class="s1">'{
+         "object": "product",
+         "type": "simple_product",
+         "sku": "ru_0_gta_31",
+         "name": {
+           "en": "GTA 3"
+         },
+         "default_currency": "USD",
+         "enabled": true,
+         "prices": [
+           {
+             "amount": 101,
+             "currency": "USD"
+           }
+         ],
+         "description": {
+           "en": "GTA 3 description"
+         },
+         "long_description": {},
+         "project_id": "5be2e16701d96d00012d26c3"
+       }'</span>
+
+<span class="c"># Example response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: <span class="s2">"5ca5124868add448289e432e"</span>,
+    <span class="s2">"project_id"</span>: <span class="s2">"5be2e16701d96d00012d26c3"</span>,
+    <span class="s2">"object"</span>: <span class="s2">"product"</span>,
+    <span class="s2">"type"</span>: <span class="s2">"simple_product"</span>,
+    <span class="s2">"sku"</span>: <span class="s2">"ru_0_gta_31"</span>,
+    <span class="s2">"name"</span>: <span class="o">{</span>
+        <span class="s2">"en"</span>: <span class="s2">"GTA 3"</span>
+    <span class="o">}</span>,
+    <span class="s2">"default_currency"</span>: <span class="s2">"USD"</span>,
+    <span class="s2">"enabled"</span>: <span class="nb">true</span>,
+    <span class="s2">"prices"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"amount"</span>: 101,
+            <span class="s2">"currency"</span>: <span class="s2">"USD"</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">"description"</span>: <span class="o">{</span>
+        <span class="s2">"en"</span>: <span class="s2">"GTA 3 description"</span>
+    <span class="o">}</span>,
+    <span class="s2">"long_description"</span>: null,
+    <span class="s2">"created_at"</span>: <span class="o">{</span>
+        <span class="s2">"seconds"</span>: 1554321992,
+        <span class="s2">"nanos"</span>: 11905100
+    <span class="o">}</span>,
+    <span class="s2">"updated_at"</span>: <span class="o">{</span>
+        <span class="s2">"seconds"</span>: 1554321992,
+        <span class="s2">"nanos"</span>: 11905100
+    <span class="o">}</span>,
+    <span class="s2">"images"</span>: null,
+    <span class="s2">"url"</span>: <span class="s2">""</span>,
+    <span class="s2">"metadata"</span>: null
+<span class="o">}</span>
+</code></pre><h3 id='arguments'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Identifier of project, with which the product is associated.</td>
+</tr>
+<tr>
+<td>object</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> String representing the object’s type. Objects of the same type share the same value.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> String representing the destination type - type of product.</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> String representing the stock keeping unit.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>map[string]string</td>
+<td><strong>REQUIRED</strong> An map object, where keys are locales, and values is product name in key&#39;s locale. Must have, at least, value in default system locale</td>
+</tr>
+<tr>
+<td>default_currency</td>
+<td>string</td>
+<td><strong>REQUIRED</strong>Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a>, in lowercase, representing the product default currency.</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>boolean</td>
+<td><strong>REQUIRED</strong> True is product available for purchase.</td>
+</tr>
+<tr>
+<td>prices</td>
+<td>array</td>
+<td><strong>REQUIRED</strong> The list of prices for all available regional prices for product. Must have at least price in default_currency</td>
+</tr>
+<tr>
+<td>description</td>
+<td>map[string]string</td>
+<td><strong>REQUIRED</strong> An map object, where keys are locales, and values is product description in key&#39;s locale. Must have, at least, value in default system locale</td>
+</tr>
+<tr>
+<td>long_description</td>
+<td>map[string]string</td>
+<td>An map object, where keys are locales, and values is product long description in key&#39;s locale.</td>
+</tr>
+<tr>
+<td>images</td>
+<td>string[]</td>
+<td>The array if URL to product images.</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>An arbitrary URL to product web page.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>object</td>
+<td>Set of key-value pairs that attached to an object on creating product.</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-product'>Update a Product</h2><pre class="highlight plaintext"><code># Definition
+PUT /admin/api/v1/products/:product_id
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/admin/api/v1/products/5ca5124868add448289e432e
+   -X PUT -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Authorization: Bearer %access_token_here%"</span> <span class="se">\</span>
+   -d <span class="s1">'{
+         "object": "product",
+         "type": "simple_product",
+         "sku": "ru_0_gta_31",
+         "name": {
+           "en": "GTA 3"
+         },
+         "default_currency": "USD",
+         "enabled": true,
+         "prices": [
+           {
+             "amount": 101,
+             "currency": "USD"
+           }
+         ],
+         "description": {
+           "en": "GTA 3 description"
+         },
+         "long_description": {},
+         "project_id": "5be2e16701d96d00012d26c3"
+       }'</span>
+
+<span class="c"># Example response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: <span class="s2">"5ca5124868add448289e432e"</span>,
+    <span class="s2">"project_id"</span>: <span class="s2">"5be2e16701d96d00012d26c3"</span>,
+    <span class="s2">"object"</span>: <span class="s2">"product"</span>,
+    <span class="s2">"type"</span>: <span class="s2">"simple_product"</span>,
+    <span class="s2">"sku"</span>: <span class="s2">"ru_0_gta_31"</span>,
+    <span class="s2">"name"</span>: <span class="o">{</span>
+        <span class="s2">"en"</span>: <span class="s2">"GTA 3"</span>
+    <span class="o">}</span>,
+    <span class="s2">"default_currency"</span>: <span class="s2">"USD"</span>,
+    <span class="s2">"enabled"</span>: <span class="nb">true</span>,
+    <span class="s2">"prices"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"amount"</span>: 101,
+            <span class="s2">"currency"</span>: <span class="s2">"USD"</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">"description"</span>: <span class="o">{</span>
+        <span class="s2">"en"</span>: <span class="s2">"GTA 3 description"</span>
+    <span class="o">}</span>,
+    <span class="s2">"long_description"</span>: null,
+    <span class="s2">"created_at"</span>: <span class="o">{</span>
+        <span class="s2">"seconds"</span>: 1554321992,
+        <span class="s2">"nanos"</span>: 11905100
+    <span class="o">}</span>,
+    <span class="s2">"updated_at"</span>: <span class="o">{</span>
+        <span class="s2">"seconds"</span>: 1554321992,
+        <span class="s2">"nanos"</span>: 11905100
+    <span class="o">}</span>,
+    <span class="s2">"images"</span>: null,
+    <span class="s2">"url"</span>: <span class="s2">""</span>,
+    <span class="s2">"metadata"</span>: null
+<span class="o">}</span>
+</code></pre><h3 id='arguments-2'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Identifier of project, with which the product is associated.</td>
+</tr>
+<tr>
+<td>object</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> String representing the object’s type. Objects of the same type share the same value.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> String representing the destination type - type of product.</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> String representing the stock keeping unit.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>map[string]string</td>
+<td><strong>REQUIRED</strong> An map object, where keys are locales, and values is product name in key&#39;s locale. Must have, at least, value in default system locale</td>
+</tr>
+<tr>
+<td>default_currency</td>
+<td>string</td>
+<td><strong>REQUIRED</strong>Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a>, in lowercase, representing the product default currency.</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>boolean</td>
+<td><strong>REQUIRED</strong> True is product available for purchase.</td>
+</tr>
+<tr>
+<td>prices</td>
+<td>array</td>
+<td><strong>REQUIRED</strong> The list of prices for all available regional prices for product. Must have at least price in default_currency</td>
+</tr>
+<tr>
+<td>description</td>
+<td>map[string]string</td>
+<td><strong>REQUIRED</strong> An map object, where keys are locales, and values is product description in key&#39;s locale. Must have, at least, value in default system locale</td>
+</tr>
+<tr>
+<td>long_description</td>
+<td>map[string]string</td>
+<td>An map object, where keys are locales, and values is product long description in key&#39;s locale.</td>
+</tr>
+<tr>
+<td>images</td>
+<td>string[]</td>
+<td>The array if URL to product images.</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>An arbitrary URL to product web page.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>object</td>
+<td>Set of key-value pairs that attached to an object on creating product.</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-product'>Get a Product</h2><pre class="highlight plaintext"><code># Definition
+GET /admin/api/v1/products/:product_id
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/admin/api/v1/products/5ca5124868add448289e432e <span class="se">\</span>
+      -G -H <span class="s2">"Authorization: Bearer %access_token_here%"</span>
+
+<span class="c"># Example response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: <span class="s2">"5ca5124868add448289e432e"</span>,
+    <span class="s2">"project_id"</span>: <span class="s2">"5be2e16701d96d00012d26c3"</span>,
+    <span class="s2">"object"</span>: <span class="s2">"product"</span>,
+    <span class="s2">"type"</span>: <span class="s2">"simple_product"</span>,
+    <span class="s2">"sku"</span>: <span class="s2">"ru_0_gta_31"</span>,
+    <span class="s2">"name"</span>: <span class="o">{</span>
+        <span class="s2">"en"</span>: <span class="s2">"GTA 3"</span>
+    <span class="o">}</span>,
+    <span class="s2">"default_currency"</span>: <span class="s2">"USD"</span>,
+    <span class="s2">"enabled"</span>: <span class="nb">true</span>,
+    <span class="s2">"prices"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"amount"</span>: 101,
+            <span class="s2">"currency"</span>: <span class="s2">"USD"</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">"description"</span>: <span class="o">{</span>
+        <span class="s2">"en"</span>: <span class="s2">"GTA 3 description"</span>
+    <span class="o">}</span>,
+    <span class="s2">"long_description"</span>: null,
+    <span class="s2">"created_at"</span>: <span class="o">{</span>
+        <span class="s2">"seconds"</span>: 1554321992,
+        <span class="s2">"nanos"</span>: 11905100
+    <span class="o">}</span>,
+    <span class="s2">"updated_at"</span>: <span class="o">{</span>
+        <span class="s2">"seconds"</span>: 1554321992,
+        <span class="s2">"nanos"</span>: 11905100
+    <span class="o">}</span>,
+    <span class="s2">"images"</span>: null,
+    <span class="s2">"url"</span>: <span class="s2">""</span>,
+    <span class="s2">"metadata"</span>: null
+<span class="o">}</span>
+</code></pre><h3 id='arguments-3'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>:product_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Identifier of product</td>
+</tr>
+</tbody></table>
+<h2 id='delete-product'>Delete product</h2><pre class="highlight plaintext"><code># Definition
+DELETE /admin/api/v1/products/:product_id
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/admin/api/v1/products/5ca5124868add448289e432e <span class="se">\</span>
+      -X DELETE -H <span class="s2">"Authorization: Bearer %access_token_here%"</span>
+
+<span class="c"># Example response</span>
+No content <span class="k">in </span>response
+</code></pre><h3 id='arguments-4'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>:product_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Identifier of product</td>
+</tr>
+</tbody></table>
+<h2 id='list-of-products'>List of products</h2>
+<p>By default, returns full list of all Merchant&#39;s products. Some filters may be applied.</p>
+<pre class="highlight plaintext"><code># Definition
+GET /admin/api/v1/products?name=car&amp;sku=ru_0&amp;project_id=5bdc39a95d1e1100019fb7df&amp;offset=0&amp;limit=10
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/admin/api/v1/products?name<span class="o">=</span>car&amp;sku<span class="o">=</span>ru_0&amp;project_id<span class="o">=</span>5bdc39a95d1e1100019fb7df&amp;offset<span class="o">=</span>0&amp;limit<span class="o">=</span>10 <span class="se">\</span>
+      -G -H <span class="s2">"Authorization: Bearer %access_token_here%"</span>
+
+<span class="c"># Example response</span>
+
+<span class="o">{</span>
+    <span class="s2">"limit"</span>: 1,
+    <span class="s2">"offset"</span>: 0,
+    <span class="s2">"total"</span>: 1,
+    <span class="s2">"products"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"id"</span>: <span class="s2">"5c9e152e9fb5a85298c090fd"</span>,
+            <span class="s2">"object"</span>: <span class="s2">"product"</span>,
+            <span class="s2">"type"</span>: <span class="s2">"simple_product"</span>,
+            <span class="s2">"sku"</span>: <span class="s2">"ru_0_doom_2"</span>,
+            <span class="s2">"name"</span>: <span class="o">{</span>
+                <span class="s2">"en"</span>: <span class="s2">"Doom II"</span>
+            <span class="o">}</span>,
+            <span class="s2">"default_currency"</span>: <span class="s2">"USD"</span>,
+            <span class="s2">"enabled"</span>: <span class="nb">true</span>,
+            <span class="s2">"prices"</span>: <span class="o">[</span>
+                <span class="o">{</span>
+                    <span class="s2">"amount"</span>: 12.93,
+                    <span class="s2">"currency"</span>: <span class="s2">"USD"</span>
+                <span class="o">}</span>
+            <span class="o">]</span>,
+            <span class="s2">"description"</span>: <span class="o">{</span>
+                <span class="s2">"en"</span>: <span class="s2">"Doom II description"</span>
+            <span class="o">}</span>,
+            <span class="s2">"long_description"</span>: null,
+            <span class="s2">"created_at"</span>: <span class="o">{</span>
+                <span class="s2">"seconds"</span>: 1553863982,
+                <span class="s2">"nanos"</span>: 132000000
+            <span class="o">}</span>,
+            <span class="s2">"updated_at"</span>: <span class="o">{</span>
+                <span class="s2">"seconds"</span>: 1553863982,
+                <span class="s2">"nanos"</span>: 132000000
+            <span class="o">}</span>,
+            <span class="s2">"images"</span>: null,
+            <span class="s2">"url"</span>: <span class="s2">""</span>,
+            <span class="s2">"metadata"</span>: null,
+            <span class="s2">"project_id"</span>: <span class="s2">"5bdc39a95d1e1100019fb7df"</span>
+        <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+</code></pre><h3 id='arguments-5'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Part of product&#39;s name to filter by name (substring match)</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>string</td>
+<td>Part of product&#39;s name to filter by sku (substring match)</td>
+</tr>
+<tr>
+<td>project_id</td>
+<td>string</td>
+<td>Project Id, to filter by</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>number</td>
+<td>offset from first item position</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>number</td>
+<td>maximum items per page</td>
 </tr>
 </tbody></table>
 <h1 id='users'>Users</h1>
