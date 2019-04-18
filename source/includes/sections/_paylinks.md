@@ -137,7 +137,7 @@ $ curl https://api.paysuper.online/admin/api/v1/paylinks/ef2c6b84a7d54881a73450e
 
 |Name|Type|Description|
 |---|---|---|
-|:product_id|string|**REQUIRED** Identifier of paylink|
+|:paylink_id|string|**REQUIRED** Identifier of paylink|
 |products|string[]|**REQUIRED** Array of products identifiers|
 |project_id|string|**REQUIRED** Identifier of project, with which the paylink and all included products are associated.|
 |life_days|number|**REQUIRED**Number of days, after then paylink will be automatically expired |
@@ -182,7 +182,7 @@ $ curl https://api.paysuper.online/admin/api/v1/paylinks/ef2c6b84a7d54881a73450e
 
 |Name|Type|Description|
 |---|---|---|
-|:product_id|string|**REQUIRED** Identifier of paylink|
+|:paylink_id|string|**REQUIRED** Identifier of paylink|
 
 ## Delete product
 ```
@@ -203,7 +203,7 @@ No content in response
 
 |Name|Type|Description|
 |---|---|---|
-|:product_id|string|**REQUIRED** Identifier of paylink|
+|:paylink_id|string|**REQUIRED** Identifier of paylink|
 
 ## Get a Paylink Stat
 
@@ -227,7 +227,7 @@ $ curl https://api.paysuper.online/admin/api/v1/paylinks/ef2c6b84a7d54881a73450e
 
 |Name|Type|Description|
 |---|---|---|
-|:product_id|string|**REQUIRED** Identifier of paylink|
+|:paylink_id|string|**REQUIRED** Identifier of paylink|
 
 ## Get a Paylink Url
 
@@ -251,7 +251,7 @@ $ curl https://api.paysuper.online/admin/api/v1/paylinks/ef2c6b84a7d54881a73450e
 
 |Name|Type|Description|
 |---|---|---|
-|:product_id|string|**REQUIRED** Identifier of paylink|
+|:paylink_id|string|**REQUIRED** Identifier of paylink|
 |utm_source|string|utm_source value|
 |utm_medium|string|utm_medium value|
 |utm_campagin|string|utm_campagin value|
