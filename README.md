@@ -15,3 +15,12 @@ docker-compose up
 ```
 
 Then, the preview of the published html can be viewed at [127.0.0.1:4567](http://127.0.0.1:4567)
+
+## Contributing
+We feel that a welcoming community is important and we ask that you follow PaySuper's [Open Source Code of Conduct](https://github.com/paysuper/code-of-conduct/blob/master/README.md) in all interactions with the community.
+
+PaySuper welcomes contributions from anyone and everyone. Please refer to each project's style and contribution guidelines for submitting patches and additions. In general, we follow the "fork-and-pull" Git workflow.
+
+The master branch of this repository contains the latest stable release of this component.
+
+ 
