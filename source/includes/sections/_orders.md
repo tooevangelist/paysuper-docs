@@ -127,7 +127,9 @@ and pay individual orders, as well as list all orders. Orders are identified by 
   },
   "metadata": {
     "some_data_from_create_payment": "any data"
-  }
+  },
+  "type": "product",
+  "platform_id": "steam"
 }
 ```
 
@@ -205,6 +207,8 @@ and pay individual orders, as well as list all orders. Orders are identified by 
 |refund.receipt_number|string|String representing the unique id for refund receipt.|
 |refund.receipt_url|string|String representing the URL in PaySuper service for online access to given refund receipt.|
 |metadata|object| Set of key-value pairs that attached to an object on create order state.|
+|product_type|string|Type of products in order. Available types: simple, product, key|
+|platform_id|string|Id of platform for key distribution. (steam, gog, egs, xbox, switch, etc.)|
         
 ## Create an Order 
 
@@ -238,7 +242,8 @@ $ curl https://api.paysuper.online/v1/orders \
      ],
      "metadata": {
          "somedata": "value"
-     }
+     }, 
+     "type": "simple"
    }'
 
 # Example response
@@ -305,7 +310,8 @@ $ curl https://api.paysuper.online/v1/orders \
   ], 
   "metadata": {
       "somedata": "value"
-  } 
+  },
+  "type": "simple"
 }
 ```
 
@@ -320,6 +326,8 @@ $ curl https://api.paysuper.online/v1/orders \
 |receipt_email|string| *optional*  The email address to which this orders’s receipt will be sent. The receipt will not be sent until the order is paid, and no receipts will be sent for test mode orders. If this order is for a User with email, the email address specified here will override the users’s email address.|
 |items|object[]|Array of Product objects associated with current Order.|
 |metadata|object| Set of key-value pairs that attached to an object on create order state.|
+|type|string|**REQUIRED** Type of products in order. Available types: simple, product, key|
+
 
 ## Retrieve a Order
 
@@ -462,7 +470,8 @@ $ curl https://api.paysuper.online/v1/orders/22d6d597-000f-5000-9000-145f6df21d6
   },
   "metadata": {
     "some_data_from_create_payment": "any data"
-  }
+  },
+  "type": "simple"
 }
 ```
 
@@ -648,7 +657,8 @@ $ curl https://api.paysuper.online/v1/orders/22d6d597-000f-5000-9000-145f6df21d6
       "refund": {},
       "metadata": {
         "some_data_from_create_payment": "any data"
-      }
+      },
+      "type": "simple"
     },
     {...}
   ]
