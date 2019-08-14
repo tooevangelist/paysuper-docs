@@ -1,6 +1,6 @@
 # Key Products
 
-Store representations of digital keys you sell in PaySuper.
+Store representations of product with keys you sell in PaySuper.
 
 ## The Key Product object
 > Example object
@@ -44,7 +44,6 @@ Store representations of digital keys you sell in PaySuper.
   "published_at": "2019-08-13T08:23:25Z"
 }
 ```
-
 
 ### Attributes
 
@@ -462,15 +461,17 @@ POST /admin/api/v1/key-products/:key_product_id/platforms
 $ curl https://api.paysuper.online/admin/api/v1/key-products/5ca5124868add448289e432e/platforms \
       -X POST -H "Authorization: Bearer %access_token_here%" \
       -d '{
-            "id": "gog",
-            "name": "Good old games.com",
-            "prices": [
-                {
-                "region": "EUR",
-                "amount": 29.99,
-                "currency": "EUR"
-                }
-            ]
+            "platform": {
+              "id": "gog",
+              "name": "Good old games.com",
+              "prices": [
+                  {
+                  "region": "EUR",
+                  "amount": 29.99,
+                  "currency": "EUR"
+                  }
+              ]
+            }
           }'
 
 # Example response

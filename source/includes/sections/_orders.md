@@ -114,7 +114,9 @@ and pay individual orders, as well as list all orders. Orders are identified by 
       "updated_at": "2018-07-17T14:28:32.484Z",
       "images": [],
       "url": null,
-      "metadata": {}
+      "metadata": {},
+      "code": "YYYY-XXXX-ZZZZ-UUUU",
+      "platform": "steam"
     }
   ],
   "refund": {
@@ -199,7 +201,15 @@ and pay individual orders, as well as list all orders. Orders are identified by 
 |method.fee.amount|float|A positive float with two decimal points(e.g., 1.00 to charge $1.00) representing the payment method fee.|
 |method.fee.currency|string|Three-letter [ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.|
 |method.fee.effective_rate|float|A positive float with two decimal points representing the actual rate of the payment method fee for the payment.|
-|items|object[]|Array of Product objects associated with current Order.|
+|items|object[]|Array of OrderItem objects associated with current Order.|
+|items.id|string|Unique identifier for the object.|
+|items.sku|string|String representing the stock keeping unit|
+|items.name|string|Localized name for the object.|
+|items.description|string|Localized description for the object.|
+|items.images|string[]|Image urls associated with the object.|
+|items.metadata|object|Set of key-value pairs that attached to an object on creating product.|
+|items.code|string|Activation code for the object. Can be ommited if order is not processed or type of order is not "key".|
+|items.platform|string|Platform for activation code. Can be ommited if order is not processed or type of order is not "key".|
 |refund.amount|float|A positive float with two decimal points(e.g., 1.00 to charge $1.00) representing the refund amount.|
 |refund.currency|string|Three-letter [ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.|
 |refund.reason|string|String representing the refund reasons.|
