@@ -114,7 +114,9 @@ and pay individual orders, as well as list all orders. Orders are identified by 
       "updated_at": "2018-07-17T14:28:32.484Z",
       "images": [],
       "url": null,
-      "metadata": {}
+      "metadata": {},
+      "code": "YYYY-XXXX-ZZZZ-UUUU",
+      "platform": "steam"
     }
   ],
   "refund": {
@@ -127,7 +129,9 @@ and pay individual orders, as well as list all orders. Orders are identified by 
   },
   "metadata": {
     "some_data_from_create_payment": "any data"
-  }
+  },
+  "type": "product",
+  "platform_id": "steam"
 }
 ```
 
@@ -197,7 +201,15 @@ and pay individual orders, as well as list all orders. Orders are identified by 
 |method.fee.amount|float|A positive float with two decimal points(e.g., 1.00 to charge $1.00) representing the payment method fee.|
 |method.fee.currency|string|Three-letter [ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.|
 |method.fee.effective_rate|float|A positive float with two decimal points representing the actual rate of the payment method fee for the payment.|
-|items|object[]|Array of Product objects associated with current Order.|
+|items|object[]|Array of OrderItem objects associated with current Order.|
+|items.id|string|Unique identifier for the object.|
+|items.sku|string|String representing the stock keeping unit|
+|items.name|string|Localized name for the object.|
+|items.description|string|Localized description for the object.|
+|items.images|string[]|Image urls associated with the object.|
+|items.metadata|object|Set of key-value pairs that attached to an object on creating product.|
+|items.code|string|Activation code for the object. Can be ommited if order is not processed or type of order is not "key".|
+|items.platform|string|Platform for activation code. Can be ommited if order is not processed or type of order is not "key".|
 |refund.amount|float|A positive float with two decimal points(e.g., 1.00 to charge $1.00) representing the refund amount.|
 |refund.currency|string|Three-letter [ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.|
 |refund.reason|string|String representing the refund reasons.|
@@ -205,6 +217,8 @@ and pay individual orders, as well as list all orders. Orders are identified by 
 |refund.receipt_number|string|String representing the unique id for refund receipt.|
 |refund.receipt_url|string|String representing the URL in PaySuper service for online access to given refund receipt.|
 |metadata|object| Set of key-value pairs that attached to an object on create order state.|
+|product_type|string|Type of products in order. Available types: simple, product, key|
+|platform_id|string|Id of platform for key distribution. (steam, gog, egs, xbox, switch, etc.)|
         
 ## Create an Order 
 
@@ -238,7 +252,8 @@ $ curl https://api.paysuper.online/v1/orders \
      ],
      "metadata": {
          "somedata": "value"
-     }
+     }, 
+     "type": "simple"
    }'
 
 # Example response
@@ -305,7 +320,8 @@ $ curl https://api.paysuper.online/v1/orders \
   ], 
   "metadata": {
       "somedata": "value"
-  } 
+  },
+  "type": "simple"
 }
 ```
 
@@ -320,6 +336,8 @@ $ curl https://api.paysuper.online/v1/orders \
 |receipt_email|string| *optional*  The email address to which this orders’s receipt will be sent. The receipt will not be sent until the order is paid, and no receipts will be sent for test mode orders. If this order is for a User with email, the email address specified here will override the users’s email address.|
 |items|object[]|Array of Product objects associated with current Order.|
 |metadata|object| Set of key-value pairs that attached to an object on create order state.|
+|type|string|**REQUIRED** Type of products in order. Available types: simple, product, key|
+
 
 ## Retrieve a Order
 
@@ -462,7 +480,8 @@ $ curl https://api.paysuper.online/v1/orders/22d6d597-000f-5000-9000-145f6df21d6
   },
   "metadata": {
     "some_data_from_create_payment": "any data"
-  }
+  },
+  "type": "simple"
 }
 ```
 
@@ -648,7 +667,8 @@ $ curl https://api.paysuper.online/v1/orders/22d6d597-000f-5000-9000-145f6df21d6
       "refund": {},
       "metadata": {
         "some_data_from_create_payment": "any data"
-      }
+      },
+      "type": "simple"
     },
     {...}
   ]
