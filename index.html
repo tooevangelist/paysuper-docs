@@ -288,6 +288,66 @@
               </ul>
           </li>
           <li>
+            <a href="#key-products" class="toc-h1 toc-link" data-title="Key Products">Key Products</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#the-key-product-object" class="toc-h2 toc-link" data-title="The Key Product object">The Key Product object</a>
+                  </li>
+                  <li>
+                    <a href="#list-of-products" class="toc-h2 toc-link" data-title="List of products">List of products</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-key-product" class="toc-h2 toc-link" data-title="Create a Key Product">Create a Key Product</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-key-product" class="toc-h2 toc-link" data-title="Update a Key Product">Update a Key Product</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-key-product" class="toc-h2 toc-link" data-title="Get a Key Product">Get a Key Product</a>
+                  </li>
+                  <li>
+                    <a href="#publish-a-key-product" class="toc-h2 toc-link" data-title="Publish a Key Product">Publish a Key Product</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-key-product" class="toc-h2 toc-link" data-title="Delete a Key Product">Delete a Key Product</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-key-product-public-info" class="toc-h2 toc-link" data-title="Get a Key Product public info">Get a Key Product public info</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#platforms" class="toc-h1 toc-link" data-title="Platforms">Platforms</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-available-platforms" class="toc-h2 toc-link" data-title="List available platforms">List available platforms</a>
+                  </li>
+                  <li>
+                    <a href="#add-change-platform-price-for-key-product" class="toc-h2 toc-link" data-title="Add/Change platform price for key product">Add/Change platform price for key product</a>
+                  </li>
+                  <li>
+                    <a href="#remove-platform-price-for-key-product" class="toc-h2 toc-link" data-title="Remove platform price for key product">Remove platform price for key product</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#keys" class="toc-h1 toc-link" data-title="Keys">Keys</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#the-key-object" class="toc-h2 toc-link" data-title="The Key object">The Key object</a>
+                  </li>
+                  <li>
+                    <a href="#upload-keys" class="toc-h2 toc-link" data-title="Upload keys">Upload keys</a>
+                  </li>
+                  <li>
+                    <a href="#get-key-info" class="toc-h2 toc-link" data-title="Get key info">Get key info</a>
+                  </li>
+                  <li>
+                    <a href="#count-of-keys-for-specified-platform-and-product" class="toc-h2 toc-link" data-title="Count of keys for specified platform and product">Count of keys for specified platform and product</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
               <ul class="toc-list-h2">
                   <li>
@@ -2171,6 +2231,845 @@ GET /admin/api/v1/products?name=car&amp;sku=ru_0&amp;project_id=5bdc39a95d1e1100
 <td>limit</td>
 <td>number</td>
 <td>maximum items per page</td>
+</tr>
+</tbody></table>
+<h1 id='key-products'>Key Products</h1>
+<p>Store representations of product with keys you sell in PaySuper.</p>
+<h2 id='the-key-product-object'>The Key Product object</h2>
+<blockquote>
+<p>Example object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ca5124868add448289e432e"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5be2e16701d96d00012d26c3"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GTA 3"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GTA 3 description"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"long_description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GTA 3 long description"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-13T08:23:25Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-13T08:23:25Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gta_3_common"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"http://some.host.ru/images/img1.jpg"</span><span class="p">,</span><span class="w"> </span><span class="s2">"http://some.host.ru/images/img2.jpg"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://mylanding.ru/games/gta3"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"some_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_data"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"default_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"platforms"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gog"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Good old games.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">29.99</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"published_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-13T08:23:25Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Unique identifier for the object.</td>
+</tr>
+<tr>
+<td>object</td>
+<td>string</td>
+<td>String representing the object’s type. Objects of the same type share the same value.</td>
+</tr>
+<tr>
+<td>project_id</td>
+<td>string</td>
+<td>Identifier of project, with which the product is associated.</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>string</td>
+<td>String representing the stock keeping unit.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>map[string]string</td>
+<td>An map object, where keys are locales, and values is product name in key&#39;s locale.</td>
+</tr>
+<tr>
+<td>default_currency</td>
+<td>string</td>
+<td>Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a>, in lowercase, representing the product default currency.</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>boolean</td>
+<td>True is product available for purchase.</td>
+</tr>
+<tr>
+<td>platforms</td>
+<td>array</td>
+<td>The list of platforms for all available with prices</td>
+</tr>
+<tr>
+<td>platforms.id</td>
+<td>string</td>
+<td>Identifier for platform (steam, gog, xbox, etc.)</td>
+</tr>
+<tr>
+<td>platforms.name</td>
+<td>string</td>
+<td>Name for platform (Steam, GOG, Xbox Store, etc.)</td>
+</tr>
+<tr>
+<td>platforms.prices</td>
+<td>array</td>
+<td>The list of prices for specified platform for all available regional prices for key product.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>map[string]string</td>
+<td>An map object, where keys are locales, and values is product description in key&#39;s locale.</td>
+</tr>
+<tr>
+<td>long_description</td>
+<td>map[string]string</td>
+<td>An map object, where keys are locales, and values is product long description in key&#39;s locale.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>string</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> when a product has been created.</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>string</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> when a product has been updated.</td>
+</tr>
+<tr>
+<td>published_at</td>
+<td>string</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> when a product has been published.</td>
+</tr>
+<tr>
+<td>images</td>
+<td>string[]</td>
+<td>The array if URL to product images.</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>An arbitrary URL to product web page.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>object</td>
+<td>Set of key-value pairs that attached to an object on creating product.</td>
+</tr>
+</tbody></table>
+<h2 id='list-of-products'>List of products</h2>
+<p>By default, returns full list of all Merchant&#39;s products. Some filters may be applied.</p>
+<pre class="highlight shell tab-shell"><code><span class="c"># Definition</span>
+GET /admin/api/v1/products?name<span class="o">=</span>car&amp;sku<span class="o">=</span>ru_0&amp;project_id<span class="o">=</span>5bdc39a95d1e1100019fb7df&amp;offset<span class="o">=</span>0&amp;limit<span class="o">=</span>10
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/admin/api/v1/products?name<span class="o">=</span>car&amp;sku<span class="o">=</span>ru_0&amp;project_id<span class="o">=</span>5bdc39a95d1e1100019fb7df&amp;offset<span class="o">=</span>0&amp;limit<span class="o">=</span>10 <span class="se">\</span>
+      -G -H <span class="s2">"Authorization: Bearer %access_token_here%"</span>
+
+<span class="c"># Example response</span>
+
+<span class="o">{</span>
+    <span class="s2">"total_count"</span>: 1,
+    <span class="s2">"items"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"id"</span>: <span class="s2">"5ca5124868add448289e432e"</span>,
+            <span class="s2">"project_id"</span>: <span class="s2">"5be2e16701d96d00012d26c3"</span>,
+            <span class="s2">"name"</span>: <span class="o">{</span>
+                <span class="s2">"en"</span>: <span class="s2">"The Awesome Game"</span>,
+            <span class="o">}</span>,
+            <span class="s2">"description"</span>: <span class="o">{</span>
+                <span class="s2">"en"</span>: <span class="s2">"The Awesome Game Description"</span>,
+            <span class="o">}</span>,
+            <span class="s2">"created_at"</span>: <span class="s2">"2019-08-13T08:23:25Z"</span>,
+            <span class="s2">"updated_at"</span>: <span class="s2">"2019-08-13T08:23:25Z"</span>,
+            <span class="s2">"sku"</span>: <span class="s2">"en_awesome_game"</span>,
+            <span class="s2">"images"</span>: <span class="o">[]</span>,
+            <span class="s2">"enabled"</span>: <span class="nb">true</span>,
+            <span class="s2">"default_currency"</span>: <span class="s2">"USD"</span>,
+            <span class="s2">"platforms"</span>: <span class="o">[</span>
+                <span class="o">{</span>
+                    <span class="s2">"id"</span>: <span class="s2">"steam"</span>,
+                    <span class="s2">"name"</span>: <span class="s2">"Steam"</span>,
+                    <span class="s2">"prices"</span>: <span class="o">[</span>
+                        <span class="o">{</span>
+                            <span class="s2">"region"</span>: <span class="s2">"EUR"</span>,
+                            <span class="s2">"amount"</span>: 29.99,
+                            <span class="s2">"currency"</span>: <span class="s2">"EUR"</span>
+                        <span class="o">}</span>
+                    <span class="o">]</span>
+                <span class="o">}</span>
+            <span class="o">]</span>
+        <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+</code></pre><h3 id='arguments'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Part of key product&#39;s name to filter by name (substring match)</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>string</td>
+<td>Part of key product&#39;s name to filter by sku (substring match)</td>
+</tr>
+<tr>
+<td>project_id</td>
+<td>string</td>
+<td>Project Id, to filter by</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>number</td>
+<td>offset from first item position</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>number</td>
+<td>maximum items per page</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-key-product'>Create a Key Product</h2><pre class="highlight shell tab-shell"><code><span class="c"># Definition</span>
+POST /admin/api/v1/key-products
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/admin/api/v1/key-products
+   -X POST -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Authorization: Bearer %access_token_here%"</span> <span class="se">\</span>
+   -d <span class="s1">'{
+        "name": {
+            "en": "The Awesome Game",
+        },
+        "project_id": "5be2e16701d96d00012d26c3",
+        "description": {
+            "en": "The Awesome Game Description",
+        },
+        "sku": "en_awesome_game",
+        "default_currency": "USD"
+        }'</span>
+
+<span class="c"># Example response</span>
+<span class="o">{</span>
+  <span class="s2">"id"</span>: <span class="s2">"5ca5124868add448289e432e"</span>,
+  <span class="s2">"project_id"</span>: <span class="s2">"5be2e16701d96d00012d26c3"</span>,
+  <span class="s2">"name"</span>: <span class="o">{</span>
+    <span class="s2">"en"</span>: <span class="s2">"The Awesome Game"</span>,
+  <span class="o">}</span>,
+  <span class="s2">"description"</span>: <span class="o">{</span>
+    <span class="s2">"en"</span>: <span class="s2">"The Awesome Game Description"</span>,
+  <span class="o">}</span>,
+  <span class="s2">"created_at"</span>: <span class="s2">"2019-08-13T08:23:25Z"</span>,
+  <span class="s2">"updated_at"</span>: <span class="s2">"2019-08-13T08:23:25Z"</span>,
+  <span class="s2">"sku"</span>: <span class="s2">"en_awesome_game"</span>,
+  <span class="s2">"images"</span>: <span class="o">[]</span>,
+  <span class="s2">"enabled"</span>: <span class="nb">false</span>,
+  <span class="s2">"default_currency"</span>: <span class="s2">"USD"</span>,
+  <span class="s2">"platforms"</span>: <span class="o">[]</span>,
+<span class="o">}</span>
+</code></pre><h3 id='arguments-2'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Identifier of project, with which the product is associated.</td>
+</tr>
+<tr>
+<td>object</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> String representing the object’s type. Objects of the same type share the same value.</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> String representing the stock keeping unit.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>map[string]string</td>
+<td><strong>REQUIRED</strong> An map object, where keys are locales, and values is product name in key&#39;s locale. Must have, at least, value in default system locale</td>
+</tr>
+<tr>
+<td>default_currency</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a>, representing the product default currency.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>map[string]string</td>
+<td><strong>REQUIRED</strong> An map object, where keys are locales, and values is product description in key&#39;s locale. Must have, at least, value in default system locale</td>
+</tr>
+<tr>
+<td>long_description</td>
+<td>map[string]string</td>
+<td>An map object, where keys are locales, and values is product long description in key&#39;s locale.</td>
+</tr>
+<tr>
+<td>images</td>
+<td>string[]</td>
+<td>The array if URL to product images.</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>An arbitrary URL to product web page.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>object</td>
+<td>Set of key-value pairs that attached to an object on creating product.</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-key-product'>Update a Key Product</h2><pre class="highlight shell tab-shell"><code><span class="c"># Definition</span>
+PUT /admin/api/v1/key-products/:key_product_id
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/admin/api/v1/key-products/5ca5124868add448289e432e
+   -X PUT -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Authorization: Bearer %access_token_here%"</span> <span class="se">\</span>
+   -d <span class="s1">'{
+            "project_id": "5be2e16701d96d00012d26c3",
+            "name": {
+                "en": "The Awesome Game",
+            },
+            "description": {
+                "en": "The Awesome Game Description",
+            },
+            "default_currency": "USD"
+        }'</span>
+
+<span class="c"># Example response</span>
+<span class="o">{</span>
+  <span class="s2">"id"</span>: <span class="s2">"5ca5124868add448289e432e"</span>,
+  <span class="s2">"project_id"</span>: <span class="s2">"5be2e16701d96d00012d26c3"</span>,
+  <span class="s2">"name"</span>: <span class="o">{</span>
+    <span class="s2">"en"</span>: <span class="s2">"The Awesome Game"</span>,
+  <span class="o">}</span>,
+  <span class="s2">"description"</span>: <span class="o">{</span>
+    <span class="s2">"en"</span>: <span class="s2">"The Awesome Game Description"</span>,
+  <span class="o">}</span>,
+  <span class="s2">"created_at"</span>: <span class="s2">"2019-08-13T08:23:25Z"</span>,
+  <span class="s2">"updated_at"</span>: <span class="s2">"2019-08-13T08:23:25Z"</span>,
+  <span class="s2">"sku"</span>: <span class="s2">"en_awesome_game"</span>,
+  <span class="s2">"images"</span>: <span class="o">[]</span>,
+  <span class="s2">"enabled"</span>: <span class="nb">false</span>,
+  <span class="s2">"default_currency"</span>: <span class="s2">"USD"</span>,
+  <span class="s2">"platforms"</span>: <span class="o">[]</span>,
+<span class="o">}</span>
+</code></pre><h3 id='arguments-3'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Identifier of project, with which the product is associated.</td>
+</tr>
+<tr>
+<td>object</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> String representing the object’s type. Objects of the same type share the same value.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>map[string]string</td>
+<td><strong>REQUIRED</strong> An map object, where keys are locales, and values is product name in key&#39;s locale. Must have, at least, value in default system locale</td>
+</tr>
+<tr>
+<td>default_currency</td>
+<td>string</td>
+<td><strong>REQUIRED</strong>Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a>, in lowercase, representing the product default currency.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>map[string]string</td>
+<td><strong>REQUIRED</strong> An map object, where keys are locales, and values is product description in key&#39;s locale. Must have, at least, value in default system locale</td>
+</tr>
+<tr>
+<td>long_description</td>
+<td>map[string]string</td>
+<td>An map object, where keys are locales, and values is product long description in key&#39;s locale.</td>
+</tr>
+<tr>
+<td>images</td>
+<td>string[]</td>
+<td>The array if URL to product images.</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>An arbitrary URL to product web page.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>object</td>
+<td>Set of key-value pairs that attached to an object on creating product.</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-key-product'>Get a Key Product</h2><pre class="highlight shell tab-shell"><code><span class="c"># Definition</span>
+GET /admin/api/v1/key-products/:key_product_id
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/admin/api/v1/key-products/5ca5124868add448289e432e 
+-G -H <span class="s2">"Authorization: Bearer %access_token_here%"</span>
+
+<span class="c"># Example response</span>
+<span class="o">{</span>
+  <span class="s2">"id"</span>: <span class="s2">"5ca5124868add448289e432e"</span>,
+  <span class="s2">"project_id"</span>: <span class="s2">"5be2e16701d96d00012d26c3"</span>,
+  <span class="s2">"name"</span>: <span class="o">{</span>
+    <span class="s2">"en"</span>: <span class="s2">"The Awesome Game"</span>,
+  <span class="o">}</span>,
+  <span class="s2">"description"</span>: <span class="o">{</span>
+    <span class="s2">"en"</span>: <span class="s2">"The Awesome Game Description"</span>,
+  <span class="o">}</span>,
+  <span class="s2">"created_at"</span>: <span class="s2">"2019-08-13T08:23:25Z"</span>,
+  <span class="s2">"updated_at"</span>: <span class="s2">"2019-08-13T08:23:25Z"</span>,
+  <span class="s2">"sku"</span>: <span class="s2">"en_awesome_game"</span>,
+  <span class="s2">"images"</span>: <span class="o">[]</span>,
+  <span class="s2">"enabled"</span>: <span class="nb">true</span>,
+  <span class="s2">"default_currency"</span>: <span class="s2">"USD"</span>,
+  <span class="s2">"platforms"</span>: <span class="o">[</span>
+      <span class="o">{</span>
+          <span class="s2">"id"</span>: <span class="s2">"steam"</span>,
+          <span class="s2">"name"</span>: <span class="s2">"Steam"</span>,
+          <span class="s2">"prices"</span>: <span class="o">[</span>
+              <span class="o">{</span>
+                  <span class="s2">"region"</span>: <span class="s2">"EUR"</span>,
+                  <span class="s2">"amount"</span>: 29.99,
+                  <span class="s2">"currency"</span>: <span class="s2">"EUR"</span>
+              <span class="o">}</span>
+          <span class="o">]</span>
+      <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre><h3 id='arguments-4'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>:key_product_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Identifier of key product</td>
+</tr>
+</tbody></table>
+<h2 id='publish-a-key-product'>Publish a Key Product</h2><pre class="highlight shell tab-shell"><code><span class="c"># Definition</span>
+POST /admin/api/v1/key-products/:key_product_id/publish
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/admin/api/v1/key-products/5ca5124868add448289e432e <span class="se">\</span>
+      -X DELETE -H <span class="s2">"Authorization: Bearer %access_token_here%"</span>
+
+<span class="c"># Example response</span>
+<span class="o">{</span>
+  <span class="s2">"id"</span>: <span class="s2">"5ca5124868add448289e432e"</span>,
+  <span class="s2">"project_id"</span>: <span class="s2">"5be2e16701d96d00012d26c3"</span>,
+  <span class="s2">"name"</span>: <span class="o">{</span>
+    <span class="s2">"en"</span>: <span class="s2">"The Awesome Game"</span>,
+  <span class="o">}</span>,
+  <span class="s2">"description"</span>: <span class="o">{</span>
+    <span class="s2">"en"</span>: <span class="s2">"The Awesome Game Description"</span>,
+  <span class="o">}</span>,
+  <span class="s2">"created_at"</span>: <span class="s2">"2019-08-13T08:23:25Z"</span>,
+  <span class="s2">"updated_at"</span>: <span class="s2">"2019-08-13T08:23:25Z"</span>,
+  <span class="s2">"sku"</span>: <span class="s2">"en_awesome_game"</span>,
+  <span class="s2">"images"</span>: <span class="o">[]</span>,
+  <span class="s2">"enabled"</span>: <span class="nb">true</span>,
+  <span class="s2">"default_currency"</span>: <span class="s2">"USD"</span>,
+  <span class="s2">"platforms"</span>: <span class="o">[</span>
+      <span class="o">{</span>
+          <span class="s2">"id"</span>: <span class="s2">"steam"</span>,
+          <span class="s2">"name"</span>: <span class="s2">"Steam"</span>,
+          <span class="s2">"prices"</span>: <span class="o">[</span>
+              <span class="o">{</span>
+                  <span class="s2">"region"</span>: <span class="s2">"EUR"</span>,
+                  <span class="s2">"amount"</span>: 29.99,
+                  <span class="s2">"currency"</span>: <span class="s2">"EUR"</span>
+              <span class="o">}</span>
+          <span class="o">]</span>
+      <span class="o">}</span>
+  <span class="o">]</span>,
+  <span class="s2">"published_at"</span>: <span class="s2">"2019-08-13T08:23:25Z"</span>
+<span class="o">}</span>
+</code></pre><h2 id='delete-a-key-product'>Delete a Key Product</h2><pre class="highlight shell tab-shell"><code><span class="c"># Definition</span>
+DELETE /admin/api/v1/key-products/:key_product_id
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/admin/api/v1/key-products/5ca5124868add448289e432e <span class="se">\</span>
+      -X DELETE -H <span class="s2">"Authorization: Bearer %access_token_here%"</span>
+
+<span class="c"># Example response</span>
+No content <span class="k">in </span>response
+</code></pre><h3 id='arguments-5'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>:key_product_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Identifier of key product</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-key-product-public-info'>Get a Key Product public info</h2><pre class="highlight shell tab-shell"><code><span class="c"># Definition</span>
+GET /api/v1/key-products/:key_product_id
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/api/v1/key-products/5ca5124868add448289e432e?currency<span class="o">=</span>EUR <span class="se">\</span>
+      -X GET
+
+<span class="c"># Example response</span>
+<span class="o">{</span>
+  <span class="s2">"id"</span>: <span class="s2">"5ca5124868add448289e432e"</span>,
+  <span class="s2">"project_id"</span>: <span class="s2">"5be2e16701d96d00012d26c3"</span>,
+  <span class="s2">"name"</span>: <span class="s2">"The Awesome Game"</span>,
+  <span class="s2">"description"</span>: <span class="s2">"The Awesome Game description"</span>,
+  <span class="s2">"long_description"</span>: <span class="s2">"The Awesome Game long description"</span>,
+  <span class="s2">"images"</span>: <span class="o">[</span>
+    <span class="s2">"http://example.com/image.jpeg"</span>
+  <span class="o">]</span>,
+  <span class="s2">"platforms"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: <span class="s2">"steam"</span>,
+      <span class="s2">"name"</span>: <span class="s2">"Steam"</span>,
+      <span class="s2">"price"</span>: <span class="o">{</span>
+        <span class="s2">"amount"</span>: 29.99,
+        <span class="s2">"currency"</span>: <span class="s2">"EUR"</span>,
+        <span class="s2">"region"</span>: <span class="s2">"EUR"</span>,
+        <span class="s2">"is_fallback"</span>: <span class="nb">false</span>
+      <span class="o">}</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: <span class="s2">"gog"</span>,
+      <span class="s2">"name"</span>: <span class="s2">"GOG.com"</span>,
+      <span class="s2">"price"</span>: <span class="o">{</span>
+        <span class="s2">"amount"</span>: 29.99,
+        <span class="s2">"currency"</span>: <span class="s2">"USD"</span>,
+        <span class="s2">"region"</span>: <span class="s2">"USD"</span>,
+        <span class="s2">"is_fallback"</span>: <span class="nb">true</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre><h3 id='arguments-6'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>:key_product_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Identifier of key product</td>
+</tr>
+<tr>
+<td>country</td>
+<td>string</td>
+<td>ISO code of country for that price shoul be calculated</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>Three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html">ISO 4217 currency code</a></td>
+</tr>
+</tbody></table>
+<h1 id='platforms'>Platforms</h1><h2 id='list-available-platforms'>List available platforms</h2><pre class="highlight shell tab-shell"><code><span class="c"># Definition</span>
+GET /admin/api/v1/platforms
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/admin/api/v1/platforms
+-H <span class="s2">"Authorization: Bearer %access_token_here%"</span>
+
+<span class="c"># Example response</span>
+<span class="o">{</span>
+  <span class="s2">"total_count"</span>: 2,
+  <span class="s2">"items"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: <span class="s2">"steam"</span>,
+      <span class="s2">"name"</span>: <span class="s2">"Steam"</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: <span class="s2">"gog"</span>,
+      <span class="s2">"name"</span>: <span class="s2">"GOG.com"</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre><h3 id='arguments-7'>Arguments</h3>
+<p>No arguments</p>
+<h2 id='add-change-platform-price-for-key-product'>Add/Change platform price for key product</h2><pre class="highlight shell tab-shell"><code><span class="c"># Definition</span>
+POST /admin/api/v1/key-products/:key_product_id/platforms
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/admin/api/v1/key-products/5ca5124868add448289e432e/platforms <span class="se">\</span>
+      -X POST -H <span class="s2">"Authorization: Bearer %access_token_here%"</span> <span class="se">\</span>
+      -d <span class="s1">'{
+            "platform": {
+              "id": "gog",
+              "name": "Good old games.com",
+              "prices": [
+                  {
+                  "region": "EUR",
+                  "amount": 29.99,
+                  "currency": "EUR"
+                  }
+              ]
+            }
+          }'</span>
+
+<span class="c"># Example response</span>
+No content <span class="k">in </span>response
+</code></pre><h3 id='arguments-8'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>:key_product_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Identifier of key product</td>
+</tr>
+</tbody></table>
+<h2 id='remove-platform-price-for-key-product'>Remove platform price for key product</h2><pre class="highlight shell tab-shell"><code><span class="c"># Definition</span>
+DELET /admin/api/v1/key-products/:key_product_id/platforms/:platform_id
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/admin/api/v1/key-products/5ca5124868add448289e432e/steam <span class="se">\</span>
+      -X DELETE -H <span class="s2">"Authorization: Bearer %access_token_here%"</span> <span class="se">\</span>
+
+<span class="c"># Example response</span>
+No content <span class="k">in </span>response
+</code></pre><h3 id='arguments-9'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>:key_product_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Identifier of key product</td>
+</tr>
+<tr>
+<td>:platform_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Identifier of platform to remove for key product</td>
+</tr>
+</tbody></table>
+<h1 id='keys'>Keys</h1>
+<p>Store representations of digital key you sell in PaySuper.</p>
+<h2 id='the-key-object'>The Key object</h2>
+<blockquote>
+<p>Example object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ca5124868add448289e432e"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXX-YYYY-ZZZZ-UUUU"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"key_product_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ca5124868add448289e432e"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"platform_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steam"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ca5124868add448289e432e"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-13T08:23:25Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reserved_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-13T08:23:25Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"redeemed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-13T08:23:25Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Unique identifier for the object.</td>
+</tr>
+<tr>
+<td>code</td>
+<td>string</td>
+<td>Code for activation game in specified platform.</td>
+</tr>
+<tr>
+<td>key_product_id</td>
+<td>string</td>
+<td>Identifier of key product associated with.</td>
+</tr>
+<tr>
+<td>platform_id</td>
+<td>string</td>
+<td>Identifier of platform (steam, gog, xbox, etc.)</td>
+</tr>
+<tr>
+<td>order_id</td>
+<td>string</td>
+<td>Identifier of order.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>string</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> when a key has been uploaded.</td>
+</tr>
+<tr>
+<td>reserved_to</td>
+<td>string</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> a key has been reserved to.</td>
+</tr>
+<tr>
+<td>redeemed_at</td>
+<td>string</td>
+<td>The date and time in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> when a key has been redeemed.</td>
+</tr>
+</tbody></table>
+<h2 id='upload-keys'>Upload keys</h2>
+<p>User should upload file with keys for specified platform, where each line in file is key.</p>
+<pre class="highlight shell tab-shell"><code><span class="c"># Definition</span>
+GET /admin/api/v1/key-products/:key_product_id/platforms/:platform_id/file
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl -F <span class="s1">'file=@/steam/keys.txt'</span> https://p1payapi.tst.protocol.one/admin/api/v1/key-products/5ca5124868add448289e432e/platforms/steam/file <span class="se">\</span>
+ -X POST -H <span class="s2">"Authorization: Bearer %access_token_here%"</span> <span class="se">\</span>
+
+<span class="c"># Example response</span>
+<span class="o">{</span>
+    <span class="s2">"keys_processed"</span>: 1000,
+    <span class="s2">"total_count"</span>: 1963
+<span class="o">}</span>
+</code></pre><h3 id='arguments'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key_product_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Unique identifier for the key.</td>
+</tr>
+<tr>
+<td>platform_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Unique identifier for the key.</td>
+</tr>
+</tbody></table>
+<h3 id='attributes-2'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>keys_processed</td>
+<td>int</td>
+<td>Count of keys has been added. Duplicates are will not be added</td>
+</tr>
+<tr>
+<td>total_count</td>
+<td>int</td>
+<td>Total count of keys for platform and key product in database.</td>
+</tr>
+</tbody></table>
+<h2 id='get-key-info'>Get key info</h2><pre class="highlight shell tab-shell"><code><span class="c"># Definition</span>
+GET /admin/api/v1/keys/:key_id
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/admin/api/v1/keys/5ca5124868add448289e432e <span class="se">\</span>
+      -G -H <span class="s2">"Authorization: Bearer %access_token_here%"</span>
+
+<span class="c"># Example response</span>
+<span class="o">{</span>
+  <span class="s2">"id"</span>: <span class="s2">"5ca5124868add448289e432e"</span>,
+  <span class="s2">"code"</span>: <span class="s2">"AAAA-BBBB-CCCC-XXXX"</span>,
+  <span class="s2">"key_product_id"</span>: <span class="s2">"5ca5124868add448289e432e"</span>,
+  <span class="s2">"platform_id"</span>: <span class="s2">"steam"</span>,
+  <span class="s2">"order_id"</span>: <span class="s2">"5ca5124868add448289e432e"</span>,
+  <span class="s2">"created_at"</span>: <span class="s2">"2019-08-14T12:50:49Z"</span>,
+  <span class="s2">"redeemed_at"</span>: <span class="s2">"2019-08-14T12:50:49Z"</span>,
+  <span class="s2">"reserved_to"</span>: <span class="s2">"2019-08-14T12:50:49Z"</span>
+<span class="o">}</span>
+</code></pre><h3 id='arguments-2'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key_product_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Unique identifier for the key.</td>
+</tr>
+</tbody></table>
+<h2 id='count-of-keys-for-specified-platform-and-product'>Count of keys for specified platform and product</h2><pre class="highlight shell tab-shell"><code><span class="c"># Definition</span>
+GET /admin/api/v1/key-products/:key_product_id/platforms/:platform_id/keys/count
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://p1payapi.tst.protocol.one/admin/api/v1/key-products/5ca5124868add448289e432e/platforms/steam/keys/count <span class="se">\</span>
+      -G -H <span class="s2">"Authorization: Bearer %access_token_here%"</span>
+
+<span class="c"># Example response</span>
+<span class="o">{</span>
+    <span class="s2">"count"</span>: 1463
+<span class="o">}</span>
+</code></pre><h3 id='arguments-3'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key_product_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Unique identifier for the key.</td>
+</tr>
+<tr>
+<td>platform_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Unique identifier for the key.</td>
 </tr>
 </tbody></table>
 <h1 id='users'>Users</h1>
