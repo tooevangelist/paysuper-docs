@@ -598,7 +598,9 @@ and pay individual orders, as well as list all orders. Orders are identified by 
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-17T14:28:32.484Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
       </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+      </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YYYY-XXXX-ZZZZ-UUUU"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steam"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"refund"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -611,7 +613,9 @@ and pay individual orders, as well as list all orders. Orders are identified by 
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"some_data_from_create_payment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"any data"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"platform_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steam"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='statuses'>Statuses</h3>
 <table><thead>
@@ -928,7 +932,47 @@ and pay individual orders, as well as list all orders. Orders are identified by 
 <tr>
 <td>items</td>
 <td>object[]</td>
-<td>Array of Product objects associated with current Order.</td>
+<td>Array of OrderItem objects associated with current Order.</td>
+</tr>
+<tr>
+<td>items.id</td>
+<td>string</td>
+<td>Unique identifier for the object.</td>
+</tr>
+<tr>
+<td>items.sku</td>
+<td>string</td>
+<td>String representing the stock keeping unit</td>
+</tr>
+<tr>
+<td>items.name</td>
+<td>string</td>
+<td>Localized name for the object.</td>
+</tr>
+<tr>
+<td>items.description</td>
+<td>string</td>
+<td>Localized description for the object.</td>
+</tr>
+<tr>
+<td>items.images</td>
+<td>string[]</td>
+<td>Image urls associated with the object.</td>
+</tr>
+<tr>
+<td>items.metadata</td>
+<td>object</td>
+<td>Set of key-value pairs that attached to an object on creating product.</td>
+</tr>
+<tr>
+<td>items.code</td>
+<td>string</td>
+<td>Activation code for the object. Can be ommited if order is not processed or type of order is not &quot;key&quot;.</td>
+</tr>
+<tr>
+<td>items.platform</td>
+<td>string</td>
+<td>Platform for activation code. Can be ommited if order is not processed or type of order is not &quot;key&quot;.</td>
 </tr>
 <tr>
 <td>refund.amount</td>
@@ -965,6 +1009,16 @@ and pay individual orders, as well as list all orders. Orders are identified by 
 <td>object</td>
 <td>Set of key-value pairs that attached to an object on create order state.</td>
 </tr>
+<tr>
+<td>product_type</td>
+<td>string</td>
+<td>Type of products in order. Available types: simple, product, key</td>
+</tr>
+<tr>
+<td>platform_id</td>
+<td>string</td>
+<td>Id of platform for key distribution. (steam, gog, egs, xbox, switch, etc.)</td>
+</tr>
 </tbody></table>
 <h2 id='create-an-order'>Create an Order</h2>
 <p>To charge a payment source, you should create a Order object. </p>
@@ -992,7 +1046,8 @@ POST /v1/orders
      ],
      "metadata": {
          "somedata": "value"
-     }
+     }, 
+     "type": "simple"
    }'</span>
 
 <span class="c"># Example response</span>
@@ -1059,7 +1114,8 @@ POST /v1/orders
   <span class="o">]</span>, 
   <span class="s2">"metadata"</span>: <span class="o">{</span>
       <span class="s2">"somedata"</span>: <span class="s2">"value"</span>
-  <span class="o">}</span> 
+  <span class="o">}</span>,
+  <span class="s2">"type"</span>: <span class="s2">"simple"</span>
 <span class="o">}</span>
 </code></pre><h3 id='arguments'>Arguments</h3>
 <table><thead>
@@ -1103,6 +1159,11 @@ POST /v1/orders
 <td>metadata</td>
 <td>object</td>
 <td>Set of key-value pairs that attached to an object on create order state.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> Type of products in order. Available types: simple, product, key</td>
 </tr>
 </tbody></table>
 <h2 id='retrieve-a-order'>Retrieve a Order</h2>
@@ -1240,7 +1301,8 @@ GET /v1/orders/:id
   <span class="o">}</span>,
   <span class="s2">"metadata"</span>: <span class="o">{</span>
     <span class="s2">"some_data_from_create_payment"</span>: <span class="s2">"any data"</span>
-  <span class="o">}</span>
+  <span class="o">}</span>,
+  <span class="s2">"type"</span>: <span class="s2">"simple"</span>
 <span class="o">}</span>
 </code></pre><h3 id='arguments-2'>Arguments</h3>
 <table><thead>
@@ -1449,7 +1511,8 @@ GET /v1/orders?limit=2
       <span class="s2">"refund"</span>: <span class="o">{}</span>,
       <span class="s2">"metadata"</span>: <span class="o">{</span>
         <span class="s2">"some_data_from_create_payment"</span>: <span class="s2">"any data"</span>
-      <span class="o">}</span>
+      <span class="o">}</span>,
+      <span class="s2">"type"</span>: <span class="s2">"simple"</span>
     <span class="o">}</span>,
     <span class="o">{</span>...<span class="o">}</span>
   <span class="o">]</span>
@@ -2440,6 +2503,11 @@ will also fail.</p>
 <td>payment.cancel</td>
 <td>Order</td>
 <td>Sent when a payment must be canceled for cancel for any reasons.</td>
+</tr>
+<tr>
+<td>item.replace</td>
+<td>Order</td>
+<td>Sent when a item of processed order must be replaced for any reasons.</td>
 </tr>
 <tr>
 <td>user.validation</td>
