@@ -9,6 +9,8 @@ toc_footers:
 includes:
   - sections/orders
   - sections/products
+  - sections/key_products
+  - sections/keys
   - sections/users
   - sections/payouts
   - sections/notifications
