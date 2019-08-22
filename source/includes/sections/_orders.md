@@ -337,6 +337,7 @@ $ curl https://api.paysuper.online/v1/orders \
 |items|object[]|Array of Product objects associated with current Order.|
 |metadata|object| Set of key-value pairs that attached to an object on create order state.|
 |type|string|**REQUIRED** Type of products in order. Available types: simple, product, key|
+|platform_id|string|Id of platform for key distribution(steam, gog, egs, xbox, switch, etc.). Required if type = "key" |
 
 
 ## Retrieve a Order
