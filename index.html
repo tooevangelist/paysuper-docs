@@ -1225,6 +1225,11 @@ POST /v1/orders
 <td>string</td>
 <td><strong>REQUIRED</strong> Type of products in order. Available types: simple, product, key</td>
 </tr>
+<tr>
+<td>platform_id</td>
+<td>string</td>
+<td>Id of platform for key distribution(steam, gog, egs, xbox, switch, etc.). Required if type = &quot;key&quot;</td>
+</tr>
 </tbody></table>
 <h2 id='retrieve-a-order'>Retrieve a Order</h2>
 <p>Retrieves the details of an order that has previously been created. Supply the unique charge ID that was returned from your 
