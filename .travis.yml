@@ -28,7 +28,8 @@ deploy:
   skip-cleanup: true
   github-token: "$GITHUB_TOKEN"
   keep-history: true
-  target-branch: gh-pages
+  target-branch: master
+  verbose: true
   repo: paysuper/paysuper-docs-stage
   local-dir: "./public"
   on:
