@@ -12,7 +12,7 @@ if: branch=test
 #cache: bundler
 
 before_install: 
-  - apt-get install hugo
+  - sudo apt-get install hugo
 
 install: true
 
