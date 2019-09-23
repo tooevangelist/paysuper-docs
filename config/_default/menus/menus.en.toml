@@ -1,0 +1,54 @@
+[[docs]]
+  name = "PaySuper"
+  weight = 1
+  identifier = "about"
+  url = "/about/"
+
+[[docs]]
+  name = "Getting Started"
+  weight = 5
+  identifier = "getting-started"
+  url = "/getting-started/"
+
+[[docs]]
+  name = "Payments"
+  weight = 5
+  identifier = "payments"
+  url = "/payments/"
+
+[[docs]]
+  name = "Troubleshooting"
+  weight = 60
+  identifier = "troubleshooting"
+  url = "/troubleshooting/"
+
+[[docs]]
+  name = "API Reference"
+  weight = 25
+  identifier = "api-reference"
+  url = "/api-reference/"
+
+[[global]]
+    name = "Getting Started"
+    weight = 1
+    identifier = "gettingStarted"
+    url = "/getting-started/"
+
+[[global]]
+  name = "Documentation"
+  weight = 5
+  identifier = "documentation"
+  url = "/about/"
+
+[[global]]
+  name = "API Reference"
+  weight = 10
+  identifier = "api-reference"
+  url = "/api-reference/"
+
+[[global]]
+  name = "GitHub"
+  weight = 200
+  identifier = "github"
+  post = "external"
+  url = "https://github.com/paysuper"

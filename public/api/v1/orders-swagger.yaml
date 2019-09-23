@@ -1,0 +1,649 @@
+swagger: "2.0"
+host: p1payapi.tst.protocol.one
+info:  
+  title: 
+  description:
+  version: "1.0"
+
+securityDefinitions:
+  XAPISignatureHeader:
+    type: apiKey
+    in: header
+    name: X-API-SIGNATURE
+    description: must contain sha512 hash of concationation request body and project secret key
+
+definitions:
+  model.AccountingPayment:
+    properties:
+      success_with_commissions:
+        description: |
+          total amount to accounting payment to merchant include commissions
+        type: number
+      success_without_commissions:
+        description: |
+          total amount to accounting payment to merchant exclude commissions
+        type: number
+      total_chargeback:
+        description: |
+          total amount charged payments
+        type: number
+      total_commission:
+        description: |
+          total amount of commissions
+        type: number
+      total_refund:
+        description: |
+          total amount refunded payments
+        type: number
+    type: object
+  model.Country:
+    properties:
+      code_a2:
+        description: |
+          2 chars ISO 3166-1 country code
+        type: string
+      code_a3:
+        description: |
+          3 chars ISO 3166-1 country code
+        type: string
+      code_int:
+        description: |
+          numeric ISO 3166-1 country code
+        type: integer
+      created_at:
+        description: |
+          date of create country in system
+        type: string
+      is_active:
+        description: |
+          is country active
+        type: boolean
+      name:
+        $ref: '#/definitions/model.Name'
+        description: |
+          list of country names
+        type: object
+    type: object
+  model.OrderScalar:
+      properties:
+        account:
+          description: |
+            user unique account in project
+          type: string
+        amount:
+          description: |
+            order amount
+          type: number
+        currency:
+          description: |
+            order currency by ISO 4217 (3 chars). If this field send, then we're process amount in this currency
+          type: string
+        description:
+          description: |
+            order description. If this field not send in request, then we're create standard order description
+          type: string
+        order_id:
+          description: |
+            unique order identifier in project. This field not required, BUT we're recommend send this field always
+          type: string
+        other:
+          description: |
+            object with any fields on the project side that do not match the names of the reserved fields
+          type: object
+        payer_email:
+          description: |
+            user (payer) email
+          type: string
+        payer_ip:
+          description: |
+            user (payer) ip
+          type: string
+        payer_phone:
+          description: |
+            user (payer) phone
+          type: string
+        payment_method:
+          description: |
+            payment method identifier in Protocol One payment solution
+          type: string
+        project:
+          description: |
+            project unique identifier in Protocol One payment solution
+          type: string
+        region:
+          description: |
+            user (payer) region code by ISO 3166-1 (2 chars) for check project packages. If this field not send, then user region will be get from user ip
+          type: string
+        signature:
+          description: |
+            signature of request to verify that the data has not been changed. This field not required, BUT we're recommend send this field always
+          type: string
+        url_fail:
+          description: |
+            URL for redirect user after failed payment. This field can be send if it allowed in project admin panel
+          type: string
+        url_notify:
+          description: |
+            URL for payment notification request to project. This field can be send if it allowed in project admin panel
+          type: string
+        url_success:
+          description: |
+            URL for redirect user after successfully completed payment. This field can be send if it allowed in project admin panel
+          type: string
+        url_verify:
+          description: |
+            URL for payment data verification request to project. This field can be send if it allowed in project admin panel
+          type: string
+      required:
+        - project
+        - amount
+      type: object
+  model.Error:
+    properties:
+      message:
+        description: |
+          text error description
+        type: string
+      code:
+        type: string
+        description: error code
+    type: object
+  model.JsonOrderCreateResponse:
+    properties:
+      account:
+        description: |
+          user account, may be null
+        type: string
+      has_vat:
+        description: |
+          flag to show VAT commission amount in payment form
+        type: boolean
+      vat:
+        description: VAT amount
+        type: number
+      amount:
+        description: order amount without VAT
+        type: number
+      total_amount:
+        description: total order amount with VAT
+        type: number
+      currency:
+        description: order currency
+        type: string
+      user_address_data_required:
+        description: flag to get information about user real geo position
+        type: boolean
+      id:
+        description: |
+          order unique identifier
+        type: string
+      inline_form_redirect_url:
+        description: |
+          url to redirect user to inline form in PSP side
+        type: string
+      payment_methods:
+        description: |
+          contain data about payment methods
+        items:
+          $ref: '#/definitions/model.PaymentMethodJsonOrderResponse'
+        type: array
+      project:
+        $ref: '#/definitions/model.ProjectJsonOrderResponse'
+        description: |
+          contain data about project
+        type: object
+      token:
+        description: |
+          access token to websocket private chanel
+        type: string
+      platform_id:
+        description: |
+          id of platform for key product (steam, gog, xbox, etc.)
+        type: string
+        example: steam
+      type:
+        description: |
+          type of products in order (simple, product, key)
+        type: string
+        example: simple
+        enum:
+          - simple
+          - product
+          - key
+    type: object
+  model.Name:
+    properties:
+      en:
+        description: |
+          english name
+        type: string
+      ru:
+        description: |
+          russian name
+        type: string
+    type: object
+  model.OrderCreatePaymentRequest:
+    properties:
+      address:
+        description: |
+          user wallet address in crypto payment system. required only for crypto payment
+        type: string
+      card_holder:
+        description: |
+          bank card card holder name. required only for bank card payment
+        type: string
+      cvv:
+        description: |
+          bank card cvv code. required only for bank card payment
+        type: integer
+      ewallet:
+        description: |
+          user account in ewallet payment system. required only for ewallet payment
+        type: string
+      month:
+        description: |
+          month of expire date of user bank card. required only for bank card payment
+        type: integer
+      order_id:
+        description: |
+          unique identifier of order on PSP (P1) side
+        type: string
+      pan:
+        description: |
+          user bank card number. required only for bank card payment
+        type: string
+      payment_method_id:
+        description: |
+          unique identifier of payment method by PSP (P1) classifier
+        type: string
+      year:
+        description: |
+          year of expire date of user bank card. required only for bank card payment
+        type: integer
+    type: object
+  payment_system.PaymentResponse:
+    properties:
+      error:
+        type: string
+      redirect_url:
+        type: string
+    type: object
+  model.RevenueDynamicResult:
+    properties:
+      points:
+        items:
+          $ref: '#/definitions/model.RevenueDynamicPoint'
+        type: array
+      refund:
+        $ref: '#/definitions/model.RevenueDynamicMainData'
+        type: object
+      revenue:
+        $ref: '#/definitions/model.RevenueDynamicMainData'
+        type: object
+    type: object
+  
+
+paths:
+  /api/v1/order:
+    post:
+      consumes:
+        - application/json
+      description: Create a payment order use POST JSON request
+      parameters:
+        - description: Order create data
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/model.OrderScalar'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Object which contain data to render payment form
+          schema:
+            $ref: '#/definitions/model.JsonOrderCreateResponse'
+        "400":
+          description: Object with error message
+          schema:
+            $ref: '#/definitions/model.Error'
+        "500":
+          description: Object with error message
+          schema:
+            $ref: '#/definitions/model.Error'
+      summary: Create order with json request
+      tags:
+        - Payment Order
+  /api/v1/payment:
+    post:
+      consumes:
+        - application/json
+      description: Create payment by order
+      parameters:
+        - description: data to create payment
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/model.OrderCreatePaymentRequest'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: contain url to redirect user
+          schema:
+            $ref: '#/definitions/payment_system.PaymentResponse'
+        "400":
+          description: contain error description about data validation error
+          schema:
+            $ref: '#/definitions/payment_system.PaymentResponse'
+        "402":
+          description: contain error description about error on payment system side
+          schema:
+            $ref: '#/definitions/payment_system.PaymentResponse'
+        "500":
+          description: contain error description about error on PSP (P1) side
+          schema:
+            $ref: '#/definitions/payment_system.PaymentResponse'
+      summary: Create payment
+      tags:
+        - Payment Order
+  /api/v1/s/order/accounting_payment:
+    get:
+      consumes:
+        - application/x-www-form-urlencoded
+      description: accounting payment by accounting period of merchant
+      parameters:
+        - description: period start in unix timestamp
+          in: query
+          name: from
+          required: true
+          type: integer
+        - description: period end in unix timestamp
+          in: query
+          name: to
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.AccountingPayment'
+        "400":
+          description: Invalid request data
+          schema:
+            $ref: '#/definitions/model.Error'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/model.Error'
+        "403":
+          description: Access denied
+          schema:
+            $ref: '#/definitions/model.Error'
+        "500":
+          description: Object with error message
+          schema:
+            $ref: '#/definitions/model.Error'
+      summary: Get accounting payment amounts by accounting period of merchant
+      tags:
+        - Payment Order
+  /api/v1/s/order/revenue_dynamic/{period}:
+    get:
+      consumes:
+        - application/x-www-form-urlencoded
+      description: Get revenue dynamics by merchant or project
+      parameters:
+        - description: 'period to group revenue dynamics data. now allowed next values:
+          hour, day, week, month, year'
+          in: path
+          name: period
+          required: true
+          type: string
+        - description: period start in unix timestamp
+          in: query
+          name: from
+          required: true
+          type: integer
+        - description: period end in unix timestamp
+          in: query
+          name: to
+          required: true
+          type: integer
+        - description: query array of list of projects to calculate dynamics of revenue
+          in: query
+          name: project[]
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.RevenueDynamicResult'
+        "400":
+          description: Invalid request data
+          schema:
+            $ref: '#/definitions/model.Error'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/model.Error'
+        "403":
+          description: Access denied
+          schema:
+            $ref: '#/definitions/model.Error'
+        "500":
+          description: Object with error message
+          schema:
+            $ref: '#/definitions/model.Error'
+      summary: Get revenue dynamics
+      tags:
+        - Payment Order
+  /order/create:
+    get:
+      consumes:
+        - multipart/form-data
+        - application/x-www-form-urlencoded
+      description: Create a payment order use GET or POST HTML form
+      parameters:
+        - description: Project unique identifier in Protocol One payment solution
+          in: query
+          name: PP_PROJECT_ID
+          required: true
+          type: string
+        - description: Order amount
+          in: query
+          name: PP_AMOUNT
+          required: true
+          type: number
+        - description: User unique account in project
+          in: query
+          name: PP_ACCOUNT
+          required: true
+          type: string
+        - description: Unique order identifier in project. This field not required,
+            BUT we're recommend send this field always
+          in: query
+          name: PP_ORDER_ID
+          type: string
+        - description: Payment method identifier in Protocol One payment solution
+          in: query
+          name: PP_PAYMENT_METHOD
+          type: string
+        - description: Order description. If this field not send in request, then we're
+            create standard order description
+          in: query
+          name: PP_DESCRIPTION
+          type: string
+        - description: Order currency by ISO 4217 (3 chars). If this field send, then
+            we're process amount in this currency
+          in: query
+          name: PP_CURRENCY
+          type: string
+        - description: User (payer) region code by ISO 3166-1 (2 chars) for check project
+            packages. If this field not send, then user region will be get from user
+            ip
+          in: query
+          name: PP_REGION
+          type: string
+        - description: User (payer) email
+          in: query
+          name: PP_PAYER_EMAIL
+          type: string
+        - description: User (payer) phone
+          in: query
+          name: PP_PAYER_PHONE
+          type: string
+        - description: URL for payment data verification request to project. This field
+            can be send if it allowed in project admin panel
+          in: query
+          name: PP_URL_VERIFY
+          type: string
+        - description: URL for payment notification request to project. This field can
+            be send if it allowed in project admin panel
+          in: query
+          name: PP_URL_NOTIFY
+          type: string
+        - description: URL for redirect user after successfully completed payment. This
+            field can be send if it allowed in project admin panel
+          in: query
+          name: PP_URL_SUCCESS
+          type: string
+        - description: URL for redirect user after failed payment. This field can be
+            send if it allowed in project admin panel
+          in: query
+          name: PP_URL_FAIL
+          type: string
+        - description: Signature of request to verify that the data has not been changed.
+            This field not required, BUT we're recommend send this field always
+          in: query
+          name: PP_SIGNATURE
+          type: string
+        - description: Any fields on the project side that do not match the names of
+            the reserved fields
+          in: query
+          name: Other
+          type: string
+      produces:
+        - text/html
+      responses:
+        "302":
+          description: Redirect user to form entering payment requisites
+          schema:
+            type: string
+        "400":
+          description: Redirect user to page with error description
+          schema:
+            type: string
+        "500":
+          description: Redirect user to page with error description
+          schema:
+            type: string
+      summary: Create order with HTML form
+      tags:
+        - Payment Order
+    post:
+      consumes:
+        - multipart/form-data
+        - application/x-www-form-urlencoded
+      description: Create a payment order use GET or POST HTML form
+      parameters:
+        - description: Project unique identifier in Protocol One payment solution
+          in: query
+          name: PP_PROJECT_ID
+          required: true
+          type: string
+        - description: Order amount
+          in: query
+          name: PP_AMOUNT
+          required: true
+          type: number
+        - description: User unique account in project
+          in: query
+          name: PP_ACCOUNT
+          required: true
+          type: string
+        - description: Unique order identifier in project. This field not required,
+            BUT we're recommend send this field always
+          in: query
+          name: PP_ORDER_ID
+          type: string
+        - description: Payment method identifier in Protocol One payment solution
+          in: query
+          name: PP_PAYMENT_METHOD
+          type: string
+        - description: Order description. If this field not send in request, then we're
+            create standard order description
+          in: query
+          name: PP_DESCRIPTION
+          type: string
+        - description: Order currency by ISO 4217 (3 chars). If this field send, then
+            we're process amount in this currency
+          in: query
+          name: PP_CURRENCY
+          type: string
+        - description: User (payer) region code by ISO 3166-1 (2 chars) for check project
+            packages. If this field not send, then user region will be get from user
+            ip
+          in: query
+          name: PP_REGION
+          type: string
+        - description: User (payer) email
+          in: query
+          name: PP_PAYER_EMAIL
+          type: string
+        - description: User (payer) phone
+          in: query
+          name: PP_PAYER_PHONE
+          type: string
+        - description: URL for payment data verification request to project. This field
+            can be send if it allowed in project admin panel
+          in: query
+          name: PP_URL_VERIFY
+          type: string
+        - description: URL for payment notification request to project. This field can
+            be send if it allowed in project admin panel
+          in: query
+          name: PP_URL_NOTIFY
+          type: string
+        - description: URL for redirect user after successfully completed payment. This
+            field can be send if it allowed in project admin panel
+          in: query
+          name: PP_URL_SUCCESS
+          type: string
+        - description: URL for redirect user after failed payment. This field can be
+            send if it allowed in project admin panel
+          in: query
+          name: PP_URL_FAIL
+          type: string
+        - description: Signature of request to verify that the data has not been changed.
+            This field not required, BUT we're recommend send this field always
+          in: query
+          name: PP_SIGNATURE
+          type: string
+        - description: Any fields on the project side that do not match the names of
+            the reserved fields
+          in: query
+          name: Other
+          type: string
+      produces:
+        - text/html
+      responses:
+        "302":
+          description: Redirect user to form entering payment requisites
+          schema:
+            type: string
+        "400":
+          description: Redirect user to page with error description
+          schema:
+            type: string
+        "500":
+          description: Redirect user to page with error description
+          schema:
+            type: string
+      summary: Create order with HTML form
+      tags:
+        - Payment Order

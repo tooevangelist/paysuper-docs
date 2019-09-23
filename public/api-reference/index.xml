@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Introduction on PaySuper</title>
+    <link>http://localhost:1313/api-reference/</link>
+    <description>Recent content in Introduction on PaySuper</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Feb 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/api-reference/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PaySuper API</title>
+      <link>http://localhost:1313/api-reference/paysuper-api/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/api-reference/paysuper-api/</guid>
+      <description>API Endpoint https://api.paysuper.io
+Authentication Authentication to the API occurs via HTTP Basic Auth. Provide your API secret key as the basic auth username. You do not need to provide a password.
+ Credentials can be found on your PaySuper project dashboard, in the &amp;ldquo;API Keys&amp;rdquo; section.
+  You must authenticate for all requests. You can manage your API keys from your account. Your API keys carry many privileges, so be sure to keep them secret!</description>
+    </item>
+    
+    <item>
+      <title>Pagination</title>
+      <link>http://localhost:1313/api-reference/api-pagination/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/api-reference/api-pagination/</guid>
+      <description>For instance, you can list users, list orders.
+Like Stripe, PaySuper uses cursor-based pagination using the parameter starting_after. Pass starting_after parameter at the previous page last object id value to determine where to start in the list.
+Attributes    Attribute Type Description     limit integer optional A limit on the number of objects to be returned. Must be included between 1 and 100   starting_after string optional A cursor for use in pagination.</description>
+    </item>
+    
+    <item>
+      <title>Orders</title>
+      <link>http://localhost:1313/api-reference/api-orders/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/api-reference/api-orders/</guid>
+      <description>You can create, retrieve, and pay individual orders, as well as list all orders. Orders are identified by a unique, random ID.
+Statuses    Name Description     created The order created but not processed yet.   canceled The order was canceled and money refunded to user.   rejected The order was rejected by payment system with any reasons.   processed The order was processed in payment system.</description>
+    </item>
+    
+    <item>
+      <title>Products</title>
+      <link>http://localhost:1313/api-reference/api-products/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/api-reference/api-products/</guid>
+      <description>iframe{width:100%}   iFrameResize({ log : true, checkOrigin : false, sizeWidth : true, widthCalculationMethod : &#39;rightMostElement&#39; }); var shortcode_url = &#34;\/api\/v1\/api-products.json&#34;;  </description>
+    </item>
+    
+    <item>
+      <title>Key Products</title>
+      <link>http://localhost:1313/api-reference/api-key-products/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/api-reference/api-key-products/</guid>
+      <description>iframe{width:100%}   iFrameResize({ log : true, checkOrigin : false, sizeWidth : true, widthCalculationMethod : &#39;rightMostElement&#39; }); var shortcode_url = &#34;\/api\/v1\/api-key-products.json&#34;;  </description>
+    </item>
+    
+    <item>
+      <title>Platforms</title>
+      <link>http://localhost:1313/api-reference/api-platforms/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/api-reference/api-platforms/</guid>
+      <description>iframe{width:100%}   iFrameResize({ log : true, checkOrigin : false, sizeWidth : true, widthCalculationMethod : &#39;rightMostElement&#39; }); var shortcode_url = &#34;\/api\/v1\/api-platforms.json&#34;;  </description>
+    </item>
+    
+    <item>
+      <title>Keys</title>
+      <link>http://localhost:1313/api-reference/api-keys/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/api-reference/api-keys/</guid>
+      <description>iframe{width:100%}   iFrameResize({ log : true, checkOrigin : false, sizeWidth : true, widthCalculationMethod : &#39;rightMostElement&#39; }); var shortcode_url = &#34;\/api\/v1\/api-keys.json&#34;;  </description>
+    </item>
+    
+    <item>
+      <title>Users</title>
+      <link>http://localhost:1313/api-reference/api-users/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/api-reference/api-users/</guid>
+      <description>We will generate unique identity for each customer and update user profile with any information we got from each payment. User profile also used as part of fraud protection in PaySuper.
+iframe{width:100%}   iFrameResize({ log : true, checkOrigin : false, sizeWidth : true, widthCalculationMethod : &#39;rightMostElement&#39; }); var shortcode_url = &#34;\/api\/v1\/api-users.json&#34;;  </description>
+    </item>
+    
+    <item>
+      <title>Payouts</title>
+      <link>http://localhost:1313/api-reference/api-payouts/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/api-reference/api-payouts/</guid>
+      <description>iframe{width:100%}   iFrameResize({ log : true, checkOrigin : false, sizeWidth : true, widthCalculationMethod : &#39;rightMostElement&#39; }); var shortcode_url = &#34;\/api\/v1\/api-payouts.json&#34;;  </description>
+    </item>
+    
+    <item>
+      <title>Notifications</title>
+      <link>http://localhost:1313/api-reference/api-notifications/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/api-reference/api-notifications/</guid>
+      <description>Notifications help you to stay informed on everything that is going on with your transactions. The PaySuper system can send younotifications for a set of events during the flow, such as creating new accounts or transaction flow, making payouts, and so on.
+These notifications are sent as webhooks to the corresponding URLs configured on your server.
+In most cases, webhooks are triggered by user actions on your website or back-end related events like refund a payment, notification about dispute and other.</description>
+    </item>
+    
+  </channel>
+</rss>
