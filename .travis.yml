@@ -11,9 +11,11 @@ dist: trusty
 if: branch=test
 #cache: bundler
 
-before_install: 
-  - sudo apt-get install hugo
-
+addons:
+  apt:
+    packages:
+      - hugo
+      
 install: true
 
 script:
