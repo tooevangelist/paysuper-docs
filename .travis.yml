@@ -11,10 +11,12 @@ dist: bionic
 if: branch=test
 #cache: bundler
 
-addons:
-  apt:
-    packages:
-      - hugo
+#addons:
+#  apt:
+#    packages:
+#      - hugo
+before_install:
+ - sudo snap install hugo
 
 install: true
 
