@@ -4,7 +4,7 @@
   languageName = "English"
   weight = 1
 
-[zh]
-  contentDir = "content/zh"
-  languageName = "中文"
+[ru]
+  contentDir = "content/ru"
+  languageName = "Русский"
   weight = 2

@@ -1,4 +1,4 @@
-baseURL = "http://localhost:1313/"
+baseURL = "https://docs.pay.super.com/"
 paginate = 100
 defaultContentLanguage = "en"
 enableEmoji = true
@@ -6,8 +6,6 @@ enableEmoji = true
 footnotereturnlinkcontents = "↩"
 languageCode = "en-us"
 title = "PaySuper"
-
-googleAnalytics = "UA-7131036-4"
 
 pluralizeListTitles = false
 
@@ -20,11 +18,11 @@ pygmentsCodeFences = true
 
 pygmentsOptions = ""
 # Use the Chroma stylesheet
-pygmentsUseClasses = true
+pygmentsUseClasses = false
 pygmentsUseClassic = false
 
 # See https://help.farbox.com/pygments.html
-pygmentsStyle = "trac"
+pygmentsStyle = "friendly"
 
 [outputs]
 home = [ "HTML", "RSS", "REDIR", "HEADERS" ]
@@ -74,9 +72,6 @@ weight = 100
 name = "date"
 weight = 10
 pattern = "2006"
-
-[social]
-twitter = "GoHugoIO"
 
 # MARKDOWN
 ## Configuration for BlackFriday markdown parser: https://github.com/russross/blackfriday
