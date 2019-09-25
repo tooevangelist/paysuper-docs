@@ -1,7 +1,7 @@
 ---
 title: Payment Methods
 linktitle: Payment Methods
-description: Pay One supports a growing number of payment acceptance methods.
+description: PaySuper supports a growing number of payment acceptance methods.
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
@@ -10,11 +10,11 @@ menu:
   docs:
     parent: "payments"
     weight: 30
-weight: 30
-sections_weight: 30
-draft: false
+categories: []
+keywords: []
 aliases: []
-toc: true
+draft: false
+toc: false
 ---
 
 At this point we can process: 

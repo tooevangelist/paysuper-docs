@@ -2,15 +2,19 @@
 title: Frequently Asked Questions
 linktitle: FAQ
 description: Solutions to some common Hugo problems.
-date: 2018-02-10
-categories: [troubleshooting]
-menu:
-  docs:
-    parent: "troubleshooting"
-keywords: [faqs]
-weight: 2
-toc: true
-aliases: [/faq/]
+date: 2017-02-01
+publishdate: 2017-02-01
+lastmod: 2017-02-01
+layout: single
+# menu:
+#   docs:
+#     parent: "troubleshooting"
+#     weight: 10
+categories: []
+keywords: []
+aliases: []
+draft: false
+toc: false
 ---
 
 {{% note %}}

@@ -5,16 +5,15 @@ description: In case you want to create more complex reports or use an external 
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
-categories: []
-keywords: [usage,livereload,command line,flags]
+layout: single
 menu:
   docs:
     parent: "getting-started"
     weight: 60
-weight: 60
-sections_weight: 60
+categories: []
+keywords: []
+aliases: []
 draft: false
-aliases: [/overview/usage/,/extras/livereload/,/doc/usage/,/usage/]
 toc: true
 ---
 

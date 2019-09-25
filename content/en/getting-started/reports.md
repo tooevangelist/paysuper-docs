@@ -1,20 +1,19 @@
 ---
 title: Reports Dashboard
 linktitle: Reports Dashboard
-description: Pay One includes all the necessary tools for managing and monitoring user payments.
+description: PaySuper includes all the necessary tools for managing and monitoring user payments.
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
-categories: []
-keywords: [usage,livereload,command line,flags]
+layout: single
 menu:
   docs:
     parent: "getting-started"
     weight: 50
-weight: 50
-sections_weight: 50
+categories: []
+keywords: []
+aliases: []
 draft: false
-aliases: [/overview/usage/,/extras/livereload/,/doc/usage/,/usage/]
 toc: true
 ---
 
@@ -29,4 +28,4 @@ Examples of reports available on the dashboard and in the Reports section:
 * Report on conversions from the opening of the payment form to the subsequent screens and into payment.
 * Fraud report with detailed reasons and the possibility to take over the risk of accepting a payment.
 
-![Project dashboard](/dashboard.png)
+![Project dashboard](/images/dashboard.png)

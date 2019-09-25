@@ -10,16 +10,16 @@ menu:
   docs:
     parent: "payments"
     weight: 10
-weight: 10
-sections_weight: 10
-draft: false
+categories: []
+keywords: []
 aliases: []
+draft: false
 toc: true
 ---
 
 Steps of the accepting a payment process:
 
-![PaySuper accepting payment](/accepting-payment.png)
+![PaySuper accepting payment](/images/accepting-payment.png)
 
 ## Interaction with the payment interface
 

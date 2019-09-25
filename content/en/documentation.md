@@ -1,6 +1,6 @@
 ---
 title: PaySuper Documentation
-linktitle: Protocol One
+linktitle: PaySuper Documentation
 description: PaySuper is a unique, simple payment toolkit designed to make developers self-reliant. It’s an open-source payment service with a highly customizable payment form, an intuitive API, and comprehensible, eye-catching reports.
 date: 2017-02-01
 publishdate: 2017-02-01

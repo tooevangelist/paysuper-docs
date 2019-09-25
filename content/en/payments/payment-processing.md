@@ -10,11 +10,11 @@ menu:
   docs:
     parent: "payments"
     weight: 40
-weight: 40
-sections_weight: 40
-draft: false
+categories: []
+keywords: []
 aliases: []
-toc: true
+draft: false
+toc: false
 ---
 
 ## Simple HTML Form
@@ -37,7 +37,7 @@ This method allows you to create an invoice by transferring a simple HTML form t
   
     > If this option is not selected in the technical integration settings, then the user will be shown payment completion information on the system side.
 
-![Payment HTML form](/html-form.png)
+![Payment HTML form](/images/html-form.png)
 
 ## Calling JSON API
 
@@ -65,7 +65,7 @@ invoice.
     
     > If this option is not selected in the technical integration settings, then the user will be shown payment completion information on the system side.
 
-![Payment JSON API](/json-api.png)
+![Payment JSON API](/images/json-api.png)
 
 ## Payment Widget
 
@@ -94,4 +94,4 @@ System requests for checking order data and notifications about successful payme
 8. The system forms a request to the project about a successful payment against an invoice.
 9. The system sends the payment success information to the payment widget for displaying to the payer.
 
-![Payment Widget](/payment-widget.png)
+![Payment Widget](/images/payment-widget.png)

@@ -5,17 +5,15 @@ description: Our API is designed to have predictable, resource-oriented URLs and
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
-categories: []
-keywords: []
 menu:
   docs:
     parent: "api-reference"
     weight: 1
-weight: 1
-draft: false
+categories: []
+keywords: []
 aliases: []
+draft: false
 toc: false
-notesforauthors:
 ---
 
 Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. The PaySuper API is organized around REST. We use built-in HTTP features, like HTTP verbs, which can be understood by off-the-shelf HTTP clients.

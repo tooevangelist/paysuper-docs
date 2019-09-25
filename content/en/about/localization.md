@@ -2,18 +2,18 @@
 title: Localization
 linktitle: Localization
 description: PaySuper has its own advanced algorithm for determining the region and language of the user
-date: 2016-02-01
-publishdate: 2016-02-01
-lastmod: 2016-03-02
-categories: []
-keywords: []
+date: 2019-09-16
+publishdate: 2019-09-16
+lastmod: 2019-09-16
+layout: single
 menu:
   docs:
     parent: "about"
     weight: 30
-weight: 30
-sections_weight: 30
-aliases: [/meta/license]
+categories: []
+keywords: []
+aliases: []
+draft: false
 toc: true
 ---
 

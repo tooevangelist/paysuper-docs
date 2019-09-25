@@ -5,14 +5,14 @@ description: Order objects are created to handle end customers' purchases of pre
 date: 2016-02-01
 publishdate: 2016-02-01
 lastmod: 2016-03-02
-categories: []
-keywords: []
+layout: single
 menu:
   docs:
     parent: "api-reference"
-    weight: 30
-weight: 30
-sections_weight: 30
+    weight: 13
+categories: []
+keywords: []
+aliases: []
 draft: false
 toc: true
 ---

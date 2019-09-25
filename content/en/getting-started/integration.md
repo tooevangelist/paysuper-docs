@@ -5,16 +5,15 @@ description: You can start accepting payments through PaySuper on your website a
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
-categories: []
-keywords: [usage,livereload,command line,flags]
+layout: single
 menu:
   docs:
     parent: "getting-started"
     weight: 20
-weight: 20
-sections_weight: 20
+categories: []
+keywords: []
+aliases: []
 draft: false
-aliases: [/overview/usage/,/extras/livereload/,/doc/usage/,/usage/]
 toc: true
 ---
 
@@ -22,7 +21,7 @@ In the case of basic payment acceptance, the integration process takes just a fe
 
 Steps of the integration process:
 
-![PaySuper integration schema](/integration.png)
+![PaySuper integration schema](/images/integration.png)
 
 ## PaySuper website signup
 

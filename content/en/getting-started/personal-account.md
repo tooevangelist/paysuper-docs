@@ -1,24 +1,23 @@
 ---
 title: Personal Account
 linktitle: Personal Account
-description: Pay One account contains all the necessary functions for managing and monitoring payments.
+description: PaySuper account contains all the necessary functions for managing and monitoring payments.
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
-categories: []
-keywords: [usage,livereload,command line,flags]
+layout: single
 menu:
   docs:
     parent: "getting-started"
     weight: 40
-weight: 40
-sections_weight: 40
+categories: []
+keywords: []
+aliases: []
 draft: false
-aliases: [/overview/usage/,/extras/livereload/,/doc/usage/,/usage/]
 toc: true
 ---
 
-An account with Pay One is the main point of interaction with Pay One for all your employees.
+An account with PaySuper is the main point of interaction with PaySuper for all your employees.
 
 ## The account contains tools for:
 

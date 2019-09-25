@@ -5,14 +5,14 @@ description: All top-level PaySuper API resources have support for bulk fetches 
 date: 2016-02-01
 publishdate: 2016-02-01
 lastmod: 2016-03-02
-categories: []
-keywords: []
+layout: single
 menu:
   docs:
     parent: "api-reference"
-    weight: 20
-weight: 20
-sections_weight: 20
+    weight: 11
+categories: []
+keywords: []
+aliases: []
 draft: false
 toc: true
 ---
