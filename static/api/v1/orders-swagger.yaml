@@ -268,6 +268,27 @@ definitions:
       redirect_url:
         type: string
     type: object
+  model.RevenueDynamicPoint:
+    properties:
+      amount:
+        type: number
+      date:
+        $ref: '#/definitions/model.RevenueDynamicPointDate'
+        type: object
+    type: object
+  model.RevenueDynamicPointDate:
+    properties:
+      day:
+        type: integer
+      hour:
+        type: integer
+      month:
+        type: integer
+      week:
+        type: integer
+      year:
+        type: integer
+    type: object
   model.RevenueDynamicResult:
     properties:
       points:
@@ -281,7 +302,15 @@ definitions:
         $ref: '#/definitions/model.RevenueDynamicMainData'
         type: object
     type: object
-  
+  model.RevenueDynamicMainData:
+    properties:
+      avg:
+        type: number
+      count:
+        type: integer
+      total:
+        type: number
+    type: object
 
 paths:
   /api/v1/order:

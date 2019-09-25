@@ -1,0 +1,254 @@
+swagger: "2.0"
+host: p1payapi.tst.protocol.one
+info:
+  title: 
+  description: 
+  version: "1.0"
+
+securityDefinitions:
+  XAPISignatureHeader:
+    type: apiKey
+    in: header
+    name: X-API-SIGNATURE
+    description: must contain sha512 hash of concationation request body and project secret key
+
+definitions:
+  price_group.CurrencyRegion:
+    properties:
+      id:
+        description: price group identifier
+        type: string
+      region:
+        description: name of region
+        type: string
+      currency:
+        description: code of currency
+        type: string
+  price_group.CurrencyListResponse:
+    properties:
+      regions:
+        description: list of currency
+        $ref: '#/definitions/price_group.Regions'
+  price_group.Regions:
+    properties:
+      currency:
+        description: name of currency
+        type: string
+      region:
+        description: list of regions
+        $ref: '#/definitions/price_group.Region'
+  price_group.Region:
+    properties:
+      region:
+        description: name of region
+        type: string
+      country:
+        description: list of countries        
+        type: array
+        items:
+          type: string
+  price_group.RecommendedPriceResponse:
+    properties:
+      recommended_price:
+        description: list of price
+        $ref: '#/definitions/price_group.RecommendedPrice'
+  price_group.RecommendedPrice:
+    properties:
+      region:
+        description: name of region
+        type: string
+      currency:
+        description: name of currency
+        type: string
+      amount:
+        description: recommended amount
+        type: number
+  model.Country:
+    properties:
+      code_a2:
+        description: |
+          2 chars ISO 3166-1 country code
+        type: string
+      code_a3:
+        description: |
+          3 chars ISO 3166-1 country code
+        type: string
+      code_int:
+        description: |
+          numeric ISO 3166-1 country code
+        type: integer
+      created_at:
+        description: |
+          date of create country in system
+        type: string
+      is_active:
+        description: |
+          is country active
+        type: boolean
+      name:
+        $ref: '#/definitions/model.Name'
+        description: |
+          list of country names
+        type: object
+    type: object
+
+paths:
+  /api/v1/country:
+    get:
+      consumes:
+        - application/json
+      description: Get full list of countries
+      parameters:
+        - description: name or symbolic ISO 3166-1 code of country
+          in: query
+          name: name
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.Country'
+            type: array
+        "500":
+          description: Some unknown error
+          schema:
+            $ref: '#/definitions/model.Error'
+      summary: Get list of countries
+      tags:
+        - Country
+  /api/v1/country/{id}:
+    get:
+      consumes:
+        - application/json
+      description: Get country object by numeric ISO 3166-1 code
+      parameters:
+        - description: numeric ISO 3166-1 country code
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Country'
+        "400":
+          description: Invalid request data
+          schema:
+            $ref: '#/definitions/model.Error'
+        "404":
+          description: Not found
+          schema:
+            $ref: '#/definitions/model.Error'
+        "500":
+          description: Some unknown error
+          schema:
+            $ref: '#/definitions/model.Error'
+      summary: Get country by numeric ISO 3166-1 code
+      tags:
+        - Country
+  /api/v1/s/price_group/country:
+    get:
+      consumes:
+        - application/json
+      description: Get region and currency by country
+      parameters:
+        - description: two-letter code of country
+          in: query
+          name: country
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/price_group.CurrencyRegion'
+            type: array
+        "400":
+          description: Error description
+          schema:
+            type: string
+      summary: Get region and currency by country
+      tags:
+        - Price
+  /api/v1/s/price_group/currencies:
+    get:
+      description: Get a list of all currencies with regions and countries in them
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/price_group.CurrencyListResponse'
+            type: array
+        "400":
+          description: Error description
+          schema:
+            type: string
+      summary: Get a list of all currencies with regions and countries in them
+      tags:
+        - Price
+  /api/v1/s/price_group/region:
+    get:
+      consumes:
+        - application/json
+      description: Get currency for a region and a list of countries in it
+      parameters:
+        - description: name of region
+          in: query
+          name: region
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/price_group.CurrencyListResponse'
+            type: array
+        "400":
+          description: Error description
+          schema:
+            type: string
+      summary: Get currency for a region and a list of countries in it
+      tags:
+        - Price
+  /api/v1/s/price_group/recommended:
+    get:
+      consumes:
+        - application/json
+      description: Get recommended prices for regions
+      parameters:
+        - description: base price in USD
+          in: query
+          name: amount
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/price_group.RecommendedPriceResponse'
+            type: array
+        "400":
+          description: Error description
+          schema:
+            type: string
+      summary: Get recommended prices for regions
+      tags:
+        - Price

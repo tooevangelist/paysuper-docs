@@ -1,0 +1,67 @@
+swagger: "2.0"
+host: p1payapi.tst.protocol.one
+info:
+  title: 
+  description: 
+  version: "1.0"
+
+securityDefinitions:
+  XAPISignatureHeader:
+    type: apiKey
+    in: header
+    name: X-API-SIGNATURE
+    description: must contain sha512 hash of concationation request body and project secret key
+
+definitions:
+  user.confirmEmail.request:
+    properties:
+      token:
+        description: email confirmation token
+        type: string
+    required:
+      - token
+  model.Error:
+    properties:
+      message:
+        description: |
+          text error description
+        type: string
+      code:
+        type: string
+        description: error code
+    type: object
+
+paths:
+  /api/v1/user/confirm_email:
+    put:
+      summary: Confirm user email
+      tags:
+        - User Profile
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      description: Confirm user email by token
+      parameters:
+        - description: object contained confirmation token
+          in: body
+          name: data
+          schema:
+            $ref: '#/definitions/user.confirmEmail.request'
+            type: object
+          required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Invalid request data
+          schema:
+            $ref: '#/definitions/model.Error'
+        "404":
+          description: Object not found
+          schema:
+            $ref: '#/definitions/model.Error'
+        "500":
+          description: Some unknown error on server side
+          schema:
+            $ref: '#/definitions/model.Error'
