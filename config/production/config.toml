@@ -4,4 +4,4 @@
 # This is needed to get accurate lastMod and Git commit info
 # on the docs pages.
 enableGitInfo = true
-baseURL = "https://docs.pay.super.com/"
+baseURL = "https://docs.stg.pay.super.com/"
