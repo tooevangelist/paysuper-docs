@@ -1,7 +1,7 @@
 ---
 title: Notifications
 linktitle: Notifications
-description: A Payout object represents the request to receive funds from PaySuper, or request status when you initiate a payout to either a bank account.
+description: Notifications help you to stay informed on everything that is going on with your transactions.
 date: 2016-02-01
 publishdate: 2016-02-01
 lastmod: 2016-03-02
@@ -17,7 +17,7 @@ draft: false
 toc: true
 ---
 
-Notifications help you to stay informed on everything that is going on with your transactions. The PaySuper system can send younotifications for a set of events during the flow, such as creating new accounts or transaction flow, making payouts, and so on.
+The PaySuper system can send younotifications for a set of events during the flow, such as creating new accounts or transaction flow, making payouts, and so on.
 
 These notifications are sent as webhooks to the corresponding URLs configured on your server.
 
