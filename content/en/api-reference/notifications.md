@@ -17,7 +17,7 @@ draft: false
 toc: true
 ---
 
-The PaySuper system can send younotifications for a set of events during the flow, such as creating new accounts or transaction flow, making payouts, and so on.
+The PaySuper system can send you notifications for a set of events during the flow, such as creating new accounts or transaction flow, making payouts, and so on.
 
 These notifications are sent as webhooks to the corresponding URLs configured on your server.
 
@@ -65,7 +65,8 @@ All API requests must be made over HTTPS. Calls made over plain HTTP will fail. 
 #### To check the digital signatures you should: 
 
 1. Concatenate the request's JSON body with your project's secret key. The secret key should be added to end of JSON body.
-2. Apply SHA-256 hashing to the resulting string. 3. Compare the digital signatures with Authorization http header value.
+2. Apply SHA-256 hashing to the resulting string. 
+3. Compare the digital signatures with Authorization http header value.
 
 {{< highlight text >}}
 POST /your_endpoint HTTP/1.1
