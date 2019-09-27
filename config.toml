@@ -81,7 +81,7 @@ pattern = "2006"
 [blackfriday]
 	plainIDAnchors = true
   # See https://github.com/gohugoio/hugo/issues/2424
-	hrefTargetBlank = false
+	hrefTargetBlank = true
   angledQuotes = false
   latexDashes = true
 
