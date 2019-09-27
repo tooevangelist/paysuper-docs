@@ -1,7 +1,7 @@
 ---
 title: Orders
 linktitle: Orders
-description: Order objects are created to handle end customers' purchases of previously defined [products](/api-reference/api-products).
+description: Order objects are created to handle end-customers' purchases of previously defined [products](/api-reference/api-products).
 date: 2016-02-01
 publishdate: 2016-02-01
 lastmod: 2016-03-02
