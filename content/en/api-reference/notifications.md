@@ -39,8 +39,6 @@ Type|Payload|Description
 
 ## The Notification object
 
-The base object representing the webhook event from PaySuper system.
-
 Attribute|Type|Description
 ---|---|---
 **id**|**string**| Unique identifier for the object.
