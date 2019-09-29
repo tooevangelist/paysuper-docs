@@ -52,6 +52,21 @@ Attribute|Type|Description
 **delivery_try**|**integer**|The current delivery try for this event
 **object**|**object**| The object representing payload of event with given type. Objects of the same type share the same value.
 
+The base object representing the webhook event `"payment.success"` from PaySuper system.
+
+{{< highlight json >}}
+{
+  "id": "22d6d597-000f-5000-9000-145f6df21d6f",
+  "type": "notification",
+  "event": "payment.success",
+  "live": true,
+  "created_at": "2018-07-10T14:27:54.691Z",
+  "expires_at": null,
+  "delivery_try": 1,
+  "object": {}
+}
+{{< /highlight >}}
+
 ##  Check notification request
 
 The PaySuper API uses secret keys to check notification requests. 
