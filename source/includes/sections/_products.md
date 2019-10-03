@@ -41,7 +41,8 @@ Store representations of digital products you sell in PaySuper.
     "url": "http://mylanding.ru/games/gta3",
     "metadata": {
         "some_key": "some_data"
-    }
+    },
+    "pricing": "currency"
 }
 ``` 
 
@@ -65,6 +66,7 @@ Store representations of digital products you sell in PaySuper.
 |images|string[]|The array if URL to product images.|
 |url|string|An arbitrary URL to product web page.|
 |metadata|object| Set of key-value pairs that attached to an object on creating product.|
+|pricing|string|Pricing mode (currency manual steam default).|
 
 ## Create a Product
 
@@ -96,7 +98,8 @@ $ curl https://api.paysuper.online/admin/api/v1/products
            "en": "GTA 3 description"
          },
          "long_description": {},
-         "project_id": "5be2e16701d96d00012d26c3"
+         "project_id": "5be2e16701d96d00012d26c3",
+         "pricing": "currency"
        }'
 
 # Example response
@@ -131,7 +134,8 @@ $ curl https://api.paysuper.online/admin/api/v1/products
     },
     "images": null,
     "url": "",
-    "metadata": null
+    "metadata": null,
+    "pricing": "currency"
 }
 ```
 ### Arguments
@@ -151,6 +155,7 @@ $ curl https://api.paysuper.online/admin/api/v1/products
 |images|string[]|The array if URL to product images.|
 |url|string|An arbitrary URL to product web page.|
 |metadata|object| Set of key-value pairs that attached to an object on creating product.|
+|pricing|string|Pricing mode (currency manual steam default).|
 
 
 ## Update a Product
@@ -183,7 +188,8 @@ $ curl https://api.paysuper.online/admin/api/v1/products/5ca5124868add448289e432
            "en": "GTA 3 description"
          },
          "long_description": {},
-         "project_id": "5be2e16701d96d00012d26c3"
+         "project_id": "5be2e16701d96d00012d26c3",
+         "pricing": "currency"
        }'
 
 # Example response
@@ -218,7 +224,8 @@ $ curl https://api.paysuper.online/admin/api/v1/products/5ca5124868add448289e432
     },
     "images": null,
     "url": "",
-    "metadata": null
+    "metadata": null,
+    "pricing": "currency"
 }
 ```
 ### Arguments
@@ -238,6 +245,7 @@ $ curl https://api.paysuper.online/admin/api/v1/products/5ca5124868add448289e432
 |images|string[]|The array if URL to product images.|
 |url|string|An arbitrary URL to product web page.|
 |metadata|object| Set of key-value pairs that attached to an object on creating product.|
+|pricing|string|Pricing mode (currency manual steam default).|
 
 ## Get a Product
 
@@ -283,7 +291,8 @@ $ curl https://api.paysuper.online/admin/api/v1/products/5ca5124868add448289e432
     },
     "images": null,
     "url": "",
-    "metadata": null
+    "metadata": null,
+    "pricing": "currency"
 }
 ``` 
 

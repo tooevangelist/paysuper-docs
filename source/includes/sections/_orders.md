@@ -131,7 +131,8 @@ and pay individual orders, as well as list all orders. Orders are identified by 
     "some_data_from_create_payment": "any data"
   },
   "type": "product",
-  "platform_id": "steam"
+  "platform_id": "steam",
+  "receipt_id": "22d6d597-000f-5000-9000-145f6df21d6f"
 }
 ```
 
@@ -219,6 +220,7 @@ and pay individual orders, as well as list all orders. Orders are identified by 
 |metadata|object| Set of key-value pairs that attached to an object on create order state.|
 |product_type|string|Type of products in order. Available types: simple, product, key|
 |platform_id|string|Id of platform for key distribution. (steam, gog, egs, xbox, switch, etc.)|
+|receipt_id|string|Id of the receipt for viewing the order on the page.|
         
 ## Create an Order 
 
@@ -321,7 +323,8 @@ $ curl https://api.paysuper.online/v1/orders \
   "metadata": {
       "somedata": "value"
   },
-  "type": "simple"
+  "type": "simple",
+  "receipt_id": "22d6d597-000f-5000-9000-145f6df21d6f"
 }
 ```
 
@@ -698,3 +701,86 @@ $ curl https://api.paysuper.online/v1/orders/22d6d597-000f-5000-9000-145f6df21d6
 |created.le|string|Return results where the `created_at` field is less than this value.|
 |created.lte|string|Return results where the `created_at` field is less than or equal to this value.|
 
+
+
+## Get a successful payment Order receipt
+
+Returns data on the order to display the check of successful payment.
+
+
+```
+# Definition
+GET /orders/receipt/purchase/:receipt_id/:order_id
+```
+
+```shell
+# Example Request
+$ curl https://api.paysuper.online/orders/receipt/purchase/22d6d597-000f-5000-9000-145f6df21d6f/22d6d597-000f-5000-9000-145f6df21d6f \
+   -u tkHCYYOUVrYyY5rBFZxNzgtt \
+   -G 
+
+#Example response
+{
+  "total_price": "6.00",
+  "transaction_id": "22d6d597-000f-5000-9000-145f6df21d6f",
+  "transaction_date": "2018-07-10T14:27:54.691Z",
+  "project_name": "Project",
+  "merchant_name": "R&K",
+  "items": [
+    {
+      "name": "22d6d597-000f-5000-9000-145f6df21d6f",
+      "price": "2.00",
+    },
+    {...}
+  ]
+}
+```
+
+### Arguments
+
+|Name|Type|Description|
+|---|---|---|
+|receipt_id|string|**REQUIRED** The identifier of receipt the Order.|
+|order_id|string|**REQUIRED** The identifier of the Order.|
+
+
+
+## Get a refund payment Order receipt
+
+Returns data on the order to display the check of refund payment.
+
+
+```
+# Definition
+GET /orders/receipt/refund/:receipt_id/:order_id
+```
+
+```shell
+# Example Request
+$ curl https://api.paysuper.online/orders/receipt/purchase/22d6d597-000f-5000-9000-145f6df21d6f/22d6d597-000f-5000-9000-145f6df21d6f \
+   -u tkHCYYOUVrYyY5rBFZxNzgtt \
+   -G 
+
+#Example response
+{
+  "total_price": "6.00",
+  "transaction_id": "22d6d597-000f-5000-9000-145f6df21d6f",
+  "transaction_date": "2018-07-10T14:27:54.691Z",
+  "project_name": "Project",
+  "merchant_name": "R&K",
+  "items": [
+    {
+      "name": "22d6d597-000f-5000-9000-145f6df21d6f",
+      "price": "2.00",
+    },
+    {...}
+  ]
+}
+```
+
+### Arguments
+
+|Name|Type|Description|
+|---|---|---|
+|receipt_id|string|**REQUIRED** The identifier of receipt the Order.|
+|order_id|string|**REQUIRED** The identifier of the Order.|

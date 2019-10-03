@@ -41,7 +41,8 @@ Store representations of product with keys you sell in PaySuper.
       ]
     }
   ],
-  "published_at": "2019-08-13T08:23:25Z"
+  "published_at": "2019-08-13T08:23:25Z",
+  "pricing": "steam"
 }
 ```
 
@@ -68,6 +69,7 @@ Store representations of product with keys you sell in PaySuper.
 |images|string[]|The array if URL to product images.|
 |url|string|An arbitrary URL to product web page.|
 |metadata|object| Set of key-value pairs that attached to an object on creating product.|
+|pricing|string|Pricing mode (currency manual steam default).|
 
 ## List of products
 
@@ -103,6 +105,7 @@ $ curl https://api.paysuper.online/admin/api/v1/products?name=car&sku=ru_0&proje
             "images": [],
             "enabled": true,
             "default_currency": "USD",
+            "pricing": "currency",
             "platforms": [
                 {
                     "id": "steam",
@@ -129,6 +132,7 @@ $ curl https://api.paysuper.online/admin/api/v1/products?name=car&sku=ru_0&proje
 |project_id|string|Project Id, to filter by|
 |offset|number|offset from first item position|
 |limit|number|maximum items per page|
+|pricing|string|Pricing mode (currency manual steam default).|
 
 ## Create a Key Product
 
@@ -150,7 +154,8 @@ $ curl https://api.paysuper.online/admin/api/v1/key-products
             "en": "The Awesome Game Description",
         },
         "sku": "en_awesome_game",
-        "default_currency": "USD"
+        "default_currency": "USD",
+        "pricing": "currency",
         }'
 
 # Example response
@@ -170,6 +175,7 @@ $ curl https://api.paysuper.online/admin/api/v1/key-products
   "enabled": false,
   "default_currency": "USD",
   "platforms": [],
+  "pricing": "currency",
 }
 ```
 
@@ -208,6 +214,7 @@ $ curl https://api.paysuper.online/admin/api/v1/key-products/5ca5124868add448289
                 "en": "The Awesome Game Description",
             },
             "default_currency": "USD"
+            "pricing": "currency",
         }'
 
 # Example response
@@ -227,6 +234,7 @@ $ curl https://api.paysuper.online/admin/api/v1/key-products/5ca5124868add448289
   "enabled": false,
   "default_currency": "USD",
   "platforms": [],
+  "pricing": "currency",
 }
 ```
 
@@ -243,6 +251,7 @@ $ curl https://api.paysuper.online/admin/api/v1/key-products/5ca5124868add448289
 |images|string[]|The array if URL to product images.|
 |url|string|An arbitrary URL to product web page.|
 |metadata|object| Set of key-value pairs that attached to an object on creating product.|
+|pricing|string|Pricing mode (currency manual steam default).|
 
 ## Get a Key Product
 
@@ -272,6 +281,7 @@ $ curl https://api.paysuper.online/admin/api/v1/key-products/5ca5124868add448289
   "images": [],
   "enabled": true,
   "default_currency": "USD",
+  "pricing": "currency",
   "platforms": [
       {
           "id": "steam",
@@ -322,6 +332,7 @@ $ curl https://api.paysuper.online/admin/api/v1/key-products/5ca5124868add448289
   "images": [],
   "enabled": true,
   "default_currency": "USD",
+  "pricing": "currency",
   "platforms": [
       {
           "id": "steam",
