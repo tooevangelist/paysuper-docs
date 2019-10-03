@@ -262,6 +262,12 @@
                   <li>
                     <a href="#list-all-orders" class="toc-h2 toc-link" data-title="List all Orders">List all Orders</a>
                   </li>
+                  <li>
+                    <a href="#get-a-successful-payment-order-receipt" class="toc-h2 toc-link" data-title="Get a successful payment Order receipt">Get a successful payment Order receipt</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-refund-payment-order-receipt" class="toc-h2 toc-link" data-title="Get a refund payment Order receipt">Get a refund payment Order receipt</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -675,7 +681,8 @@ and pay individual orders, as well as list all orders. Orders are identified by 
     </span><span class="s2">"some_data_from_create_payment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"any data"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"platform_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steam"</span><span class="w">
+  </span><span class="s2">"platform_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steam"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"receipt_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22d6d597-000f-5000-9000-145f6df21d6f"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='statuses'>Statuses</h3>
 <table><thead>
@@ -1079,6 +1086,11 @@ and pay individual orders, as well as list all orders. Orders are identified by 
 <td>string</td>
 <td>Id of platform for key distribution. (steam, gog, egs, xbox, switch, etc.)</td>
 </tr>
+<tr>
+<td>receipt_id</td>
+<td>string</td>
+<td>Id of the receipt for viewing the order on the page.</td>
+</tr>
 </tbody></table>
 <h2 id='create-an-order'>Create an Order</h2>
 <p>To charge a payment source, you should create a Order object. </p>
@@ -1175,7 +1187,8 @@ POST /v1/orders
   <span class="s2">"metadata"</span>: <span class="o">{</span>
       <span class="s2">"somedata"</span>: <span class="s2">"value"</span>
   <span class="o">}</span>,
-  <span class="s2">"type"</span>: <span class="s2">"simple"</span>
+  <span class="s2">"type"</span>: <span class="s2">"simple"</span>,
+  <span class="s2">"receipt_id"</span>: <span class="s2">"22d6d597-000f-5000-9000-145f6df21d6f"</span>
 <span class="o">}</span>
 </code></pre><h3 id='arguments'>Arguments</h3>
 <table><thead>
@@ -1676,6 +1689,92 @@ GET /v1/orders?limit=2
 <td>Return results where the <code>created_at</code> field is less than or equal to this value.</td>
 </tr>
 </tbody></table>
+<h2 id='get-a-successful-payment-order-receipt'>Get a successful payment Order receipt</h2>
+<p>Returns data on the order to display the check of successful payment.</p>
+<pre class="highlight plaintext"><code># Definition
+GET /orders/receipt/purchase/:receipt_id/:order_id
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/orders/receipt/purchase/22d6d597-000f-5000-9000-145f6df21d6f/22d6d597-000f-5000-9000-145f6df21d6f <span class="se">\</span>
+   -u tkHCYYOUVrYyY5rBFZxNzgtt <span class="se">\</span>
+   -G 
+
+<span class="c">#Example response</span>
+<span class="o">{</span>
+  <span class="s2">"total_price"</span>: <span class="s2">"6.00"</span>,
+  <span class="s2">"transaction_id"</span>: <span class="s2">"22d6d597-000f-5000-9000-145f6df21d6f"</span>,
+  <span class="s2">"transaction_date"</span>: <span class="s2">"2018-07-10T14:27:54.691Z"</span>,
+  <span class="s2">"project_name"</span>: <span class="s2">"Project"</span>,
+  <span class="s2">"merchant_name"</span>: <span class="s2">"R&amp;K"</span>,
+  <span class="s2">"items"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"name"</span>: <span class="s2">"22d6d597-000f-5000-9000-145f6df21d6f"</span>,
+      <span class="s2">"price"</span>: <span class="s2">"2.00"</span>,
+    <span class="o">}</span>,
+    <span class="o">{</span>...<span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre><h3 id='arguments-5'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>receipt_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> The identifier of receipt the Order.</td>
+</tr>
+<tr>
+<td>order_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> The identifier of the Order.</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-refund-payment-order-receipt'>Get a refund payment Order receipt</h2>
+<p>Returns data on the order to display the check of refund payment.</p>
+<pre class="highlight plaintext"><code># Definition
+GET /orders/receipt/refund/:receipt_id/:order_id
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Example Request</span>
+<span class="gp">$ </span>curl https://api.paysuper.online/orders/receipt/purchase/22d6d597-000f-5000-9000-145f6df21d6f/22d6d597-000f-5000-9000-145f6df21d6f <span class="se">\</span>
+   -u tkHCYYOUVrYyY5rBFZxNzgtt <span class="se">\</span>
+   -G 
+
+<span class="c">#Example response</span>
+<span class="o">{</span>
+  <span class="s2">"total_price"</span>: <span class="s2">"6.00"</span>,
+  <span class="s2">"transaction_id"</span>: <span class="s2">"22d6d597-000f-5000-9000-145f6df21d6f"</span>,
+  <span class="s2">"transaction_date"</span>: <span class="s2">"2018-07-10T14:27:54.691Z"</span>,
+  <span class="s2">"project_name"</span>: <span class="s2">"Project"</span>,
+  <span class="s2">"merchant_name"</span>: <span class="s2">"R&amp;K"</span>,
+  <span class="s2">"items"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"name"</span>: <span class="s2">"22d6d597-000f-5000-9000-145f6df21d6f"</span>,
+      <span class="s2">"price"</span>: <span class="s2">"2.00"</span>,
+    <span class="o">}</span>,
+    <span class="o">{</span>...<span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre><h3 id='arguments-6'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>receipt_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> The identifier of receipt the Order.</td>
+</tr>
+<tr>
+<td>order_id</td>
+<td>string</td>
+<td><strong>REQUIRED</strong> The identifier of the Order.</td>
+</tr>
+</tbody></table>
 <h1 id='products'>Products</h1>
 <p>Store representations of digital products you sell in PaySuper.</p>
 <h2 id='the-product-object'>The Product object</h2>
@@ -1717,7 +1816,8 @@ GET /v1/orders?limit=2
     </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://mylanding.ru/games/gta3"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"some_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_data"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"pricing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"currency"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='attributes'>Attributes</h3>
 <table><thead>
@@ -1807,6 +1907,11 @@ GET /v1/orders?limit=2
 <td>object</td>
 <td>Set of key-value pairs that attached to an object on creating product.</td>
 </tr>
+<tr>
+<td>pricing</td>
+<td>string</td>
+<td>Pricing mode (currency manual steam default).</td>
+</tr>
 </tbody></table>
 <h2 id='create-a-product'>Create a Product</h2><pre class="highlight plaintext"><code># Definition
 POST /admin/api/v1/products
@@ -1832,7 +1937,8 @@ POST /admin/api/v1/products
            "en": "GTA 3 description"
          },
          "long_description": {},
-         "project_id": "5be2e16701d96d00012d26c3"
+         "project_id": "5be2e16701d96d00012d26c3",
+         "pricing": "currency"
        }'</span>
 
 <span class="c"># Example response</span>
@@ -1867,7 +1973,8 @@ POST /admin/api/v1/products
     <span class="o">}</span>,
     <span class="s2">"images"</span>: null,
     <span class="s2">"url"</span>: <span class="s2">""</span>,
-    <span class="s2">"metadata"</span>: null
+    <span class="s2">"metadata"</span>: null,
+    <span class="s2">"pricing"</span>: <span class="s2">"currency"</span>
 <span class="o">}</span>
 </code></pre><h3 id='arguments'>Arguments</h3>
 <table><thead>
@@ -1942,6 +2049,11 @@ POST /admin/api/v1/products
 <td>object</td>
 <td>Set of key-value pairs that attached to an object on creating product.</td>
 </tr>
+<tr>
+<td>pricing</td>
+<td>string</td>
+<td>Pricing mode (currency manual steam default).</td>
+</tr>
 </tbody></table>
 <h2 id='update-a-product'>Update a Product</h2><pre class="highlight plaintext"><code># Definition
 PUT /admin/api/v1/products/:product_id
@@ -1967,7 +2079,8 @@ PUT /admin/api/v1/products/:product_id
            "en": "GTA 3 description"
          },
          "long_description": {},
-         "project_id": "5be2e16701d96d00012d26c3"
+         "project_id": "5be2e16701d96d00012d26c3",
+         "pricing": "currency"
        }'</span>
 
 <span class="c"># Example response</span>
@@ -2002,7 +2115,8 @@ PUT /admin/api/v1/products/:product_id
     <span class="o">}</span>,
     <span class="s2">"images"</span>: null,
     <span class="s2">"url"</span>: <span class="s2">""</span>,
-    <span class="s2">"metadata"</span>: null
+    <span class="s2">"metadata"</span>: null,
+    <span class="s2">"pricing"</span>: <span class="s2">"currency"</span>
 <span class="o">}</span>
 </code></pre><h3 id='arguments-2'>Arguments</h3>
 <table><thead>
@@ -2077,6 +2191,11 @@ PUT /admin/api/v1/products/:product_id
 <td>object</td>
 <td>Set of key-value pairs that attached to an object on creating product.</td>
 </tr>
+<tr>
+<td>pricing</td>
+<td>string</td>
+<td>Pricing mode (currency manual steam default).</td>
+</tr>
 </tbody></table>
 <h2 id='get-a-product'>Get a Product</h2><pre class="highlight plaintext"><code># Definition
 GET /admin/api/v1/products/:product_id
@@ -2116,7 +2235,8 @@ GET /admin/api/v1/products/:product_id
     <span class="o">}</span>,
     <span class="s2">"images"</span>: null,
     <span class="s2">"url"</span>: <span class="s2">""</span>,
-    <span class="s2">"metadata"</span>: null
+    <span class="s2">"metadata"</span>: null,
+    <span class="s2">"pricing"</span>: <span class="s2">"currency"</span>
 <span class="o">}</span>
 </code></pre><h3 id='arguments-3'>Arguments</h3>
 <table><thead>
@@ -2279,7 +2399,8 @@ GET /admin/api/v1/products?name=car&amp;sku=ru_0&amp;project_id=5bdc39a95d1e1100
       </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"published_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-13T08:23:25Z"</span><span class="w">
+  </span><span class="s2">"published_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-13T08:23:25Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"pricing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"steam"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='attributes'>Attributes</h3>
 <table><thead>
@@ -2384,6 +2505,11 @@ GET /admin/api/v1/products?name=car&amp;sku=ru_0&amp;project_id=5bdc39a95d1e1100
 <td>object</td>
 <td>Set of key-value pairs that attached to an object on creating product.</td>
 </tr>
+<tr>
+<td>pricing</td>
+<td>string</td>
+<td>Pricing mode (currency manual steam default).</td>
+</tr>
 </tbody></table>
 <h2 id='list-of-products'>List of products</h2>
 <p>By default, returns full list of all Merchant&#39;s products. Some filters may be applied.</p>
@@ -2413,6 +2539,7 @@ GET /admin/api/v1/products?name<span class="o">=</span>car&amp;sku<span class="o
             <span class="s2">"images"</span>: <span class="o">[]</span>,
             <span class="s2">"enabled"</span>: <span class="nb">true</span>,
             <span class="s2">"default_currency"</span>: <span class="s2">"USD"</span>,
+            <span class="s2">"pricing"</span>: <span class="s2">"currency"</span>,
             <span class="s2">"platforms"</span>: <span class="o">[</span>
                 <span class="o">{</span>
                     <span class="s2">"id"</span>: <span class="s2">"steam"</span>,
@@ -2462,6 +2589,11 @@ GET /admin/api/v1/products?name<span class="o">=</span>car&amp;sku<span class="o
 <td>number</td>
 <td>maximum items per page</td>
 </tr>
+<tr>
+<td>pricing</td>
+<td>string</td>
+<td>Pricing mode (currency manual steam default).</td>
+</tr>
 </tbody></table>
 <h2 id='create-a-key-product'>Create a Key Product</h2><pre class="highlight shell tab-shell"><code><span class="c"># Definition</span>
 POST /admin/api/v1/key-products
@@ -2477,7 +2609,8 @@ POST /admin/api/v1/key-products
             "en": "The Awesome Game Description",
         },
         "sku": "en_awesome_game",
-        "default_currency": "USD"
+        "default_currency": "USD",
+        "pricing": "currency",
         }'</span>
 
 <span class="c"># Example response</span>
@@ -2497,6 +2630,7 @@ POST /admin/api/v1/key-products
   <span class="s2">"enabled"</span>: <span class="nb">false</span>,
   <span class="s2">"default_currency"</span>: <span class="s2">"USD"</span>,
   <span class="s2">"platforms"</span>: <span class="o">[]</span>,
+  <span class="s2">"pricing"</span>: <span class="s2">"currency"</span>,
 <span class="o">}</span>
 </code></pre><h3 id='arguments-2'>Arguments</h3>
 <table><thead>
@@ -2571,6 +2705,7 @@ PUT /admin/api/v1/key-products/:key_product_id
                 "en": "The Awesome Game Description",
             },
             "default_currency": "USD"
+            "pricing": "currency",
         }'</span>
 
 <span class="c"># Example response</span>
@@ -2590,6 +2725,7 @@ PUT /admin/api/v1/key-products/:key_product_id
   <span class="s2">"enabled"</span>: <span class="nb">false</span>,
   <span class="s2">"default_currency"</span>: <span class="s2">"USD"</span>,
   <span class="s2">"platforms"</span>: <span class="o">[]</span>,
+  <span class="s2">"pricing"</span>: <span class="s2">"currency"</span>,
 <span class="o">}</span>
 </code></pre><h3 id='arguments-3'>Arguments</h3>
 <table><thead>
@@ -2644,6 +2780,11 @@ PUT /admin/api/v1/key-products/:key_product_id
 <td>object</td>
 <td>Set of key-value pairs that attached to an object on creating product.</td>
 </tr>
+<tr>
+<td>pricing</td>
+<td>string</td>
+<td>Pricing mode (currency manual steam default).</td>
+</tr>
 </tbody></table>
 <h2 id='get-a-key-product'>Get a Key Product</h2><pre class="highlight shell tab-shell"><code><span class="c"># Definition</span>
 GET /admin/api/v1/key-products/:key_product_id
@@ -2667,6 +2808,7 @@ GET /admin/api/v1/key-products/:key_product_id
   <span class="s2">"images"</span>: <span class="o">[]</span>,
   <span class="s2">"enabled"</span>: <span class="nb">true</span>,
   <span class="s2">"default_currency"</span>: <span class="s2">"USD"</span>,
+  <span class="s2">"pricing"</span>: <span class="s2">"currency"</span>,
   <span class="s2">"platforms"</span>: <span class="o">[</span>
       <span class="o">{</span>
           <span class="s2">"id"</span>: <span class="s2">"steam"</span>,
@@ -2717,6 +2859,7 @@ POST /admin/api/v1/key-products/:key_product_id/publish
   <span class="s2">"images"</span>: <span class="o">[]</span>,
   <span class="s2">"enabled"</span>: <span class="nb">true</span>,
   <span class="s2">"default_currency"</span>: <span class="s2">"USD"</span>,
+  <span class="s2">"pricing"</span>: <span class="s2">"currency"</span>,
   <span class="s2">"platforms"</span>: <span class="o">[</span>
       <span class="o">{</span>
           <span class="s2">"id"</span>: <span class="s2">"steam"</span>,
