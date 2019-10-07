@@ -19,9 +19,15 @@ toc: true
 
 The PaySuper system can send you notifications for a set of events during the flow, such as creating new accounts or transaction flow, making payouts, and so on.
 
-These notifications are sent as webhooks to the corresponding URLs configured on your server.
+These notifications are sent as webhooks to the corresponding URLs configured on your Project Settings page.
 
 In most cases, webhooks are triggered by user actions on your website or back-end related events like refund a payment, notification about dispute and other.
+
+## Set up webhooks
+
+1. Configure URLs on your Project settings page for all notification types.
+2. PaySuper signs the webhook events it sends to your endpoint, allowing you to validate that they were not sent by a third-party and prevent hacker attacks. [To verify a webhook request](#to-check-the-digital-signatures-you-should), generate a signature and compare that to the value of the Authorization header.
+3. Respond with HTTP code 200 without a message body to acknowledge the receipt a webhook.
 
 ## Notification types
 
