@@ -82,3 +82,7 @@ The amount of data transferred with notifications can be huge, and endpoints are
 Endpoints that send HTTP 1.1 messages are required to send gzip-compressed data by specifying the appropriate value in the HTTP [Accept-Encoding header](https://tools.ietf.org/html/rfc7231#section-5.3.4).
 
 Receiving hosts are required to support gzip and respond to requests by passing an HTTP [Content-Encoding header](https://tools.ietf.org/html/rfc7231#section-3.1.2.2).
+
+## Endpoints
+
+{{< oai-spec url="/api/v1/api.yaml" >}}
