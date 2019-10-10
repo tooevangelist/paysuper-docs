@@ -9,7 +9,7 @@ layout: single
 menu:
   docs:
     parent: "getting-started"
-    weight: 30
+    weight: 4
 categories: []
 keywords: []
 aliases: []
@@ -55,3 +55,8 @@ A project can contain an unlimited number of products. Each can have independent
 PaySuper determines the user’s region and applies the appropriate regional price. If a regional price is not specified, PaySuper calculates the price for the end user by converting the base price into the currency of this user. 
 
 Apart from the price, a product may have a name, a short and full description, images, an icon and a text template. PaySuper supports downloading products via API or from files for synchronization with your e-commerce system.
+
+## Set up your project and products
+1. Navigate to the Project section in PaySuper Admin.
+2. Create a New Project.
+3. Add Products in the created New Project with all the required information.

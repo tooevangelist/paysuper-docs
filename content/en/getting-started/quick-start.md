@@ -9,7 +9,7 @@ layout: single
 menu:
   docs:
     parent: "getting-started"
-    weight: 10
+    weight: 100
 categories: []
 keywords: []
 aliases: []
