@@ -23,18 +23,18 @@ Our mission is to maximize profits for developers, publishers, and platforms. We
 
 * The source code is available on the [PaySuper GitHub](https://github.com/paysuper), so you can follow the development process and see how everything actually works.
 * PaySuper can be integrated into different platforms like a website, an online store or a game.
-* [The PaySuper Form]() loads near instantly and designed to boost your paying conversion rate.
+* [The PaySuper Form](/getting-started/glossary/#payment-form) loads near instantly and designed to boost your paying conversion rate.
 * PaySuper supports all popular payment methods necessary to accept payments from users anywhere in the world.
 
 
 ## 1. Complete the onboarding first
-[The PaySuper Onboarding](/getting-started/onboarding/) is necessary for a [Payment Form]() and PaySuper itself to work with your data. Be sure to complete the onboarding before you can make use of this guide.
+[The PaySuper Onboarding](/getting-started/onboarding/) is necessary for a [Payment Form](/getting-started/glossary/#payment-form) and PaySuper itself to work with your data. Be sure to complete the onboarding before you can make use of this guide.
 
 ## 2. Add your Project and Products
 Fill in all applicable information for your [Project and Products](/getting-started/project-products/#set-up-your-project-and-products) (Game keys, Virtual items or Virtual currency) in [PaySuper Admin](). Having a single Project and a single Product is enough to start.
 
 ## 3. Create a Payment Form instance
-You can use PaySuper JavaScript SDK to create an instance of a [Payment Form]() with just a few lines of code. [PaySuper SJ SDK](https://github.com/paysuper/paysuper-js-sdk) is open source with the source code available on github.
+You can use PaySuper JavaScript SDK to create an instance of a Payment Form with just a few lines of code. [PaySuper SJ SDK](https://github.com/paysuper/paysuper-js-sdk) is open source with the source code available on github.
 
 You should generate secure strings of order and user parameters with [Tokens API](/api-reference/token/#endpoints).
 
@@ -44,7 +44,7 @@ You should generate secure strings of order and user parameters with [Tokens API
 [The Payment Form has a wide range of customization options](https://github.com/paysuper/paysuper-js-sdk#paysuper-options) that you may use to customize the looks and feels.
 
 {{% tip %}}
-You can follow our [PaySuper API quickstart guide](/getting-started/integration/) if you want to integrate a [Payment Form]() in a game client or cannot use PaySuper SJ SDK for other reasons.
+You can follow our [PaySuper API quickstart guide](/getting-started/integration/) if you want to integrate a [Payment Form](/getting-started/glossary/#payment-form) in a game client or cannot use PaySuper SJ SDK for other reasons.
 {{% /tip %}}
 
 ## 4. Test the payment
