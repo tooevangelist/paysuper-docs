@@ -17,7 +17,7 @@ draft: false
 toc: true
 ---
 
-Anyone can use the [PaySuper toolkit](https://github.com/ProtocolONE) to create their own payment solution. 
+Anyone can use [the PaySuper toolkit](https://github.com/paysuper) to create their own payment solution. 
 
 This will require you to:
 

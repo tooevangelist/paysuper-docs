@@ -16,6 +16,6 @@ draft: false
 toc: false
 ---
 
-PaySuper is a payment system with an open source code. It accepts end-user payments, provides reports, analysis and direct access to payment data, and handles payouts.
+PaySuper is a payment system with an [open source code](https://github.com/paysuper). It accepts end-user payments, provides reports, analysis and direct access to payment data, and handles payouts.
 
 This payment solution can be either used in combination with other Protocol One components, or integrated into any third-party storefront or web page that must accept payments.

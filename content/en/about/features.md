@@ -59,7 +59,7 @@ Keeping up with local legislation. We will help you to avoid breaking local laws
 
 ## Open source code
 
-Our payment solution has an open source code. You can deploy a similar solution on your hardware. In this case, you will be free from commissions or any other payments to PaySuper.
+Our payment solution has an [open source code](https://github.com/paysuper). You can deploy a similar solution on your hardware. In this case, you will be free from commissions or any other payments to PaySuper.
 
 ## Low commissions
 
