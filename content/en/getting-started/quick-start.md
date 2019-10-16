@@ -31,7 +31,7 @@ Our mission is to maximize profits for developers, publishers, and platforms. We
 [The PaySuper Onboarding](/getting-started/onboarding/) is necessary for a [Payment Form]() and PaySuper itself to work with your data. Be sure to complete the onboarding before you can make use of this guide.
 
 ## 2. Add your Project and Products
-Fill in all applicable information for your [Project and Products](/getting-started/project-products/#set-up-your-project-and-products) (Game keys, Virtual items or Virtual currency) in [PaySuper Admin](). Having a single Project and a single Product is enough to start. 
+Fill in all applicable information for your [Project and Products](/getting-started/project-products/#set-up-your-project-and-products) (Game keys, Virtual items or Virtual currency) in [PaySuper Admin](). Having a single Project and a single Product is enough to start.
 
 ## 3. Create a Payment Form instance
 You can use PaySuper JavaScript SDK to create an instance of a [Payment Form]() with just a few lines of code. [PaySuper SJ SDK](https://github.com/paysuper/paysuper-js-sdk) is open source with the source code available on github.
@@ -39,7 +39,7 @@ You can use PaySuper JavaScript SDK to create an instance of a [Payment Form]() 
 You should generate secure strings of order and user parameters with [Tokens API](/api-reference/token/#endpoints).
 
 > Check out the [example code snippet](https://github.com/paysuper/paysuper-js-sdk#usage) to get started with PaySuper JS SDK. 
-> Be sure to include your own order parameters. Notice that some parameters are of strings type.
+> Be sure to include your own order parameters. Notice that some parameters are of string type.
 
 [The Payment Form has a wide range of customization options](https://github.com/paysuper/paysuper-js-sdk#paysuper-options) that you may use to customize the looks and feels.
 
