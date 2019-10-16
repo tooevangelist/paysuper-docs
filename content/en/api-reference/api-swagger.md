@@ -1,7 +1,7 @@
 ---
 title: API
 linktitle: API
-description: All API requests must be made over **HTTPS**. Calls made over plain HTTP will fail.
+description:
 date: 2016-02-01
 publishdate: 2016-02-01
 lastmod: 2016-03-02
