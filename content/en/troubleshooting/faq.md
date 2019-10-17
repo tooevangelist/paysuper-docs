@@ -37,7 +37,7 @@ Yes you can! See [Configure with Environment Variables](/getting-started/configu
 How to automate the "publish at intervals" part depends on your situation:
 
 * If you deploy from your own PC/server, you can automate with [Cron](https://en.wikipedia.org/wiki/Cron) or similar.
-* If your site is hosted on a service similar to [Netlify](https://www.netlify.com/) you can use a service such as [ifttt](https://ifttt.com/date_and_time) to schedule the updates.
+* If your website is hosted on a service similar to [Netlify](https://www.netlify.com/) you can use a service such as [ifttt](https://ifttt.com/date_and_time) to schedule the updates.
 
 Also see this Twitter thread:
 

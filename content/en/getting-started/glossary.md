@@ -22,7 +22,7 @@ PaySuper is a payment service with a [multifunctional toolkit](https://github.co
 Our mission is to maximize profits for developers, publishers, and platforms. We’re focused on keeping conversion rates high and costs low – including those related to integration and maintenance.
 
 ## PaySuper JS SDK
-[PaySuper’s JavaScript library](https://github.com/paysuper/paysuper-js-sdk) is designed to integrate a PaySuper Payment Form on your site.
+[PaySuper’s JavaScript library](https://github.com/paysuper/paysuper-js-sdk) is designed to integrate a PaySuper Payment Form on your website.
 
 ## PaySuper API
 [PaySuper public REST API server](https://github.com/paysuper/paysuper-management-api) for a payment form and dashboards.

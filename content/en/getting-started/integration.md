@@ -29,7 +29,7 @@ In the case of basic payment acceptance, the integration process takes just a fe
 
     You can open a payment form in a new browser window by URL payment_form_url.
     
-    Likewise, you can integrate a payment form as an iframe on your site:
+    Likewise, you can integrate a payment form as an iframe on your website:
 
     {{< highlight javascript >}}
     <iframe src="{payment_form_url}"></iframe>
