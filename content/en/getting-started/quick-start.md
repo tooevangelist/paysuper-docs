@@ -1,7 +1,7 @@
 ---
 title: Quick Start
 linktitle: Quick Start
-description: PaySuper is an open-source payment toolkit that enables secure online payments on the web and mobile devices.
+description: PaySuper is a payment service with [an open source multifunctional toolkit](https://github.com/paysuper) that provides secure and immediate online payment transactions for the games industry.
 date: 2019-10-10
 publishdate: 2019-10-10
 lastmod: 2019-10-10
@@ -31,7 +31,7 @@ Our mission is to maximize profits for developers, publishers, and platforms. We
 [The PaySuper Onboarding](/getting-started/onboarding/) is necessary for a [Payment Form](/getting-started/glossary/#payment-form) and PaySuper itself to work with your data. Be sure to complete the onboarding before you can make use of this guide.
 
 ## 2. Add your Project and Products
-Fill in all applicable information for your [Project and Products](/getting-started/project-products/#set-up-your-project-and-products) (Game keys, Virtual items or Virtual currency) in PaySuper Admin. Having a single Project and a single Product is enough to start.
+Fill in all applicable information for your [Project and Products](/getting-started/project-products/#set-up-your-project-and-products) (Game keys, Virtual items or Virtual currency) in [PaySuper Admin](). Having a single Project and a single Product is enough to start.
 
 ## 3. Create a Payment Form instance
 You can use PaySuper JavaScript SDK to create an instance of a Payment Form with just a few lines of code. [PaySuper SJ SDK](https://github.com/paysuper/paysuper-js-sdk) is open source with the source code available on github.
