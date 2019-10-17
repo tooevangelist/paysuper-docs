@@ -48,6 +48,15 @@ The payment form implements the complete logic of interaction with the user duri
 
 [You can get the detailed information about a Payment Form process.](/payments/payment-form/)
 
+## Virtual currency
+Virtual Currency is an option to sell your in-game currency — gold, coins, etc. This method allows you to sell customisable quantity of your currency. Integration webhook testing is obligatory requirement for this sales option.
+
+## Game keys
+This sales method is intended to sell game keys for specific DRM platforms, sending your customers email with a key. Key distribution allows you to sell not only games, but any key activated products.
+
+## Virtual items
+This sales option will allow you to sell your Virtual Items, like swords, guns, helmets and virtual currency packs.
+
 ## Sandbox
 
 ## Webhooks
