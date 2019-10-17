@@ -44,6 +44,9 @@ Our mission is to maximize profits for developers, publishers, and platforms. We
 ## Order
 
 ## Payment Form
+The payment form implements the complete logic of interaction with the user during the payment process. This process includes displaying all the order information the user needs, collecting information about the selected payment method and required user account details, and displaying the final purchase status.
+
+[You can get the detailed information about a Payment Form process.](/payments/payment-form/)
 
 ## Sandbox
 
