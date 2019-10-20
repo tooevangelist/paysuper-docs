@@ -46,6 +46,9 @@ Our mission is to maximize profits for developers, publishers, and platforms. We
 
 ## Order
 
+## Simple checkout
+This sales option is best suited for a quick integration for payment orders with dynamical pricing, for example, stores that use its e-commerce engine for product management. Likewise, this option is more appropriate for non-products payments such as donations and others. In this mode, you specify the currency and price, and the payment amount for the end-user will be calculated according to its exchange rate if it differs from the specified order currency.
+
 ## Payment Form
 The payment form implements a complete functionality for user interaction during the payment process.
 
