@@ -21,7 +21,7 @@ In the case of basic payment acceptance, the integration process takes just a fe
 
 ## Steps of the integration process:
 
-1. To initiate a payment you can send a request with a secure string of an order parameters by **[POST /api/v1/tokens](https://docs.stg.pay.super.com/api-reference/token/#endpoints)** or key-value parameters about your Project and Products without a user information by **[POST /api/v1/order](https://docs.stg.pay.super.com/api-reference/orders/#endpoints)**.
+1. To initiate a payment you can send a request with a secure string of an order parameters by **[POST /api/v1/tokens](/api-reference/token/#endpoints)** or key-value parameters about your Project and Products without a user information by **[POST /api/v1/order](/api-reference/orders/#endpoints)**.
 
 2. After a customer initiates a payment retreive from a response a parameter **`payment_form_url`** - the payment form URL.
 
