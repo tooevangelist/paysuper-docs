@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^docs.stg.pay.super.com$
+RewriteRule ^$ https://docs.stg.pay.super.com/about/ [L,R=301]
