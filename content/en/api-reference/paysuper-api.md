@@ -69,7 +69,7 @@ Code and status|Description
 
 PaySuper is developed incrementally. We use semantic versioning and approach to release new versions of the specification.
 
-The content of each release is the result of the work of the project team located on github. All changes and additions to each version of this specification are publicly discussed by the PaySuper working group.
+The content of each release is the result of the work of the project team located on GitHub. All changes and additions to each version of this specification are publicly discussed by the PaySuper working group.
 
 While making requests in PaySuper using HTTPS, the version is passed as a special HTTP header, which makes it easier to choose the correct implementation of objects on the receiving and transmitting side. The version passed is specified as major and minor of the version using semantic versioning.
 
