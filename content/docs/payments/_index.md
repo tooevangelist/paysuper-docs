@@ -13,7 +13,7 @@ Checkout creates a secure PaySuper-hosted form that lets you collect payments wi
 
 {{< figure src="/images/products-dark-form.png">}}
 
-## PaySuper Checkout supports:
+**PaySuper Checkout supports:**
 
 - Payment methods: Credit cards, JCB, China UnionPay, Bitcoin payments, Alipay, QIWI, Bank Wire Transfers.
 - Payment types: Simple Checkout, Keys Checkout.
