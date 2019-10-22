@@ -21,7 +21,7 @@ Checkout creates a secure PaySuper-hosted form that lets you collect payments wi
 - Localization: Localized for 2 languages with 10 more translations coming soon.
 - Email receipts: Automatic email receipts to your customers.
 - Automated Calculations: Automatically calculates the taxes and VAT due on your orders.
-- Conversion-optimized: Provide a single-page layout so the user focused to enter private information and about an order on that one page.
+- Conversion-optimized: Provides a single-page layout so the user focused to enter private information and an order on that one page.
 
 ***
 
