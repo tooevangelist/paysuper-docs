@@ -5,9 +5,9 @@ headless: true
 - [**Home**]({{< relref "/" >}})
 - **Payments**
   - [Checkout Overview]({{< relref "/docs/payments" >}})
-  - [Integration Flow]({{< relref "/docs/payments/integration-flow" >}})
+  - [Quick start]({{< relref "/docs/payments/quick-start" >}})
   - [Simple checkout]({{< relref "/docs/payments/simple" >}})
-  - [Keys checkout]({{< relref "/docs/payments/keys" >}})
+  - [Typed checkout]({{< relref "/docs/payments/typed" >}})
   - [After the payment]({{< relref "/docs/payments/fulfillment" >}})
   - [Customizing Checkout]({{< relref "/docs/payments/customization" >}})
   - [Testing]({{< relref "/docs/payments/sandbox" >}})
