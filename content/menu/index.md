@@ -5,9 +5,9 @@ headless: true
 - [**Home**]({{< relref "/" >}})
 - **Payments**
   - [Checkout Overview]({{< relref "/docs/payments" >}})
-  - [Quick start]({{< relref "/docs/payments/quick-start" >}})
-  - [Simple checkout]({{< relref "/docs/payments/simple" >}})
-  - [Typed checkout]({{< relref "/docs/payments/typed" >}})
+  - [Quick Start]({{< relref "/docs/payments/quick-start" >}})
+  - [Simple Checkout]({{< relref "/docs/payments/simple" >}})
+  - [Typed Checkout]({{< relref "/docs/payments/typed" >}})
   - [After the payment]({{< relref "/docs/payments/fulfillment" >}})
   - [Customizing Checkout]({{< relref "/docs/payments/customization" >}})
   - [Testing]({{< relref "/docs/payments/sandbox" >}})
