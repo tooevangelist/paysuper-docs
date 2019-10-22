@@ -1,0 +1,18 @@
+<div>
+    <script>
+        function buyItems() {
+            const paySuper = new PaySuper({
+                project: '5cd5620f06ae110001509185',
+                products: ['5d80ec2b40a1200001387ec6'],
+                type: 'key',
+                viewScheme: 'light',
+                viewSchemeConfig: { headerTextColor: '#333333' },
+                formUrl: 'https://paysupermgmt.tst.protocol.one/payform-page'
+            });
+        
+            paySuper.renderModal();
+        }
+    </script>
+        
+    <input type="button" value="Click me" onclick="buyItems()">
+</div>
