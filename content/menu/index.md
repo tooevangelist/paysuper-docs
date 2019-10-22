@@ -2,6 +2,7 @@
 headless: true
 ---
 
+- [**Home**]({{< relref "/" >}})
 - **Payments**
   - [Checkout Overview]({{< relref "/docs/payments" >}})
   - [Integration Flow]({{< relref "/docs/payments/integration-flow" >}})
