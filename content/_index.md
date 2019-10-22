@@ -11,6 +11,10 @@ type: docs
 
 PaySuper is a payment service with an open source multifunctional toolkit that provides secure and immediate online payment transactions for the games industry.
 
+{{< load-photoswipe >}}
+
+{{< figure src="/images/Dark.png">}}
+
 ## Expand the market with online payments
 
 PaySuper enables you to accept payments in an easy and secure way in 170+ countries. We support major payment systems such as Visa, MasterCard, JCB, China Union Pay, Bitcoin, Alipay, QIWI along with bank wire transfers.
