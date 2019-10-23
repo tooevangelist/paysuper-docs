@@ -177,7 +177,7 @@ paySuper.on('paymentCompleted', function() {
 
 You can follow these steps if you want to integrate the Checkout Form without PaySuper SJ SDK for other reasons.
 
-**Step 1.** Send a HTTP request to initiate a payment [POST /api/v1/order](ССЫЛКА НА API метод в redoc) and retrieve a response parameter **`payment_form_url`** - URL of PaySuper Checkout form.
+**Step 1.** Send a HTTP request to initiate a payment [POST /api/v1/order](ССЫЛКА НА API метод в redoc) and retrieve a response parameter **`payment_form_url`** - URL of PaySuper Checkout Form.
 
 See the sample codes of the Checkout Form for a Simple Checkout or products:
 
@@ -225,24 +225,4 @@ To verify a webhook request, generate a signature and compare that to the value 
 
 ***
 
-## Questions?
-
-{{< columns >}}
-
-#### [Sales](https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform)
-
-Our salespeople are pleasant and friendly. Leave your contact details, and we'll be back to you in no time. 
-
-<--->
-
-#### [Support](https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform)
-
-We are always happy to help with a code, improve a guide or consider a feature.
-
-<--->
-
-#### [GitHub](https://github.com/paysuper)
-
-The PaySuper Checkout form, the JS SDK and even the server are available as a source code on our GitHub. You're welcome to explore the code and help us make PaySuper even better.
-
-{{< /columns >}}
+{{< questions >}}{{< questions-text >}}{{< /questions-text >}}{{< /questions >}}
