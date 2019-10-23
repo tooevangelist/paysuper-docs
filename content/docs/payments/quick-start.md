@@ -210,6 +210,20 @@ To verify a webhook request, generate a signature and compare that to the value 
 
 3. Respond with HTTP code 200 without a message body to acknowledge the receipt a webhook.
 
+## Next steps
+
+{{< hint info >}}
+[**Testig the Checkout in the Sandbox**](/docs/payments/sandbox/).
+{{< /hint >}}
+
+{{< hint info >}}
+[**After the payment**](/docs/payments/live/).
+{{< /hint >}}
+
+{{< hint info >}}
+[**Customizing Checkout**](/docs/payments/customization/)
+{{< /hint >}}
+
 ***
 
 ## Questions?
