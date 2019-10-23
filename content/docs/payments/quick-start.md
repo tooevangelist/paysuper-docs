@@ -116,7 +116,7 @@ Checkout Form has a flexible integration on all your available platforms:
 
 ### Client integration with JS SDK
 
-You can use PaySuper JavaScript SDK to create an instance of a Payment Form with just a few lines of code..
+You can use PaySuper JavaScript SDK to create an instance of a Payment Form with just a few lines of code.
 
 **Step 1.** To get started, include the following script tag on your website - always load it directly from `https://cdn.pay.super.com`:
 
@@ -151,21 +151,32 @@ See the sample codes of the Checkout Form for a Simple Checkout or products:
 
 **Display the Checkout form in a modal window anywhere of your platform**
 
-{{< highlight html >}}
+{{< highlight javascript >}}
 paySuper.renderModal();
 {{< /highlight >}}
 
 **Display the Checkout form in an iframe**
 
-{{< highlight html >}}
+{{< highlight javascript >}}
 paySuper.renderPage();
 {{< /highlight >}}
 
 **Step 4.** Handle the purchase events
 
-[](https://github.com/paysuper/paysuper-js-sdk#paysuper-events)
+{{< highlight javascript >}}
+paySuper.on('inited', function() {
+  console.log('PaySuper is initialized')
+})
+paySuper.renderModal();
+{{< /highlight >}}
+
+[Full events list in the expected order of execution](https://github.com/paysuper/paysuper-js-sdk#paysuper-events)
+
+***
 
 ### Integration with PaySuper API
+
+You can follow these steps if you want to integrate the Checkout Form without PaySuper SJ SDK for other reasons.
 
 **Step 1.** Send a HTTP request to initiate a payment [POST /api/v1/order](ССЫЛКА НА API метод в redoc) and retrieve a response parameter **`payment_form_url`** - URL of PaySuper Checkout form.
 
@@ -174,17 +185,30 @@ See the sample codes of the Checkout Form for a Simple Checkout or products:
 * [Simple Checkout form parameters](/docs/payments/simple/#server-integration-with-paysuper-api)
 * [Types Checkout form parameters](/docs/payments/typed/#server-integration-with-paysuper-api)
 
-**Step 2.** Embed an iframe or open received URL in a new window.
+**Step 2.** Embed as an iframe or open the received URL in a browser as a new window.
 
-Sample code of embedded form:
+**Sample code of embedded form:**
 
 {{< highlight html >}}
 <iframe src="{payment_form_url}"></iframe>
 {{< /highlight >}}
 
-## <span style="color:#2e00a8;">Step 5.</span> Set up webhook handling
+## <span style="color:#2e00a8;">Step 5.</span> Set up a webhook handling
 
-Handle actions and transaction states after the payment.
+The PaySuper system can send webhooks to your server for a set of events about transactions and user actions. Types of events described in the list notification types.
+
+**Set up webhooks for your project:**
+
+1. Configure URLs for all event types:
+
+    СКРИНШОТ
+
+2. PaySuper signs the webhook events it sends to your endpoint, allowing you to validate that they were not sent by a third-party and prevent hacker attacks.
+To verify a webhook request, generate a signature and compare that to the value of the Authorization header.
+
+    [Learn more about how to check a digital signature.](ССЫЛКА НА API webhook)
+
+3. Respond with HTTP code 200 without a message body to acknowledge the receipt a webhook.
 
 ***
 
