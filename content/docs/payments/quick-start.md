@@ -93,55 +93,7 @@ You can obtain a Token to integrate with the Checkout Form. The Token is a secur
 
 Send the request **`POST /api/v1/tokens`**. Both the request and the response are in JSON format.
 
-    {
-        "user": {
-            "id": "400001000053548996",
-            "email": {
-                "value": "mikhail.kirpa16_1@protocol.one",
-                "verified": true
-            },
-            "phone": {
-                "value": "380991234567",
-                "verified": true
-            },
-            "name": {
-                "value": "mikhail.kirpa16"
-            },
-            "ip": {
-                "value": "80.91.180.90"
-            },
-            "locale": {
-                "value": "en"
-            },
-            "address": {
-                "country": "UA",
-                "city": "string",
-                "postal_code": "string",
-                "state": "string"
-            },
-            "metadata": {}
-        },
-        "settings": {
-            "project_id": "5cda856f38e0e20001769886",
-            "return_url": {
-                "success": "https://success",
-                "fail": "https://fail"
-            },
-            "currency": "EUR",
-            "amount": 120,
-            "items": [
-                {
-                    "sku": "string",
-                    "amount": 0,
-                    "currency": "string"
-                }
-            ],
-            "description": "string",
-            "metadata": {}
-        }
-    }
-
-You can find the full list of parameters in the [API Reference]().
+ПРИМЕР ТОКЕНА с обязательными параметрами для ключа и пользователя Вставьте сюда https://runkit.com/home пример с созданием токена
 
 **Order-based features:**
 
@@ -151,24 +103,50 @@ You can find the full list of parameters in the [API Reference]().
 
 Send the request **`POST /api/v1/order`**. Both the request and the response are in JSON format.
 
+ПОКАЗАТЬ ПРИМЕР С ПАРАМЕТРАМИ для type=key
+
     curl -X POST "https://p1payapi.tst.protocol.one/api/v1/order" \
     -H "accept: application/json" \
     -H "Content-Type: application/json" \
     -d "{ \"account\": \"string\", \"amount\": 10, \"currency\": \"USD\", \"description\": \"string\", \"order_id\": \"string\", \"other\": {}, \"payer_email\": \"string\", \"payer_ip\": \"string\", \"payer_phone\": \"string\", \"payment_method\": \"string\", \"project\": \"5daf6b125c8256000117d86f\", \"region\": \"string\", \"signature\": \"string\", \"url_fail\": \"string\", \"url_notify\": \"string\", \"url_success\": \"string\", \"url_verify\": \"string\"}"
 
-ССЫЛКА НА страницу simple.md
-
-ССЫЛКА НА страницу typed.md
-
-You can find the full list of parameters in the [API Reference]().
-
 ### <span style="color:#2e00a8;">Step 4.</span> Set up the payment form
 
 Checkout Form has a flexible integration on all your available platforms.
 
-Embedded by API, SDK
-Modal window by API
-New window by SDK
+* **Embedded as iframe**
+* **Modal window** (only for a client integration with [PaySuper JS SDK](https://github.com/paysuper/paysuper-js-sdk))
+* **New window** (only for a server integration)
+
+#### Client integration
+
+You can use PaySuper JavaScript SDK to create an instance of a Payment Form with just a few lines of code..
+
+1. To get started, include the following script tag on your website - always load it directly from `https://cdn.pay.super.com`:
+
+{{< highlight html >}}
+<script src="https://cdn.pay.super.com/paysdk/latest/paysuper.js"></script>
+{{< /highlight >}}
+
+2. 
+ССЫЛКА НА страницу simple.md
+ССЫЛКА НА страницу typed.md
+
+#### Server integration
+
+1. Send a HTTP request to initiate a payment [POST /api/v1/order](ССЫЛКА НА API метод в redoc) and retrieve a response parameter **`payment_form_url`** - the URL of PaySuper Checkout form.
+
+2. Embed an iframe with or open received URL in a new window.
+
+Sample code of embedded form:
+
+{{< highlight html >}}
+<iframe src="{payment_form_url}"></iframe>
+{{< /highlight >}}
+
+ССЫЛКА НА страницу simple.md
+ССЫЛКА НА страницу typed.md
+
 
 ### <span style="color:#2e00a8;">Step 5.</span> Set up webhook handling
 
