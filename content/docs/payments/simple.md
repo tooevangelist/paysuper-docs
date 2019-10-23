@@ -49,3 +49,7 @@ function buyItems() {
 ## Integration with PaySuper API
 
 ПРИМЕР КОДА HTTP запроса с параметрами для simple checkout
+
+***
+
+{{< questions >}}{{< questions-text >}}{{< /questions-text >}}{{< /questions >}}

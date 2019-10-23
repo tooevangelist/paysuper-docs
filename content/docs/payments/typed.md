@@ -3,4 +3,6 @@ title: Typed Checkout
 bookToc: true
 ---
 
-PaySuper
+***
+
+{{< questions >}}{{< questions-text >}}{{< /questions-text >}}{{< /questions >}}
