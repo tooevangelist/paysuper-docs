@@ -36,7 +36,7 @@ Default card: **`4000 0000 0000 0002`**
 
 Enter arbitrary cardholder name, expiry date and CVV2/CVC2/CAV2 (Secure code) with these PANs.
 
-{{< button href="https://paysupermgmt.tst.protocol.one/form-demo" >}}Test Payment{{< /button >}}
+{{< sdk >}}Test Payment{{< /sdk >}}
 
 <--->
 
@@ -76,7 +76,7 @@ Virtual Currency is an option to sell your in-game currency — gold, coins, etc
 ## Next steps
 
 {{< hint info >}}
-Continue with the [**Quick Start guide**](/docs/payments/quick-start/).
+Continue with the [**Quick Start guide**](/docs/payments/quick-start/)
 {{< /hint >}}
 
 ***
