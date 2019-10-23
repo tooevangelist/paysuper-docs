@@ -6,7 +6,7 @@ bookToc: true
 # Simple Checkout
 ***
 
-## Client integration with JS SDK
+## Integration with PaySuper JS SDK
 
 You can create an instance of a PaySuper Form on your website using this sample code.
 

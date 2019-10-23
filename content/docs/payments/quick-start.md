@@ -110,11 +110,11 @@ Send the request **`POST /api/v1/order`**. Both the request and the response are
 
 Checkout Form has a flexible integration on all your available platforms:
 
-* **Embedded as iframe**
-* **Modal window** (only for a client integration with [PaySuper JS SDK](https://github.com/paysuper/paysuper-js-sdk))
-* **New window** (only for an integration with [PaySuper API](/docs/api/))
+* **Iframe**
+* **Embedded** (only for the integration with [PaySuper JS SDK](https://github.com/paysuper/paysuper-js-sdk))
+* **New window** (only for the integration with [PaySuper API](/docs/api/))
 
-### Client integration with JS SDK
+### Integration with PaySuper JS SDK
 
 You can use PaySuper JavaScript SDK to create an instance of a Payment Form with just a few lines of code.
 
