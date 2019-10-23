@@ -41,16 +41,16 @@ Having a single project is enough to start selling.
     * **Currency**: by default is equal to **USD**.
 6. Optional information:
 
-    * **Localization**: you can choose the complete set of supported languages for all products and descriptions
+    * **Localization**: you can choose the complete set of supported languages for the project and products descriptions
     * **Logotype**
 
 7. Click **Save**.
 
 {{< /expand >}}
 
-If you want to sell products (as Game keys, Virtual items, Virtual currency) then easily add the necessary sales information about your products.
+If you want to sell products (as Game keys, Virtual items, Virtual currency) then easily add the necessary sales information about your products to the project.
 
-{{< expand "Add a Game key to project  >" " " >}}
+{{< expand "Add a Game key to the project  >" " " >}}
 
 **To add a Game key:**
 
@@ -60,7 +60,7 @@ If you want to sell products (as Game keys, Virtual items, Virtual currency) the
 
 {{< /expand >}}
 
-{{< expand "Add a Virtual item to project  >" " " >}}
+{{< expand "Add a Virtual item to the project  >" " " >}}
 
 **To add a Virtual item:**
 
@@ -70,7 +70,7 @@ If you want to sell products (as Game keys, Virtual items, Virtual currency) the
 
 {{< /expand >}}
 
-{{< expand "Add a Virtual currency to project  >" " " >}}
+{{< expand "Add a Virtual currency to the project  >" " " >}}
 
 **To add a Virtual currency:**
 
@@ -155,6 +155,10 @@ Send the request **`POST /api/v1/order`**. Both the request and the response are
     -H "accept: application/json" \
     -H "Content-Type: application/json" \
     -d "{ \"account\": \"string\", \"amount\": 10, \"currency\": \"USD\", \"description\": \"string\", \"order_id\": \"string\", \"other\": {}, \"payer_email\": \"string\", \"payer_ip\": \"string\", \"payer_phone\": \"string\", \"payment_method\": \"string\", \"project\": \"5daf6b125c8256000117d86f\", \"region\": \"string\", \"signature\": \"string\", \"url_fail\": \"string\", \"url_notify\": \"string\", \"url_success\": \"string\", \"url_verify\": \"string\"}"
+
+ССЫЛКА НА страницу simple.md
+
+ССЫЛКА НА страницу typed.md
 
 You can find the full list of parameters in the [API Reference]().
 
