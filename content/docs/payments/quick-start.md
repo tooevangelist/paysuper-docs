@@ -87,8 +87,8 @@ You can obtain a Token to integrate with the Checkout Form. The Token is a secur
 
 **Token-based features:**
 
-* **Instantly redirect from anywhere of your game application**: You can create a token after a user registered or logged in your game and instantly redirect the user to Checkout form when the user intent a payment.
-* **The pre-filled information in a payment form**: Token can encrypt all required information about your user intent to pay. Checkout form is pre-filled in this case.
+* **Instantly redirect from anywhere of your game application**: You can create a token after a user registered or logged in your game and instantly redirect the user to the Checkout Form when the user intent a payment.
+* **The pre-filled information in a payment form**: Token can encrypt all required information about your user intent to pay. The Checkout Form is pre-filled in this case.
 
 **To create a Token:**
 
@@ -112,7 +112,7 @@ Checkout Form has a flexible integration on all your available platforms:
 
 * **Embedded as iframe**
 * **Modal window** (only for a client integration with [PaySuper JS SDK](https://github.com/paysuper/paysuper-js-sdk))
-* **New window** (only for a integration with [PaySuper API](/docs/api/))
+* **New window** (only for an integration with [PaySuper API](/docs/api/))
 
 ### Client integration with JS SDK
 
@@ -145,7 +145,7 @@ function buyItems() {
 See the sample codes of the Checkout Form for a Simple Checkout or products:
 
 * [Simple Checkout form parameters](/docs/payments/simple/#client-integration-with-js-sdk)
-* [Types Checkout form parameters](/docs/payments/typed/#client-integration-with-js-sdk)
+* [Typed Checkout form parameters](/docs/payments/typed/#client-integration-with-js-sdk)
 
 **Step 3.** Display the form in a modal window or iframe:
 
@@ -164,8 +164,8 @@ paySuper.renderPage();
 **Step 4.** Handle the purchase events
 
 {{< highlight javascript >}}
-paySuper.on('inited', function() {
-  console.log('PaySuper is initialized')
+paySuper.on('paymentCompleted', function() {
+      // You can show a message about payment is completed
 })
 paySuper.renderModal();
 {{< /highlight >}}
@@ -195,7 +195,7 @@ See the sample codes of the Checkout Form for a Simple Checkout or products:
 
 ## <span style="color:#2e00a8;">Step 5.</span> Set up a webhook handling
 
-The PaySuper system can send webhooks to your server for a set of events about transactions and user actions. Types of events described in the list notification types.
+The PaySuper system can send webhooks to your server for a set of events about transactions and user actions. Types of events described in [the list notification types](ССЫлка на апи вебхуков).
 
 **Set up webhooks for your project:**
 
