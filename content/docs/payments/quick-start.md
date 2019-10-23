@@ -167,7 +167,6 @@ paySuper.renderPage();
 paySuper.on('paymentCompleted', function() {
       // You can show a message about payment is completed
 })
-paySuper.renderModal();
 {{< /highlight >}}
 
 [Full events list in the expected order of execution](https://github.com/paysuper/paysuper-js-sdk#paysuper-events)
