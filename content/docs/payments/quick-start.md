@@ -212,11 +212,11 @@ To verify a webhook request, generate a signature and compare that to the value 
 ## Next steps
 
 {{< hint info >}}
-[**Testig the Checkout in the Sandbox**](/docs/payments/sandbox/).
+[**Testig the Checkout**](/docs/payments/testing/)
 {{< /hint >}}
 
 {{< hint info >}}
-[**After the payment**](/docs/payments/live/).
+[**After the payment**](/docs/payments/live/)
 {{< /hint >}}
 
 {{< hint info >}}
