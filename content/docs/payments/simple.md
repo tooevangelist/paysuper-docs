@@ -6,10 +6,7 @@ bookToc: true
 # Simple Checkout
 ***
 
-* [Client integration with JS SDK](#client-integration)
-* [Server integration with PaySuper API](#server-integration)
-
-## Client integration
+## Client integration with JS SDK
 
 You can create an instance of a PaySuper Form on your website using this sample code.
 
@@ -20,17 +17,11 @@ You can create an instance of a PaySuper Form on your website using this sample 
 {{< highlight html >}}
 <script>
 function buyItems() {
-    // Create an instance of the Payment Form with required order parameters
     const paySuper = new PaySuper({
         token: '5cd5620f06ae110001509185'
     });
     
-    // Display a modal window with the Payment Form
     paySuper.renderModal();
-
-    paySuper.on('paymentCompleted', function() {
-        // You can show a completed payment message
-    });
 }
 </script>
 
@@ -42,25 +33,19 @@ function buyItems() {
 {{< highlight html >}}
 <script>
     function buyItems() {
-        // Create an instance of the Payment Form with required order parameters
         const paySuper = new PaySuper({
             project: '5cd5624a06ae110001509186',
             amount: 50,
             currency: 'USD'
         });
-        
-        // Display a modal window with the Payment Form
-        paySuper.renderModal();
 
-        paySuper.on('paymentCompleted', function() {
-            // You can show a completed payment message
-        });
+        paySuper.renderModal();
     }
 </script>
 
 <button onclick="buyItems()">BUY</button>
 {{< /highlight >}}
 
-## Server integration
+## Integration with PaySuper API
 
 ПРИМЕР КОДА HTTP запроса с параметрами для simple checkout
