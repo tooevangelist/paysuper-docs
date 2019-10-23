@@ -411,47 +411,6 @@ host: p1payapi.tst.protocol.one
 info:
   version: 1.0.0
 paths:
-  /admin/api/v1/order:
-    get:
-      description: TODO.
-      operationId: orderPathListOrdersPublic
-      summary: TODO.
-      tags:
-      - Order
-  /admin/api/v1/order/{id}:
-    get:
-      description: TODO.
-      operationId: orderIdPathGetOrderPublic
-      summary: TODO.
-      tags:
-      - Order
-  /admin/api/v1/order/{order_id}/refunds:
-    get:
-      description: TODO.
-      operationId: orderRefundsPathListRefunds
-      summary: TODO.
-      tags:
-      - Order
-    post:
-      description: TODO.
-      operationId: orderRefundsPathCreateRefund
-      summary: TODO.
-      tags:
-      - Order
-  /admin/api/v1/order/{order_id}/refunds/{refund_id}:
-    get:
-      description: TODO.
-      operationId: orderRefundsIdsPathGetRefund
-      summary: TODO.
-      tags:
-      - Order
-  /admin/api/v1/order/{order_id}/replace_code:
-    put:
-      description: TODO.
-      operationId: orderReplaceCodePathReplaceCode
-      summary: TODO.
-      tags:
-      - Order
   /api/v1/order:
     post:
       consumes:
@@ -481,75 +440,6 @@ paths:
           schema:
             $ref: '#/definitions/BillingSever_ResponseError'
       summary: Create a payment order with parameters of products.
-      tags:
-      - Order
-  /api/v1/orders/{order_id}/billing_address:
-    post:
-      description: TODO.
-      operationId: orderBillingAddressPathProcessBillingAddress
-      summary: TODO.
-      tags:
-      - Order
-  /api/v1/orders/{order_id}/customer:
-    patch:
-      description: TODO.
-      operationId: orderCustomerPathChangeCustomer
-      summary: TODO.
-      tags:
-      - Order
-  /api/v1/orders/{order_id}/language:
-    patch:
-      description: TODO.
-      operationId: orderLanguagePathChangeLanguage
-      summary: TODO.
-      tags:
-      - Order
-  /api/v1/orders/{order_id}/notify_new_region:
-    post:
-      description: TODO.
-      operationId: orderNotifyNewRegionPathNotifyNewRegion
-      summary: TODO.
-      tags:
-      - Order
-  /api/v1/orders/{order_id}/notify_sale:
-    post:
-      description: TODO.
-      operationId: orderNotifySalesPathNotifySale
-      summary: TODO.
-      tags:
-      - Order
-  /api/v1/payment:
-    post:
-      description: TODO.
-      operationId: paymentPathProcessCreatePayment
-      summary: TODO.
-      tags:
-      - Order
-  /order/{id}:
-    get:
-      description: TODO.
-      operationId: orderIdPathGetOrderForm
-      summary: TODO.
-      tags:
-      - Order
-  /order/create:
-    get:
-      description: TODO.
-      operationId: orderCreatePathCreateFromFormData
-      summary: TODO.
-      tags:
-      - Order
-    post:
-      description: TODO.
-      operationId: orderCreatePathCreateFromFormData
-      summary: TODO.
-      tags:
-      - Order
-  /paylink/{id}:
-    get:
-      description: TODO.
-      operationId: paylinkIdPathGetOrderForPaylink
-      summary: TODO.
       tags:
       - Order
 schemes:
