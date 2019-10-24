@@ -17,7 +17,7 @@ bookToc: true
 # Quick start
 ***
 
-## **Step 1** Register a PaySuper Company account
+## **Step 1.** Register a PaySuper Company account
 
 {{< expand "Registration and onboarding" " " >}}
 
@@ -34,7 +34,7 @@ Before sign the documents we manually check each new account to ensure that our 
 
 {{< /expand >}}
 
-## **Step 2** Set up a Project
+## **Step 2.** Set up a Project
 
 Having a single project is enough to start selling. 
 
@@ -93,7 +93,7 @@ If you want to sell products (as Game keys, Virtual items, Virtual currency) the
 
 {{< /expand >}}
 
-## **Step 3** Set up a Checkout Form
+## **Step 3.** Set up a Checkout Form
 
 Use Checkout to collect [one-time payments](/docs/payments/#simple-checkout) or to sell [products defined in the Project](/docs/payments/#typed-checkout).
 
@@ -105,7 +105,7 @@ The client-only integration lets you accept online payments using only frontend 
 
 You can also integrate on a server-side without PaySuper SJ SDK for other reasons. Checkout Form can be embedded as an [iframe](ССЫЛКА) or [new window](ССЫЛКА).
 
-## **Step 4** After the payment
+## **Step 4.** After the payment
 
 Once payment is successful, you should fulfill the customer’s purchase. You can use [webhooks](ССЫЛКА) to fulfill the purchase. For more details about handling purchase fulfillment with Checkout, see [After the payment](/docs/payments/fulfillment/).
 
