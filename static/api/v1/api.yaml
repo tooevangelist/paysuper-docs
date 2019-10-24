@@ -238,6 +238,15 @@ definitions:
     type: object
     x-go-name: PaymentFormJsonData
     x-go-package: github.com/paysuper/paysuper-billing-server/pkg/proto/grpc
+  BillingServer_TokenRequest:
+    properties:
+      settings:
+        $ref: '#/definitions/TokenSettings'
+      user:
+        $ref: '#/definitions/TokenUser'
+    type: object
+    x-go-name: TokenRequest
+    x-go-package: github.com/paysuper/paysuper-billing-server/pkg/proto/grpc
   BillingServer_UserIpData:
     properties:
       city:
@@ -258,21 +267,6 @@ definitions:
     - zip
     type: object
     x-go-name: UserIpData
-    x-go-package: github.com/paysuper/paysuper-billing-server/pkg/proto/grpc
-  BillingSever_ResponseError:
-    properties:
-      message:
-        $ref: '#/definitions/BillingSever_ResponseErrorMessage'
-      status:
-        description: description TODO
-        format: int32
-        type: integer
-        x-go-name: Status
-    required:
-    - status
-    - message
-    type: object
-    x-go-name: ResponseError
     x-go-package: github.com/paysuper/paysuper-billing-server/pkg/proto/grpc
   BillingSever_ResponseErrorMessage:
     properties:
@@ -296,17 +290,38 @@ definitions:
   CreateOrderJsonProjectResponse:
     properties:
       id:
-        description: Order unique identifier.
+        description: Unique identifier for the order.
         type: string
         x-go-name: Id
       payment_form_data:
         $ref: '#/definitions/BillingServer_PaymentFormJsonData'
       payment_form_url:
-        description: description TODO
+        description: The PaySuper-hosted URL of payment form.
         type: string
         x-go-name: PaymentFormUrl
+    required:
+    - id
+    - payment_form_url
     type: object
     x-go-package: github.com/paysuper/paysuper-management-api/internal/handlers
+  OrderBillingAddress:
+    properties:
+      city:
+        type: string
+        x-go-name: City
+      country:
+        description: '@inject_tag: validate:"omitempty,alpha,len=2"'
+        type: string
+        x-go-name: Country
+      postal_code:
+        description: '@inject_tag: bson:"postal_code"'
+        type: string
+        x-go-name: PostalCode
+      state:
+        type: string
+        x-go-name: State
+    type: object
+    x-go-package: github.com/paysuper/paysuper-billing-server/pkg/proto/billing
   Timestamp:
     description: |-
       # Examples
@@ -407,6 +422,157 @@ definitions:
       See [https://www.ietf.org/rfc/rfc3339.txt](https://www.ietf.org/rfc/rfc3339.txt).
     type: object
     x-go-package: github.com/golang/protobuf/ptypes/timestamp
+  TokenSettings:
+    properties:
+      amount:
+        description: '@inject_tag: json:"amount" validate:"omitempty,numeric,gt=0"'
+        format: double
+        type: number
+        x-go-name: Amount
+      currency:
+        description: '@inject_tag: json:"currency" validate:"omitempty,alpha,len=3"'
+        type: string
+        x-go-name: Currency
+      description:
+        description: '@inject_tag: json:"description"'
+        type: string
+        x-go-name: Description
+      items:
+        description: '@inject_tag: json:"items"'
+        items:
+          $ref: '#/definitions/TokenSettingsItem'
+        type: array
+        x-go-name: Items
+      metadata:
+        additionalProperties:
+          type: string
+        description: '@inject_tag: json:"metadata"'
+        type: object
+        x-go-name: Metadata
+      payment_method:
+        description: '@inject_tag: json:"payment_method"'
+        type: string
+        x-go-name: PaymentMethod
+      platform_id:
+        description: '@inject_tag: json:"platform_id"'
+        type: string
+        x-go-name: PlatformId
+      products_ids:
+        description: '@inject_tag: json:"products_ids"'
+        items:
+          type: string
+        type: array
+        x-go-name: ProductsIds
+      project_id:
+        description: '@inject_tag: json:"project_id" validate:"required,hexadecimal,len=24"'
+        type: string
+        x-go-name: ProjectId
+      return_url:
+        $ref: '#/definitions/TokenSettingsReturnUrl'
+      type:
+        description: '@inject_tag: json:"type"'
+        type: string
+        x-go-name: Type
+    type: object
+    x-go-package: github.com/paysuper/paysuper-billing-server/pkg/proto/billing
+  TokenSettingsItem:
+    properties:
+      amount:
+        description: '@inject_tag: validate:"required,numeric,gt=0"'
+        format: double
+        type: number
+        x-go-name: Amount
+      currency:
+        description: '@inject_tag: validate:"required,alpha,len=3"'
+        type: string
+        x-go-name: Currency
+      sku:
+        description: '@inject_tag: validate:"required"'
+        type: string
+        x-go-name: Sku
+    type: object
+    x-go-package: github.com/paysuper/paysuper-billing-server/pkg/proto/billing
+  TokenSettingsReturnUrl:
+    properties:
+      fail:
+        description: '@inject_tag: validate:"omitempty,url"'
+        type: string
+        x-go-name: Fail
+      success:
+        description: '@inject_tag: validate:"omitempty,url"'
+        type: string
+        x-go-name: Success
+    type: object
+    x-go-package: github.com/paysuper/paysuper-billing-server/pkg/proto/billing
+  TokenUser:
+    properties:
+      address:
+        $ref: '#/definitions/OrderBillingAddress'
+      email:
+        $ref: '#/definitions/TokenUserEmailValue'
+      id:
+        type: string
+        x-go-name: Id
+      ip:
+        $ref: '#/definitions/TokenUserIpValue'
+      locale:
+        $ref: '#/definitions/TokenUserLocaleValue'
+      metadata:
+        additionalProperties:
+          type: string
+        type: object
+        x-go-name: Metadata
+      name:
+        $ref: '#/definitions/TokenUserValue'
+      phone:
+        $ref: '#/definitions/TokenUserPhoneValue'
+    type: object
+    x-go-package: github.com/paysuper/paysuper-billing-server/pkg/proto/billing
+  TokenUserEmailValue:
+    properties:
+      value:
+        description: '@inject_tag: validate:"omitempty,email"'
+        type: string
+        x-go-name: Value
+      verified:
+        type: boolean
+        x-go-name: Verified
+    type: object
+    x-go-package: github.com/paysuper/paysuper-billing-server/pkg/proto/billing
+  TokenUserIpValue:
+    properties:
+      value:
+        description: '@inject_tag: validate:"omitempty,ip"'
+        type: string
+        x-go-name: Value
+    type: object
+    x-go-package: github.com/paysuper/paysuper-billing-server/pkg/proto/billing
+  TokenUserLocaleValue:
+    properties:
+      value:
+        description: '@inject_tag: validate:"omitempty,alpha,len=2"'
+        type: string
+        x-go-name: Value
+    type: object
+    x-go-package: github.com/paysuper/paysuper-billing-server/pkg/proto/billing
+  TokenUserPhoneValue:
+    properties:
+      value:
+        description: '@inject_tag: validate:"omitempty,phone"'
+        type: string
+        x-go-name: Value
+      verified:
+        type: boolean
+        x-go-name: Verified
+    type: object
+    x-go-package: github.com/paysuper/paysuper-billing-server/pkg/proto/billing
+  TokenUserValue:
+    properties:
+      value:
+        type: string
+        x-go-name: Value
+    type: object
+    x-go-package: github.com/paysuper/paysuper-billing-server/pkg/proto/billing
 host: p1payapi.tst.protocol.one
 info:
   version: 1.0.0
@@ -415,12 +581,10 @@ paths:
     post:
       consumes:
       - application/json
-      description: Create a payment order.
+      description: Create a payment order with parameters of user and products.
       operationId: orderPathCreateJson
       parameters:
-      - description: TODO
-        in: body
-        name: data
+      - in: body
         required: true
         schema:
           $ref: '#/definitions/BillingServer_OrderCreateRequest'
@@ -432,16 +596,52 @@ paths:
           schema:
             $ref: '#/definitions/CreateOrderJsonProjectResponse'
         "400":
-          description: Object with error message.
+          description: Object with an error message.
           schema:
-            $ref: '#/definitions/BillingSever_ResponseError'
+            $ref: '#/definitions/BillingSever_ResponseErrorMessage'
         "500":
-          description: Object with error message.
+          description: Object with an error message.
           schema:
-            $ref: '#/definitions/BillingSever_ResponseError'
-      summary: Create a payment order with parameters of products.
+            $ref: '#/definitions/BillingSever_ResponseErrorMessage'
+      summary: Create a payment order.
       tags:
       - Order
+  /api/v1/tokens:
+    post:
+      consumes:
+      - application/json
+      description: Create a secure string that encrypts all order parameters including
+        a customer. It identifies a game, user, and order parameters, thus you can
+        determine your customers’ purchases on your side.
+      operationId: tokenPathCreateTokenPath
+      parameters:
+      - in: body
+        required: true
+        schema:
+          $ref: '#/definitions/BillingServer_TokenRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: An object with a token.
+          schema:
+            properties:
+              token:
+                description: A secure string which contains encrypted information
+                  about a user and order.
+                type: string
+            type: object
+        "400":
+          description: Object with an error message.
+          schema:
+            $ref: '#/definitions/BillingSever_ResponseErrorMessage'
+        "500":
+          description: Object with an error message.
+          schema:
+            $ref: '#/definitions/BillingSever_ResponseErrorMessage'
+      summary: Create a token.
+      tags:
+      - Token
 schemes:
 - https
 swagger: "2.0"
