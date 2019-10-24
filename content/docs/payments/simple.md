@@ -14,36 +14,20 @@ You can create an instance of a PaySuper Form on your website using this sample 
 
 ### Sample code of the Payment form with Token
 
-{{< highlight html >}}
-<script>
-function buyItems() {
-    const paySuper = new PaySuper({
-        token: '5cd5620f06ae110001509185'
-    });
-    
-    paySuper.renderModal();
-}
-</script>
-
-<button onclick="buyItems()">BUY</button>
+{{< highlight javascript >}}
+const paySuper = new PaySuper({
+    token: '5cd5620f06ae110001509185'
+});
 {{< /highlight >}}
 
 ### Sample code of the Payment form with order parameters
 
-{{< highlight html >}}
-<script>
-    function buyItems() {
-        const paySuper = new PaySuper({
-            project: '5cd5624a06ae110001509186',
-            amount: 50,
-            currency: 'USD'
-        });
-
-        paySuper.renderModal();
-    }
-</script>
-
-<button onclick="buyItems()">BUY</button>
+{{< highlight javascript >}}
+const paySuper = new PaySuper({
+    project: '5cd5624a06ae110001509186',
+    amount: 50,
+    currency: 'USD'
+});
 {{< /highlight >}}
 
 ## Integration with PaySuper API
