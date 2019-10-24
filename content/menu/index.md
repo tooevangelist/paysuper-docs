@@ -6,9 +6,9 @@ headless: true
 - **Payments**
   - [Checkout Overview]({{< relref "/docs/payments" >}})
   - [Quick Start]({{< relref "/docs/payments/quick-start" >}})
-  - [Create Token]({{< relref "/docs/payments/token-based" >}})
-  - [Simple Checkout]({{< relref "/docs/payments/simple" >}})
-  - [Typed Checkout]({{< relref "/docs/payments/typed" >}})
+  - [Tokenization]({{< relref "/docs/payments/token" >}})
+  - [Client-Only Integration]({{< relref "/docs/payments/sdk-integration" >}})
+  - [Client-Server Integration]({{< relref "/docs/payments/integration" >}})
   - [After the payment]({{< relref "/docs/payments/fulfillment" >}})
   - [Customizing Checkout]({{< relref "/docs/payments/customization" >}})
   - [Testing]({{< relref "/docs/payments/testing" >}})

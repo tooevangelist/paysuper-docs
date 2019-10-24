@@ -1,0 +1,19 @@
+<div>
+    const curl = new (require( 'curl-request' ))();
+
+    curl
+    .setBody({
+        'input-arr[0]': 'input-arr-val0',
+        'input-arr[1]': 'input-arr-val1',
+        'input-arr[2]': 'input-arr-val2',
+        'input-name': 'input-val'
+    })
+    .post('https://www.google.com')
+    .then(({statusCode, body, headers}) => {
+        console.log(statusCode, body, headers)
+    })
+    .catch((e) => {
+        console.log(e);
+    });
+    {{ $.Inner }}
+</div>

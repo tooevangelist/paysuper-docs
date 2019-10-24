@@ -4,7 +4,6 @@ bookToc: true
 ---
 
 # Payments Flow
-
 ***
 
 ## User Flow
@@ -25,12 +24,12 @@ bookToc: true
 1. [Sign up](https://paysupermgmt.tst.protocol.one).
 2. Verify your email address from a delivered confirmation email.
 3. Follow several steps of a brief [Welcome Onboarding](https://paysupermgmt.tst.protocol.one/profile).
-4. It's required to fill in the Contacts in the [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) before creating the first Project.
+4. It's required to fill in the Banking info in the [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) to enable creating a project.
 
 {{< hint info >}}
-When you are ready to start selling you will need to fill in all your company details in the [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) with the signed documents.
+When you are ready to start selling you will need to fill in all your company details in the [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) and the signed documents in the License Agreement.
 
-We manually check each new account to ensure that our platform is attended only by companies who is related to the gaming industry, this allows us to provide maximum features and stability to all our users.
+Before sign the documents we manually check each new account to ensure that our platform is attended only by companies who are related to the gaming industry, this allows us to provide maximum features and stability to all our users.
 {{< /hint >}}
 
 {{< /expand >}}
@@ -94,133 +93,21 @@ If you want to sell products (as Game keys, Virtual items, Virtual currency) the
 
 {{< /expand >}}
 
-## <span style="color:#2e00a8;">Step 3.</span> Create a Token or Order ID
+## <span style="color:#2e00a8;">Step 3.</span> Set up a Checkout Form
 
-You can obtain a Token to integrate with the Checkout Form. The Token is a secure string that encrypts all order parameters which identifies a user and project.
+Use Checkout to collect [one-time payments](/docs/payments/#simple-checkout) or to sell [products defined in the Project](/docs/payments/#typed-checkout).
 
-**Token-based features:**
+### [Integration on client-side](/docs/payments/sdk-integration/)
 
-* **Instantly redirect from anywhere of your game application**: You can create a token after a user registered or logged in your game and instantly redirect the user to the Checkout Form when the user intent a payment.
-* **The pre-filled information in a payment form**: Token can encrypt all required information about your user intent to pay. The Checkout Form is pre-filled in this case.
+The client-only integration lets you accept online payments using only frontend code PaySuper JS SDK. The Checkout Form can be embedded as an [iframe](ССЫЛКА на метод renderPage) or [modal window](ССЫЛКА на метод renderModal).
 
-**To create a Token:**
+### [Integration on client and server-side](/docs/payments/integration/)
 
-Send the request **`POST /api/v1/tokens`**. Both the request and the response are in JSON format.
+You can also integrate on a server-side without PaySuper SJ SDK for other reasons. Checkout Form can be embedded as an [iframe](ССЫЛКА) or [new window](ССЫЛКА).
 
-ПРИМЕР ТОКЕНА с обязательными параметрами для ключа и пользователя Вставьте сюда https://runkit.com/home пример с созданием токена
+## <span style="color:#2e00a8;">Step 4.</span> After the payment
 
-**Order-based features:**
-
-* **Request a payment order on-demand:**  It is best suited for e-store where a user creates a product cart.
-
-**To create a payment Order ID:**
-
-Send the request **`POST /api/v1/order`**. Both the request and the response are in JSON format.
-
-ПОКАЗАТЬ ПРИМЕР С ПАРАМЕТРАМИ для type=key
-
-## <span style="color:#2e00a8;">Step 4.</span> Set up a Checkout Form
-
-Checkout Form has a flexible integration on all your available platforms:
-
-* **Iframe**
-* **Embedded** (only for the integration with [PaySuper JS SDK](https://github.com/paysuper/paysuper-js-sdk))
-* **New window** (only for the integration with [PaySuper API](/docs/api/))
-
-### Integration with PaySuper JS SDK
-
-You can use PaySuper JavaScript SDK to create an instance of a Payment Form with just a few lines of code.
-
-**Step 1.** To get started, include the following script tag on your website - always load it directly from `https://cdn.pay.super.com`:
-
-{{< highlight html >}}
-<script src="https://cdn.pay.super.com/paysdk/latest/paysuper.js"></script>
-{{< /highlight >}}
-
-**Step 2.** Create an instance of the PaySuper form to initiate the payment process:
-
-{{< highlight html >}}
-<script>
-function buyItems() {
-    const paySuper = new PaySuper({
-        token: '5cd5620f06ae110001509185'
-    });
-
-    paySuper.renderModal();
-}
-</script>
-
-<button onclick="buyItems()">BUY</button>
-{{< /highlight >}}
-
-[Full list of PaySuper parameters](https://github.com/paysuper/paysuper-js-sdk/tree/master#paysuper-options)
-
-See the sample codes of the Checkout Form for a Simple Checkout or products:
-
-* [Simple Checkout form parameters](/docs/payments/simple/#integration-with-js-sdk)
-* [Typed Checkout form parameters](/docs/payments/typed/#integration-with-js-sdk)
-
-**Step 3.** Display the form in a modal window or iframe:
-
-**Display the Checkout form in a modal window anywhere of your platform**
-
-{{< highlight javascript >}}
-paySuper.renderModal();
-{{< /highlight >}}
-
-**Display the Checkout form in an iframe**
-
-{{< highlight javascript >}}
-paySuper.renderPage();
-{{< /highlight >}}
-
-**Step 4.** Handle the purchase events
-
-{{< highlight javascript >}}
-paySuper.on('paymentCompleted', function() {
-      // You can show a message about payment is completed
-})
-{{< /highlight >}}
-
-[Full events list in the expected order of execution](https://github.com/paysuper/paysuper-js-sdk#paysuper-events)
-
-***
-
-### Integration with PaySuper API
-
-You can follow these steps if you want to integrate the Checkout Form without PaySuper SJ SDK for other reasons.
-
-**Step 1.** Send a HTTP request to initiate a payment [POST /api/v1/order](ССЫЛКА НА API метод в redoc) and retrieve a response parameter **`payment_form_url`** - URL of PaySuper Checkout Form.
-
-See the sample codes of the Checkout Form for a Simple Checkout or products:
-
-* [Simple Checkout form parameters](/docs/payments/simple/#integration-with-paysuper-api)
-* [Types Checkout form parameters](/docs/payments/typed/#integration-with-paysuper-api)
-
-**Step 2.** Embed as an iframe or open the received URL in a browser as a new window.
-
-**Sample code of embedded form:**
-
-{{< highlight html >}}
-<iframe src="{payment_form_url}"></iframe>
-{{< /highlight >}}
-
-## <span style="color:#2e00a8;">Step 5.</span> Set up a webhook handling
-
-The PaySuper system can send webhooks to your server for a set of events about transactions and user actions. Types of events described in [the list notification types](ССЫлка на апи вебхуков).
-
-**Set up webhooks for your project:**
-
-1. Configure URLs for all event types:
-
-    СКРИНШОТ
-
-2. PaySuper signs the webhook events it sends to your endpoint, allowing you to validate that they were not sent by a third-party and prevent hacker attacks.
-To verify a webhook request, generate a signature and compare that to the value of the Authorization header.
-
-    [Learn more about how to check a digital signature.](ССЫЛКА НА API webhook)
-
-3. Respond with HTTP code 200 without a message body to acknowledge the receipt a webhook.
+Once payment is successful, you should fulfill the customer’s purchase. You can use [webhooks](ССЫЛКА) to fulfill the purchase. For more details about handling purchase fulfillment with Checkout, see [After the payment](/docs/payments/fulfillment/).
 
 ## Next steps
 
