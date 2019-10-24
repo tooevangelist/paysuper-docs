@@ -49,7 +49,7 @@ const paySuper = new PaySuper({
 });
 {{< /highlight >}}
 
-### **[Products](/docs/payments/quick-start/#span-style-color-2e00a8-step-2-span-set-up-a-project) Checkout**
+### **[Products](/docs/payments/quick-start/#step-2-set-up-a-project) Checkout**
 
 {{< tabs "uniqueid" >}}
 {{< tab "Game key" >}}
@@ -96,7 +96,7 @@ const paySuper = new PaySuper({
 
 > Use your IDs for the Project and Products found in your merchant account on [the PaySuper Projects](https://paysupermgmt.tst.protocol.one/projects/). To get the Project and Product IDs: open your Project settings page, select the product tab and click on the Product name. Copy the Project and Product IDs from an opened page URL.
 
-## **Step 3.** Display the form in a modal window or iframe:
+## **Step 3.** Display a form
 
 When your customer is ready to pay, call create an instance of the PaySuper and render it:
 
@@ -127,6 +127,22 @@ paySuper.on('paymentCompleted', function() {
 {{< /highlight >}}
 
 [Full events list in the expected order of execution](https://github.com/paysuper/paysuper-js-sdk#paysuper-events)
+
+***
+
+## Next steps
+
+{{< hint info >}}
+[**Testig the Checkout**](/docs/payments/testing/)
+{{< /hint >}}
+
+{{< hint info >}}
+[**After the payment**](/docs/payments/live/)
+{{< /hint >}}
+
+{{< hint info >}}
+[**Customizing Checkout**](/docs/payments/customization/)
+{{< /hint >}}
 
 ***
 
