@@ -51,11 +51,11 @@ Try out [the payment sample](ССЫЛКА НА ПРИМЕР ФОРМЫ, та ж�
 
 To get started with PaySuper, choose your business model:
 
-### [Simple Checkout](/docs/payments/simple)
+### Simple Checkout
 
 Simple Checkout is designed for payment orders with dynamical pricing, for example, stores that use its e-commerce engine for product management. Likewise, this option works well with non-product payments such as donations. In this mode, you specify the currency and the price, while the payment amount due for the end-user is calculated accordingly to the exchange rate if it differs from the specified order currency.
 
-### [Typed Checkout](/docs/payments/keys)
+### Products Checkout
 
 PaySuper Checkout provides several types of products which you specify in an order as a parameter `type`:
 
