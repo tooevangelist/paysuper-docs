@@ -4,7 +4,7 @@
 <head>
   {{ partial "docs/html-head" . }}
   {{ partial "docs/inject/head" . }}
-  <script src="https://cdn.pay.super.com/paysdk/latest/paysuper.js"></script>
+  <script src="https://cdn.pay.super.com/paysdk/v0.5.2/paysuper.js"></script>
 </head>
 
 <body>
@@ -31,14 +31,15 @@
     function buyItems() {
       const paySuper = new PaySuper({
         project: '5cd5620f06ae110001509185',
-        products: ['5d80ec2b40a1200001387ec6'],
-        type: 'key',
-        formUrl: 'https://paysupermgmt.tst.protocol.one/payform-page'
+        amount: 20,
+        currency: 'USD',
+        type: 'simple',
+        apiUrl: 'https://p1payapi.tst.protocol.one'
       });
-    
-        paySuper.renderModal();
+
+      paySuper.renderModal();
     }
-    </script>
+  </script>
 </body>
 
 </html>
