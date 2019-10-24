@@ -12,7 +12,7 @@ disablePathToLower = true
 # enableGitInfo = true
 
 # Code highlight
-# pygmentsStyle = 'monokailight'
+pygmentsStyle = 'friendly'
 pygmentsCodeFences = true
 
 [params]
