@@ -18,15 +18,28 @@ bookToc: true
 # Quick start
 ***
 
-## <span style="color:#2e00a8;">Step 1.</span> Register a PaySuper account
+## <span style="color:#2e00a8;">Step 1.</span> Register a PaySuper Company account
 
-[Sign up](https://docs.google.com/forms/d/e/1FAIpQLScQPU83wKPkJeui_WvxGDoXWLDL4vyD8GsWNqf9-ccwDg3dEw/viewform) and complete [The PaySuper Onboarding](/getting-started/onboarding/) is necessary for a new PaySuper Merchant account.
+{{< expand "Registration and onboarding" " " >}}
+
+1. [Sign up](https://paysupermgmt.tst.protocol.one).
+2. Verify your email address from a delivered confirmation email.
+3. Follow several steps of a brief [Welcome Onboarding](https://paysupermgmt.tst.protocol.one/profile).
+4. It's required to fill in the Contacts in the [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) before creating the first Project.
+
+{{< hint info >}}
+When you are ready to start selling you will need to fill in all your company details in the [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) with the signed documents.
+
+We manually check each new account to ensure that our platform is attended only by companies who is related to the gaming industry, this allows us to provide maximum features and stability to all our users.
+{{< /hint >}}
+
+{{< /expand >}}
 
 ## <span style="color:#2e00a8;">Step 2.</span> Set up a Project
 
 Having a single project is enough to start selling. 
 
-{{< expand "Create a project  >" " " >}}
+{{< expand "Create a project" " " >}}
 
 **To create a project:**
 
@@ -51,7 +64,7 @@ Having a single project is enough to start selling.
 
 If you want to sell products (as Game keys, Virtual items, Virtual currency) then easily add the necessary sales information about your products to the project.
 
-{{< expand "Add a Game key to the project  >" " " >}}
+{{< expand "Add a Game key to the project" " " >}}
 
 **To add a Game key:**
 
@@ -61,7 +74,7 @@ If you want to sell products (as Game keys, Virtual items, Virtual currency) the
 
 {{< /expand >}}
 
-{{< expand "Add a Virtual item to the project  >" " " >}}
+{{< expand "Add a Virtual item to the project" " " >}}
 
 **To add a Virtual item:**
 
@@ -71,7 +84,7 @@ If you want to sell products (as Game keys, Virtual items, Virtual currency) the
 
 {{< /expand >}}
 
-{{< expand "Add a Virtual currency to the project  >" " " >}}
+{{< expand "Add a Virtual currency to the project" " " >}}
 
 **To add a Virtual currency:**
 
@@ -144,8 +157,8 @@ function buyItems() {
 
 See the sample codes of the Checkout Form for a Simple Checkout or products:
 
-* [Simple Checkout form parameters](/docs/payments/simple/#client-integration-with-js-sdk)
-* [Typed Checkout form parameters](/docs/payments/typed/#client-integration-with-js-sdk)
+* [Simple Checkout form parameters](/docs/payments/simple/#integration-with-js-sdk)
+* [Typed Checkout form parameters](/docs/payments/typed/#integration-with-js-sdk)
 
 **Step 3.** Display the form in a modal window or iframe:
 
@@ -181,8 +194,8 @@ You can follow these steps if you want to integrate the Checkout Form without Pa
 
 See the sample codes of the Checkout Form for a Simple Checkout or products:
 
-* [Simple Checkout form parameters](/docs/payments/simple/#server-integration-with-paysuper-api)
-* [Types Checkout form parameters](/docs/payments/typed/#server-integration-with-paysuper-api)
+* [Simple Checkout form parameters](/docs/payments/simple/#integration-with-paysuper-api)
+* [Types Checkout form parameters](/docs/payments/typed/#integration-with-paysuper-api)
 
 **Step 2.** Embed as an iframe or open the received URL in a browser as a new window.
 
