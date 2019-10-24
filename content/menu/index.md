@@ -6,6 +6,7 @@ headless: true
 - **Payments**
   - [Checkout Overview]({{< relref "/docs/payments" >}})
   - [Quick Start]({{< relref "/docs/payments/quick-start" >}})
+  - [Create Token]({{< relref "/docs/payments/token-based" >}})
   - [Simple Checkout]({{< relref "/docs/payments/simple" >}})
   - [Typed Checkout]({{< relref "/docs/payments/typed" >}})
   - [After the payment]({{< relref "/docs/payments/fulfillment" >}})
@@ -13,9 +14,3 @@ headless: true
   - [Testing]({{< relref "/docs/payments/testing" >}})
   - [Going Live]({{< relref "/docs/payments/live" >}})
 - [**API Reference**]({{< relref "/docs/api" >}})
-  - [Authentication]({{< relref "/docs/api/v1/authentication" >}})
-  - [Versioning]({{< relref "/docs/api/v1/versioning" >}})
-  - [Errors List]({{< relref "/docs/api/v1/errors" >}})
-  - [Compression]({{< relref "/docs/api/v1/compression" >}})
-  - [Pagination]({{< relref "/docs/api/v1/pagination" >}})
-  - [PaySuper API]({{< relref "/docs/api/v1" >}})
