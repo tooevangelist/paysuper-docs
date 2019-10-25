@@ -18,3 +18,20 @@ A Token is a secure string that represents the details of your user, game and pu
 Send the request **`POST /api/v1/tokens`**. Both the request and the response are in JSON format.
 
 ПРИМЕР ТОКЕНА с обязательными параметрами для ключа и пользователя Вставьте сюда https://runkit.com/home пример с созданием токена
+
+{{< runkit "token-runkit" >}}
+curl
+    .setBody({
+        'input-arr[0]': 'input-arr-val0',
+        'input-arr[1]': 'input-arr-val1',
+        'input-arr[2]': 'input-arr-val2',
+        'input-name': 'input-val'
+    })
+    .post('https://www.google.com')
+    .then(({statusCode, body, headers}) => {
+        console.log(statusCode, body, headers)
+    })
+    .catch((e) => {
+        console.log(e);
+    });
+{{< /runkit >}}
