@@ -40,9 +40,9 @@ definitions:
         x-go-name: PspOrderUuid
       metadata:
         description: TODO
-          type: object
-          additionalProperties:
-            type: string
+        type: object
+        additionalProperties:
+          type: string
       order_id:
         description: Unique order identifier in the Project. This field is not required,
           but we recommend sending this field always.
@@ -606,6 +606,7 @@ definitions:
     x-go-package: github.com/paysuper/paysuper-billing-server/pkg/proto/billing
 host: p1payapi.tst.protocol.one
 info:
+  title: TITLE
   version: 1.0.0
 paths:
   /api/v1/order:
@@ -615,7 +616,8 @@ paths:
       description: Create a payment order with parameters of user and products.
       operationId: orderPathCreateJson
       parameters:
-      - in: body
+      - name: data
+        in: body
         required: true
         schema:
           $ref: '#/definitions/BillingServer_OrderCreateRequest'
@@ -646,7 +648,8 @@ paths:
         determine your customers’ purchases on your side.
       operationId: tokenPathCreateTokenPath
       parameters:
-      - in: body
+      - name: data 
+        in: body
         required: true
         schema:
           $ref: '#/definitions/BillingServer_TokenRequest'
