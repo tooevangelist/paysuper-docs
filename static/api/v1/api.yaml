@@ -20,6 +20,12 @@ definitions:
           the names of the reserved fields.
         type: string
         x-go-name: Description
+      language:
+        description: TODO
+        type: string
+      isJson:
+        description: TODO
+        type: boolean
       is_embedded:
         description: TODO
         type: boolean
@@ -32,15 +38,36 @@ definitions:
         description: TODO
         type: string
         x-go-name: PspOrderUuid
+      metadata:
+        description: TODO
+          type: object
+          additionalProperties:
+            type: string
       order_id:
         description: Unique order identifier in the Project. This field is not required,
           but we recommend sending this field always.
         type: string
         x-go-name: OrderId
+      other:
+        description: TODO
+        type: object
+        additionalProperties:
+          type: string
+      raw_params:
+        description: TODO
+        type: object
+        additionalProperties:
+          type: string
+      raw_body:
+        description: TODO
+        type: string
       payer_email:
         description: user (payer) email.
         type: string
         x-go-name: PayerEmail
+      payer_ip:
+        description: user (payer) IP address.
+        type: string
       payer_phone:
         description: user (payer) phone.
         type: string
@@ -83,6 +110,9 @@ definitions:
         description: TODO
         type: string
         x-go-name: Type
+      token:
+        description: TODO
+        type: string
       url_fail:
         description: URL for redirect user after failed payment. This field can be
           send if it allowed in project admin panel.
@@ -106,6 +136,7 @@ definitions:
     required:
     - project
     - amount
+    - currency
     - type
     type: object
     x-go-name: OrderCreateRequest
