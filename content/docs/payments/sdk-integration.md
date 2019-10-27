@@ -19,7 +19,7 @@ Try out [the payment sample](ССЫЛКА НА ПРИМЕР ФОРМЫ, та ж�
 
 ***
 
-## **Step 1.** Embed the PaySuper Form
+## **Step 1.** Embed the Checkout Form
 
 To get started, include the following script tag on your website - always load it directly from `https://cdn.pay.super.com`:
 
@@ -31,24 +31,28 @@ To get started, include the following script tag on your website - always load i
 
 ### **Simple Checkout**
 
-Create a Checkout Form to collect one-time payments. It's enough to have a Project ID to initiate a payment with an acceptable amount.
+To create a Checkout Form to collect one-time payments it's enough to have a [Project ID](/docs/payments/quick-start/#step-2-set-up-a-project) and an acceptable amount with currency.
+
+Use this sample code to create an instance of the Checkout object with the required parameters for a simple checkout:
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
     project: '5cd5624a06ae110001509186',
-    amount: 50,
+    amount: 10,
     currency: 'USD'
 });
 {{< /highlight >}}
 
-### **[Products](/docs/payments/quick-start/#step-2-set-up-a-project) Checkout**
+### **Products Checkout**
 
-{{< tabs "uniqueid" >}}
+In case of using the sales methods for products such as [key-activated products, virtual items or in-game currency](/docs/payments/quick-start/#step-2-set-up-a-project) implement this sample code for a specific product:
+
+{{< tabs "products_id" >}}
 {{< tab "Game key" >}}
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
-    project: '5cd5620f06ae110001509185',
+    project: '5cd5624a06ae110001509186',
     products: ['5d7baee015ff7d0001b986a8'],
     platform_id: 'gog',
     type: 'key'
@@ -61,7 +65,7 @@ const paySuper = new PaySuper({
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
-    project: '5cd5620f06ae110001509185',
+    project: '5cd5624a06ae110001509186',
     products: ['5d848f484dd6a50001970479', '5d8c7a219e362100013de214'],
     type: 'product'
 });
@@ -75,9 +79,7 @@ const paySuper = new PaySuper({
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
-    project: '5cd5620f06ae110001509185',
-    products: ['5d848f484dd6a50001970479', '5d8c7a219e362100013de214'],
-    type: 'virtual_currency'
+    
 });
 {{< /highlight >}}
 
@@ -88,27 +90,53 @@ const paySuper = new PaySuper({
 
 > Use your IDs for the Project and Products found in your merchant account on [the PaySuper Projects](https://paysupermgmt.tst.protocol.one/projects/). To get the Project and Product IDs: open your Project settings page, select the product tab and click on the Product name. Copy the Project and Product IDs from an opened page URL.
 
-## **Step 3.** Display a form
+## **Step 3.** Display the Checkout Form
 
-When your customer is ready to pay, call create an instance of the PaySuper and render it:
+This is a brief example usage of a sample code how to call a method to display the Checkout Form when user intent to buy in particular clicking on a payment button.
+
+{{< tabs "embed_id" >}}
+
+{{< tab "Embed as a modal window" >}}
 
 {{< highlight html >}}
 <script>
 function buyItems() {
     const paySuper = new PaySuper({
-        token: '5cd5620f06ae110001509185'
+        project: '5cd5624a06ae110001509186',
+        amount: 10,
+        currency: 'USD'
     });
 
-    // Embed a form as a modal window
     paySuper.renderModal();
-    
-    // Embed a form as an iframe
-    // paySuper.renderPage();
 }
 </script>
 
 <button onclick="buyItems()">BUY</button>
 {{< /highlight >}}
+
+{{< /tab >}}
+
+{{< tab "Embed as an iframe" >}}
+
+{{< highlight html >}}
+<script>
+function buyItems() {
+    const paySuper = new PaySuper({
+        project: '5cd5624a06ae110001509186',
+        amount: 10,
+        currency: 'USD'
+    });
+
+    paySuper.renderPage();
+}
+</script>
+
+<button onclick="buyItems()">BUY</button>
+{{< /highlight >}}
+
+{{< /tab >}}
+
+{{< /tabs >}}
 
 ## **Step 4.** Handle the purchase events
 
@@ -126,14 +154,20 @@ paySuper.on('paymentCompleted', function() {
 
 {{< hint info >}}
 [**After the payment**](/docs/payments/live/)
+
+After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](ССЫЛКА) or the [Transaction log](ССЫЛКА) to accomplish the purchase.
 {{< /hint >}}
 
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
+
+Check your integration with PaySuper Checkout works correctly. Test cards can be used to create payments that produce successful and particular responses.
 {{< /hint >}}
 
 {{< hint info >}}
 [**Customizing Checkout**](/docs/payments/customization/)
+
+Learn about the different ways you can customize your Checkout.
 {{< /hint >}}
 
 ***
