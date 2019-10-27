@@ -112,11 +112,11 @@ Once payment is successful, you should fulfill the customer’s purchase. You ca
 ## Next steps
 
 {{< hint info >}}
-[**Testig the Checkout**](/docs/payments/testing/)
+[**After the payment**](/docs/payments/live/)
 {{< /hint >}}
 
 {{< hint info >}}
-[**After the payment**](/docs/payments/live/)
+[**Testing the Checkout**](/docs/payments/testing/)
 {{< /hint >}}
 
 {{< hint info >}}

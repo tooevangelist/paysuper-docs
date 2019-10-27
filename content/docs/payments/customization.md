@@ -52,7 +52,11 @@ const paySuper = new PaySuper({
 ## Next steps
 
 {{< hint info >}}
-[**Testig the Checkout**](/docs/payments/testing/)
+[**After the payment**](/docs/payments/live/)
+{{< /hint >}}
+
+{{< hint info >}}
+[**Testing the Checkout**](/docs/payments/testing/)
 {{< /hint >}}
 
 {{< hint info >}}

@@ -31,21 +31,13 @@ To get started, include the following script tag on your website - always load i
 
 ### **Simple Checkout**
 
-Create a Checkout Form to collect one-time payments. It's enough to have a project ID to initiate a payment with a acceptable amount.
+Create a Checkout Form to collect one-time payments. It's enough to have a Project ID to initiate a payment with an acceptable amount.
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
     project: '5cd5624a06ae110001509186',
     amount: 50,
     currency: 'USD'
-});
-{{< /highlight >}}
-
-### **[Token-based](/docs/payments/token) Checkout**
-
-{{< highlight javascript >}}
-const paySuper = new PaySuper({
-    token: '5cd5620f06ae110001509185'
 });
 {{< /highlight >}}
 
@@ -133,11 +125,11 @@ paySuper.on('paymentCompleted', function() {
 ## Next steps
 
 {{< hint info >}}
-[**Testig the Checkout**](/docs/payments/testing/)
+[**After the payment**](/docs/payments/live/)
 {{< /hint >}}
 
 {{< hint info >}}
-[**After the payment**](/docs/payments/live/)
+[**Testing the Checkout**](/docs/payments/testing/)
 {{< /hint >}}
 
 {{< hint info >}}
