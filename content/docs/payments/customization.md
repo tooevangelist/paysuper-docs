@@ -26,7 +26,6 @@ Store in PaySuper a user's billing address and a payment method data to prefill 
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
-    token: '5cd5620f06ae110001509185',
     viewScheme: 'light'
 });
 {{< /highlight >}}
@@ -37,7 +36,6 @@ Available options: **`dark`** (default), **`light`**.
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
-    token: '5cd5620f06ae110001509185',
     viewSchemeConfig: { 
         // headerTextColor overrides the default value of the viewSchemeConfig object
         headerTextColor: '#333333'
