@@ -109,6 +109,8 @@ You can also integrate on a server-side without PaySuper SJ SDK for other reason
 
 Following the successful payment, you should fulfil the customer’s purchase. You can use [webhooks](ССЫЛКА) or the [Transaction log](ССЫЛКА) to accomplish the purchase. For more details about handling purchase fulfilment with Checkout, see [After the payment](/docs/payments/fulfillment/).
 
+***
+
 ## Next steps
 
 {{< hint info >}}
