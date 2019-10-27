@@ -6,11 +6,13 @@ bookToc: true
 # Client-Server Integration with PaySuper API
 ***
 
-If your use cases  [the client-only integration](/docs/payments/sdk-integration/), use the client-server integration instead.
+If your sales use cases are not suited [the client-only integration](/docs/payments/sdk-integration/), use the client-server integration with PaySuper API instead.
+
+***
 
 ## **Step 1.** Create a Checkout Order ID on your server
 
-Invoke the [POST /api/v1/order](ССЫЛКА) to receive an Order ID. Learn more about the full list of parameters for [POST /api/v1/order](ССЫЛКА) that can be used for instance the redirect URLs for successful and failed payments.
+Send the [POST /api/v1/order](ССЫЛКА) to receive an Order ID. Learn more about [the full list of parameters](ССЫЛКА) that can be used for instance the redirect URLs for successful and failed payments.
 
 ### **Simple Checkout**
 
@@ -62,7 +64,9 @@ RUNKIT
 
 {{< /tabs >}}
 
-> Use your IDs for the Project and Products found in your merchant account on [the PaySuper Projects](https://paysupermgmt.tst.protocol.one/projects/). To get the Project and Product IDs: open your Project settings page, select the product tab and click on the Product name. Copy the Project and Product IDs from an opened page URL.
+{{< hint warning >}}
+Note to use your IDs for the Project and Products found in your merchant account on [the PaySuper Projects](https://paysupermgmt.tst.protocol.one/projects/). To get the Project and Product IDs: open your Project settings page, select the product tab and click on the Product name. Copy the Project and Product IDs from an opened page URL.
+{{< /hint >}}
 
 ## **Step 2.** Display a Checkout Form
 
