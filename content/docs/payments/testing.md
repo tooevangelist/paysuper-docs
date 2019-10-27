@@ -8,21 +8,28 @@ bookToc: true
 
 Before going live you should test the payment process in the Sandbox.
 
-To test a bank card payment:
+## Test in The Sandbox
+
+**To test a bank card payment:**
 
 1. Open the PaySuper Checkout Form.
 2. Choose the Credit/Debit cards group of payment methods.
 3. Enter the bank card details. Enter any values in the remaining fields. 
 
-> You can also specify incorrect details (card number, expiration date, or CVV) in order to generate an error.
+{{< hint warning >}}
+You can also specify incorrect details (card number, expiration date, or CVV) in order to generate an error.
+{{< /hint >}}
 
-List of bank cards to be used for testing:
+### List of bank cards to be used for testing:
 
+ТАБЛИЧКА С КАРТОЧКАМИ CardPay
 
-
+{{< hint info >}}
 Sandbox bank card payments can be made in the following currencies: USD, EUR, RUB, GBP, AED, ALL, AMD, ARS, AUD, AZN, BGN, BRL, BYN, CAD, CHF, CLP, CNY, COP, CZK, DKK, DZD, EGP, GEL, HKD, HRK, HUF, IDR, ILS, INR, ISK, JPY, KES, KGS, KRW, KZT, MAD, MDL, MKD, MNT, MXN, MYR, NGN, PEN, PHP, PKR, PLN, RON, RSD, SAR, SEK, SGD, THB, TRY, TWD, UAH, UYU, UZS, VEF, VND, ZAR.
+{{< /hint >}}
 
-You can make a real payment and then initiate a refund via 
+## Test a real payment
+You can make a real payment and then initiate a refund via ГДЕ???
 
 
 To test the payment process by making real payments, it is also recommended to use a bank card:
