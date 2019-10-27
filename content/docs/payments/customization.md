@@ -6,7 +6,7 @@ bookToc: true
 # Customizing Checkout
 ***
 
-Learn about the different ways you can customize your Checkout integration.
+Learn about the different ways you can customize your Checkout.
 
 ## Localization
 
@@ -53,14 +53,20 @@ const paySuper = new PaySuper({
 
 {{< hint info >}}
 [**After the payment**](/docs/payments/live/)
+
+After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](ССЫЛКА) or the [Transaction log](ССЫЛКА) to accomplish the purchase.
 {{< /hint >}}
 
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
+
+Check your integration with PaySuper Checkout works correctly. Test cards can be used to create payments that produce successful and particular responses.
 {{< /hint >}}
 
 {{< hint info >}}
 [**Going live checklist**](/docs/payments/live/)
+
+Before going live inspect this checklist to ensure you've implemented all the significant setup steps.
 {{< /hint >}}
 
 ***
