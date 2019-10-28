@@ -30,11 +30,11 @@ PaySuper Checkout creates a secure PaySuper-hosted form that lets you collect pa
 
 Choose a card payment method and enter one of the test cards to checkout in a test mode:
 
-Default card: **`4000 0000 0000 0002`**
+3D Secure: **`4000 0000 0000 0002`**
 
-3D Secure: **`4000 0000 0000 0077`**
+Non 3D Secure: **`4000 0000 0000 0077`**
 
-Enter arbitrary cardholder name, expiry date and CVV2/CVC2/CAV2 (Secure code) with these PANs.
+Enter arbitrary expiry date (the format is MM/YY), a Secure code (CVC/CVV, the format is 3 digits) and a cardholder name (the format is firstname lastname).
 
 {{< sdk >}}Test Payment{{< /sdk >}}
 
