@@ -6,9 +6,9 @@ bookToc: true
 # Payment initialization on the server-side
 ***
 
-НАПИСАТЬ ОПИСАНИЕ ЭТОГО ПОДХОДА
+The server-side payment initialization makes it possible to integrate a Checkout Form into your website or game client using PaySuper API.
 
-If your sales use cases are not filled, use the [client-side payment initialization](/docs/payments/sdk-integration/) with PaySuper JS SDK instead.
+You can use PaySuper JS SDK for the [client-side payment initialization](/docs/payments/sdk-integration/) to integrate a Checkout Form into your website only on the client-side.
 
 ***
 
@@ -36,11 +36,11 @@ curl -X POST -H 'Content-Type: application/json' -d '{
 
 ### **Products Checkout**
 
-If you're selling such products such as [key-activated products, virtual items or in-game currency](/docs/payments/quick-start/#step-2-set-up-a-project), you can use this sample code with a defined product parameter:
+If you're selling products such as [key-activated products, virtual items or in-game currency](/docs/payments/quick-start/#step-2-set-up-a-project), you can use this sample code with a defined product parameter:
 
 {{< tabs "products_id" >}}
 
-{{< tab "Game key" >}}
+{{< tab "Game Key" >}}
 RUNKIT
 
 {{< highlight bash >}}
@@ -48,7 +48,7 @@ RUNKIT
 
 {{< /tab >}}
 
-{{< tab "Virtual item" >}}
+{{< tab "Virtual Item" >}}
 RUNKIT
 
 {{< highlight bash >}}
@@ -56,7 +56,7 @@ RUNKIT
 
 {{< /tab >}}
 
-{{< tab "Virtual currency" >}}
+{{< tab "Virtual Currency" >}}
 RUNKIT
 
 {{< highlight bash >}}
@@ -72,7 +72,7 @@ Remember to use your IDs for the project and products. You can find your IDs in 
 
 ## **Step 2.** Display a Checkout Form
 
- retrieve the response parameter **`payment_form_url`** from the previous step - the URL of PaySuper-hosted payment form.
+Retrieve the response parameter **`payment_form_url`** from the previous step - the URL of PaySuper-hosted payment form.
 
 When your customer is ready to start a payment you can use this URL in two ways:
 
