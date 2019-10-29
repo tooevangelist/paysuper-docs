@@ -6,7 +6,7 @@ bookToc: true
 # Payment initialization with token
 ***
 
-A token is an encrypted string that represents certain details of your customer, such as the user id, game and purchase parameters.
+A token is an encrypted string that represents certain details of your customer (such as the user ID, email and others), a game and purchase parameters.
 
 You can create a token before your customer intents to pay and use it in the future payments. For instance, you can create the token after a user has signed up or has logged in to your website or a game client. When your customer wants to pay for something you redirect them to the PaySuper-hosted Checkout Form to instantly complete a purchase.
 
@@ -24,17 +24,17 @@ You can follow these steps to create a Checkout Form:
 
 Send the [POST /api/v1/tokens](ССЫЛКА) to receive an encrypted string. Learn more about the [full list of parameters](ССЫЛКА).
 
+{{< hint info >}}
+Setting up the [`type` parameter](ССЫЛКА на параметры в апи спеке) in a token request is required for all of the sales options.
+{{< /hint >}}
+
 {{< runkit "token-client" >}}
 {{< /runkit >}}
-
-{{< hint warning >}}
-Setting up the `type` parameter in a token is required for all of the sales options.
-{{< /hint >}}
 
 {{< highlight bash >}}
 curl -X POST -H 'X-API-SIGNATURE: YOUR_SIGNATURE' -d '{
  "settings": {
-    "project_id": "5db16ae811bf0d0001fdfbd1",
+    "project_id": "YOUR_PROJECT_ID",
     "amount": 10,
     "currency": "USD",
     "type": "simple"
@@ -56,12 +56,32 @@ curl -X POST -H 'X-API-SIGNATURE: YOUR_SIGNATURE' -d '{
 {{< /highlight >}}
 
 {{< hint warning >}}
-Remember to replace the value with a [sha512 hash](ССЫЛКА НА АПИ СПЕКУ как передавать хедер с авторизацией must contain a sha512 hash of concatenation request body and the project secret key) in the Header `X-API-SIGNATURE` and your Project ID in the `project_id` parameter.
+Remember to replace the value `YOUR_SIGNATURE` in the Header `X-API-SIGNATURE` with a [sha512 hash](ССЫЛКА НА АПИ СПЕКУ как передавать хедер с авторизацией must contain a sha512 hash of concatenation request body and the Project Secret key) and the value `YOUR_PROJECT_ID` in the `project_id` parameter with your Project ID.
 {{< /hint >}}
 
 ## **Step 2.** Create a Checkout Form with a token
 
-### **client-side payment initialization**
+### **Open a Checkout Form by URL**
+
+Retrieve the response parameter **`payment_form_url`** from the previous step - the URL of PaySuper-hosted payment form.
+
+When your customer is ready to start a payment you can use this URL in two ways:
+
+* **Redirect the user to an URL in a new browser window**
+
+* **Embed Checkout Form as an inline iframe by URL**
+
+{{< highlight html >}}
+<iframe src="{payment_form_url}"></iframe>
+{{< /highlight >}}
+
+***
+
+{{< hint info >}}
+Note that the parameters used in the `POST /api/v1/tokens` request override the corresponding parameters in an order object.
+{{< /hint >}}
+
+### **Client-side payment initialization**
 
 To integrate a Checkout Form you can follow the [client-side payment initialization](/docs/payments/sdk-integration/) but instead pass a token parameter when creating a PaySuper object.
 
@@ -84,9 +104,41 @@ const paySuper = new PaySuper({
 });
 {{< /highlight >}}
 
-{{< hint warning >}}
-Note that the parameters used in the `POST /api/v1/tokens` request override the corresponding parameters in a PaySuper object if they exist.
-{{< /hint >}}
+### **Server-side payment initialization**
+
+To integrate a Checkout Form you can follow the [server-side payment initialization](/docs/payments/integration/) with .
+
+If your token contains [user and order parameters](ССЫЛКА НА АПИ СПЕКУ параметры tokens) then you can request a Checkout Form URL with just a single parameter:
+
+ПРИМЕР CURL и RUNKIT ТОЛЬКО параметр token
+
+You can predefine a user and/or an order parameters in a token and pass the other parameters in an order request:
+
+{{< tabs "server_token_id" >}}
+{{< tab "Adding an order data" >}}
+
+If the token contains only a user data and type you can add an order data:
+
+ПРИМЕР CURL и RUNKIT параметр token + параметры заказа
+
+{{< /tab >}}
+
+{{< tab "Adding a user data" >}}
+
+The token contains only an order data and type you can add a user data:
+
+ПРИМЕР CURL и RUNKIT параметр token + параметры пользователя
+
+{{< /tab >}}
+
+{{< tab "Adding redirect URLs" >}}
+
+If the token contains a user and order data without redirect urls you can add them:
+
+ПРИМЕР CURL и RUNKIT параметр token + параметры url_fail и url_success
+
+{{< /tab >}}
+{{< /tabs >}}
 
 ***
 
