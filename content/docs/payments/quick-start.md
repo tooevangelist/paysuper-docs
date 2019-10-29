@@ -103,7 +103,7 @@ You can also integrate on a server-side without PaySuper SJ SDK for other reason
 
 ### [Payment initialization with token](/docs/payments/token/)
 
-ДОПИСАТЬ ПРО ТОКЕН
+You can encrypt details of your customer, such as the user id, game and purchase parameters. When your customer wants to pay for something you redirect them to the PaySuper-hosted Checkout Form to instantly complete a purchase.
 
 ## **Step 4.** After the payment
 
