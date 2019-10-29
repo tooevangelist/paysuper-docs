@@ -1,14 +1,18 @@
 ---
-title: Client-Only Integration
+title: Client-side payment initialization
 bookToc: true
 ---
 
-# Client-Only Integration with PaySuper JS SDK
+# Payment initialization on the client-side
 ***
 
 {{< columns >}}
 
-It’s easy to embed [PaySuper JS SDK](https://github.com/paysuper/paysuper-js-sdk) on any platform to display a Payment Form with just a few lines of code.
+The client-side payment initialization makes it possible to integrate a Checkout Form into your website using only frontend code.
+
+It’s easy to embed [PaySuper JS SDK](https://github.com/paysuper/paysuper-js-sdk) with just a few lines of code to start a payment process and display a purchase status finally whithout any server-side code.
+
+If your sales use cases are not filled, use the [server-side payment initialization](/docs/payments/integration/) with PaySuper API instead.
 
 <--->
 
@@ -31,9 +35,9 @@ To get started, include the following script tag on your website - always load i
 
 ### **Simple Checkout**
 
-To create a Checkout Form to collect one-time payments it's enough to have a [Project ID](/docs/payments/quick-start/#step-2-set-up-a-project) and an acceptable amount with currency.
+To create a Checkout Form for one-time payments it's enough to have a [Project ID](/docs/payments/quick-start/#step-2-set-up-a-project) and an acceptable price and currency.
 
-Use this sample code to create an instance of the Checkout object with the required parameters for a simple checkout:
+Use this sample code to create a PaySuper object with the required parameters for a simple checkout:
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
@@ -45,7 +49,7 @@ const paySuper = new PaySuper({
 
 ### **Products Checkout**
 
-In case of using the sales methods for products such as [key-activated products, virtual items or in-game currency](/docs/payments/quick-start/#step-2-set-up-a-project) implement this sample code for a specific product:
+If you're selling such products such as [key-activated products, virtual items or in-game currency](/docs/payments/quick-start/#step-2-set-up-a-project), you can use this sample code with a defined product parameter:
 
 {{< tabs "products_id" >}}
 {{< tab "Game key" >}}
@@ -89,12 +93,12 @@ const paySuper = new PaySuper({
 [Full list of PaySuper parameters](https://github.com/paysuper/paysuper-js-sdk/tree/master#paysuper-options)
 
 {{< hint warning >}}
-Note to use your IDs for the Project and Products found in your merchant account on [the PaySuper Projects](https://paysupermgmt.tst.protocol.one/projects/). To get the Project and Product IDs: open your Project settings page, select the product tab and click on the Product name. Copy the Project and Product IDs from an opened page URL.
+Remember to use your IDs for the project and products. You can find your IDs in your merchant account on [the PaySuper Projects](https://paysupermgmt.tst.protocol.one/projects/). Open your Project settings page, select the Product tab and click on the Product name. Copy the Project and Product IDs from the page URL.
 {{< /hint >}}
 
 ## **Step 3.** Display the Checkout Form
 
-This is a brief example usage of a sample code how to call a method to display the Checkout Form when user intent to buy in particular clicking on a payment button.
+This example offers a sample code that displays a PaySuper Checkout Form with a `BUY` button.
 
 {{< tabs "embed_id" >}}
 
@@ -144,7 +148,7 @@ function buyItems() {
 
 {{< highlight javascript >}}
 paySuper.on('paymentCompleted', function() {
-      // You can show a message about payment is completed
+      // You can show a message that the payment is completed
 })
 {{< /highlight >}}
 
@@ -163,11 +167,11 @@ After a successful payment, you have to fulfil the customer’s purchase. You ca
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
 
-Check your integration with PaySuper Checkout works correctly. Test cards can be used to create payments that produce successful and particular responses.
+Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
 {{< /hint >}}
 
 {{< hint info >}}
-[**Customizing Checkout**](/docs/payments/customization/)
+[**Customizing the Checkout**](/docs/payments/customization/)
 
 Learn about the different ways you can customize your Checkout.
 {{< /hint >}}

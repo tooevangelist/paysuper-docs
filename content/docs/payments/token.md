@@ -1,26 +1,26 @@
 ---
-title: Token-based Checkout
+title: Payment initialization with token
 bookToc: true
 ---
 
-# Token-based Checkout
+# Payment initialization with token
 ***
 
-A Token is a secure string that represents the details of your user, game and purchase parameters. 
+A token is an encrypted string that represents certain details of your customer, such as the user id, game and purchase parameters.
 
-You can create a Token before your customer intents to pay and use it in the future payments. For instance, you can create the Token after a user signed up or logged in your website or a game client. When your customer wants to pay for something you instantly redirect them to the PaySuper-hosted Checkout Form to immediately complete a purchase.
+You can create a token before your customer intents to pay and use it in the future payments. For instance, you can create the token after a user has signed up or has logged in to your website or a game client. When your customer wants to pay for something you instantly redirect them to the PaySuper-hosted Checkout Form to instantly complete a purchase.
 
 ## Token-based features
 
-* **Instantly redirect to a Checkout Form**: Using a previously stored user data in the Token you don't need to receive additional information about the user on your server-side. In that case, you can redirect to the PaySuper Checkout Form from anywhere of your website or a game client.
+* **Instantly redirect to a Checkout Form**: Once you have created a token that stores the necessary customer data, you don't need to request that data again from the customer. Instead you can display the PaySuper Checkout Form so the customer can conveniently confirm the purchase. This is useful when you can identify a customer in your system.
 
-* **The pre-filled information in a Checkout Form**: Incase of using the Token the Checkout Form is pre-filled with applicable information about your customer after a payment process is initiated.
+* **The pre-filled information in a Checkout Form**: The Checkout Form is pre-filled with the applicable information about your customer that it can get from the token.
 
 ***
 
-Follow these steps to create a Checkout Form:
+You can follow these steps to create a Checkout Form:
 
-## **Step 1.** Create a Token on your server
+## **Step 1.** Create a token on your server
 
 Send the [POST /api/v1/tokens](ССЫЛКА) to receive an encrypted string. Learn more about [the full list of parameters](ССЫЛКА).
 
@@ -28,7 +28,7 @@ Send the [POST /api/v1/tokens](ССЫЛКА) to receive an encrypted string. Lea
 {{< /runkit >}}
 
 {{< hint warning >}}
-Setting up the `type` parameter in a Token is required for all of the sales options.
+Setting up the `type` parameter in a token is required for all of the sales options.
 {{< /hint >}}
 
 {{< highlight bash >}}
@@ -40,85 +40,52 @@ curl -X POST -H 'X-API-SIGNATURE: YOUR_SIGNATURE' -d '{
     "type": "simple"
  },
  "user": {
-    "address": {
-       "city": "Almere",
-       "country": "NL",
-       "postal_code": "1326 PA",
-       "state": "Flevoland"
-    },
-    "email": {
-       "value": "user.email@example.com",
-       "verified": true
-    },
-    "id": "58799f2c2564296bd2cb",
-    "ip": {
-       "value": "188.226.141.211"
-    },
-    "locale": {
-       "value": "NL"
-    },
-    "name": {
-       "value": "Yavuz Stolwijk"
-    },
-    "phone": {
-       "value": "71111111111",
-       "verified": true
-    }
+   "id": "58799f2c2564296bd2cb",
+   "address": {
+      "city": "Almere",
+      "country": "NL",
+      "postal_code": "1326 PA",
+      "state": "Flevoland"
+   },
+   "email": {
+      "value": "user.email@example.com",
+      "verified": true
+   }
  }
 }' 'https://p1payapi.tst.protocol.one/api/v1/tokens'
 {{< /highlight >}}
 
 {{< hint warning >}}
-Make sure to replace the value with a [sha512 hash](ССЫЛКА НА АПИ СПЕКУ как передавать хедер с авторизацией must contain a sha512 hash of concatenation request body and the project secret key) in the Header `X-API-SIGNATURE` and your Project ID in the `project_id` parameter.
+Remember to replace the value with a [sha512 hash](ССЫЛКА НА АПИ СПЕКУ как передавать хедер с авторизацией must contain a sha512 hash of concatenation request body and the project secret key) in the Header `X-API-SIGNATURE` and your Project ID in the `project_id` parameter.
 {{< /hint >}}
 
-## **Step 2.** Create a Checkout Form with the Token
+## **Step 2.** Create a Checkout Form with a token
 
-### **Client-only integration**
+### **client-side payment initialization**
 
-To integrate a Checkout Form you can follow all steps for the [Client-only integration](/docs/payments/sdk-integration/) but passing a Token parameter when creating a PaySuper object.
+To integrate a Checkout Form you can follow the [client-side payment initialization](/docs/payments/sdk-integration/) but instead pass a token parameter when creating a PaySuper object.
 
-If your Token encrypts a [user and order parameters](ССЫЛКА НА АПИ СПЕКУ параметры tokens) you can create a PaySuper Form instance passing one parameter:
+If your token contains [user and order parameters](ССЫЛКА НА АПИ СПЕКУ параметры tokens) then you can create a Checkout Form instance with just a single parameter:
 
 {{< highlight javascript >}}
-<script src="https://cdn.pay.super.com/paysdk/latest/paysuper.js"></script>
-
-<script>
-function buyItems() {
-    const paySuper = new PaySuper({
-        token: '5cd5620f06ae110001509185'
-    });
-
-    paySuper.renderModal();
-}
-</script>
-
-<button onclick="buyItems()">BUY</button>
+const paySuper = new PaySuper({
+   token: '5cd5620f06ae110001509185'
+});
 {{< /highlight >}}
 
-If your Token encrypts only [user data](ССЫЛКА НА АПИ СПЕКУ параметры tokens) you can create a PaySuper Form instance passing the Token and also the order parameters:
+If your token encrypts only the [user data](ССЫЛКА НА АПИ СПЕКУ параметры tokens) then you can create a Checkout Form instance passing the token and also the order parameters:
 
 {{< highlight javascript >}}
-<script src="https://cdn.pay.super.com/paysdk/latest/paysuper.js"></script>
-
-<script>
-function buyItems() {
-    const paySuper = new PaySuper({
-        token: '5cd5620f06ae110001509185'
-        project: '5cd5624a06ae110001509186',
-        amount: 10,
-        currency: 'USD'
-    });
-
-    paySuper.renderModal();
-}
-</script>
-
-<button onclick="buyItems()">BUY</button>
+const paySuper = new PaySuper({
+   token: '5cd5620f06ae110001509185'
+   project: '5cd5624a06ae110001509186',
+   amount: 10,
+   currency: 'USD'
+});
 {{< /highlight >}}
 
 {{< hint warning >}}
-Note that the parameters used in the `POST /api/v1/tokens` request overrides the same parameters in the PaySuper object if they exist.
+Note that the parameters used in the `POST /api/v1/tokens` request override the corresponding parameters in a PaySuper object if they exist.
 {{< /hint >}}
 
 ***
@@ -134,11 +101,11 @@ After a successful payment, you have to fulfil the customer’s purchase. You ca
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
 
-Check your integration with PaySuper Checkout works correctly. Test cards can be used to create payments that produce successful and particular responses.
+Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
 {{< /hint >}}
 
 {{< hint info >}}
-[**Customizing Checkout**](/docs/payments/customization/)
+[**Customizing the Checkout**](/docs/payments/customization/)
 
 Learn about the different ways you can customize your Checkout.
 {{< /hint >}}

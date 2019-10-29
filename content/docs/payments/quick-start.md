@@ -22,27 +22,27 @@ bookToc: true
 {{< expand "Registration and onboarding" " " >}}
 
 1. [Sign up](https://paysupermgmt.tst.protocol.one).
-2. Verify your email address from a delivered confirmation email.
-3. Follow several steps of a brief [Welcome Onboarding](https://paysupermgmt.tst.protocol.one/profile).
-4. It's required to fill in the Banking info in the [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) to enable creating a project.
+2. Verify your email address with the delivered confirmation email.
+3. Follow the steps of a brief [Welcome Onboarding](https://paysupermgmt.tst.protocol.one/profile).
+4. You are required to fill in the Banking info in [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) to be able create a project.
 
 {{< hint info >}}
-When you are ready to start selling you will need to fill in all your company details in the [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) and the signed documents in the License Agreement.
+When you are ready to start selling you will need to fill in all your company details in [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) and the sign the documents in the License Agreement.
 
-Before sign the documents we manually check each new account to ensure that our platform is attended only by companies who are related to the gaming industry, this allows us to provide maximum features and stability to all our users.
+Before confirming your application we manually check each new account to ensure that our platform is attended only by companies who are related to the gaming industry. This allows us focus on the relevant features and quality for our users.
 {{< /hint >}}
 
 {{< /expand >}}
 
 ## **Step 2.** Set up a Project
 
-Having a single project is enough to start selling. 
+A single project is enough to start selling. 
 
 {{< expand "Create a project" " " >}}
 
-**To create a project:**
+**To create a Project:**
 
-1. Open [**the Projects List page**](https://paysupermgmt.tst.protocol.one/projects/)
+1. Open [**the Projects list page**](https://paysupermgmt.tst.protocol.one/projects/)
 2. Click the **Create Project** button.
 3. Enter a **Project Name**. 
 4. Click **Create** to redirect to the Project Settings page.
@@ -52,10 +52,6 @@ Having a single project is enough to start selling.
     * **Short description**
     * **Secret key**: Generate a secret key to set up correct integration with PaySuper platform.
     * **Currency**: by default is equal to **USD**.
-6. Optional information:
-
-    * **Localization**: you can choose the complete set of supported languages for the project and products descriptions
-    * **Logotype**
 
 7. Click **Save**.
 
@@ -67,7 +63,7 @@ If you want to sell products (as Game keys, Virtual items, Virtual currency) the
 
 **To add a Game key:**
 
-1. Open [**the Projects List page**](https://paysupermgmt.tst.protocol.one/projects/)
+1. Open [**the Projects list page**](https://paysupermgmt.tst.protocol.one/projects/)
 2. Open the Project settings page.
 3. 
 
@@ -77,7 +73,7 @@ If you want to sell products (as Game keys, Virtual items, Virtual currency) the
 
 **To add a Virtual item:**
 
-1. Open [**the Projects List page**](https://paysupermgmt.tst.protocol.one/projects/)
+1. Open [**the Projects list page**](https://paysupermgmt.tst.protocol.one/projects/)
 2. Open the Project settings page.
 3. 
 
@@ -87,7 +83,7 @@ If you want to sell products (as Game keys, Virtual items, Virtual currency) the
 
 **To add a Virtual currency:**
 
-1. Open [**the Projects List page**](https://paysupermgmt.tst.protocol.one/projects/)
+1. Open [**the Projects list page**](https://paysupermgmt.tst.protocol.one/projects/)
 2. Open the Project settings page.
 3. 
 
@@ -97,17 +93,21 @@ If you want to sell products (as Game keys, Virtual items, Virtual currency) the
 
 Use Checkout to collect [one-time payments](/docs/payments/#simple-checkout) or to sell [products defined in the Project](/docs/payments/#typed-checkout).
 
-### [Integration on client-side](/docs/payments/sdk-integration/)
+### [Client-side payment initialization](/docs/payments/sdk-integration/)
 
-The client-only integration lets you accept online payments using only frontend code PaySuper JS SDK. The Checkout Form can be embedded as an [iframe](ССЫЛКА на метод renderPage) or [modal window](ССЫЛКА на метод renderModal).
+The client-side payment initialization lets you accept online payments using only frontend code PaySuper JS SDK. The Checkout Form can be embedded as an [iframe](ССЫЛКА на метод renderPage) or [modal window](ССЫЛКА на метод renderModal).
 
-### [Integration on client and server-side](/docs/payments/integration/)
+### [Server-side payment initialization](/docs/payments/integration/)
 
 You can also integrate on a server-side without PaySuper SJ SDK for other reasons. Checkout Form can be embedded as an [iframe](ССЫЛКА) or [new window](ССЫЛКА).
 
+### [Payment initialization with token](/docs/payments/token/)
+
+ДОПИСАТЬ ПРО ТОКЕН
+
 ## **Step 4.** After the payment
 
-Following the successful payment, you should fulfil the customer’s purchase. You can use [webhooks](ССЫЛКА) or the [Transaction log](ССЫЛКА) to accomplish the purchase. For more details about handling purchase fulfilment with Checkout, see [After the payment](/docs/payments/fulfillment/).
+You can use [webhooks](ССЫЛКА) or the [Transaction log](ССЫЛКА) to accomplish the purchase. More details about handling the purchase fulfilment with PaySuper Checkout are available at [After the payment](/docs/payments/fulfillment/).
 
 ***
 
@@ -122,11 +122,11 @@ After a successful payment, you have to fulfil the customer’s purchase. You ca
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
 
-Check your integration with PaySuper Checkout works correctly. Test cards can be used to create payments that produce successful and particular responses.
+Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
 {{< /hint >}}
 
 {{< hint info >}}
-[**Customizing Checkout**](/docs/payments/customization/)
+[**Customizing the Checkout**](/docs/payments/customization/)
 
 Learn about the different ways you can customize your Checkout.
 {{< /hint >}}

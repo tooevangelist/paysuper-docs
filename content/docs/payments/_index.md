@@ -26,7 +26,7 @@ PaySuper Checkout creates a secure PaySuper-hosted form that lets you collect pa
 ## Try now
 
 {{< columns >}}
-### See how Checkout Form looks and feels
+### See how the Checkout Form looks and feels
 
 Choose a card payment method and enter one of the test cards to checkout in a test mode:
 

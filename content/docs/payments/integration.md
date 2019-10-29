@@ -1,18 +1,20 @@
 ---
-title: Client-Server Integration
+title: Server-side payment initialization
 bookToc: true
 ---
 
-# Client-Server Integration with PaySuper API
+# Payment initialization on the server-side
 ***
 
-If your sales use cases are not suited [the client-only integration](/docs/payments/sdk-integration/), use the client-server integration with PaySuper API instead.
+НАПИСАТЬ ОПИСАНИЕ ЭТОГО ПОДХОДА
+
+If your sales use cases are not filled, use the [client-side payment initialization](/docs/payments/sdk-integration/) with PaySuper JS SDK instead.
 
 ***
 
 ## **Step 1.** Create a Checkout Order ID on your server
 
-Send the [POST /api/v1/order](ССЫЛКА) to receive an Order ID. Learn more about [the full list of parameters](ССЫЛКА) that can be used for instance the redirect URLs for successful and failed payments.
+Send the [POST /api/v1/order](ССЫЛКА) to receive an Order ID. Learn more about the [full list of parameters](ССЫЛКА) that can be used for instance the redirect URLs for successful and failed payments.
 
 ### **Simple Checkout**
 
@@ -34,7 +36,7 @@ curl -X POST -H 'Content-Type: application/json' -d '{
 
 ### **Products Checkout**
 
-In case of using the sales methods for products such as [key-activated products, virtual items or in-game currency](/docs/payments/quick-start/#step-2-set-up-a-project) implement this sample code for a specific product:
+If you're selling such products such as [key-activated products, virtual items or in-game currency](/docs/payments/quick-start/#step-2-set-up-a-project), you can use this sample code with a defined product parameter:
 
 {{< tabs "products_id" >}}
 
@@ -65,18 +67,18 @@ RUNKIT
 {{< /tabs >}}
 
 {{< hint warning >}}
-Note to use your IDs for the Project and Products found in your merchant account on [the PaySuper Projects](https://paysupermgmt.tst.protocol.one/projects/). To get the Project and Product IDs: open your Project settings page, select the product tab and click on the Product name. Copy the Project and Product IDs from an opened page URL.
+Remember to use your IDs for the project and products. You can find your IDs in your merchant account on [the PaySuper Projects](https://paysupermgmt.tst.protocol.one/projects/). Open your Project settings page, select the Product tab and click on the Product name. Copy the Project and Product IDs from the page URL.
 {{< /hint >}}
 
 ## **Step 2.** Display a Checkout Form
 
-From the previous step retrieve the response parameter **`payment_form_url`** - the URL of PaySuper-hosted payment form.
+ retrieve the response parameter **`payment_form_url`** from the previous step - the URL of PaySuper-hosted payment form.
 
-When your customer is ready to intent a payment you can use this URL in two ways:
+When your customer is ready to start a payment you can use this URL in two ways:
 
-* **Redirect the user to URL in a new browser window**
+* **Redirect the user to an URL in a new browser window**
 
-* **Embed PaySuper Form as an inline iframe by URL**
+* **Embed Checkout Form as an inline iframe by URL**
 
 {{< highlight html >}}
 <iframe src="{payment_form_url}"></iframe>
@@ -95,11 +97,11 @@ After a successful payment, you have to fulfil the customer’s purchase. You ca
 {{< hint info >}}
 [**Testing the Checkout**](/docs/payments/testing/)
 
-Check your integration with PaySuper Checkout works correctly. Test cards can be used to create payments that produce successful and particular responses.
+Verify that your integration with PaySuper Checkout works correctly. Our offered test cards can be used to create payments that produce defined responses for you to test your integration code.
 {{< /hint >}}
 
 {{< hint info >}}
-[**Customizing Checkout**](/docs/payments/customization/)
+[**Customizing the Checkout**](/docs/payments/customization/)
 
 Learn about the different ways you can customize your Checkout.
 {{< /hint >}}

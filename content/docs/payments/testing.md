@@ -10,7 +10,7 @@ The Payment Form integration should be tested in the Sandbox before [going live]
 
 The Sandbox provides full functionality but it only emulates processing, no actual bank transactions are made.
 
-When using the PaySuper JS SDK ensure that:
+When using PaySuper JS SDK ensure that:
 
 * [Handlers for the events](/docs/payments/sdk-integration/#step-4-handle-the-purchase-events) are displayed properly.
 * The PaySuper object created with all required parameters or your token contains all desired parameters.
@@ -74,7 +74,7 @@ After a successful payment, you have to fulfil the customer’s purchase. You ca
 {{< /hint >}}
 
 {{< hint info >}}
-[**Customizing Checkout**](/docs/payments/customization/)
+[**Customizing the Checkout**](/docs/payments/customization/)
 
 Learn about the different ways you can customize your Checkout.
 {{< /hint >}}
@@ -82,7 +82,7 @@ Learn about the different ways you can customize your Checkout.
 {{< hint info >}}
 [**Going live checklist**](/docs/payments/live/)
 
-Before going live inspect this checklist to ensure you've implemented all the significant setup steps.
+You can inspect this checklist before going live to ensure you've implemented all the significant setup steps.
 {{< /hint >}}
 
 ***
