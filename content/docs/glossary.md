@@ -1,20 +1,32 @@
 # Payment form:
 ***
 
-a|the Checkout Form
+a Checkout Form
 
 ***
 
 # PaySuper Admin entities and properties: 
 ***
 
-a|the Project
+a Project
 
-a|the Product
+a Product
 
-a|the Project Secret key
+a Project Secret key
 
 the Banking info
+
+Virtual Currency
+
+Game Keys
+
+Virtual Items
+
+a key-activated product
+
+a virtual item 
+
+an in-game currency
 
 ***
 
@@ -30,11 +42,11 @@ the Project settings page
 # Terms in lowercase:
 ***
 
-a|the payment
+a payment
 
-a|the order
+an order
 
-a|the token
+a token
 
 # Terms in uppercase:
 ***
