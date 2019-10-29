@@ -10,7 +10,7 @@ bookToc: true
 
 The client-side payment initialization makes it possible to integrate a Checkout Form into your website using only frontend code.
 
-It’s easy to embed [PaySuper JS SDK](https://github.com/paysuper/paysuper-js-sdk) with just a few lines of code to start a payment process and display a purchase status finally whithout any server-side code.
+It’s easy to embed [PaySuper JS SDK](https://github.com/paysuper/paysuper-js-sdk) with just a few lines of Javascript code to start a payment process and display a purchase status finally whithout any server-side code.
 
 If your sales use cases are not filled, use the [server-side payment initialization](/docs/payments/integration/) with PaySuper API instead.
 
@@ -52,7 +52,7 @@ const paySuper = new PaySuper({
 If you're selling such products such as [key-activated products, virtual items or in-game currency](/docs/payments/quick-start/#step-2-set-up-a-project), you can use this sample code with a defined product parameter:
 
 {{< tabs "products_id" >}}
-{{< tab "Game key" >}}
+{{< tab "Game Key" >}}
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
@@ -65,7 +65,7 @@ const paySuper = new PaySuper({
 
 {{< /tab >}}
 
-{{< tab "Virtual item" >}}
+{{< tab "Virtual Item" >}}
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
@@ -77,7 +77,7 @@ const paySuper = new PaySuper({
 
 {{< /tab >}}
 
-{{< tab "Virtual currency" >}}
+{{< tab "Virtual Currency" >}}
 
 ПРИМЕР КОДА ПРОСИТЬ У ДИМЫ или АНДРЕЯ кода реализуют
 
