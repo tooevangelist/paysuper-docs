@@ -8,7 +8,7 @@ bookToc: true
 
 A token is an encrypted string that represents certain details of your customer, such as the user id, game and purchase parameters.
 
-You can create a token before your customer intents to pay and use it in the future payments. For instance, you can create the token after a user has signed up or has logged in to your website or a game client. When your customer wants to pay for something you instantly redirect them to the PaySuper-hosted Checkout Form to instantly complete a purchase.
+You can create a token before your customer intents to pay and use it in the future payments. For instance, you can create the token after a user has signed up or has logged in to your website or a game client. When your customer wants to pay for something you redirect them to the PaySuper-hosted Checkout Form to instantly complete a purchase.
 
 ## Token-based features
 
@@ -22,7 +22,7 @@ You can follow these steps to create a Checkout Form:
 
 ## **Step 1.** Create a token on your server
 
-Send the [POST /api/v1/tokens](ССЫЛКА) to receive an encrypted string. Learn more about [the full list of parameters](ССЫЛКА).
+Send the [POST /api/v1/tokens](ССЫЛКА) to receive an encrypted string. Learn more about the [full list of parameters](ССЫЛКА).
 
 {{< runkit "token-client" >}}
 {{< /runkit >}}
