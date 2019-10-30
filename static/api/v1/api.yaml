@@ -3472,6 +3472,25 @@ info:
 
     ***
 
+    # Versioning
+
+    PaySuper is developed incrementally. We use [semantic versioning](https://semver.org/) and approach to release new versions of the specification.
+
+    The content of each release is the result of the work of the project team located on GitHub. 
+    All changes and additions to each version of this specification are publicly discussed by the PaySuper working group.
+
+    While making requests in PaySuper using HTTPS, the version is passed as a special HTTP header, which makes it easier to choose the correct implementation of objects on the receiving and transmitting side. 
+    The version passed is specified as major and minor of the version using semantic versioning. 
+    For the transmission version must use the header 'x-paysuper-api-version' '1.0'.
+
+    # Compression
+
+    The amount of data transferred with notifications can be huge, and endpoints are required to support data compression to reduce the amount and speed of data transfer over the network.
+
+    Endpoints that send HTTP 1.1 messages are required to send gzip-compressed data by specifying the appropriate value in the HTTP [Accept-Encoding header](https://tools.ietf.org/html/rfc7231#section-5.3.4).
+
+    Receiving hosts are required to support gzip and respond to requests by passing an HTTP [Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2) header.
+
   title: PaySuper API Reference
   version: '1.0'
 paths:
