@@ -3489,7 +3489,7 @@ info:
 
     Endpoints that send HTTP 1.1 messages are required to send gzip-compressed data by specifying the appropriate value in the HTTP [Accept-Encoding header](https://tools.ietf.org/html/rfc7231#section-5.3.4).
 
-    Receiving hosts are required to support gzip and respond to requests by passing an HTTP [Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2) header.
+    Receiving hosts are required to support gzip and respond to requests by passing an HTTP [Content-Encoding header](https://tools.ietf.org/html/rfc7231#section-3.1.2.2).
 
   title: PaySuper API Reference
   version: '1.0'
