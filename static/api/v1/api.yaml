@@ -566,73 +566,75 @@ definitions:
   order.create.request.user:
     properties:
       external_id:
-        description: user identifier on project side
+        description: The user unique identifier on the merchant side.
         type: string
       name:
-        description: user name
+        description: The user's name.
         type: string
       email:
-        description: user email
+        description: The user's email address.
         type: string
       email_verified:
-        description: user email was verified by project
+        description: Whether the user's email address has been verified on the merchant side.
         type: boolean
       phone:
-        description: user phone
+        description: The user's phone number.
         type: string
       phone_verified:
-        description: user phone was verified by project
+        description: Whether the user’s phone number has been verified on the merchant side.
         type: boolean
       ip:
-        description: user ip address
+        description: The user's IP address.
         type: string
       locale:
-        description: user's locale. two-letter code in lowercase
+        description: The user's locale name. Two-letter language code by ISO 639-1, in lowercase.
         type: string
       address:
-        description: user address information
+        description: Details of the user's address.
         $ref: '#/definitions/order.BillingAddress'
       metadata:
         description: >-
-          object can contain any other information about user. object must
-          contain only string values.
+          A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer payment.
         type: object
   model.OrderScalar:
     properties:
       account:
-        description: user unique account in project
+        description: The user unique account in the Project.
         type: string
       amount:
-        description: order amount. if payment type is simple this field is required
+        description: The order amount as a positive number. It is required for a simple checkout payment.
         type: number
       currency:
         description: >-
-          amount currency. three-letter ISO 4217 currency code, in uppercase. if
-          payment type is simple this field is required
+          The currency of the order. Three-letter Currency Code ISO 4217, in uppercase. 
+          If provided, the amount will be processed in this currency. 
+          It is required for a simple checkout payment.
         type: string
       description:
-        description: order description
+        description: The order description.
         type: string
       order_id:
         description: >-
-          unique order identifier on project side. this field not required, BUT
-          we're recommend send this field always
+          The unique order identifier on the merchant side. This field is not required,
+          but we recommend sending this field always.
         type: string
       project:
-        description: project unique identifier in PaySuper
+        description: The ID of the Project found in your merchant account in the PaySuper Dashboard.
         type: string
       url_fail:
         description: >-
-          url for redirect user after failed payment. this field can be send if
-          it allowed in project admin panel
+          The redirect URL for the failed payment. 
+          Enable the dynamic notify URLs option in the Project Settings to use this field.
         type: string
       url_success:
         description: >-
-          url for redirect user after successfully completed payment. this field
-          can be send if it allowed in project admin panel
+          The redirect URL for the successful payment. 
+          Enable the dynamic notify URLs option in the Project Settings to use this field.
         type: string
       type:
-        description: 'order type. now available next types: simple, product and key'
+        description: >-
+          The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the 'key' type, 
+          as Virtual Items - the 'product' type, for a simple checkout - the 'simple' type.
         type: string
         enum:
           - simple
@@ -640,15 +642,15 @@ definitions:
           - key
       products:
         description: >-
-          list of products (or key products) of project which customer want to
-          buy. if payment type is product or key this field is required.
+          The list of unique identifiers of Products being in the Project.
+          It is required if a payment type is equal to 'product'.
         type: array
         items:
           type: string
       platform_id:
         description: >-
-          platform identifier for which customer buy key products. if payment
-          type is key this field is required.
+          The platform identifier for which customer buy key products. 
+          It is required if a payment type is equal to 'key'.
         type: string
         enum:
           - steam
@@ -662,14 +664,13 @@ definitions:
           - egs
       token:
         description: >-
-          pre-created customer payment token. if sending pre-created token other
-          request parameters not required.
+          An encrypted string that represents certain details of your customer (such as the user ID, email and others), a game and purchase parameters. 
+          The token encrypted parameters override the corresponding parameters in an order object even the required parameters.
         type: string
       user:
         description: >-
-          object may contain information about user. if project send this
-          parameter in request than project must send authorisation header
-          X-API-SIGNATURE
+          Your customer data. 
+          If this field is sent it is required to provide an authorisation header X-API-SIGNATURE.
         $ref: '#/definitions/order.create.request.user'
     required:
       - project
@@ -1680,16 +1681,16 @@ definitions:
   order.BillingAddress:
     properties:
       country:
-        description: 2 chars country code in upper registry by ISO 3166-1
+        description: The user's country. Two-letter language code by ISO 3166-1, in lowercase.
         type: string
       city:
-        description: city name
+        description: The user's city.
         type: string
       postal_code:
-        description: zip code
+        description: The user's postal code.
         type: string
       state:
-        description: state code by ISO 3166-2
+        description: The user's state code by ISO 3166-2.
         type: string
   token.TokenRequest.ValueVerified:
     properties:
@@ -3422,7 +3423,7 @@ info:
     email: support@swagger.io
     name: API Support
     url: 'http://www.swagger.io/support'
-  description: This is a Protocol One payment solution service.
+  description: PaySuper API Reference.
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
