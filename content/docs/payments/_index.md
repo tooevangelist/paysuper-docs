@@ -42,7 +42,7 @@ Enter arbitrary expiry date (the format is MM/YY), a Secure code (CVC/CVV, the f
 
 **HOW IT WORKS**
 
-Try out [the payment sample](ССЫЛКА НА ПРИМЕР ФОРМЫ, та же что выше) or see [the code on GitHub](ПРИМЕР КОДА и КАК ЕГО ЗАПУСКАТЬ).
+Try out the [payment sample](https://dashboard.pay.super.com/form-demo) or see the [code on GitHub](https://github.com/paysuper/paysuper-examples).
 {{< /columns >}}
 
 ***
