@@ -649,8 +649,8 @@ definitions:
           type: string
       platform_id:
         description: >-
-          The platform identifier for which customer buy key products. 
-          It is required if a payment type is equal to 'key'.
+          The default platform identifier for which customer buys the in-game key.
+          This field used only for a payment type 'key'.
         type: string
         enum:
           - steam
