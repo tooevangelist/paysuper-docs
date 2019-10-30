@@ -3430,9 +3430,9 @@ info:
 
     # Authentication
     
-    Authentication to the API occurs via HTTP Basic Auth. You do not need to provide a password.
-    The Secret key can be found on your Project Webhooks settings page.
-    You must authenticate for all requests. You can manage your API keys from your account. 
+    Authentication to the API occurs via Signature-based authentication. You must authenticate for all requests that contain a user data.
+
+    Add a Header **X-API-SIGNATURE** with a **sha512 hash** of concatenation the request body and the Project Secret key found on the Project Webhooks page.
     
     **Your API keys carry many privileges, so be sure to keep them secret.**
 
@@ -3474,12 +3474,6 @@ info:
 
   title: PaySuper API Reference
   version: '1.0'
-securityDefinitions:
-  XAPISignatureHeader:
-    type: apiKey
-    in: header
-    name: X-API-SIGNATURE
-    description: Header contains a sha512 hash of concationation the request body and the Project Secret key.
 paths:
   /api/v1/order:
     post:

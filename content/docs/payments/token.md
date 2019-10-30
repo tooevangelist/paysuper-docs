@@ -24,12 +24,11 @@ You can follow these steps to create a Checkout Form:
 
 Send the [POST /api/v1/tokens](ССЫЛКА) to receive an encrypted string. Learn more about the [full list of parameters](ССЫЛКА).
 
-{{< hint info >}}
-Setting up the [`type` parameter](ССЫЛКА на параметры в апи спеке) in a token request is required for all of the sales options.
+{{< hint warning >}}
+Remember to add a Header **X-API-SIGNATURE** with a **sha512 hash** value that is a concatenation the request body and the Project Secret key found on the Project Webhooks page. Notice, the JSON format of the request body and in the hash must be the same.
 {{< /hint >}}
 
-{{< runkit "token-client" >}}
-{{< /runkit >}}
+{{< runkit >}}token-simple-checkout{{< /runkit >}}
 
 {{< highlight bash >}}
 curl -X POST -H 'X-API-SIGNATURE: YOUR_SIGNATURE' -d '{
@@ -55,25 +54,55 @@ curl -X POST -H 'X-API-SIGNATURE: YOUR_SIGNATURE' -d '{
 }' 'https://p1payapi.tst.protocol.one/api/v1/tokens'
 {{< /highlight >}}
 
-{{< hint warning >}}
-Remember to replace the value `YOUR_SIGNATURE` in the Header `X-API-SIGNATURE` with a [sha512 hash](ССЫЛКА НА АПИ СПЕКУ как передавать хедер с авторизацией must contain a sha512 hash of concatenation request body and the Project Secret key) and the value `YOUR_PROJECT_ID` in the `project_id` parameter with your Project ID.
-{{< /hint >}}
-
 ## **Step 2.** Create a Checkout Form with a token
 
 ### **Open a Checkout Form by URL**
 
-Retrieve the response parameter **`payment_form_url`** from the previous step - the URL of PaySuper-hosted payment form.
+{{< tabs "token_form_id" >}}
 
-When your customer is ready to start a payment you can use this URL in two ways:
+{{< tab "New browser window" >}}
 
-* **Redirect the user to an URL in a new browser window**
+Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of PaySuper-hosted payment form.
 
-* **Embed Checkout Form as an inline iframe by URL**
+When your customer is ready to start a payment you can redirect the user to an URL in a new browser window.
+
+{{< /tab >}}
+
+{{< tab "Iframe" >}}
+
+Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of PaySuper-hosted payment form.
+
+Embed the Checkout Form as an inline iframe by URL:
 
 {{< highlight html >}}
 <iframe src="{payment_form_url}"></iframe>
 {{< /highlight >}}
+
+{{< /tab >}}
+
+{{< tab "Standalone web-page" >}}
+
+Retrieve the response parameter with **`id`** from the previous step. It is the ID of the created order.
+
+Use this code sample to open the Checkout Form as a standalone web-page with [PaySuper JS SDK](/docs/payments/sdk-integration/#step-1-embed-the-checkout-form) and replace `YOUR_ORDER_ID` in the `formUrl` with `id` value.:
+
+{{< highlight html >}}
+<script>
+function buyItems() {
+    const paySuper = new PaySuper({
+        formUrl: 'https://order.pay.super.com/?order_id=YOUR_ORDER_ID'
+    });
+
+    paySuper.renderPage();
+}
+</script>
+
+<button onclick="buyItems()">BUY</button>
+{{< /highlight >}}
+
+{{< /tab >}}
+
+{{< /tabs >}}
 
 ***
 
@@ -85,7 +114,7 @@ Note that the parameters used in the `POST /api/v1/tokens` request override the 
 
 To integrate a Checkout Form you can follow the [client-side payment initialization](/docs/payments/sdk-integration/) but instead pass a token parameter when creating a PaySuper object.
 
-If your token contains [user and order parameters](ССЫЛКА НА АПИ СПЕКУ параметры tokens) then you can create a Checkout Form instance with just a single parameter:
+If your token contains [user and order parameters](/docs/api/#tag/Token) then you can create a Checkout Form instance with just a single parameter:
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
@@ -93,7 +122,7 @@ const paySuper = new PaySuper({
 });
 {{< /highlight >}}
 
-If your token encrypts only the [user data](ССЫЛКА НА АПИ СПЕКУ параметры tokens) then you can create a Checkout Form instance passing the token and also the order parameters:
+If your token encrypts the [user data](/docs/api/#tag/Token) then you can create a Checkout Form instance passing the token and also the order parameters:
 
 {{< highlight javascript >}}
 const paySuper = new PaySuper({
@@ -106,39 +135,18 @@ const paySuper = new PaySuper({
 
 ### **Server-side payment initialization**
 
-To integrate a Checkout Form you can follow the [server-side payment initialization](/docs/payments/integration/) with .
+To integrate a Checkout Form you can follow the [server-side payment initialization](/docs/payments/integration/) with the `token` parameter.
 
-If your token contains [user and order parameters](ССЫЛКА НА АПИ СПЕКУ параметры tokens) then you can request a Checkout Form URL with just a single parameter:
+If your token contains the [user and order parameters](/docs/api/#tag/Token) then you can request a Checkout Form URL with just a single parameter:
 
-ПРИМЕР CURL и RUNKIT ТОЛЬКО параметр token
+{{< runkit >}}{{< /runkit >}}
+ПРИМЕР CURL и RUNKIT ТОЛЬКО параметр token в /api/v1/order
 
 You can predefine a user and/or an order parameters in a token and pass the other parameters in an order request:
 
-{{< tabs "server_token_id" >}}
-{{< tab "Adding an order data" >}}
+{{< runkit >}}{{< /runkit >}}
 
-If the token contains only a user data and type you can add an order data:
-
-ПРИМЕР CURL и RUNKIT параметр token + параметры заказа
-
-{{< /tab >}}
-
-{{< tab "Adding a user data" >}}
-
-The token contains only an order data and type you can add a user data:
-
-ПРИМЕР CURL и RUNKIT параметр token + параметры пользователя
-
-{{< /tab >}}
-
-{{< tab "Adding redirect URLs" >}}
-
-If the token contains a user and order data without redirect urls you can add them:
-
-ПРИМЕР CURL и RUNKIT параметр token + параметры url_fail и url_success
-
-{{< /tab >}}
-{{< /tabs >}}
+ПРИМЕР CURL и RUNKIT в /api/v1/order какие параметры???
 
 ***
 

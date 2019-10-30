@@ -6,15 +6,15 @@ bookToc: true
 # Payment initialization on the server-side
 ***
 
-The server-side payment initialization makes it possible to integrate a Checkout Form into your website or game client using PaySuper API.
+The server-side payment initialization makes it possible to integrate a Checkout Form into your website or game client using PaySuper API. It’s easy to get a Checkout Form URL using an Order API request and render a payment form in a browser.
 
 You can use PaySuper JS SDK for the [client-side payment initialization](/docs/payments/sdk-integration/) to integrate a Checkout Form into your website only on the client-side.
 
 ***
 
-## **Step 1.** Create a Checkout Order ID on your server
+## **Step 1.** Create a Checkout order on your server
 
-Send the [POST /api/v1/order](ССЫЛКА) to receive an Order ID. Learn more about the [full list of parameters](ССЫЛКА) that can be used for instance the redirect URLs for successful and failed payments.
+Send the [POST /api/v1/order](/docs/api/#tag/Payment-Order) to receive an Order ID. Learn more about the [full list of parameters](/docs/api/#tag/Payment-Order/paths/~1api~1v1~1order/post) that can be used for instance the redirect URLs for successful and failed payments.
 
 ### **Simple Checkout**
 
@@ -22,17 +22,20 @@ To collect one-time payments it's enough to have a [Project ID](/docs/payments/q
 
 Use this sample code to create an Order ID with the required parameters for a simple checkout:
 
-{{< runkit "id1" >}}
-{{< /runkit >}}
+{{< runkit >}}simple-checkout-order-api{{< /runkit >}}
 
 {{< highlight bash >}}
 curl -X POST -H 'Content-Type: application/json' -d '{
-    "project": "5db16ae811bf0d0001fdfbd1",
+    "project": "YOUR_PROJECT_ID",
     "amount": 10,
     "currency": "USD",
     "type": "simple"
 }' 'https://p1payapi.tst.protocol.one/api/v1/order'
 {{< /highlight >}}
+
+{{< hint warning >}}
+Remember to use your IDs for the project and products. You can find your IDs in your merchant account on [the PaySuper Projects](https://paysupermgmt.tst.protocol.one/projects/). Open your Project settings page, select the Product tab and click on the Product name. Copy the Project and Product IDs from the page URL.
+{{< /hint >}}
 
 ### **Products Checkout**
 
@@ -41,17 +44,30 @@ If you're selling products such as [key-activated products, virtual items or in-
 {{< tabs "products_id" >}}
 
 {{< tab "Game Key" >}}
-RUNKIT
+
+{{< runkit >}}game-key-checkout-order-api{{< /runkit >}}
 
 {{< highlight bash >}}
+curl -X POST -H 'Content-Type: application/json' -d '{
+    "project": "YOUR_PROJECT_ID",
+    "products": ["YOUR_GAME_KEY_ID"],
+    "platform_id": "gog",
+    "type": "key"
+}' 'https://p1payapi.tst.protocol.one/api/v1/order'
 {{< /highlight >}}
 
 {{< /tab >}}
 
 {{< tab "Virtual Item" >}}
-RUNKIT
+
+{{< runkit >}}items-checkout-order-api{{< /runkit >}}
 
 {{< highlight bash >}}
+curl -X POST -H 'Content-Type: application/json' -d '{
+    "project": "YOUR_PROJECT_ID",
+    "products": ["YOUR_VIRTUAL_ITEM_ID_1", "YOUR_VIRTUAL_ITEM_ID_2"],
+    "type": "product"
+}' 'https://p1payapi.tst.protocol.one/api/v1/order'
 {{< /highlight >}}
 
 {{< /tab >}}
@@ -66,23 +82,53 @@ RUNKIT
 
 {{< /tabs >}}
 
-{{< hint warning >}}
-Remember to use your IDs for the project and products. You can find your IDs in your merchant account on [the PaySuper Projects](https://paysupermgmt.tst.protocol.one/projects/). Open your Project settings page, select the Product tab and click on the Product name. Copy the Project and Product IDs from the page URL.
-{{< /hint >}}
-
 ## **Step 2.** Display a Checkout Form
 
-Retrieve the response parameter **`payment_form_url`** from the previous step - the URL of PaySuper-hosted payment form.
+{{< tabs "server_form_id" >}}
 
-When your customer is ready to start a payment you can use this URL in two ways:
+{{< tab "New browser window" >}}
 
-* **Redirect the user to an URL in a new browser window**
+Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of PaySuper-hosted payment form.
 
-* **Embed Checkout Form as an inline iframe by URL**
+When your customer is ready to start a payment you can redirect the user to an URL in a new browser window.
+
+{{< /tab >}}
+
+{{< tab "Iframe" >}}
+
+Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of PaySuper-hosted payment form.
+
+Embed the Checkout Form as an inline iframe by URL:
 
 {{< highlight html >}}
 <iframe src="{payment_form_url}"></iframe>
 {{< /highlight >}}
+
+{{< /tab >}}
+
+{{< tab "Standalone web-page" >}}
+
+Retrieve the response parameter with **`id`** from the previous step. It is the ID of the created order.
+
+Use this code sample to open the Checkout Form as a standalone web-page with [PaySuper JS SDK](/docs/payments/sdk-integration/#step-1-embed-the-checkout-form) and replace `YOUR_ORDER_ID` in the `formUrl` with `id` value.:
+
+{{< highlight html >}}
+<script>
+function buyItems() {
+    const paySuper = new PaySuper({
+        formUrl: 'https://order.pay.super.com/?order_id=YOUR_ORDER_ID'
+    });
+
+    paySuper.renderPage();
+}
+</script>
+
+<button onclick="buyItems()">BUY</button>
+{{< /highlight >}}
+
+{{< /tab >}}
+
+{{< /tabs >}}
 
 ***
 

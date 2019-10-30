@@ -12,14 +12,14 @@ The client-side payment initialization makes it possible to integrate a Checkout
 
 It’s easy to embed [PaySuper JS SDK](https://github.com/paysuper/paysuper-js-sdk) with just a few lines of Javascript code to start a payment process and display a purchase status finally whithout any server-side code.
 
-If your sales use cases are not filled, use the [server-side payment initialization](/docs/payments/integration/) with PaySuper API instead.
-
 <--->
 
 **HOW IT WORKS**
 
-Try out [the payment sample](ССЫЛКА НА ПРИМЕР ФОРМЫ, та же что выше) or see [the code on GitHub](ПРИМЕР КОДА и КАК ЕГО ЗАПУСКАТЬ).
+Try out [the payment sample](https://dashboard.pay.super.com/form-demo) or see [the code on GitHub](https://github.com/paysuper/paysuper-examples).
 {{< /columns >}}
+
+If your sales use cases are not filled, use the [server-side payment initialization](/docs/payments/integration/) with PaySuper API instead.
 
 ***
 
@@ -100,7 +100,7 @@ Remember to use your IDs for the project and products. You can find your IDs in 
 
 This example offers a sample code that displays a PaySuper Checkout Form with a `BUY` button.
 
-{{< tabs "embed_id" >}}
+{{< tabs "client_form_id" >}}
 
 {{< tab "Embed as a modal window" >}}
 
