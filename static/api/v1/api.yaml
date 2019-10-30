@@ -31,12 +31,11 @@ definitions:
   model.Error:
     properties:
       message:
-        description: |
-          text error description
+        description: A description of the error.
         type: string
       code:
         type: string
-        description: error code
+        description: A status code of the error.
     type: object
   model.JsonOrderCreateResponse.user.address:
     properties:
@@ -103,10 +102,10 @@ definitions:
   model.JsonOrderCreateResponse:
     properties:
       id:
-        description: order unique identifier
+        description: The unique identifier for the order.
         type: string
       payment_form_url:
-        description: url to payment form
+        description: The PaySuper-hosted URL of payment form.
         type: string
   model.PaymentFormDataResponse:
     properties:
