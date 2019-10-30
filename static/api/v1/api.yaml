@@ -643,7 +643,7 @@ definitions:
       products:
         description: >-
           The list of unique identifiers of Products being in the Project.
-          It is required if a payment type is equal to 'product'.
+          It is required if a payment type is equal to 'product' or 'key'.
         type: array
         items:
           type: string
@@ -1769,7 +1769,7 @@ definitions:
       products_ids:
         description: >-
           The list of unique identifiers of Products being in the Project.
-          It is required if a payment type is equal to 'product'.
+          It is required if a payment type is equal to 'product' or 'key'.
         type: array
         items:
           type: string
