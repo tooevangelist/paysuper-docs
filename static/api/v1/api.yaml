@@ -593,7 +593,8 @@ definitions:
         $ref: '#/definitions/order.BillingAddress'
       metadata:
         description: >-
-          A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer payment.
+          A string-value description that you can attach to the user object. 
+          It can be useful for storing additional information about your customer payment.
         type: object
   model.OrderScalar:
     properties:
@@ -610,7 +611,7 @@ definitions:
           It is required for a simple checkout payment.
         type: string
       description:
-        description: The order description.
+        description: The arbitrary order description.
         type: string
       order_id:
         description: >-
@@ -1694,99 +1695,100 @@ definitions:
   token.TokenRequest.ValueVerified:
     properties:
       value:
-        description: parameter value
+        description: The parameter value.
         type: string
       verified:
-        description: >-
-          is parameter was verified in project side. for example: user verify
-          email
+        description: Whether the value has been verified on the merchant side.
         type: boolean
     required:
       - value
   token.TokenRequest.Value:
     properties:
       value:
-        description: parameter value
+        description: The parameter value.
         type: string
     required:
       - value
   token.TokenRequest.User:
     properties:
       id:
-        description: user identifier in project
+        description: The user unique identifier on the merchant side.
         type: string
       email:
-        description: object which contain information about user email
+        description: The user's email address.
         $ref: '#/definitions/token.TokenRequest.ValueVerified'
       phone:
-        description: object which contain information about user phone
+        description: The user's phone number.
         $ref: '#/definitions/token.TokenRequest.ValueVerified'
       name:
-        description: object which contain information about user real name
+        description: The user's name.
         $ref: '#/definitions/token.TokenRequest.Value'
       ip:
-        description: object which contain information about user ip
+        description: The user's IP address.
         $ref: '#/definitions/token.TokenRequest.Value'
       locale:
-        description: >-
-          object which contain information about user locale. value in this
-          object must contain 2 characters language code in lower registry by
-          ISO 639-1
+        description: The user's locale name. Two-letter language code by ISO 639-1, in lowercase.
         $ref: '#/definitions/token.TokenRequest.Value'
       address:
-        description: object which contain information about user address
+        description: Details of the user's address.
         $ref: '#/definitions/order.BillingAddress'
       metadata:
         description: >-
-          object can contain any other information about user. object must
-          contain only string values.
+          A string value description that you can attach to the user object. 
+          It can be useful for storing additional information about your customer payment.
         type: object
     required:
       - id
   token.TokenRequest.Settings.ReturnUrl:
     properties:
       success:
-        description: url to redirect user after payment was successfully completed
+        description: The redirect URL for the successful payment.
         type: string
       fail:
-        description: url to redirect user after payment failed
+        description: The redirect URL for the failed payment.
         type: string
   token.TokenRequest.Settings:
     properties:
       project_id:
-        description: project identifier
+        description: The ID of the Project found in your merchant account in the PaySuper Dashboard.
         type: string
       return_url:
         description: >-
-          object contain urls for redirect user after payment ended. can be set
-          if project settings allow this.
+          Redirect URLs for successful and failed payments. 
+          Enable the dynamic notify URLs option in the Project Settings to use this field.
         $ref: '#/definitions/token.TokenRequest.Settings.ReturnUrl'
       currency:
         description: >-
-          3 characters currency code in upper registry by ISO 4217. this field
-          is required if payment type is simple
+          The currency of the order. Three-letter Currency Code ISO 4217, in uppercase. 
+          If provided, the amount will be processed in this currency. 
+          It is required for a simple checkout payment.
         type: string
       amount:
-        description: payment amount. this field is required if payment type is simple
+        description: The order amount as a positive number. It is required for a simple checkout payment.
         type: number
       products_ids:
         description: >-
-          array of products identifiers or key products identifiers. this field
-          is required if payment type is product or simple
+          The list of unique identifiers of Products being in the Project.
+          It is required if a payment type is equal to 'product'.
         type: array
         items:
           type: string
       description:
-        description: payment description
+        description: The arbitrary order description.
         type: string
       type:
-        description: 'payment type. now available next values: simple, product, key'
+        description: >-
+          The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the 'key' type, 
+          as Virtual Items - the 'product' type, for a simple checkout - the 'simple' type.
         type: string
+        enum:
+          - simple
+          - product
+          - key
       metadata:
         description: >-
-          object can contain any other information about payment. object must
-          contain only string values. this object will return in project
-          notification about payment.
+          A string value description that you can attach to the user object. 
+          It can be useful for storing additional information about your customer payment.
         type: object
     required:
       - project_id
@@ -1794,10 +1796,10 @@ definitions:
   token.TokenRequest:
     properties:
       user:
-        description: object which contain any information about payer
+        description: Your customer data.
         $ref: '#/definitions/token.TokenRequest.User'
       settings:
-        description: object which contain information to process payment
+        description: The payment data.
         $ref: '#/definitions/token.TokenRequest.Settings'
     required:
       - user
@@ -1805,10 +1807,10 @@ definitions:
   token.TokenResponse:
     properties:
       token:
-        description: payment token
+        description: A secure string which contains encrypted information about your customer and sales option data.
         type: string
       payment_form_url:
-        description: url to payment form
+        description: The PaySuper-hosted URL of payment form.
         type: string
     required:
       - token
@@ -3442,7 +3444,7 @@ paths:
     post:
       consumes:
         - application/json
-      description: Create a payment order use POST JSON request
+      description:  Create a payment order with details about your customer and sales option data.
       parameters:
         - description: Order create data
           in: body
@@ -3465,23 +3467,23 @@ paths:
           description: Object with error message
           schema:
             $ref: '#/definitions/model.Error'
-      summary: Create order with json request
+      summary: Create a payment order
       tags:
         - Payment Order
   /api/v1/tokens:
     post:
       security:
         - XAPISignatureHeader: []
-      summary: Create token
+      summary: Create a token
       tags:
         - Token
       consumes:
         - application/json
       produces:
         - application/json
-      description: Create token for process payment token create
+      description: Create a token that encrypts certain details of your customer, a game and purchase parameters. 
       parameters:
-        - description: Data to process payment
+        - description: Data to process a payment.
           in: body
           name: data
           schema:
