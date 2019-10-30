@@ -27,7 +27,7 @@ bookToc: true
 4. You are required to fill in the Banking info in [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) to be able create a project.
 
 {{< hint info >}}
-When you are ready to start selling you will need to fill in all your company details in [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) and the sign the documents in the License Agreement.
+When you are ready to start selling you will need to fill in all your company details in [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) and sign the documents in the License Agreement.
 
 Before confirming your application we manually check each new account to ensure that our platform is attended only by companies who are related to the gaming industry. This allows us focus on the relevant features and quality for our users.
 {{< /hint >}}
@@ -42,17 +42,11 @@ A single project is enough to start selling.
 
 **To create a Project:**
 
-1. Open [**the Projects list page**](https://paysupermgmt.tst.protocol.one/projects/)
+1. Open the [**Projects list page**](https://paysupermgmt.tst.protocol.one/projects/)
 2. Click the **Create Project** button.
-3. Enter a **Project Name**. 
+3. Enter a **Project Name**.
 4. Click **Create** to redirect to the Project Settings page.
-5. Fill the required information in an appropriate localization:
-
-    * **Full description**
-    * **Short description**
-    * **Secret key**: Generate a secret key to set up correct integration with PaySuper platform.
-    * **Currency**: by default is equal to **USD**.
-
+5. Fill in the unique name and localised project descriptions. It will be mentioned in a payment form and different customer correspondence.
 7. Click **Save**.
 
 {{< /expand >}}
@@ -63,9 +57,11 @@ If you want to sell products (as Game keys, Virtual items, Virtual currency) the
 
 **To add a Game key:**
 
-1. Open [**the Projects list page**](https://paysupermgmt.tst.protocol.one/projects/)
-2. Open the Project settings page.
-3. 
+1. Open your Project from the [**Projects list page**](https://paysupermgmt.tst.protocol.one/projects/)
+2. Select the Sales options in the left sidebar and open the Game keys tab.
+3. Create a package to sell your game keys for associated DRM platforms. You can choose several platforms at once.
+4. Upload a pack of game keys for each DRM platform you selected.
+5. **Enable** the package and click **Save**.
 
 {{< /expand >}}
 
@@ -73,9 +69,10 @@ If you want to sell products (as Game keys, Virtual items, Virtual currency) the
 
 **To add a Virtual item:**
 
-1. Open [**the Projects list page**](https://paysupermgmt.tst.protocol.one/projects/)
-2. Open the Project settings page.
-3. 
+1. Open your Project from the [**Projects list page**](https://paysupermgmt.tst.protocol.one/projects/)
+2. Select the Sales options in the left sidebar and open the Virtual items tab.
+3. Add a new item with localised text descriptions, SKU, prices and currencies.
+4. **Enable** and click **Save**.
 
 {{< /expand >}}
 
@@ -83,9 +80,10 @@ If you want to sell products (as Game keys, Virtual items, Virtual currency) the
 
 **To add a Virtual currency:**
 
-1. Open [**the Projects list page**](https://paysupermgmt.tst.protocol.one/projects/)
-2. Open the Project settings page.
-3. 
+1. Open your Project from the [**Projects list page**](https://paysupermgmt.tst.protocol.one/projects/)
+2. Select the Sales options in the left sidebar and open the Virtual currency tab.
+3. Fill in the unique name and localised project descriptions.
+4. **Enable** and click **Save**.
 
 {{< /expand >}}
 
