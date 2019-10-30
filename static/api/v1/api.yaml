@@ -3420,25 +3420,63 @@ definitions:
         description: reports
 host: p1payapi.tst.protocol.one
 info:
-  contact:
-    email: support@swagger.io
-    name: API Support
-    url: 'http://www.swagger.io/support'
-  description: PaySuper API Reference.
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-  termsOfService: 'http://swagger.io/terms/'
-  title: Protocol One payment solution swagger documentation
+  description: >-
+    #Introduction
+    ***
+    The PaySuper API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which can be understood by off-the-shelf HTTP clients.
+    JSON will be returned in all responses from the API, including errors.
+    All API requests must be made over **HTTPS**.
+
+    #Authentication
+    ***
+    Authentication to the API occurs via HTTP Basic Auth. You do not need to provide a password.
+    The Secret key can be found on your Project Webhooks settings page.
+    You must authenticate for all requests. You can manage your API keys from your account. **Your API keys carry many privileges, so be sure to keep them secret.**
+
+    #Errors
+    ***
+    PaySuper uses conventional HTTP response codes to indicate success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g. a required parameter was missing, a charge failed, etc.), and codes in the 5xx range indicate an error with PaySupers's servers.
+
+    **HTTP status codes summary**
+
+    ***
+
+    **200 OK** - Everything worked as expected.
+
+    **201 Created** - Resource has been successfully created
+
+    **202 Accepted** - Request has been accepted, but requires asynchronous work to be fully performed
+
+    **400 Bad Request** - Request failed due to a combination of errors
+
+    **401 Unauthorized** - No valid API credentials provided.
+
+    **402 Payment Required** - Your request was in livemode while your account is not activated for live requests yet.
+
+    **403 Forbidden** - You are not authorized to access the requested item.
+
+    **404 Not Found** - The requested item doesn't exist.
+
+    **406 Unacceptable** - Your request format was not supported. Use JSON.
+
+    **409 Conflict** - The data you submitted is in conflict with existing data.
+
+    **422 Unprocessable Entity** - Often missing a required parameter.
+
+    **429 Too Many Requests** - You sent us too many API requests in a row. Please retry later.
+
+    **500, 502, 503, 504 Server errors** - something went wrong on PaySupers's end.
+
+    ***
+
+  title: PaySuper API Reference
   version: '1.0'
 securityDefinitions:
   XAPISignatureHeader:
     type: apiKey
     in: header
     name: X-API-SIGNATURE
-    description: >-
-      must contain sha512 hash of concationation request body and project secret
-      key
+    description: Header contains a sha512 hash of concationation the request body and the Project Secret key.
 paths:
   /api/v1/order:
     post:
