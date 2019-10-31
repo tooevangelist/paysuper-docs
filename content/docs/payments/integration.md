@@ -51,7 +51,7 @@ Remember to use your IDs for the project and products. You can find your IDs in 
 
 ### **Products Checkout**
 
-If you're selling products such as [key-activated products, virtual items or in-game currency](/docs/payments/quick-start/#step-2-set-up-a-project), you can use this sample code with a defined product parameter:
+If you're selling products such as [key-activated products, virtual items or in-game currency](/docs/payments/quick-start/#step-3-additional-sales-options), you can use this sample code with a defined product parameter:
 
 {{< tabs "order-products-checkout" >}}
 

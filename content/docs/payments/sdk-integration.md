@@ -49,7 +49,7 @@ const paySuper = new PaySuper({
 
 ### **Products Checkout**
 
-If you're selling such products such as [key-activated products, virtual items or in-game currency](/docs/payments/quick-start/#step-2-set-up-a-project), you can use this sample code with a defined product parameter:
+If you're selling such products such as [key-activated products, virtual items or in-game currency](/docs/payments/quick-start/#step-3-additional-sales-options), you can use this sample code with a defined product parameter:
 
 {{< tabs "client-products-checkout" >}}
 {{< tab "Game Key" >}}

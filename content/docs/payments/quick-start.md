@@ -53,6 +53,8 @@ A single project is enough to start selling.
 
 Now you can initiate a simple checkout payment. It's enough to create a payment order with your Project ID and an acceptable amount and currency.
 
+## **Step 3.** Additional sales options
+
 If you want to sell products (as Game keys, Virtual items, Virtual currency) then easily add the necessary sales information about your products to the project.
 
 {{< expand "Add a Game key to the project" " " >}}
@@ -89,7 +91,7 @@ If you want to sell products (as Game keys, Virtual items, Virtual currency) the
 
 {{< /expand >}}
 
-## **Step 3.** Set up a Checkout Form
+## **Step 4.** Set up a Checkout Form
 
 Use Checkout to collect [one-time payments](/docs/payments/#simple-checkout) or to sell [products defined in the Project](/docs/payments/#typed-checkout).
 
