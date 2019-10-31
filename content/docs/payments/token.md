@@ -39,7 +39,7 @@ Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKYXhpb3MucG9zdCgKICAnaHR0cHM6Ly9wMXBh
 {{< /tab >}}
 
 {{< tab "cURL" >}}
-Use cURL to interact with the API over HTTP:
+Or try it with cURL to interact with the API over HTTP from your console:
 
 {{< highlight bash >}}
 curl -X POST -H 'X-API-SIGNATURE: YOUR_SIGNATURE' -d '{
@@ -153,7 +153,7 @@ Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKYXhpb3MucG9zdCgKICAnaHR0cHM6Ly9wMXBh
 {{< /tab >}}
 
 {{< tab "cURL" >}}
-Use cURL to interact with the API over HTTP:
+Or try it with cURL to interact with the API over HTTP from your console:
 
 {{< highlight bash >}}
 curl -X POST -H 'Content-Type: application/json' -d '{

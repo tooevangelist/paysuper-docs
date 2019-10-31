@@ -33,7 +33,7 @@ Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKYXhpb3MucG9zdCgKICAnaHR0cHM6Ly9wMXBh
 {{< /tab >}}
 
 {{< tab "cURL" >}}
-Use cURL to interact with the API over HTTP:
+Or try it with cURL to interact with the API over HTTP from your console:
 
 {{< highlight bash >}}
 curl -X POST -H 'Content-Type: application/json' -d '{
@@ -65,7 +65,7 @@ Run the script and view the response data:
 Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKYXhpb3MucG9zdCgKICAnaHR0cHM6Ly9wMXBheWFwaS50c3QucHJvdG9jb2wub25lL2FwaS92MS9vcmRlcicsCnsKICAgICJwcm9qZWN0IjogIjVkYjE2YWU4MTFiZjBkMDAwMWZkZmJkMSIsCiAgICAicHJvZHVjdHMiOiBbIjVkYjE2ZDUzMTFiZjBkMDAwMWZkZmJkMiJdLAogICAgInBsYXRmb3JtX2lkIjogImdvZyIsCiAgICAidHlwZSI6ICJrZXkiCn0sCiAgewogICAgaGVhZGVyczogewogICAgICAgICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicKICAgIH0KICB9CikKICAudGhlbihmdW5jdGlvbiAocmVzcG9uc2UpIHsKICAgIGNvbnNvbGUubG9nKHJlc3BvbnNlKTsKICB9KQogIC5jYXRjaChmdW5jdGlvbiAoZXJyb3IpIHsKICAgIGNvbnNvbGUubG9nKGVycm9yLnJlc3BvbnNlLmRhdGEpOwogIH0pCg==
 {{< /runkit >}}
 
-Use cURL to interact with the API over HTTP:
+Or try it with cURL to interact with the API over HTTP from your console:
 
 {{< highlight bash >}}
 curl -X POST -H 'Content-Type: application/json' -d '{
@@ -86,7 +86,7 @@ Run the script and view the response data:
 Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKYXhpb3MucG9zdCgKICAnaHR0cHM6Ly9wMXBheWFwaS50c3QucHJvdG9jb2wub25lL2FwaS92MS9vcmRlcicsCnsKICAgICJwcm9qZWN0IjogIjVkYjE2YWU4MTFiZjBkMDAwMWZkZmJkMSIsCiAgICAicHJvZHVjdHMiOiBbIjVkYjk1YWMwOTQ3MjYzMDAwMWQzOWMwZCIsICI1ZGI5NWFkZjk0NzI2MzAwMDFkMzljMGUiXSwKICAgICJ0eXBlIjogInByb2R1Y3QiCn0sCiAgewogICAgaGVhZGVyczogewogICAgICAgICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicKICAgIH0KICB9CikKICAudGhlbihmdW5jdGlvbiAocmVzcG9uc2UpIHsKICAgIGNvbnNvbGUubG9nKHJlc3BvbnNlKTsKICB9KQogIC5jYXRjaChmdW5jdGlvbiAoZXJyb3IpIHsKICAgIGNvbnNvbGUubG9nKGVycm9yLnJlc3BvbnNlLmRhdGEpOwogIH0pCg==
 {{< /runkit >}}
 
-Use cURL to interact with the API over HTTP:
+Or try it with cURL to interact with the API over HTTP from your console:
 
 {{< highlight bash >}}
 curl -X POST -H 'Content-Type: application/json' -d '{
@@ -104,7 +104,7 @@ Run the script and view the response data:
 
 RUNKIT
 
-Use cURL to interact with the API over HTTP:
+Or try it with cURL to interact with the API over HTTP from your console:
 
 {{< highlight bash >}}
 {{< /highlight >}}
