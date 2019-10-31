@@ -51,6 +51,8 @@ A single project is enough to start selling.
 
 {{< /expand >}}
 
+Now you can initiate a simple checkout payment. It's enough to create a payment order with your Project ID and an acceptable amount and currency.
+
 If you want to sell products (as Game keys, Virtual items, Virtual currency) then easily add the necessary sales information about your products to the project.
 
 {{< expand "Add a Game key to the project" " " >}}

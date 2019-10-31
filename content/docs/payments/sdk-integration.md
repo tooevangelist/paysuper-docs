@@ -51,7 +51,7 @@ const paySuper = new PaySuper({
 
 If you're selling such products such as [key-activated products, virtual items or in-game currency](/docs/payments/quick-start/#step-2-set-up-a-project), you can use this sample code with a defined product parameter:
 
-{{< tabs "products_id" >}}
+{{< tabs "client-products-checkout" >}}
 {{< tab "Game Key" >}}
 
 {{< highlight javascript >}}
@@ -100,7 +100,7 @@ Remember to use your IDs for the project and products. You can find your IDs in 
 
 This example offers a sample code that displays a PaySuper Checkout Form with a `BUY` button.
 
-{{< tabs "client_form_id" >}}
+{{< tabs "client_form" >}}
 
 {{< tab "Embed as a modal window" >}}
 

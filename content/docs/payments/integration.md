@@ -18,11 +18,20 @@ Send the [POST /api/v1/order](/docs/api/#tag/Payment-Order) to receive an Order 
 
 ### **Simple Checkout**
 
-To collect one-time payments it's enough to have a [Project ID](/docs/payments/quick-start/#step-2-set-up-a-project) and an acceptable amount with currency.
+To initiate simple checkout payments it's enough to create a payment order with your [Project ID](/docs/payments/quick-start/#step-2-set-up-a-project) and an acceptable amount and currency.
 
 Use this sample code to create an Order ID with the required parameters for a simple checkout:
 
+{{< tabs "order-simple-checkout" >}}
+
+{{< tab "Runkit" >}}
+Run the script and view the response data:
+
 {{< runkit >}}simple-checkout-order-api{{< /runkit >}}
+{{< /tab >}}
+
+{{< tab "cURL" >}}
+Use cURL to interact with the API over HTTP:
 
 {{< highlight bash >}}
 curl -X POST -H 'Content-Type: application/json' -d '{
@@ -32,6 +41,9 @@ curl -X POST -H 'Content-Type: application/json' -d '{
     "type": "simple"
 }' 'https://p1payapi.tst.protocol.one/api/v1/order'
 {{< /highlight >}}
+{{< /tab >}}
+
+{{< /tabs >}}
 
 {{< hint warning >}}
 Remember to use your IDs for the project and products. You can find your IDs in your merchant account on [the PaySuper Projects](https://paysupermgmt.tst.protocol.one/projects/). Open your Project settings page, select the Product tab and click on the Product name. Copy the Project and Product IDs from the page URL.
@@ -41,11 +53,15 @@ Remember to use your IDs for the project and products. You can find your IDs in 
 
 If you're selling products such as [key-activated products, virtual items or in-game currency](/docs/payments/quick-start/#step-2-set-up-a-project), you can use this sample code with a defined product parameter:
 
-{{< tabs "products_id" >}}
+{{< tabs "order-products-checkout" >}}
 
 {{< tab "Game Key" >}}
 
+Run the script and view the response data:
+
 {{< runkit >}}game-key-checkout-order-api{{< /runkit >}}
+
+Use cURL to interact with the API over HTTP:
 
 {{< highlight bash >}}
 curl -X POST -H 'Content-Type: application/json' -d '{
@@ -60,7 +76,11 @@ curl -X POST -H 'Content-Type: application/json' -d '{
 
 {{< tab "Virtual Item" >}}
 
+Run the script and view the response data:
+
 {{< runkit >}}items-checkout-order-api{{< /runkit >}}
+
+Use cURL to interact with the API over HTTP:
 
 {{< highlight bash >}}
 curl -X POST -H 'Content-Type: application/json' -d '{
@@ -73,7 +93,12 @@ curl -X POST -H 'Content-Type: application/json' -d '{
 {{< /tab >}}
 
 {{< tab "Virtual Currency" >}}
+
+Run the script and view the response data:
+
 RUNKIT
+
+Use cURL to interact with the API over HTTP:
 
 {{< highlight bash >}}
 {{< /highlight >}}
@@ -84,19 +109,19 @@ RUNKIT
 
 ## **Step 2.** Display a Checkout Form
 
-{{< tabs "server_form_id" >}}
+{{< tabs "server_form" >}}
 
 {{< tab "New browser window" >}}
 
-Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of PaySuper-hosted payment form.
+Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of a PaySuper-hosted payment form.
 
-When your customer is ready to start a payment you can redirect the user to an URL in a new browser window.
+When your customer is ready to start a payment you can redirect the user to the URL in a new browser window.
 
 {{< /tab >}}
 
 {{< tab "Iframe" >}}
 
-Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of PaySuper-hosted payment form.
+Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of a PaySuper-hosted payment form.
 
 Embed the Checkout Form as an inline iframe by URL:
 
@@ -108,9 +133,9 @@ Embed the Checkout Form as an inline iframe by URL:
 
 {{< tab "Standalone web-page" >}}
 
-Retrieve the response parameter with **`id`** from the previous step. It is the ID of the created order.
+Retrieve the response parameter with `id` from the previous step. It is the ID of the created order.
 
-Use this code sample to open the Checkout Form as a standalone web-page with [PaySuper JS SDK](/docs/payments/sdk-integration/#step-1-embed-the-checkout-form) and replace `YOUR_ORDER_ID` in the `formUrl` with `id` value.:
+Use this code sample to open the Checkout Form as a standalone web-page with [PaySuper JS SDK](/docs/payments/sdk-integration/#step-1-embed-the-checkout-form) and replace `YOUR_ORDER_ID` in the `formUrl` with `id` value:
 
 {{< highlight html >}}
 <script>

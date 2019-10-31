@@ -28,7 +28,11 @@ Send the [POST /api/v1/tokens](ССЫЛКА) to receive an encrypted string. Lea
 Remember to add a Header **X-API-SIGNATURE** with a **sha512 hash** value that is a concatenation the request body and the Project Secret key found on the Project Webhooks page. Notice, the JSON format of the request body and in the hash must be the same.
 {{< /hint >}}
 
+Run the script and view the response data:
+
 {{< runkit >}}token-simple-checkout{{< /runkit >}}
+
+Use cURL to interact with the API over HTTP:
 
 {{< highlight bash >}}
 curl -X POST -H 'X-API-SIGNATURE: YOUR_SIGNATURE' -d '{
@@ -58,19 +62,19 @@ curl -X POST -H 'X-API-SIGNATURE: YOUR_SIGNATURE' -d '{
 
 ### **Open a Checkout Form by URL**
 
-{{< tabs "token_form_id" >}}
+{{< tabs "token_form" >}}
 
 {{< tab "New browser window" >}}
 
 Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of PaySuper-hosted payment form.
 
-When your customer is ready to start a payment you can redirect the user to an URL in a new browser window.
+When your customer is ready to start a payment you can redirect the user to the URL in a new browser window.
 
 {{< /tab >}}
 
 {{< tab "Iframe" >}}
 
-Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of PaySuper-hosted payment form.
+Retrieve the response parameter `payment_form_url` from the previous step. It is the URL of a PaySuper-hosted payment form.
 
 Embed the Checkout Form as an inline iframe by URL:
 
@@ -82,9 +86,9 @@ Embed the Checkout Form as an inline iframe by URL:
 
 {{< tab "Standalone web-page" >}}
 
-Retrieve the response parameter with **`id`** from the previous step. It is the ID of the created order.
+Retrieve the response parameter with `id` from the previous step. It is the ID of the created order.
 
-Use this code sample to open the Checkout Form as a standalone web-page with [PaySuper JS SDK](/docs/payments/sdk-integration/#step-1-embed-the-checkout-form) and replace `YOUR_ORDER_ID` in the `formUrl` with `id` value.:
+Use this code sample to open the Checkout Form as a standalone web-page with [PaySuper JS SDK](/docs/payments/sdk-integration/#step-1-embed-the-checkout-form) and replace `YOUR_ORDER_ID` in the `formUrl` with `id` value:
 
 {{< highlight html >}}
 <script>
@@ -139,12 +143,21 @@ To integrate a Checkout Form you can follow the [server-side payment initializat
 
 If your token contains the [user and order parameters](/docs/api/#tag/Token) then you can request a Checkout Form URL with just a single parameter:
 
+Run the script and view the response data:
+
 {{< runkit >}}{{< /runkit >}}
+
+Use cURL to interact with the API over HTTP:
+
 ПРИМЕР CURL и RUNKIT ТОЛЬКО параметр token в /api/v1/order
 
 You can predefine a user and/or an order parameters in a token and pass the other parameters in an order request:
 
+Run the script and view the response data:
+
 {{< runkit >}}{{< /runkit >}}
+
+Use cURL to interact with the API over HTTP:
 
 ПРИМЕР CURL и RUNKIT в /api/v1/order какие параметры???
 
