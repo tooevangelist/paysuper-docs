@@ -28,10 +28,17 @@ Send the [POST /api/v1/tokens](ССЫЛКА) to receive an encrypted string. Lea
 Remember to add a Header **X-API-SIGNATURE** with a **sha512 hash** value that is a concatenation the request body and the Project Secret key found on the Project Webhooks page. Notice, the JSON format of the request body and in the hash must be the same.
 {{< /hint >}}
 
+{{< tabs "token-simple-checkout" >}}
+
+{{< tab "Runkit" >}}
 Run the script and view the response data:
 
-{{< runkit >}}token-simple-checkout{{< /runkit >}}
+{{< runkit "token-simple-checkout">}}
+Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKYXhpb3MucG9zdCgKICAnaHR0cHM6Ly9wMXBheWFwaS50c3QucHJvdG9jb2wub25lL2FwaS92MS90b2tlbnMnLAp7InNldHRpbmdzIjp7InByb2plY3RfaWQiOiI1ZGIxNmFlODExYmYwZDAwMDFmZGZiZDEiLCJhbW91bnQiOjEwLCJjdXJyZW5jeSI6IlVTRCIsInR5cGUiOiJzaW1wbGUifSwidXNlciI6eyJpZCI6IjU4Nzk5ZjJjMjU2NDI5NmJkMmNiIiwiYWRkcmVzcyI6eyJjaXR5IjoiQWxtZXJlIiwiY291bnRyeSI6Ik5MIiwicG9zdGFsX2NvZGUiOiIxMzI2IFBBIiwic3RhdGUiOiJGbGV2b2xhbmQifSwiZW1haWwiOnsidmFsdWUiOiJ1c2VyLmVtYWlsQGV4YW1wbGUuY29tIiwidmVyaWZpZWQiOnRydWV9fX0sCiAgewogICAgaGVhZGVyczogewogICAgICAgICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicsCiAgICAgICAgJ1gtQVBJLVNJR05BVFVSRSc6ICc1M2I3M2YyMTg1MmI2YjJlZDcxNDFiODQwNWZhOGI4MzhjNTExMTM3ZDJjMDMwMTEzNDAyYzA2YThmOWFhNThhMzIzYzMzMjg2ZWE5MTUxMWRkNWMzYmQxYzJmNjg4NDY4MjIxMjhkNTUxOTA2YzAyMjZmNTNjYjNkN2ZiYmUwNicKICAgIH0KICB9CikKICAudGhlbihmdW5jdGlvbiAocmVzcG9uc2UpIHsKICAgIGNvbnNvbGUubG9nKHJlc3BvbnNlKTsKICB9KQogIC5jYXRjaChmdW5jdGlvbiAoZXJyb3IpIHsKICAgIGNvbnNvbGUubG9nKGVycm9yLnJlc3BvbnNlLmRhdGEpOwogIH0pCg==
+{{< /runkit >}}
+{{< /tab >}}
 
+{{< tab "cURL" >}}
 Use cURL to interact with the API over HTTP:
 
 {{< highlight bash >}}
@@ -57,6 +64,9 @@ curl -X POST -H 'X-API-SIGNATURE: YOUR_SIGNATURE' -d '{
  }
 }' 'https://p1payapi.tst.protocol.one/api/v1/tokens'
 {{< /highlight >}}
+{{< /tab >}}
+
+{{< /tabs >}}
 
 ## **Step 2.** Create a Checkout Form with a token
 
@@ -126,40 +136,33 @@ const paySuper = new PaySuper({
 });
 {{< /highlight >}}
 
-If your token encrypts the [user data](/docs/api/#tag/Token) then you can create a Checkout Form instance passing the token and also the order parameters:
-
-{{< highlight javascript >}}
-const paySuper = new PaySuper({
-   token: '5cd5620f06ae110001509185'
-   project: '5cd5624a06ae110001509186',
-   amount: 10,
-   currency: 'USD'
-});
-{{< /highlight >}}
-
 ### **Server-side payment initialization**
 
 To integrate a Checkout Form you can follow the [server-side payment initialization](/docs/payments/integration/) with the `token` parameter.
 
 If your token contains the [user and order parameters](/docs/api/#tag/Token) then you can request a Checkout Form URL with just a single parameter:
 
+{{< tabs "token-product-checkout" >}}
+
+{{< tab "Runkit" >}}
 Run the script and view the response data:
 
-{{< runkit >}}{{< /runkit >}}
+{{< runkit "order-token-product-checkout">}}
+Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKYXhpb3MucG9zdCgKICAnaHR0cHM6Ly9wMXBheWFwaS50c3QucHJvdG9jb2wub25lL2FwaS92MS9vcmRlcicsCnsKICAgInRva2VuIjogImlEN3FiamhSNmV0bGUwRW9MWFE3VW9lZE5hdENiYTk2Igp9LAogIHsKICAgIGhlYWRlcnM6IHsKICAgICAgICAnQ29udGVudC1UeXBlJzogJ2FwcGxpY2F0aW9uL2pzb24nCiAgICB9CiAgfQopCiAgLnRoZW4oZnVuY3Rpb24gKHJlc3BvbnNlKSB7CiAgICBjb25zb2xlLmxvZyhyZXNwb25zZSk7CiAgfSkKICAuY2F0Y2goZnVuY3Rpb24gKGVycm9yKSB7CiAgICBjb25zb2xlLmxvZyhlcnJvci5yZXNwb25zZS5kYXRhKTsKICB9KQo
+{{< /runkit >}}
+{{< /tab >}}
 
+{{< tab "cURL" >}}
 Use cURL to interact with the API over HTTP:
 
-ПРИМЕР CURL и RUNKIT ТОЛЬКО параметр token в /api/v1/order
+{{< highlight bash >}}
+curl -X POST -H 'Content-Type: application/json' -d '{
+    "token": "YOUR_TOKEN"
+}' 'https://p1payapi.tst.protocol.one/api/v1/order'
+{{< /highlight >}}
+{{< /tab >}}
 
-You can predefine a user and/or an order parameters in a token and pass the other parameters in an order request:
-
-Run the script and view the response data:
-
-{{< runkit >}}{{< /runkit >}}
-
-Use cURL to interact with the API over HTTP:
-
-ПРИМЕР CURL и RUNKIT в /api/v1/order какие параметры???
+{{< /tabs >}}
 
 ***
 
