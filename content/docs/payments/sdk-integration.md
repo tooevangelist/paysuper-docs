@@ -19,6 +19,10 @@ It’s easy to embed [PaySuper JS SDK](https://github.com/paysuper/paysuper-js-s
 Try out [the payment sample](https://dashboard.pay.super.com/form-demo) or see [the code on GitHub](https://github.com/paysuper/paysuper-examples).
 {{< /columns >}}
 
+{{< hint warning >}}
+Notice that a pure client-side payment initialization is possible yet a special care must be taken. Your project identity could be used from any web-site to initiate payments without any additional checks or verifications from the PaySuper side. At the moment we're working on an option to disable that kind of payment orders in the Project settings.
+{{< /hint >}}
+
 If your sales use cases are not filled, use the [server-side payment initialization](/docs/payments/integration/) with PaySuper API instead.
 
 ***
@@ -58,7 +62,6 @@ If you're selling such products such as [key-activated products, virtual items o
 const paySuper = new PaySuper({
     project: '5cd5624a06ae110001509186',
     products: ['5d7baee015ff7d0001b986a8'],
-    platform_id: 'gog',
     type: 'key'
 });
 {{< /highlight >}}

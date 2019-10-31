@@ -93,19 +93,19 @@ If you want to sell products (as Game keys, Virtual items, Virtual currency) the
 
 ## **Step 4.** Set up a Checkout Form
 
-Use Checkout to collect [one-time payments](/docs/payments/#simple-checkout) or to sell [products defined in the Project](/docs/payments/#typed-checkout).
+Use Checkout to collect [one-time payments](/docs/payments/#simple-checkout) or to sell [products defined in the Project](/docs/payments/#products-checkout).
 
-### [Client-side payment initialization](/docs/payments/sdk-integration/)
+### [Payment initialization with token](/docs/payments/token/)
 
-The client-side payment initialization lets you accept online payments using only frontend code PaySuper JS SDK. The Checkout Form can be embedded as an [iframe](ССЫЛКА на метод renderPage) or [modal window](ССЫЛКА на метод renderModal).
+You can encrypt details of your customer (such as the user ID, email and others), a game and purchase parameters. When your customer wants to pay for something you redirect them to the PaySuper-hosted Checkout Form to instantly complete a purchase.
 
 ### [Server-side payment initialization](/docs/payments/integration/)
 
 You can also integrate on a server-side without PaySuper SJ SDK for other reasons. Checkout Form can be embedded as an [iframe](ССЫЛКА) or [new window](ССЫЛКА).
 
-### [Payment initialization with token](/docs/payments/token/)
+### [Client-side payment initialization](/docs/payments/sdk-integration/)
 
-You can encrypt details of your customer (such as the user ID, email and others), a game and purchase parameters. When your customer wants to pay for something you redirect them to the PaySuper-hosted Checkout Form to instantly complete a purchase.
+The client-side payment initialization lets you accept online payments using only frontend code PaySuper JS SDK. The Checkout Form can be embedded as an [iframe](ССЫЛКА на метод renderPage) or [modal window](ССЫЛКА на метод renderModal).
 
 ## **Step 4.** After the payment
 

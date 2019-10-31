@@ -27,8 +27,8 @@ Use this sample code to create an Order ID with the required parameters for a si
 {{< tab "Runkit" >}}
 Run the script and view the response data:
 
-{{< runkit "simple-checkout-order-api" >}}
-Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKYXhpb3MucG9zdCgKICAnaHR0cHM6Ly9wMXBheWFwaS50c3QucHJvdG9jb2wub25lL2FwaS92MS9vcmRlcicsCnsKICAgICJwcm9qZWN0IjogIjVkYjE2YWU4MTFiZjBkMDAwMWZkZmJkMSIsCiAgICAiYW1vdW50IjogMTAsCiAgICAiY3VycmVuY3kiOiAiVVNEIiwKICAgICJ0eXBlIjogInNpbXBsZSIKfSwKICB7CiAgICBoZWFkZXJzOiB7CiAgICAgICAgJ0NvbnRlbnQtVHlwZSc6ICdhcHBsaWNhdGlvbi9qc29uJwogICAgfQogIH0KKQogIC50aGVuKGZ1bmN0aW9uIChyZXNwb25zZSkgewogICAgY29uc29sZS5sb2cocmVzcG9uc2UpOwogIH0pCiAgLmNhdGNoKGZ1bmN0aW9uIChlcnJvcikgewogICAgY29uc29sZS5sb2coZXJyb3IucmVzcG9uc2UuZGF0YSk7CiAgfSkK
+{{< runkit "simple-checkout-order" >}}
+Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBheGlvcy5wb3N0KAogJ2h0dHBzOi8vcDFwYXlhcGkudHN0LnByb3RvY29sLm9uZS9hcGkvdjEvb3JkZXInLAogewogICAicHJvamVjdCI6ICI1ZGIxNmFlODExYmYwZDAwMDFmZGZiZDEiLAogICAiYW1vdW50IjogMTAsCiAgICAiY3VycmVuY3kiOiAiVVNEIiwKICAgICJ0eXBlIjogInNpbXBsZSIKIH0sCiAgewogICAgaGVhZGVyczogewogICAgICAgICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicKICAgIH0KICB9Cik=
 {{< /runkit >}}
 {{< /tab >}}
 
@@ -61,8 +61,8 @@ If you're selling products such as [key-activated products, virtual items or in-
 
 Run the script and view the response data:
 
-{{< runkit "game-key-checkout-order-api" >}}
-Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKYXhpb3MucG9zdCgKICAnaHR0cHM6Ly9wMXBheWFwaS50c3QucHJvdG9jb2wub25lL2FwaS92MS9vcmRlcicsCnsKICAgICJwcm9qZWN0IjogIjVkYjE2YWU4MTFiZjBkMDAwMWZkZmJkMSIsCiAgICAicHJvZHVjdHMiOiBbIjVkYjE2ZDUzMTFiZjBkMDAwMWZkZmJkMiJdLAogICAgInBsYXRmb3JtX2lkIjogImdvZyIsCiAgICAidHlwZSI6ICJrZXkiCn0sCiAgewogICAgaGVhZGVyczogewogICAgICAgICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicKICAgIH0KICB9CikKICAudGhlbihmdW5jdGlvbiAocmVzcG9uc2UpIHsKICAgIGNvbnNvbGUubG9nKHJlc3BvbnNlKTsKICB9KQogIC5jYXRjaChmdW5jdGlvbiAoZXJyb3IpIHsKICAgIGNvbnNvbGUubG9nKGVycm9yLnJlc3BvbnNlLmRhdGEpOwogIH0pCg==
+{{< runkit "key-checkout-order" >}}
+Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBheGlvcy5wb3N0KAogJ2h0dHBzOi8vcDFwYXlhcGkudHN0LnByb3RvY29sLm9uZS9hcGkvdjEvb3JkZXInLAogewogICAicHJvamVjdCI6ICI1ZGIxNmFlODExYmYwZDAwMDFmZGZiZDEiLAogICAicHJvZHVjdHMiOiBbIjVkYjE2ZDUzMTFiZjBkMDAwMWZkZmJkMiJdLAogICAidHlwZSI6ICJrZXkiCiB9LAogIHsKICAgIGhlYWRlcnM6IHsKICAgICAgICAnQ29udGVudC1UeXBlJzogJ2FwcGxpY2F0aW9uL2pzb24nCiAgICB9CiAgfQop
 {{< /runkit >}}
 
 Or try it with cURL to interact with the API over HTTP from your console:
@@ -71,7 +71,6 @@ Or try it with cURL to interact with the API over HTTP from your console:
 curl -X POST -H 'Content-Type: application/json' -d '{
     "project": "YOUR_PROJECT_ID",
     "products": ["YOUR_GAME_KEY_ID"],
-    "platform_id": "gog",
     "type": "key"
 }' 'https://p1payapi.tst.protocol.one/api/v1/order'
 {{< /highlight >}}
@@ -82,8 +81,8 @@ curl -X POST -H 'Content-Type: application/json' -d '{
 
 Run the script and view the response data:
 
-{{< runkit "items-checkout-order-api" >}}
-Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKYXhpb3MucG9zdCgKICAnaHR0cHM6Ly9wMXBheWFwaS50c3QucHJvdG9jb2wub25lL2FwaS92MS9vcmRlcicsCnsKICAgICJwcm9qZWN0IjogIjVkYjE2YWU4MTFiZjBkMDAwMWZkZmJkMSIsCiAgICAicHJvZHVjdHMiOiBbIjVkYjk1YWMwOTQ3MjYzMDAwMWQzOWMwZCIsICI1ZGI5NWFkZjk0NzI2MzAwMDFkMzljMGUiXSwKICAgICJ0eXBlIjogInByb2R1Y3QiCn0sCiAgewogICAgaGVhZGVyczogewogICAgICAgICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicKICAgIH0KICB9CikKICAudGhlbihmdW5jdGlvbiAocmVzcG9uc2UpIHsKICAgIGNvbnNvbGUubG9nKHJlc3BvbnNlKTsKICB9KQogIC5jYXRjaChmdW5jdGlvbiAoZXJyb3IpIHsKICAgIGNvbnNvbGUubG9nKGVycm9yLnJlc3BvbnNlLmRhdGEpOwogIH0pCg==
+{{< runkit "products-checkout-order" >}}
+Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBheGlvcy5wb3N0KAogICdodHRwczovL3AxcGF5YXBpLnRzdC5wcm90b2NvbC5vbmUvYXBpL3YxL29yZGVyJywKewogICAgInByb2plY3QiOiAiNWRiMTZhZTgxMWJmMGQwMDAxZmRmYmQxIiwKICAgICJwcm9kdWN0cyI6IFsiNWRiOTVhYzA5NDcyNjMwMDAxZDM5YzBkIiwgIjVkYjk1YWRmOTQ3MjYzMDAwMWQzOWMwZSJdLAogICAgInR5cGUiOiAicHJvZHVjdCIKfSwKICB7CiAgICBoZWFkZXJzOiB7CiAgICAgICAgJ0NvbnRlbnQtVHlwZSc6ICdhcHBsaWNhdGlvbi9qc29uJwogICAgfQogIH0KKQ==
 {{< /runkit >}}
 
 Or try it with cURL to interact with the API over HTTP from your console:
