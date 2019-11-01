@@ -12,6 +12,4 @@ headless: true
   - [After the payment]({{< relref "/docs/payments/fulfillment" >}})
   - [Customizing Checkout]({{< relref "/docs/payments/customization" >}})
   - [Testing]({{< relref "/docs/payments/testing" >}})
-  - [Going Live]({{< relref "/docs/payments/live" >}})
-- [**Webhooks**]({{< relref "/docs/about/webhooks" >}})
 - [**API Reference**]({{< relref "/docs/api" >}})

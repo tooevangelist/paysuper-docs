@@ -22,15 +22,10 @@ In most cases, webhooks are triggered by user actions on your website or back-en
 
 Type|Payload|Description
 ---|---|---
-`payment.success`|Order|Sent when a user completes a payment.
-`payment.chargeback`|Order|Sent when a payment must be canceled for chargeback.
-`payment.refund`|Order|Sent when a payment must be canceled for refund for any reasons.
-`payment.fraud`|Order|Sent when a payment must be canceled for fraud protection system.
-`payment.cancel`|Order|Sent when a payment must be canceled for cancel for any reasons.
-`item.replace`|Order|Sent when a item of processed order must be replaced for any reasons.
-`user.validation`|User|Check if a user exists in the external system.
-`payout.created`|Payout|Sent when a payout report created by PaySuper.
-`payout.status`|Payout|Sent when a payout request change they status for any reasons.
+`payment.success`|Order|Sent when a customer completes a payment.
+`payment.chargeback`|Order|Sent when a payment must be cancelled for chargeback.
+`payment.refund`|Order|Sent when a payment must be cancelled for refund for any reasons.
+`payment.cancel`|Order|Sent when a payment must be cancelled for cancel for any reasons.
 
 ## The Webhook object
 

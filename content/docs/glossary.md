@@ -39,6 +39,8 @@ the Project settings page
 
 the Project Webhooks page
 
+the Transactions page
+
 ***
 
 # Terms in lowercase:

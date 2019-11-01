@@ -15,7 +15,7 @@ When using PaySuper JS SDK ensure that:
 * [Handlers for the events](/docs/payments/sdk-integration/#step-4-handle-the-purchase-events) are displayed properly.
 * The PaySuper object is created with all required parameters or [token](/docs/payments/token/).
 
-Incase of using the PaySuper API in your server-side code ensure that:
+In case of using the PaySuper API in your server-side code ensure that:
 
 * [Authentication to the API](ссылка на апи спеку про авторизацию sha512) provided with your Project API secret key found on the Project settings.
 * All [API errors](ССЫЛКА НА апи спеку про типы ошибок) are handled accurately.
@@ -23,13 +23,13 @@ Incase of using the PaySuper API in your server-side code ensure that:
 
 ## Test card numbers 
 
-To test a bank card payment in the Sandbox enter arbitrary expiry date (the format is MM/YY), a Secure code (CVC/CVV, the format is 3 digits) and a cardholder name (the format is firstname lastname).
+To test a bank card payment in the Sandbox enter arbitrary expiry date (the format is MM/YY), a Secure code (CVC/CVV, the format is 3 digits) and a cardholder name (the format is first name last name).
 
 {{< hint warning >}}
-You can also specify incorrect details (card number, expiration date, or CVV) in order to generate an error.
+You can also specify incorrect details (card number, expiration date, or CVV) to generate an error.
 {{< /hint >}}
 
-You will be redirected to the Sandbox page to select of the desired results the success or failed. After you click the result button the current page will be closed and you will be redirected to the Checkout Form to view the purchase status.
+You will be redirected to the Sandbox page to select the desired results the success or failure. After you click the result button the current page will be closed and you will be redirected to the Checkout Form to view the purchase status.
 
 > Note, that when Merchant chooses to fail authentication, payment is always declined, no matter what PAN has been used.
 
@@ -42,7 +42,7 @@ Use any of the following test card numbers:
 3-D Secure is emulated with a page that doesn’t require any password but only shows 2 buttons. One button is for successful authentication, another is for failed authentication. 
 
 {{< columns >}}
-{{< card "Confirmd" "green" "mastercard" >}}4000 0000 0000 0002{{< /card >}}
+{{< card "Confirmed" "green" "mastercard" >}}4000 0000 0000 0002{{< /card >}}
 <--->
 {{< card "Declined" "red" "visa" >}}5555 5555 5555 4444{{< /card >}}
 <--->
@@ -52,7 +52,7 @@ Use any of the following test card numbers:
 ### Non 3-D Secure test card
 
 {{< columns >}}
-{{< card "Confirmd" "green" "visa" >}}4000 0000 0000 0077{{< /card >}}
+{{< card "Confirmed" "green" "visa" >}}4000 0000 0000 0077{{< /card >}}
 <--->
 {{< card "Declined" "red" "mastercard" >}}5555 5555 5555 4477{{< /card >}}
 <--->
@@ -68,12 +68,12 @@ See the [full list of currencies](/docs/payments/currencies/) are supported for 
 ## Webhooks
 
 {{< columns >}}
-After the payments PaySuper can send you webhook events to your server. You can make a successful payment with a test card number and verify the resulting event data and ensure that your webhook's endpoint is working and configured correctly.
+After the payments, PaySuper can send you webhook events to your server. You can make a successful payment with a test card number and verify the resulting event data and ensure that your webhook's endpoint is working and configured correctly.
 
 <--->
 **GETTING STARTED**
 
-[Configure Webhooks](/docs/about/webhooks/) for your Project in PaySuper Dashbord and handle them on your server.
+[Configure Webhooks](/docs/about/webhooks/) for your Project in PaySuper Dashboard and handle them on your server.
 
 {{< /columns >}}
 

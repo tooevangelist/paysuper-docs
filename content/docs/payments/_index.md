@@ -34,7 +34,7 @@ Choose a card payment method and enter one of the test cards to checkout in a te
 
 Non 3D Secure: **`4000 0000 0000 0077`**
 
-Enter arbitrary expiry date (the format is MM/YY), a Secure code (CVC/CVV, the format is 3 digits) and a cardholder name (the format is firstname lastname).
+Enter arbitrary expiry date (the format is MM/YY), a Secure code (CVC/CVV, the format is 3 digits) and a cardholder name (the format is first name last name).
 
 {{< sdk >}}Test Payment{{< /sdk >}}
 
