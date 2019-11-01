@@ -40,9 +40,18 @@ If it's necessary to use the transactions data in an external analytics tool jus
 
 ## Fulfilling purchases with webhooks
 
-PaySuper can send the `payment.success` webhook event to your server to notify you when a customer successfully completes the payment. You can configure webhooks on the Project webhooks page.
+{{< columns >}}
+After the payments, PaySuper can send you webhook events to your server. You can create a handler for the webhook events like a successful payment, refund payment and so on.
 
-A webhook handler is a script on your server that handles the PaySuper events such as `payment.success` or `payment.cancel`.
+<--->
+
+**GETTING STARTED**
+
+[Configure Webhooks](/docs/about/webhooks/) for your Project in PaySuper Dashboard and handle them on your server.
+
+{{< /columns >}}
+
+Using the handler you can obtain information from the webhook's `object` parameter in the payload about the customer and payment. With this comprehensive data, you can execute your server side-code and fulfil the payment.
 
 ## Email receipts
 

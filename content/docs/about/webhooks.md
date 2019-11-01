@@ -10,7 +10,7 @@ The PaySuper system can send you notifications for a set of events during the fl
 
 These notifications are sent as webhooks to the corresponding URL configured on your Project Webhook page.
 
-In most cases, webhooks are triggered by user actions on your website or back-end related events like a successful payment, refund a payment and other.
+In most cases, webhooks are triggered by user actions on your website or back-end related events like a successful payment, refund payment and other.
 
 ## Setting up a webhook
 
@@ -18,7 +18,7 @@ In most cases, webhooks are triggered by user actions on your website or back-en
 
 **2.** [Verify the webhook request](/docs/about/webhooks/#to-check-the-digital-signature).
 
-**3.** Respond with HTTP code 200 without a message body to acknowledge the receipt a webhook.
+**3.** Respond with HTTP code 200 without a message body to acknowledge the receipt a webhook. 
 
 ## Webhook event types
 
