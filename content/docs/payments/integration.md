@@ -99,14 +99,6 @@ curl -X POST -H 'Content-Type: application/json' -d '{
 
 {{< tab "Virtual Currency" >}}
 
-Run the script and view the response data:
-
-RUNKIT
-
-Or try it with cURL to interact with the API over HTTP from your console:
-
-{{< highlight bash >}}
-{{< /highlight >}}
 
 {{< /tab >}}
 
