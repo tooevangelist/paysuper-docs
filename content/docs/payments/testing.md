@@ -62,7 +62,63 @@ Use any of the following test card numbers:
 
 You can choose a fixed set of currencies which will be actual for all products in your project on the Project settings page.
 
-See the [full list of currencies](/docs/payments/currencies/) are supported for testing.
+The full list of currencies are supported for testing:
+
+{{< columns >}}
+Code|Country and Currency
+---|---
+USD|United States Dollar
+EUR|Euro Member Countries
+GBP|United Kingdom Pound
+RUB|Russia Ruble
+BRL|Brazil Real
+JPY|Japan Yen
+IDR|Indonesia Rupiah
+MYR|Malaysia Ringgit
+PHP|Philippines Peso
+SGD|Singapore Dollar
+THB|Thailand Baht
+VND|Viet Nam Dong
+KRW|Korea (South) Won
+TRY|Turkey Lira
+MXN|Mexico Peso
+CAD|Canada Dollar
+AUD|Australia Dollar	
+NZD|New Zealand Dollar
+NOK|Norway Krone
+PLN|Poland Zloty
+CHF|Switzerland Franc
+CNY|China Yuan Renminbi
+INR|India Rupee
+
+<--->
+
+Code|Country and Currency
+---|---
+CLP|Chile Peso
+PEN|Peru Sol
+COP|Colombia Peso
+ZAR|South Africa Rand
+HKD|Hong Kong Dollar
+TWD|Taiwan New Dollar
+SAR|Saudi Arabia Riyal
+AED|UAE Dirham
+ARS|Argentine Peso
+ILS|New Israeli Sheqel
+KZT|Kazakhstan Tenge
+QAR|Qatar Riyal
+CRC|Costa Rica Colon
+HRK|Croatia Kuna
+CZK|Czech Republic Koruna
+RSD|Serbia Dinar
+RON|Romania Leu
+EGP|Egypt Pound
+DKK|Denmark Krone
+HUF|Hungary Forint
+BHD|Bahraini Dinar
+SEK|Sweden Krona
+
+{{< /columns >}}
 
 ## Webhooks
 
