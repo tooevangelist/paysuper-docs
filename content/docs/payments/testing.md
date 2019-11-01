@@ -19,7 +19,7 @@ Incase of using the PaySuper API in your server-side code ensure that:
 
 * [Authentication to the API](ссылка на апи спеку про авторизацию sha512) provided with your Project API secret key found on the Project settings.
 * All [API errors](ССЫЛКА НА апи спеку про типы ошибок) are handled accurately.
-* [Webhooks](ССЫЛКА на апи спеку про запрос с вебхуками) contains properly URLs for all events types.
+* [Webhooks](ССЫЛКА на апи спеку про запрос с вебхуками) contains properly URL.
 
 ## Test card numbers 
 
@@ -73,7 +73,7 @@ After the payments PaySuper can send you webhook events to your server. You can 
 <--->
 **GETTING STARTED**
 
-[Configure Webhooks](ССЫЛКА) for your Project in PaySuper Dashbord and handle them on your server.
+[Configure Webhooks](/docs/about/webhooks/) for your Project in PaySuper Dashbord and handle them on your server.
 
 {{< /columns >}}
 
