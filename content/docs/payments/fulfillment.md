@@ -18,11 +18,25 @@ To fulfil the customer’s purchase you can make it in several ways:
 
 ## Fulfilling purchases with the PaySuper Dashboard
 
-You can manually handle actions on the [Transactions page](https://paysupermgmt.tst.protocol.one/transactions) after your customer completes their payment.
+Every customers' payment is recorded as a new entry in the payments log shown on the [Transactions page](https://paysupermgmt.tst.protocol.one/transactions).
+
+All your customers' transactions are organised by Products, Dates and other payment parameters.
 
 {{< figure src="/images/transactions.png">}}
 
-You can manually handle actions on the [Transactions page](https://paysupermgmt.tst.protocol.one/transactions) after your customer completes their payment.
+### The transaction details
+
+To manually fulfil the customer's purchase you can click a specified record to dive into transaction card to see additional details. User info, Payment and Transaction details.
+
+### Manually refund a purchase
+
+Also, you can manually request a refund a processed transaction from the Transactions page or a transaction card.
+
+### Filter transactions and download
+
+If it's necessary to use the transactions data in an external analytics tool just export list of transactions per period in an appropriate format pdf, xls or csv.
+
+{{< figure src="/images/transaction-card.png">}}
 
 ## Fulfilling purchases with webhooks
 
