@@ -63,7 +63,7 @@ Use any of the following test card numbers:
 
 You can choose a fixed set of currencies which will be actual for all products in your project on the Project settings page.
 
-See the [full list of currencies](/docs/payments/currencies/) are allowed for testing.
+See the [full list of currencies](/docs/payments/currencies/) are supported for testing.
 
 ## Webhooks
 
