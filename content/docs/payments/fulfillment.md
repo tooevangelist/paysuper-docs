@@ -6,7 +6,7 @@ bookToc: true
 # After the payment
 ***
 
-When your customers successfully complete payments they are redirected to the success URL page that you passed in a request parameter . Typically, this is a page on your website that informs your customer that their payment was successful.
+When your customers successfully complete payments they are redirected to the success URL page that you passed in a request parameter. Typically, this is a page on your website that informs your customer that their payment was successful.
 
 To fulfil the customer’s purchase you can make it in several ways:
 
