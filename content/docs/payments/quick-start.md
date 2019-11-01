@@ -24,7 +24,7 @@ bookToc: true
 1. [Sign up](https://paysupermgmt.tst.protocol.one).
 2. Verify your email address with the delivered confirmation email.
 3. Follow the steps of a brief [Welcome Onboarding](https://paysupermgmt.tst.protocol.one/profile).
-4. You are required to fill in the Banking info in [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) to be able create a project.
+4. You are required to fill in the Banking info in the [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) to be able create a project.
 
 {{< hint info >}}
 When you are ready to start selling you will need to fill in all your company details in [Company Onboarding](https://paysupermgmt.tst.protocol.one/company) and sign the documents in the License Agreement.
@@ -101,15 +101,15 @@ You can encrypt details of your customer (such as the user ID, email and others)
 
 ### [Server-side payment initialization](/docs/payments/integration/)
 
-You can also integrate on a server-side without PaySuper SJ SDK for other reasons. Checkout Form can be embedded as an [iframe](ССЫЛКА) or [new window](ССЫЛКА).
+You can also integrate on a server-side without PaySuper SJ SDK for other reasons. Checkout Form can be embedded as an iframe or new window.
 
 ### [Client-side payment initialization](/docs/payments/sdk-integration/)
 
-The client-side payment initialization lets you accept online payments using only frontend code PaySuper JS SDK. The Checkout Form can be embedded as an [iframe](ССЫЛКА на метод renderPage) or [modal window](ССЫЛКА на метод renderModal).
+The client-side payment initialization lets you accept online payments using only frontend code PaySuper JS SDK. The Checkout Form can be embedded as an iframe or modal window.
 
 ## **Step 4.** After the payment
 
-You can use [webhooks](ССЫЛКА) or the [Transaction log](ССЫЛКА) to accomplish the purchase. More details about handling the purchase fulfilment with PaySuper Checkout are available at [After the payment](/docs/payments/fulfillment/).
+You can use webhooks or the Transaction log to accomplish the purchase. More details about handling the purchase fulfilment with PaySuper Checkout are available at [After the payment](/docs/payments/fulfillment/).
 
 ***
 
@@ -118,7 +118,7 @@ You can use [webhooks](ССЫЛКА) or the [Transaction log](ССЫЛКА) to a
 {{< hint info >}}
 [**After the payment**](/docs/payments/live/)
 
-After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](ССЫЛКА) or the [Transaction log](ССЫЛКА) to accomplish the purchase.
+After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks) or the [Transaction log](/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard) to accomplish the purchase.
 {{< /hint >}}
 
 {{< hint info >}}

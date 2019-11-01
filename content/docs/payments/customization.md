@@ -52,7 +52,7 @@ const paySuper = new PaySuper({
 {{< hint info >}}
 [**After the payment**](/docs/payments/live/)
 
-After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](ССЫЛКА) or the [Transaction log](ССЫЛКА) to accomplish the purchase.
+After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks) or the [Transaction log](/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard) to accomplish the purchase.
 {{< /hint >}}
 
 {{< hint info >}}

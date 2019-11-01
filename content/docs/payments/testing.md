@@ -17,9 +17,8 @@ When using PaySuper JS SDK ensure that:
 
 In case of using the PaySuper API in your server-side code ensure that:
 
-* [Authentication to the API](ссылка на апи спеку про авторизацию sha512) provided with your Project API secret key found on the Project settings.
-* All [API errors](ССЫЛКА НА апи спеку про типы ошибок) are handled accurately.
-* [Webhooks](ССЫЛКА на апи спеку про запрос с вебхуками) contains properly URL.
+* All [API errors](/docs/api/#section/Errors) are handled accurately.
+* Webhooks contains properly URL configures in the Functional URL section on the Project webhooks page.
 
 ## Test card numbers 
 
@@ -84,7 +83,7 @@ After the payments, PaySuper can send you webhook events to your server. You can
 {{< hint info >}}
 [**After the payment**](/docs/payments/live/)
 
-After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](ССЫЛКА) or the [Transaction log](ССЫЛКА) to accomplish the purchase.
+After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks) or the [Transaction log](/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard) to accomplish the purchase.
 {{< /hint >}}
 
 {{< hint info >}}

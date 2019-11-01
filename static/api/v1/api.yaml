@@ -3432,7 +3432,7 @@ info:
     
     Authentication to the API occurs via Signature-based authentication. You must authenticate for all requests that contain a user data.
 
-    Add a Header **X-API-SIGNATURE** with a **sha512 hash** value that is a concatenation the request body and the Project Secret key found on the Project Webhooks page.
+    Add a Header **X-API-SIGNATURE** with the Project's Secret key found on the Project webhooks page.
     
     **Your API keys carry many privileges, so be sure to keep them secret.**
 

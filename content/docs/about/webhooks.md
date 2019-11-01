@@ -8,22 +8,24 @@ bookToc: true
 
 The PaySuper system can send you notifications for a set of events during the flow, such as creating new accounts or transaction flow, making payouts, and so on.
 
-These notifications are sent as webhooks to the corresponding URLs configured on your Project settings page.
+These notifications are sent as webhooks to the corresponding URL configured on your Project Webhook page.
 
-In most cases, webhooks are triggered by user actions on your website or back-end related events like refund a payment, notification about dispute and other.
+In most cases, webhooks are triggered by user actions on your website or back-end related events like a successful payment, refund a payment and other.
 
-## Set up webhooks
+## Setting up a webhook
 
-1. Configure URL in the Functional URL section on the Project settings page.
-2. [Verify the webhook request](/docs/about/webhooks/#to-check-the-digital-signature).
-3. Respond with HTTP code 200 without a message body to acknowledge the receipt a webhook.
+**1.** Add the URL of the server that will receive the webhook requests in the Functional URL section on the Project Webhooks page.
+
+**2.** [Verify the webhook request](/docs/about/webhooks/#to-check-the-digital-signature).
+
+**3.** Respond with HTTP code 200 without a message body to acknowledge the receipt a webhook.
 
 ## Webhook event types
 
 Type|Payload|Description
 ---|---|---
-`payment.success`|Order|Sent when a customer completes a payment.
-`payment.chargeback`|Order|Sent when a payment must be cancelled for chargeback.
+`payment.success`|Order|Sent when a customer successfully completes a payment.
+`payment.chargeback`|Order|Sent when a payment must be cancelled for a chargeback.
 `payment.refund`|Order|Sent when a payment must be cancelled for refund for any reasons.
 `payment.cancel`|Order|Sent when a payment must be cancelled for cancel for any reasons.
 
@@ -148,23 +150,25 @@ For instance, this is the base object representing the webhook event `payment.su
 }
 {{< /highlight >}}
 
-## Verify the webhook
+## Verifying a webhook
 
 PaySuper signs the webhook events it sends to your endpoint, allowing you to validate that they were not sent by a third-party and prevent hacker attacks.
 
-The PaySuper API uses a Secret key to check a notification request. All API requests must be made over HTTPS. Calls made over a plain HTTP will fail. API requests without the authentication will also fail.
+The PaySuper API uses a Secret key to check a notification request. 
 
 {{< hint warning >}}
 Your Secret keys carry many privileges, so be sure to keep them secure! Do not share your Secret API keys in publicly accessible areas such as GitHub, client-side code, and so forth.
 {{< /hint >}}
 
-To check the digital signature:
+**To check a digital signature:**
 
-**1.** Concatenate the request's JSON body with your Project's Secret key found on the Project Webhooks page.
+**1.** Concatenate the request's JSON body with your Project's Secret key found on the Project webhooks page.
 
 **2.** Apply SHA-256 hashing to the resulting string. 
 
 **3.** Compare the digital signature with [Authorization](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) HTTP Header value in the received notification:
+
+> All API requests must be made over HTTPS. Calls made over a plain HTTP will fail. API requests without the authentication will also fail.
 
 {{< highlight http >}}
 POST /your_endpoint HTTP/1.1

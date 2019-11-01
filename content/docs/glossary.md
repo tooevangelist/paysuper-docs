@@ -5,22 +5,33 @@ a Checkout Form
 
 ***
 
-# PaySuper Admin entities and properties: 
+# Terms in uppercase:
+***
+
+PaySuper Checkout
+
+PaySuper JS SDK
+
+PaySuper API
+
+PaySuper
+
+PaySuper Dashboard
+
+# PaySuper Dashboard entities and properties: 
 ***
 
 a Project
 
 a Product
 
-a Project Secret key
+a Project's Secret key
 
-the Banking info
+a Virtual currency
 
-Virtual Currency
+a Game key
 
-Game Keys
-
-Virtual Items
+a Virtual item
 
 a key-activated product
 
@@ -30,16 +41,20 @@ an in-game currency
 
 ***
 
-# PaySuper Admin pages: 
+# PaySuper Dashboard pages: 
 ***
 
 the Projects list page
 
 the Project settings page
 
-the Project Webhooks page
+the Project webhooks page
 
 the Transactions page
+
+the Company Onboarding page
+
+the Banking info section
 
 ***
 
@@ -51,20 +66,5 @@ a payment
 an order
 
 a token
-
-# Terms in uppercase:
-***
-
-PaySuper Checkout
-
-Company Onboarding
-
-PaySuper JS SDK
-
-PaySuper API
-
-PaySuper
-
-PaySuper Dashboard
 
 ***

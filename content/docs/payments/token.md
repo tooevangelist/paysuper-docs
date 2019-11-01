@@ -22,10 +22,12 @@ You can follow these steps to create a Checkout Form:
 
 ## **Step 1.** Create a token on your server
 
-Send the [POST /api/v1/tokens](ССЫЛКА) to receive an encrypted string. Learn more about the [full list of parameters](ССЫЛКА).
+Send the [POST /api/v1/tokens](/docs/api/#tag/Token) to receive an encrypted string. Learn more about the [full list of parameters](/docs/api/#tag/Token/paths/~1api~1v1~1tokens/post).
 
 {{< hint warning >}}
-Remember to add a Header **X-API-SIGNATURE** with a **sha512 hash** value that is a concatenation the request body and the Project Secret key found on the Project Webhooks page. Notice, the JSON format of the request body and in the hash must be the same.
+Remember to add a Header `X-API-SIGNATURE` with the Project's Secret key found on the Project webhooks page.
+
+Your Secret keys carry many privileges, so be sure to keep them secure! Do not share your Secret API keys in publicly accessible areas such as GitHub, client-side code, and so forth.
 {{< /hint >}}
 
 {{< tabs "token-simple-checkout" >}}
@@ -34,7 +36,7 @@ Remember to add a Header **X-API-SIGNATURE** with a **sha512 hash** value that i
 Run the script and view the response data:
 
 {{< runkit "simple-checkout-token">}}
-Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBheGlvcy5wb3N0KAogICdodHRwczovL3AxcGF5YXBpLnRzdC5wcm90b2NvbC5vbmUvYXBpL3YxL3Rva2VucycsCnsic2V0dGluZ3MiOnsicHJvamVjdF9pZCI6IjVkYjE2YWU4MTFiZjBkMDAwMWZkZmJkMSIsImFtb3VudCI6MTAsImN1cnJlbmN5IjoiVVNEIiwidHlwZSI6InNpbXBsZSJ9LCJ1c2VyIjp7ImlkIjoiNTg3OTlmMmMyNTY0Mjk2YmQyY2IiLCJhZGRyZXNzIjp7ImNpdHkiOiJBbG1lcmUiLCJjb3VudHJ5IjoiTkwiLCJwb3N0YWxfY29kZSI6IjEzMjYgUEEiLCJzdGF0ZSI6IkZsZXZvbGFuZCJ9LCJlbWFpbCI6eyJ2YWx1ZSI6InVzZXIuZW1haWxAZXhhbXBsZS5jb20iLCJ2ZXJpZmllZCI6dHJ1ZX19fSwKICB7CiAgICBoZWFkZXJzOiB7CiAgICAgICAgJ0NvbnRlbnQtVHlwZSc6ICdhcHBsaWNhdGlvbi9qc29uJywKICAgICAgICAnWC1BUEktU0lHTkFUVVJFJzogJzUzYjczZjIxODUyYjZiMmVkNzE0MWI4NDA1ZmE4YjgzOGM1MTExMzdkMmMwMzAxMTM0MDJjMDZhOGY5YWE1OGEzMjNjMzMyODZlYTkxNTExZGQ1YzNiZDFjMmY2ODg0NjgyMjEyOGQ1NTE5MDZjMDIyNmY1M2NiM2Q3ZmJiZTA2JwogICAgfQogIH0KKQ==
+Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBheGlvcy5wb3N0KAogICdodHRwczovL3AxcGF5YXBpLnRzdC5wcm90b2NvbC5vbmUvYXBpL3YxL3Rva2VucycsCnsKICAgInNldHRpbmdzIjogewogICAgICAicHJvamVjdF9pZCI6ICI1ZGIxNmFlODExYmYwZDAwMDFmZGZiZDEiLAogICAgICAiYW1vdW50IjogMTAsCiAgICAgICJjdXJyZW5jeSI6ICJVU0QiLAogICAgICAidHlwZSI6ICJzaW1wbGUiCiAgIH0sCiAgICJ1c2VyIjogewogICAgICAiaWQiOiAiNTg3OTlmMmMyNTY0Mjk2YmQyY2IiLAogICAgICAiYWRkcmVzcyI6IHsKICAgICAgICAgImNpdHkiOiAiQWxtZXJlIiwKICAgICAgICAgImNvdW50cnkiOiAiTkwiLAogICAgICAgICAicG9zdGFsX2NvZGUiOiAiMTMyNiBQQSIsCiAgICAgICAgICJzdGF0ZSI6ICJGbGV2b2xhbmQiCiAgICAgIH0sCiAgICAgICJlbWFpbCI6IHsKICAgICAgICAgInZhbHVlIjogInVzZXIuZW1haWxAZXhhbXBsZS5jb20iLAogICAgICAgICAidmVyaWZpZWQiOiB0cnVlCiAgICAgIH0KICAgfQp9LAogIHsKICAgIGhlYWRlcnM6IHsKICAgICAgICAnQ29udGVudC1UeXBlJzogJ2FwcGxpY2F0aW9uL2pzb24nLAogICAgICAgICdYLUFQSS1TSUdOQVRVUkUnOiAnaTVKWXRqbjc7Kj4sPHdtJwogICAgfQogIH0KKQ==
 {{< /runkit >}}
 {{< /tab >}}
 
@@ -42,7 +44,7 @@ Y29uc3QgYXhpb3MgPSByZXF1aXJlKCdheGlvcycpOwoKY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBheGlv
 Or try it with cURL to interact with the API over HTTP from your console:
 
 {{< highlight bash >}}
-curl -X POST -H 'X-API-SIGNATURE: YOUR_SIGNATURE' -d '{
+curl -X POST -H 'X-API-SIGNATURE: YOUR_SECRET_KEY' -d '{
  "settings": {
     "project_id": "YOUR_PROJECT_ID",
     "amount": 10,
@@ -171,7 +173,7 @@ curl -X POST -H 'Content-Type: application/json' -d '{
 {{< hint info >}}
 [**After the payment**](/docs/payments/live/)
 
-After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](ССЫЛКА) or the [Transaction log](ССЫЛКА) to accomplish the purchase.
+After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks) or the [Transaction log](/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard) to accomplish the purchase.
 {{< /hint >}}
 
 {{< hint info >}}
