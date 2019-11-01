@@ -1,6 +1,8 @@
 # hugo server --minify --themesDir ... --baseURL=http://0.0.0.0:1313/example
 baseURL = 'https://docs.stg.pay.super.com/'
 
+Title = 'PaySuper Documentation'
+
 disableKinds = ['taxonomy', 'taxonomyTerm']
 theme = 'book'
 languageCode = "en-us"
@@ -23,7 +25,6 @@ pygmentsCodeFences = true
 [params]
   # OpenGraph
   Images = ['products-dark-form.png']
-  Title = 'PaySuper Developer Documentation'
   Description = 'PaySuper is a unique, simple open-source payment service with a highly customizable payment form, an intuitive API, and comprehensible, eye-catching reports.'
 
   # (Optional, default 6) Set how many table of contents levels to be showed on page.

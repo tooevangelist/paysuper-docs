@@ -12,4 +12,9 @@ headless: true
   - [After the payment]({{< relref "/docs/payments/fulfillment" >}})
   - [Customizing Checkout]({{< relref "/docs/payments/customization" >}})
   - [Testing]({{< relref "/docs/payments/testing" >}})
+- **After the payment**
+  - [Payouts]({{< relref "/docs/payments/payouts" >}})
+  - [Refunds]({{< relref "/docs/payments/refunds" >}})
+  - [Declines]({{< relref "/docs/payments/declines" >}})
+
 - [**API Reference**]({{< relref "/docs/api" >}})
