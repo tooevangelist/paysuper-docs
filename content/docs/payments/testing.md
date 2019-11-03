@@ -13,12 +13,12 @@ The Sandbox provides full functionality but it only emulates processing, no actu
 When using PaySuper JS SDK ensure that:
 
 * [Handlers for the events](/docs/payments/sdk-integration/#step-4-handle-the-purchase-events) are displayed properly.
-* The PaySuper object is created with all required parameters or [token](/docs/payments/token/).
+* The PaySuper object is created with all [required parameters](/docs/payments/sdk-integration/#step-2-provide-parameters) or [token](/docs/payments/token/).
 
 In case of using the PaySuper API in your server-side code ensure that:
 
 * All [API errors](/docs/api/#section/Errors) are handled accurately.
-* Webhooks contains properly URL configures in the Functional URL section on the Project webhooks page.
+* [Webhooks](/docs/about/webhooks/) contains properly URL configured in the Functional URL section on the Project webhooks page.
 
 ## Test card numbers 
 
@@ -36,7 +36,7 @@ Use any of the following test card numbers:
 
 > Note that `Authorized` cards must be used only to test antifraud system reaction with compulsory transfer payment to preauthorization.
 
-### 3-D Secure test card
+### 3-D Secure test cards
 
 3-D Secure is emulated with a page that doesn’t require any password but only shows 2 buttons. One button is for successful authentication, another is for failed authentication. 
 
@@ -48,7 +48,7 @@ Use any of the following test card numbers:
 {{< card "Authorized" "grey" "visa" >}}4000 0000 0000 0044{{< /card >}}
 {{< /columns >}}
 
-### Non 3-D Secure test card
+### Non 3-D Secure test cards
 
 {{< columns >}}
 {{< card "Confirmed" "green" "visa" >}}4000 0000 0000 0077{{< /card >}}
@@ -139,7 +139,7 @@ After the payments, PaySuper can send you webhook events to your server. You can
 {{< hint info >}}
 [**After the payment**](/docs/payments/live/)
 
-After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks) or the [Transaction log](/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard) to accomplish the purchase.
+After a successful payment, you have to fulfil the customer’s purchase. You can use [webhooks](/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks) or the [Transactions](/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard) to accomplish the purchase.
 {{< /hint >}}
 
 {{< hint info >}}

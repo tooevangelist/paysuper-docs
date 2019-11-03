@@ -26,7 +26,7 @@ All your customers' transactions are organised by Products, Dates and other paym
 
 ### The transaction details
 
-To manually fulfil the customer's purchase you can click a specified record to dive into transaction card to see additional details. User info, Payment and Transaction details.
+To manually fulfil the customer's purchase you can click a specified record to dive into transaction card to see additional details.
 
 ### Manually refund a purchase
 
@@ -34,7 +34,7 @@ Also, you can manually request a refund a processed transaction from the Transac
 
 ### Filter transactions and download
 
-If it's necessary to use the transactions data in an external analytics tool just export list of transactions per period in an appropriate format pdf, xls or csv.
+If it's necessary to use the transactions data in an external analytics tool just export the list of transactions per period in an appropriate format pdf, xls or csv.
 
 {{< figure src="/images/transaction-card.png">}}
 
@@ -51,7 +51,7 @@ After the payments, PaySuper can send you webhook events to your server. You can
 
 {{< /columns >}}
 
-Using the handler you can obtain information from the webhook's `object` parameter in the payload about the customer and payment. With this comprehensive data, you can execute your server side-code and fulfil the payment.
+Using the handler you can obtain information from the webhook's `object` parameter in the payload about the customer and payment. With this comprehensive data, you can execute your server-side code and fulfil the payment.
 
 ## Email receipts
 
