@@ -277,3 +277,32 @@ aside nav,
 .card-title img {
     margin-right: 15px;
 }
+
+.card-number:hover {
+    background-color: #06eaa7;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 8px;
+   
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }

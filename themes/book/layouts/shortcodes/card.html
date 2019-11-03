@@ -4,6 +4,22 @@
             <img src="/images/{{ .Get 2 }}.png" alt="{{ .Get 2 }}">
             <p style="color: {{ .Get 1 }};">{{ .Get 0 }}</p>
         </div>
-        <h3>{{ .Inner }}</h3>
+        <div class="tooltip">
+            <p data-clipboard-text="{{ .Inner }}" class="btn card-number"><b>{{ .Inner }}</b></p>
+            <span class="tooltiptext">Click to copy</span>
+        </div>
     </div>
 </div>
+
+<script>
+    var clipboard = new ClipboardJS('.btn');
+
+    clipboard.on('success', function(e) {
+        e.clearSelection();
+        clipboard.destroy();
+    });
+
+    clipboard.on('error', function(e) {
+        clipboard.destroy();
+    });
+</script>
