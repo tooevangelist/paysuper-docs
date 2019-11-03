@@ -16,7 +16,7 @@ if: branch=test
 #    packages:
 #      - hugo
 before_install:
- - sudo snap install hugo
+ - sudo snap install hugo --channel=extended
 
 install: true
 
