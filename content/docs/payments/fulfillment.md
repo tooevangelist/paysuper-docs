@@ -40,18 +40,51 @@ If it's necessary to use the transactions data in an external analytics tool jus
 
 ## Fulfilling purchases with webhooks
 
-{{< columns >}}
 After the payments, PaySuper can send you webhook events to your server. You can create a handler for the webhook events like a successful payment, refund payment and so on.
 
-<--->
-
-**GETTING STARTED**
-
-[Configure Webhooks](/docs/about/webhooks/) for your Project in PaySuper Dashboard and handle them on your server.
-
-{{< /columns >}}
-
 Using the handler you can obtain information from the webhook's `object` parameter in the payload about the customer and payment. With this comprehensive data, you can execute your server-side code and fulfil the payment.
+
+{{< hint warning >}}
+[Configure Webhooks](/docs/about/webhooks/) for your Project in PaySuper Dashboard and handle them on your server.
+{{< /hint >}}
+
+For instance, this is the base object representing the webhook event `payment.success`:
+
+{{< highlight json >}}
+{
+   "id": "b303ec344deca48af01f3412d51af2198207f5bfff549bbdfffac46d971fc725",
+   "type": "notification",
+   "event": "payment.success",
+   "created_at": "2019-10-01T15:10:51Z",
+   "object": {
+      "id": "f29ab03a-c5f0-40db-a798-9deba14a9099",
+      "transaction": "302212411",
+      "object": "order",
+      "status": "created",
+      "amount": 100,
+      "currency": "USD",
+      "type": "simple",
+      "user": {
+         "id": "U3oFCwIOwRnQzfKZn58fnkzx3xnPGYdP",
+         "object": "user",
+         "email": "user.email@example.com",
+         "email_verified": true,
+         ...
+      },
+      "method": {
+         "title": "VISA/MasterCard",
+         "card": {
+            "masked": "414943...2348",
+            "expiry_month": "10",
+            "expiry_year": "2021",
+            "brand": "VISA",
+            ...
+         },
+      },
+      ...
+   }
+}
+{{< /highlight >}}
 
 ## Email receipts
 
