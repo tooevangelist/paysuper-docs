@@ -128,7 +128,7 @@ After the payments, PaySuper can send you webhook events to your server. You can
 <--->
 **GETTING STARTED**
 
-[Configure Webhooks](/docs/about/webhooks/) for your Project in PaySuper Dashboard and handle them on your server.
+[Configure Webhooks](/docs/payments/webhooks/) for your Project in PaySuper Dashboard and handle them on your server.
 
 {{< /columns >}}
 
