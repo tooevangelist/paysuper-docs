@@ -6,6 +6,9 @@ go:
 
 sudo: required
 
+addons:
+  ssh_known_hosts: pay.super.com
+
 dist: bionic
 
 if: branch=test
