@@ -38,7 +38,7 @@ Check your redirect URLs for a successful or failed payment are available.
 
 `PaySuper JS SDK`
 
-Add your branding colors to the Checkout Form [view scheme](https://github.com/paysuper/paysuper-js-sdk/blob/192153-quickstart/docs/CUSTOMIZATION.md#available-parameters-of-viewschemeconfig).
+Add your branding colors to the Checkout Form [view scheme](https://github.com/paysuper/paysuper-js-sdk/blob/master/docs/CUSTOMIZATION.md#available-parameters-of-viewschemeconfig).
 
 ## Fulfiling purchases
 
