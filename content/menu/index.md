@@ -14,9 +14,9 @@ headless: true
   - [Testing]({{< relref "/docs/payments/testing" >}})
   - [Going Live]({{< relref "/docs/payments/live" >}})
 - **After the payment**
-  - [Payouts]({{< relref "/docs/payments/payouts" >}})
-  - [Refunds]({{< relref "/docs/payments/refunds" >}})
-  - [Declines]({{< relref "/docs/payments/declines" >}})
-  - [Webhooks]({{< relref "/docs/payments/webhooks" >}})
+  - [Payouts]({{< relref "/docs/payouts" >}})
+  - [Refunds]({{< relref "/docs/refunds" >}})
+  - [Declines]({{< relref "/docs/declines" >}})
+  - [Webhooks]({{< relref "/docs/webhooks" >}})
 
 - [**API Reference**]({{< relref "/docs/api" >}})

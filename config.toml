@@ -1,5 +1,5 @@
 # hugo server --minify --themesDir ... --baseURL=http://0.0.0.0:1313/example
-baseURL = 'https://pay.super.com/docs'
+baseURL = 'https://docs.pay.super.com'
 
 canonifyURLs = true
 
