@@ -39,6 +39,30 @@ PaySuper uses the self-developed fraud prevention system with cascade checks acr
 
 Fraud prevention system based both on black and white lists of customers details, score-based analysis and manages not only the payment admission reasons but also a level and need to use of 3D Secure for card payments.
 
+## Decline codes
+
+Code|Description
+---|---
+01|System malfunction
+02|Cancelled by customer
+03|Declined by Antifraud
+04|Declined by 3-D Secure
+05|Only 3-D Secure transactions are allowed
+06|3-D Secure availability is unknown
+07|Limit reached
+08|Requested operation is not supported
+10|Declined by bank (reason not specified)
+11|Common decline by bank
+13|Insufficient funds
+14|Card limit reached
+15|Incorrect card data
+16|Declined by bank’s antifraud
+17|Bank’s malfunction
+18|Connection problem
+21|No payment was received (for BITCOIN payment method only)
+22|Wrong payment was received (for BITCOIN payment method only)
+23|Confirmations payment timeout (for BITCOIN payment method only)
+
 ***
 
 {{< questions >}}{{< questions-text >}}{{< /questions-text >}}{{< /questions >}}
