@@ -23,15 +23,16 @@ install: true
 script:
 - hugo --environment development
 
+before_deploy:
+  - echo $SFTP_KEY | base64 -d > /tmp/deploy_rsa
+  - eval "$(ssh-agent -s)"
+  - chmod 600 /tmp/deploy_rsa
+  - ssh-add /tmp/deploy_rsa
+
 deploy:
-  provider: pages
+  provider: script
   skip-cleanup: true
-  github-token: "$GITHUB_TOKEN"
-  keep-history: true
-  target-branch: master
-  verbose: true
-  repo: paysuper/paysuper-docs-stage
-  local-dir: "./public"
+  script: rsync -r --delete-after -v ./public/* $SFTP_USER@$SFTP_HOST:/
   on:
     branch: test
 
