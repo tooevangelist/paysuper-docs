@@ -26,6 +26,8 @@ To refund a payment:
 
 Likewise, you can do the same steps to refund a payment via the transaction detailes page opened from the Transactions page.
 
+{{< figure src="/images/refund.png">}}
+
 ***
 
 ## Next steps
