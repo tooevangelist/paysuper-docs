@@ -30,9 +30,11 @@ Use a [token](/docs/payments/token/) to prefill the Checkout Form with all requi
 
 ## Redirecting after a payment
 
-`PaySuper JS SDK` `PaySuper API`
+`Dashboard`
 
-Check your redirect URLs for a successful or failed payment are available.
+Check your redirect URLs for a successful or failed payment are added in the Project Payment form page.
+
+{{< figure src="/images/redirect-urls.png">}}
 
 ## Customizing PaySuper Form
 
