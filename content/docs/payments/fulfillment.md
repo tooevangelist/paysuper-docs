@@ -10,11 +10,11 @@ When your customers successfully complete payments they are redirected to the su
 
 To fulfil the customer’s purchase you can make it in several ways:
 
-[**Fulfilling purchases manually with the PaySuper Dashboard**](/docs/payments/fulfillment/#fulfilling-purchases-with-the-dashboard)
+[**Fulfilling purchases manually with the PaySuper Dashboard**](/docs/payments/fulfillment/#fulfilling-purchases-with-the-paysuper-dashboard)
 
 [**Fulfilling purchases automatically with webhooks**](/docs/payments/fulfillment/#fulfilling-purchases-with-webhooks)
 
-[**Email receipts**](/docs/payments/fulfillment/#payment-or-refund-receipts)
+[**Email receipts**](/docs/payments/fulfillment/#email-receipts)
 
 ## Fulfilling purchases with the PaySuper Dashboard
 

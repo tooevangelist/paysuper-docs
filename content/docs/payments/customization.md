@@ -10,7 +10,7 @@ Learn about the different ways you can customize your Checkout.
 
 ## Localization
 
-The Checkout Form is localized to 2 languages with 10 more translations coming soon.
+The Checkout Form is localized for [24 languages](/docs/payments/localization).
 
 You can choose the complete set of supported languages for the project and products descriptions on the Project Settings page in your PaySuper Dashboard.
 
