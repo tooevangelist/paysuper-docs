@@ -10,7 +10,7 @@ The PaySuper system can send you notifications for a set of events during the fl
 
 These notifications are sent as webhooks to the corresponding URL configured on your Project Webhook page.
 
-In most cases, webhooks are triggered by user actions on your website or back-end related events like a successful payment, refund payment and other.
+In most cases, webhooks are triggered by user actions on your website or by back-end related events like a successful payment, a refund payment and other.
 
 ## Setting up a webhook
 
@@ -33,14 +33,14 @@ Type|Payload|Description
 
 Attribute|Type|Description
 ---|---|---
-`id`|string| Unique identifier for the object.
-`type`|string| String representing the webhook's type.
-`event`|string| String representing the event's type.
-`live`|boolean| Equals to `true` if notification originated from the live environment.
-`created_at`|DateTime|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) when an event has been created.
+`id`|string| The unique identifier for the object.
+`type`|string| The string representing the webhook's type.
+`event`|string| The string representing the event's type.
+`live`|boolean| Equals to `true` if notification originated from a live environment.
+`created_at`|DateTime|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) when the event has been created.
 `expires_at`|DateTime|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) when the event stops trying to deliver.
-`delivery_try`|integer|The current delivery try for this event.
-`object`|object| The object representing payload of event with a given type. Objects of the same type share the same value.
+`delivery_try`|integer|The current delivery try for the event.
+`object`|object| The object representing the payload of the event with a given type. Objects of the same type share the same value.
 
 ## The Webhook object example
 
@@ -152,12 +152,12 @@ For instance, this is the base object representing the webhook event `payment.su
 
 ## Verifying a webhook
 
-PaySuper signs the webhook events it sends to your endpoint, allowing you to validate that they were not sent by a third-party and prevent hacker attacks.
+PaySuper signs webhook events that it sends to your endpoint allowing you to validate that they were not sent by a third-party and prevent any unauthorised actions.
 
-The PaySuper API uses a Secret key to check a notification request. 
+The PaySuper API uses a Secret key to check the notification request.
 
 {{< hint warning >}}
-Your Secret keys carry many privileges, so be sure to keep them secure! Do not share your Secret API keys in publicly accessible areas such as GitHub, client-side code, and so forth.
+Your Secret keys carry many privileges, so be sure to keep them secure! Do not share your Secret API keys in any publicly accessible areas such as GitHub, client-side code, and so forth.
 {{< /hint >}}
 
 **To check a digital signature:**
