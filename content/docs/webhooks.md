@@ -74,7 +74,7 @@ For instance, this is the base object representing the webhook event `payment.su
       "refunded_at": {
          "seconds": -62135596800
       },
-      "receipt_email": "michael.kirpa@gmail.com",
+      "receipt_email": "user.email@example.com",
       "receipt_phone": "",
       "receipt_number": "",
       "receipt_url": "",
@@ -93,7 +93,7 @@ For instance, this is the base object representing the webhook event `payment.su
          "object": "user",
          "external_id": "",
          "name": "",
-         "email": "michael.kirpa@gmail.com",
+         "email": "user.email@example.com",
          "email_verified": false,
          "phone": "",
          "phone_verified": false,
