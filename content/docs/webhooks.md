@@ -16,7 +16,7 @@ In most cases, webhooks are triggered by user actions on your website or by back
 
 **1.** Add the URL of the server that will receive the webhook requests in the Functional URL section on the Project Webhooks page.
 
-**2.** [Verify the webhook request](/docs/payments/webhooks/#verifying-a-webhook).
+**2.** [Verify the webhook request](/docs/webhooks/#verifying-a-webhook).
 
 **3.** Respond with HTTP code 200 without a message body to acknowledge the receipt a webhook. 
 
