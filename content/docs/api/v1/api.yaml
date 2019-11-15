@@ -1727,7 +1727,7 @@ definitions:
         description: The user's IP address.
         $ref: '#/definitions/token.TokenRequest.Value'
       locale:
-        description: The user's locale name. Two-letter language code by ISO 639-1, in lowercase.
+        description: The user's locale name contains the language code by ISO 639, for example ru-RU, en-US and etc.
         $ref: '#/definitions/token.TokenRequest.Value'
       address:
         description: Details of the user's address.
