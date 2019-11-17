@@ -52,37 +52,53 @@ For instance, this is the base object representing the webhook event `payment.su
 
 {{< highlight json >}}
 {
-   "id": "b303ec344deca48af01f3412d51af2198207f5bfff549bbdfffac46d971fc725",
-   "type": "notification",
-   "event": "payment.success",
-   "created_at": "2019-10-01T15:10:51Z",
-   "object": {
-      "id": "f29ab03a-c5f0-40db-a798-9deba14a9099",
-      "transaction": "302212411",
-      "object": "order",
-      "status": "created",
-      "amount": 100,
-      "currency": "USD",
-      "type": "simple",
-      "user": {
-         "id": "U3oFCwIOwRnQzfKZn58fnkzx3xnPGYdP",
-         "object": "user",
-         "email": "user.email@example.com",
-         "email_verified": true,
-         ...
-      },
-      "method": {
-         "title": "VISA/MasterCard",
-         "card": {
-            "masked": "414943...2348",
-            "expiry_month": "10",
-            "expiry_year": "2021",
-            "brand": "VISA",
-            ...
-         },
+  "id": "5d23426ab8b1eea163304202653796fa801081e739d506615ddac583019045f3",
+  "type": "notification",
+  "event": "payment.success",
+  "created_at": "2019-11-16T05:41:05Z",
+  "object": {
+    "id": "726d9e07-1dc8-4159-8d52-f95941066bc8",
+    "transaction": "2978077",
+    "object": "order",
+    "status": "created",
+    "description": "A summary for the purchase",
+    "receipt_email": "user.email@example.com",
+    "amount": 595,
+    "currency": "RUB",
+    "user": {
+      "id": "5dcf8b24b5a6990001bac2b6",
+      "object": "user",
+      "email": "user.email@example.com",
+      "locale": "ru-RU",
+      ...
+    },
+    "tax": {
+      "type": "vat",
+      "rate": 0.19,
+      "amount": 95,
+      "currency": "RUB"
+    },
+    "method": {
+      "title": "Bank card",
+      "external_id": "BANKCARD",
+      "payment_system_id": "5be2d0b4b0b30d0007383ce5",
+      "card": {
+        "first6": "400000",
+        "last4": "0002",
+        "masked": "400000...0002",
+        "expiry_month": "11",
+        "expiry_year": "2023",
+        "brand": "VISA",
+        "fingerprint": "$2a$04$9VRouYlBC.qMYQrLpmlXOeGbL2WFZDGGq/KdTeeHSfWkosgJgrWw2",
+        "secure3d": true
       },
       ...
-   }
+    },
+    "type": "simple",
+    "platform_id": "",
+    "receipt_id": "efefc5d3-c2e2-4157-8789-4bfb7c1eec34",
+    ...
+  }
 }
 {{< /highlight >}}
 

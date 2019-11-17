@@ -48,105 +48,120 @@ For instance, this is the base object representing the webhook event `payment.su
 
 {{< highlight json >}}
 {
-   "id": "b303ec344deca48af01f3412d51af2198207f5bfff549bbdfffac46d971fc725",
-   "type": "notification",
-   "event": "payment.success",
-   "live": true,
-   "created_at": "2019-10-31T16:01:41Z",
-   "expires_at": "",
-   "delivery_try": 0,
-   "object": {
-      "id": "f29ab03a-c5f0-40db-a798-9deba14a9099",
-      "transaction": "302212411",
-      "object": "order",
-      "status": "created",
-      "description": "Payment by order # 5dbb050f662d2d0001704b03",
-      "created_at": {
-         "seconds": 1572537615,
-         "nanos": 242000000
+  "id": "5d23426ab8b1eea163304202653796fa801081e739d506615ddac583019045f3",
+  "type": "notification",
+  "event": "payment.success",
+  "live": false,
+  "created_at": "2019-11-16T05:41:05Z",
+  "expires_at": "",
+  "delivery_try": 0,
+  "object": {
+    "id": "726d9e07-1dc8-4159-8d52-f95941066bc8",
+    "transaction": "2978077",
+    "object": "order",
+    "status": "created",
+    "description": "A summary for the purchase",
+    "created_at": {
+      "seconds": 1573882679,
+      "nanos": 69000000
+    },
+    "canceled_at": {
+      "seconds": -62135596800
+    },
+    "canceled": false,
+    "cancellation": null,
+    "refunded": false,
+    "refunded_at": {
+      "seconds": -62135596800
+    },
+    "receipt_email": "user.email@example.com",
+    "receipt_phone": "",
+    "receipt_number": "",
+    "receipt_url": "https://dashboard.pay.super.com/receipt/purchase/efefc5d3-c2e2-4157-8789-4bfb7c1eec34/726d9e07-1dc8-4159-8d52-f95941066bc8",
+    "agreement_version": "",
+    "agreement_accepted": false,
+    "notify_sale": false,
+    "notify_sale_email": "",
+    "issuer": {
+      "url": "https://domain.com",
+      "embedded": false,
+      "reference": "",
+      "reference_type": "",
+      "utm_source": "",
+      "utm_medium": "",
+      "utm_campaign": "",
+      "referrer_host": "domain.com"
+    },
+    "amount": 595,
+    "currency": "RUB",
+    "user": {
+      "id": "5dcf8b24b5a6990001bac2b6",
+      "object": "user",
+      "external_id": "0000000000001",
+      "name": "User Name",
+      "email": "user.email@example.com",
+      "email_verified": true,
+      "phone": "0639597531",
+      "phone_verified": true,
+      "ip": "79.137.163.2",
+      "locale": "ru-RU",
+      "address": {
+        "country": "RU",
+        "city": "Moscow",
+        "postal_code": "127221",
+        "state": "MOW"
       },
-      "canceled_at": {
-         "seconds": -62135596800
+      "metadata": {
+        "user.param1": "user.val1",
+        "user.param2": "user.val2",
+        "user.param3": "user.val3"
       },
-      "canceled": false,
-      "cancellation_reason": "",
-      "refunded": false,
-      "refunded_at": {
-         "seconds": -62135596800
+      "notify_new_region": false,
+      "notify_new_region_email": ""
+    },
+    "billing_address": {
+      "country": "DE"
+    },
+    "tax": {
+      "type": "vat",
+      "rate": 0.19,
+      "amount": 95,
+      "currency": "RUB"
+    },
+    "method": {
+      "title": "Bank card",
+      "external_id": "BANKCARD",
+      "payment_system_id": "5be2d0b4b0b30d0007383ce5",
+      "saved": false,
+      "card": {
+        "first6": "400000",
+        "last4": "0002",
+        "masked": "400000...0002",
+        "expiry_month": "11",
+        "expiry_year": "2023",
+        "brand": "VISA",
+        "fingerprint": "$2a$04$9VRouYlBC.qMYQrLpmlXOeGbL2WFZDGGq/KdTeeHSfWkosgJgrWw2",
+        "secure3d": true
       },
-      "receipt_email": "user.email@example.com",
-      "receipt_phone": "",
-      "receipt_number": "",
-      "receipt_url": "",
-      "agreement_version": "",
-      "agreement_accepted": false,
-      "notify_sale": false,
-      "notify_sale_email": "",
-      "issuer": {
-         "url": "",
-         "embedded": false
-      },
-      "amount": 0.12,
-      "currency": "USD",
-      "user": {
-         "id": "U3oFCwIOwRnQzfKZn58fnkzx3xnPGYdP",
-         "object": "user",
-         "external_id": "",
-         "name": "",
-         "email": "user.email@example.com",
-         "email_verified": false,
-         "phone": "",
-         "phone_verified": false,
-         "ip": "80.91.180.90",
-         "locale": "ru",
-         "address": {
-            "country": "UA",
-            "city": "Dublin",
-            "postal_code": "D02",
-            "state": "L"
-         },
-         "metadata": null,
-         "notify_new_region": false,
-         "notify_new_region_email": ""
-      },
-      "billing_address": {
-         "country": "AO"
-      },
-      "tax": {
-         "type": "vat",
-         "currency": "USD"
-      },
-      "method": {
-         "title": "VISA/MasterCard",
-         "external_id": "BANKCARD",
-         "params": {
-            "currency": "USD",
-            "terminal_id": "52195",
-            "secret": "167CjmMJY2fl",
-            "secret_callback": "wBR54pLIfo19"
-         },
-         "payment_system_id": "5be2d0b4b0b30d0007383ce5",
-         "saved": false,
-         "card": {
-            "first6": "414943",
-            "last4": "2348",
-            "masked": "414943...2348",
-            "expiry_month": "10",
-            "expiry_year": "2021",
-            "brand": "VISA",
-            "fingerprint": "$2a$04$O5T96ZeHx27HbLw0eXNUjO1sj4y0nnPKLsXy5Kw49iLC/EXCFfUzq",
-            "secure3d": true
-         },
-         "wallet": null,
-         "crypto_currency": null
-      },
-      "items": null,
-      "refund": null,
-      "metadata": null,
-      "country": "AO",
-      "type": "simple",
-      "platform_id": ""
-   }
+      "wallet": null,
+      "crypto_currency": null,
+      "refund_allowed": true
+    },
+    "items": null,
+    "refund": null,
+    "metadata": {
+      "param1": "val1",
+      "param2": "val2",
+      "param3": "val3"
+    },
+    "original_amount": 500,
+    "country": "DE",
+    "type": "simple",
+    "platform_id": "",
+    "receipt_id": "efefc5d3-c2e2-4157-8789-4bfb7c1eec34",
+    "virtual_currency_amount": 0,
+    "is_buy_for_virtual_currency": false
+  }
 }
 {{< /highlight >}}
 
