@@ -16,7 +16,9 @@ if: branch in (master, develop)
 #cache: bundler
 
 before_install:
- - sudo snap install hugo --channel=extended
+ #- sudo snap install hugo --channel=extended
+  - sudo apt-get update
+  - sudo apt-get -y install hugo
 
 jobs:
   include: 
