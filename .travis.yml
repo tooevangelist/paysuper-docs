@@ -2,7 +2,7 @@ os:
 - linux
 language: go
 go:
-- 1.11.x
+- 1.12.x
 
 env:
   global:
@@ -27,6 +27,7 @@ jobs:
       - echo "docs.stg.pay.super.com" > ./public/CNAME
       - mkdir $TRAVIS_BUILD_DIR/public/api
       - cd $TRAVIS_BUILD_DIR/api-reference 
+      - hugo env
       - hugo mod vendor 
       - hugo --environment staging && cp -r $TRAVIS_BUILD_DIR/api-reference/public/* $TRAVIS_BUILD_DIR/public/api/
       deploy:
