@@ -21,6 +21,8 @@ jobs:
       script:
       - hugo --environment staging
       - echo "docs.stg.pay.super.com" > ./public/CNAME
+      - mkdir $TRAVIS_BUILD_DIR/public/api
+      - cd $TRAVIS_BUILD_DIR/api-reference && hugo --environment staging && cp -r $TRAVIS_BUILD_DIR/api-reference/public/* $TRAVIS_BUILD_DIR/public/api/
       deploy:
         - provider: pages
           skip-cleanup: true
