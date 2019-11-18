@@ -16,9 +16,9 @@ if: branch in (master, develop)
 #cache: bundler
 
 before_install:
- #- sudo snap install hugo --channel=extended
-  - sudo apt-get update
-  - sudo apt-get -y install hugo
+  - sudo snap install hugo --channel=extended
+#  - sudo apt-get update
+#  - sudo apt-get -y install hugo
 
 jobs:
   include: 
@@ -27,11 +27,11 @@ jobs:
       script:
       - hugo --environment staging
       - echo "docs.stg.pay.super.com" > ./public/CNAME
-      - mkdir $TRAVIS_BUILD_DIR/public/api
-      - cd $TRAVIS_BUILD_DIR/api-reference 
-      - hugo env
-      - hugo mod vendor 
-      - hugo --environment staging && cp -r $TRAVIS_BUILD_DIR/api-reference/public/* $TRAVIS_BUILD_DIR/public/api/
+#      - mkdir $TRAVIS_BUILD_DIR/public/api
+#      - cd $TRAVIS_BUILD_DIR/api-reference 
+#      - hugo env
+#      - hugo mod vendor 
+#      - hugo --environment staging && cp -r $TRAVIS_BUILD_DIR/api-reference/public/* $TRAVIS_BUILD_DIR/public/api/
       deploy:
         - provider: pages
           skip-cleanup: true
