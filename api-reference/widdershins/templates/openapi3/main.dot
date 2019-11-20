@@ -1,7 +1,5 @@
 # {{=data.api.info.title}} {{=data.version}}
 
-> Scroll down for {{? data.header.language_tabs.length}}code samples, {{?}}example requests and responses.{{? data.header.language_tabs.length}} Select a language for code samples from the tabs above or the mobile navigation menu.{{?}}
-
 {{? data.api.info.description}}{{=data.api.info.description}}{{?}}
 
 {{? data.api.servers }}
