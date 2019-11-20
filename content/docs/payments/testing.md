@@ -17,7 +17,7 @@ When using PaySuper JS SDK ensure that:
 
 If you're using the PaySuper API in your server-side code then ensure that:
 
-* All [API errors](/docs/api/#section/Errors) are handled accurately.
+* All [API errors](/api/#errors) are handled accurately.
 * [Webhooks](/api/#webhooks) contains properly URL configured in the Functional URL section on the Project webhooks page.
 
 ## Test card numbers 

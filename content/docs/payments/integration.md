@@ -14,7 +14,7 @@ You can use PaySuper JS SDK for the [client-side payment initialization](/docs/p
 
 ## **Step 1.** Create a Checkout order on your server
 
-Send the [POST /api/v1/order](/docs/api/#tag/Payment-Order) to receive an Order ID. Learn more about the [full list of parameters](/docs/api/#tag/Payment-Order/paths/~1api~1v1~1order/post) that can be used for instance the redirect URLs for successful and failed payments.
+Send the [POST /api/v1/order](/api/#create-order-with-json-request) to receive an Order ID. Learn more about the [full list of parameters](/api/#create-order-with-json-request) that can be used for instance the redirect URLs for successful and failed payments.
 
 ### **Simple Checkout**
 

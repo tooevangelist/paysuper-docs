@@ -108,7 +108,7 @@ For instance, this is the base object representing the webhook event `payment.su
 
 PaySuper automatically sends email receipts to your customers whenever they make a successful payment or refunded purchase. 
 
-It's required for user to fill in an email field on the Checkout form. Besides, you can pass a customer's email address when making the [API Tokens](/docs/api/#tag/Token) or [API Order](/docs/api/#tag/Payment-Order) requests for payment initiation.
+It's required for user to fill in an email field on the Checkout form. Besides, you can pass a customer's email address when making the [API Tokens](/api/#create-token) or [API Order](/api/#create-order-with-json-request) requests for payment initiation.
 
 **Key-product receipts**
 
