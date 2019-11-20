@@ -50,7 +50,11 @@ jobs:
     - if: branch = master
       install: true
       script:
+      - cd $TRAVIS_BUILD_DIR
       - hugo --environment production
+      - mkdir $TRAVIS_BUILD_DIR/public/api
+      - cd $TRAVIS_BUILD_DIR/api-reference 
+      - hugo --environment production && cp -r $TRAVIS_BUILD_DIR/api-reference/public/* ../public/api/
       - echo "docs.pay.super.com" > ./public/CNAME
       deploy:
         - provider: pages
@@ -64,7 +68,6 @@ jobs:
           local-dir: "./public"
           on:
             branch: master
-
 
 notifications:
   slack:
