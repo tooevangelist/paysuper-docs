@@ -1,6 +1,6 @@
 theme = "docuapi"
 languageCode = "en-us"
-baseurl = "https://docs.pay.super.com/api"
+baseURL = 'https://docs.stg.pay.super.com/api'
 title = "PaySuper API Reference"
 
 disableKinds = ["taxonomyTerm"]

@@ -1,7 +1,7 @@
 theme = "docuapi"
 languageCode = "en-us"
-baseurl = "https://docuapi.netlify.com/"
-title = "DocuAPI Example Site"
+baseurl = "https://docs.pay.super.com/api"
+title = "PaySuper API Reference"
 
 disableKinds = ["taxonomyTerm"]
 
