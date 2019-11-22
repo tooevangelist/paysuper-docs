@@ -9,7 +9,7 @@ disableKinds = ["taxonomyTerm"]
 pygmentsCodefences = true
 pygmentsCodeFencesGuesSsyntax = false
 pygmentsOptions = ""
-pygmentsStyle = "native"
+pygmentsStyle = "friendly"
 pygmentsUseClasses = false
 
 defaultContentLanguage = "en"
