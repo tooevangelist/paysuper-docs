@@ -65,5 +65,25 @@ input[placeholder="Search"] {
 }
 
 .page-wrapper .dark-box {
-    background-color: #2a3138;
+    background-color: #f4f6f9 !important;
+}
+
+.page-wrapper .lang-selector {
+    border-bottom: 5px solid #f4f6f9 !important;
+    background-color: #f4f6f9 !important;
+}
+
+.lang-selector a.active {
+    background-color: #f4f6f9 !important;
+    color: #333 !important;
+    border-bottom: 3px solid #2E00A8 !important;
+}
+
+.content pre {
+    color:#333 !important;
+}
+
+.content blockquote > p {
+    background-color: #f4f6f9 !important;
+    color:#333 !important;
 }
