@@ -64,7 +64,7 @@ curl -X POST -H 'X-API-SIGNATURE: YOUR_SECRET_KEY' -d '{
       "verified": true
    }
  }
-}' 'https://p1payapi.tst.protocol.one/api/v1/tokens'
+}' 'https://api.pay.super.com/api/v1/tokens'
 {{< /highlight >}}
 {{< /tab >}}
 
@@ -160,7 +160,7 @@ Or try it with cURL to interact with the API over HTTP from your console:
 {{< highlight bash >}}
 curl -X POST -H 'Content-Type: application/json' -d '{
     "token": "YOUR_TOKEN"
-}' 'https://p1payapi.tst.protocol.one/api/v1/order'
+}' 'https://api.pay.super.com/api/v1/order'
 {{< /highlight >}}
 {{< /tab >}}
 
