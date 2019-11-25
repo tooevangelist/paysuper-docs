@@ -122,22 +122,21 @@ All top-level PaySuper API resources have support for bulk fetches "list" API me
 Like Stripe, PaySuper uses cursor-based pagination using the parameter `starting_after`. Pass `starting_after` parameter 
 at the previous page last object id value to determine where to start in the list.
 
-### Attributes
+|PARAMETER|TYPE|DESCRIPTION|
+|---|---|---|
+|`limit`|integer|A limit on the number of objects to be returned. Must be included between 1 and 100.|
+|`starting_after`|string|A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.|
+|`ending_before`|string|A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.|
 
-Attribute | Type | Description
---------- | ----------- | -----------
-**limit** | **integer, optional** |A limit on the number of objects to be returned. Must be included between 1 and 100
-**starting_after** | **string, optional** |A cursor for use in pagination. `starting_after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with `obj_foo`, your subsequent call can include `starting_after=obj_foo` in order to fetch the next page of the list.
-**ending_before** | **string, optional** |A cursor for use in pagination. `ending_before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with `obj_bar`, your subsequent call can include `ending_before=obj_bar` in order to fetch the previous page of the list.
+### Response
 
-### List response format
-Attribute | Type | Description
---------- | ----------- | -----------
-**object** | **string**| Value is "list"
-**data** | **array** | An array containing the actual response elements, paginated by any request parameters.
-**has_more** | **boolean** |Whether or not there are more elements available after this page. If `false`, this page is the end of the list.
-**has_before** | **boolean** |Whether or not there are more elements available before this page. If `false`, this page is the beginning of the list.
-**total_count** | **boolean** |The total count of all recipients that match your filters, as if there was no pagination.
+|PARAMETER|TYPE|DESCRIPTION|
+|---|---|---|
+|`object`|string|The string representing the object’s type. Value: `list`.|
+|`data`|array|An array containing the actual response elements, paginated by any request parameters.|
+|`has_more`|boolean|Whether or not there are more elements available after this page. If `false`, this page is the end of the list.|
+|`has_before`|boolean|Whether or not there are more elements available before this page. If `false`, this page is the beginning of the list.|
+|`total_count`|boolean|The total count of all recipients that match your filters, as if there was no pagination.|
 
 # Webhooks
 
@@ -276,29 +275,29 @@ In most cases, webhooks are triggered by user actions on your website or by back
 
 **2.** [Verify the webhook request](#verifying-a-webhook).
 
-**3.** Respond with HTTP code 200 without a message body to acknowledge the receipt a webhook. 
+**3.** Respond with HTTP code 200 without a message body to acknowledge the receipt a webhook.
 
 ### Webhook event types
 
-Type|Payload|Description
----|---|---
-`payment.success`|Order|Sent when a customer successfully completes a payment.
-`payment.chargeback`|Order|Sent when a payment must be cancelled for a chargeback.
-`payment.refund`|Order|Sent when a payment must be cancelled for refund for any reasons.
-`payment.cancel`|Order|Sent when a payment must be cancelled for cancel for any reasons.
+|TYPE|PAYLOAD|DESCRIPTION|
+|---|---|---|
+|`payment.success`|Order|Sent when a customer successfully completes a payment.|
+|`payment.chargeback`|Order|Sent when a payment must be cancelled for a chargeback.|
+|`payment.refund`|Order|Sent when a payment must be cancelled for refund for any reasons.|
+|`payment.cancel`|Order|Sent when a payment must be cancelled for cancel for any reasons.|
 
 ### The Webhook object
 
-Attribute|Type|Description
----|---|---
-`id`|string| The unique identifier for the object.
-`type`|string| The string representing the webhook's type.
-`event`|string| The string representing the event's type.
-`live`|boolean| Equals to `true` if notification originated from a live environment.
-`created_at`|DateTime|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) when the event has been created.
-`expires_at`|DateTime|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) when the event stops trying to deliver.
-`delivery_try`|integer|The current delivery try for the event.
-`object`|object| The object representing the payload of the event with a given type. Objects of the same type share the same value.
+|PARAMETER|TYPE|DESCRIPTION|
+|---|---|---|
+|`id`|string| The unique identifier for the object.|
+|`type`|string| The string representing the webhook's type. Value: `notification`.|
+|`event`|string| The string representing the event's type.|
+|`live`|boolean| Has a value `true` if notification originated from a live environment.|
+|`created_at`|DateTime|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) when the event has been created.|
+|`expires_at`|DateTime|The date and time in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) when the event stops trying to deliver.|
+|`delivery_try`|integer|The current delivery try for the event.|
+|`object`|object| The object representing the payload of the event with a given type. Objects of the same type share the same value.|
 
 ## Verifying a webhook
 

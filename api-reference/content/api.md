@@ -300,7 +300,7 @@ Create a payment order with details about your customer and sales option data.
 |`· platform_id` | string |The default platform identifier for which customer buys the in-game key. This field used only for a payment type 'key'. <br>**Enum values:** <br>steam<br>gog<br>uplay<br>origin<br>psn<br>xbox<br>nintendo<br>itch<br>egs |
 |`· token` | string |An encrypted string that represents certain details of your customer (such as the user ID, email and others), a game and purchase parameters.  The token encrypted parameters override the corresponding parameters in an order object even the required parameters.  |
 |`· user` ||   |
-|`·· external_id` | string |The user unique identifier on the merchant side.  |
+|`·· external_id` | string |The user unique identifier in the merchant project.  |
 |`·· name` | string |The user's name.  |
 |`·· email` | string |The user's email address.  |
 |`·· email_verified` | boolean |Whether the user's email address has been verified on the merchant side.  |
@@ -328,7 +328,7 @@ Create a payment order with details about your customer and sales option data.
 }
 ```
 
-### 200 An object with the identifier of the order and a PaySuper-hosted URL of a payment form.
+### 200 An object with the unique identifier of the order and a PaySuper-hosted URL of a payment form.
 
 ||||
 |---|---|---|
@@ -342,14 +342,14 @@ Create a payment order with details about your customer and sales option data.
 |`· message` |string|A description of the error.  |
 |`· code` |string|A status code of the error.  |
 
-### 401 An error message object with unauthorized reason.
+### 401 An error message object with an unauthorized reason.
 
 ||||
 |---|---|---|
 |`· message` |string|A description of the error.  |
 |`· code` |string|A status code of the error.  |
 
-### 500 An error message object with a reason from PaySuper server.
+### 500 An error message object with a reason on the PaySuper server side.
 
 ||||
 |---|---|---|
@@ -428,7 +428,7 @@ Create a token that encrypts certain details of your customer, a game and purcha
 |---|---|---|
 |`body`  <br><p style="color: red;">required</p> ||Data to process a payment.  |
 |`· user`  <br><p style="color: red;">required</p> ||   |
-|`·· id`  <br><p style="color: red;">required</p> | string |The user unique identifier on the merchant side.  |
+|`·· id`  <br><p style="color: red;">required</p> | string |The user unique identifier in the merchant project.  |
 |`·· email` ||   |
 |`··· value`  <br><p style="color: red;">required</p> | string |The parameter value.  |
 |`··· verified` | boolean |Whether the value has been verified on the merchant side.  |
@@ -468,28 +468,21 @@ Create a token that encrypts certain details of your customer, a game and purcha
 }
 ```
 
-### 200 The Token is successfully generated.
+### 200 An object with a token string and a PaySuper-hosted URL of a payment form.
 
 ||||
 |---|---|---|
 |`· token`  <br><p style="color: red;">required</p> |string|A secure string which contains encrypted information about your customer and sales option data.  |
 |`· payment_form_url` |string|The PaySuper-hosted URL of payment form.  |
 
-### 400 Invalid request data
+### 400 An error message object with a reason.
 
 ||||
 |---|---|---|
 |`· message` |string|A description of the error.  |
 |`· code` |string|A status code of the error.  |
 
-### 404 Object not found
-
-||||
-|---|---|---|
-|`· message` |string|A description of the error.  |
-|`· code` |string|A status code of the error.  |
-
-### 500 Some unknown error on server side
+### 500 An error message object with a reason on the PaySuper server side.
 
 ||||
 |---|---|---|

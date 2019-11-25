@@ -253,7 +253,7 @@ paths:
         required: true
       responses:
         200:
-          description: An object with the identifier of the order and a PaySuper-hosted URL of a payment form.
+          description: An object with the unique identifier of the order and a PaySuper-hosted URL of a payment form.
           content:
             application/json:
               schema:
@@ -265,13 +265,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorMessage'
         401:
-          description: An error message object with unauthorized reason.
+          description: An error message object with an unauthorized reason.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorMessage'
         500:
-          description: An error message object with a reason from PaySuper server.
+          description: An error message object with a reason on the PaySuper server side.
           content:
             application/json:
               schema:
@@ -292,25 +292,19 @@ paths:
         required: true
       responses:
         200:
-          description: The Token is successfully generated.
+          description: An object with a token string and a PaySuper-hosted URL of a payment form.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Token.TokenResponse'
         400:
-          description: Invalid request data
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorMessage'
-        404:
-          description: Object not found
+          description: An error message object with a reason.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorMessage'
         500:
-          description: Some unknown error on server side
+          description: An error message object with a reason on the PaySuper server side.
           content:
             application/json:
               schema:
@@ -829,7 +823,7 @@ components:
       properties:
         external_id:
           type: string
-          description: The user unique identifier on the merchant side.
+          description: The user unique identifier in the merchant project.
         name:
           type: string
           description: The user's name.
@@ -1964,7 +1958,7 @@ components:
       properties:
         id:
           type: string
-          description: The user unique identifier on the merchant side.
+          description: The user unique identifier in the merchant project.
         email:
           $ref: '#/components/schemas/Token.ValueVerified'
         phone:
