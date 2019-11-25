@@ -309,15 +309,7 @@ The PaySuper API uses a Secret key to check the notification request.
 Your Secret keys carry many privileges, so be sure to keep them secure! Do not share your Secret API keys in any publicly accessible areas such as GitHub, client-side code, and so forth.
 </aside>
 
-**To check a digital signature:**
-
-**1.** Concatenate the request's JSON body with your Project's Secret key found on the Project webhooks page.
-
-**2.** Apply SHA-256 hashing to the resulting string. 
-
-**3.** Compare the digital signature with [Authorization](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) HTTP Header value in the received notification:
-
-> All API requests must be made over HTTPS. Calls made over a plain HTTP will fail. API requests without the authentication will also fail.
+> All API requests must be made over HTTPS. Calls made over a plain HTTP will fail.
 
 ```http
 POST /your_endpoint HTTP/1.1
@@ -326,3 +318,11 @@ Accept: application/json
 Content-Type: application/json
 Authorization: Signature sh9b1r69bjqie88n5uizqcrerhee50dypsp195mh
 ```
+
+**To check a digital signature:**
+
+**1.** Concatenate the request's JSON body with your Project's Secret key found on the Project webhooks page.
+
+**2.** Apply SHA-256 hashing to the resulting string. 
+
+**3.** Compare the digital signature with [Authorization](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) HTTP Header value in the received notification.
