@@ -664,7 +664,7 @@ html, body {
     border-bottom: 5px solid #2E3336; }
 
 .lang-selector {
-  background-color: #1E2224;
+  background-color: #f4f6f9;
   width: 100%;
   font-weight: bold; }
   .lang-selector a {
