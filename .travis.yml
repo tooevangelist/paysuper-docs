@@ -20,9 +20,10 @@ if: branch in (master, develop)
 
 before_install:
 #  - sudo snap install hugo --channel=extended
-  - git clone https://github.com/gohugoio/hugo.git
+  - git clone -b v0.59.1 https://github.com/gohugoio/hugo.git
   - cd hugo
   - go install --tags extended
+  - hugo env
 
 jobs:
   include: 
