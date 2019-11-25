@@ -225,8 +225,8 @@ You can create a payment order with details about your customer and sales option
 |`metadata`|object|A set of key-value pairs of description that you can attach to the order object. It can be useful for storing additional information about your customer payment..|
 |`original_amount`|float||
 |`country`|string||
-|`type`|string|The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the `key` type, as Virtual Items - the `product` type, for a simple checkout - the `simple` type. Enum values: key, products, simple.|
-|`platform_id`|string|The default platform identifier for which customer buys the in-game key. This field used only for a payment type `key`. Enum values: steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.|
+|`type`|string|The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the `key` type, as Virtual Items - the `product` type, for a simple checkout - the `simple` type. **Enum values:** key, products, simple.|
+|`platform_id`|string|The default platform identifier for which customer buys the in-game key. This field used only for a payment type `key`. **Enum values:** steam, gog, uplay, origin, psn, xbox, nintendo, itch, egs.|
 |`receipt_id`|string|The receipt unique identifier .|
 |`virtual_currency_amount`|float|The virtual currancy amount for the order.|
 |`is_buy_for_virtual_currency`|boolean|Has a value `true` if the order createc for a virtual currency.|
@@ -286,34 +286,34 @@ Create a payment order with details about your customer and sales option data.
 
 |PARAMETER|TYPE|DESCRIPTION|
 |---|---|---|
-|**body**  <br><p style="color: red;">required</p> ||Order create data  |
-|**- account** | string |The user unique account in the Project.  |
-|**- amount** | number |The order amount as a positive number. It is required for a simple checkout payment.  |
-|**- currency** | string |The currency of the order. Three-letter Currency Code ISO 4217, in uppercase.  If provided, the amount will be processed in this currency.  It is required for a simple checkout payment.  |
-|**- description** | string |The arbitrary order description.  |
-|**- order_id** | string |The unique order identifier on the merchant side. This field is not required, but we recommend sending this field always.  |
-|**- project**  <br><p style="color: red;">required</p> | string |The ID of the Project found in your merchant account in the PaySuper Dashboard.  |
-|**- url_fail** | string |The redirect URL for the failed payment.  Enable the dynamic notify URLs option in the Project Settings to use this field.  |
-|**- url_success** | string |The redirect URL for the successful payment.  Enable the dynamic notify URLs option in the Project Settings to use this field.  |
-|**- type**  <br><p style="color: red;">required</p> | string |The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the `key` type,  as Virtual Items - the `product` type, for a simple checkout - the `simple` type. <br>**Enum values:** <br>key<br>product<br>simple |
-|**- products** | [string] |The list of unique identifiers of Products being in the Project. It is required if a payment type is equal to 'product' or 'key'.  |
-|**- platform_id** | string |The default platform identifier for which customer buys the in-game key. This field used only for a payment type 'key'. <br>**Enum values:** <br>steam<br>gog<br>uplay<br>origin<br>psn<br>xbox<br>nintendo<br>itch<br>egs |
-|**- token** | string |An encrypted string that represents certain details of your customer (such as the user ID, email and others), a game and purchase parameters.  The token encrypted parameters override the corresponding parameters in an order object even the required parameters.  |
-|**- user** ||   |
-|**-- external_id** | string |The user unique identifier on the merchant side.  |
-|**-- name** | string |The user's name.  |
-|**-- email** | string |The user's email address.  |
-|**-- email_verified** | boolean |Whether the user's email address has been verified on the merchant side.  |
-|**-- phone** | string |The user's phone number.  |
-|**-- phone_verified** | boolean |Whether the user’s phone number has been verified on the merchant side.  |
-|**-- ip** | string |The user's IP address.  |
-|**-- locale** | string |The user's locale name. Two-letter language code by ISO 639-1, in lowercase.  |
-|**-- address** ||   |
-|**--- country** | string |The user's country. Two-letter language code by ISO 3166-1, in lowercase.  |
-|**--- city** | string |The user's city.  |
-|**--- postal_code** | string |The user's postal code.  |
-|**--- state** | string |The user's state code by ISO 3166-2.  |
-|**-- metadata** | object |A string-value description that you can attach to the user object.  It can be useful for storing additional information about your customer payment.  |
+|`body`  <br><p style="color: red;">required</p> ||Parameters to create a payment order.  |
+|`· account` | string |The user unique account in the Project.  |
+|`· amount` | number |The order amount as a positive number. It is required for a simple checkout payment.  |
+|`· currency` | string |The currency of the order. Three-letter Currency Code ISO 4217, in uppercase.  If provided, the amount will be processed in this currency.  It is required for a simple checkout payment.  |
+|`· description` | string |The arbitrary order description.  |
+|`· order_id` | string |The unique order identifier on the merchant side. This field is not required, but we recommend sending this field always.  |
+|`· project`  <br><p style="color: red;">required</p> | string |The ID of the Project found in your merchant account in the PaySuper Dashboard.  |
+|`· url_fail` | string |The redirect URL for the failed payment.  Enable the dynamic notify URLs option in the Project Settings to use this field.  |
+|`· url_success` | string |The redirect URL for the successful payment.  Enable the dynamic notify URLs option in the Project Settings to use this field.  |
+|`· type`  <br><p style="color: red;">required</p> | string |The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the `key` type,  as Virtual Items - the `product` type, for a simple checkout - the `simple` type. <br>**Enum values:** <br>key<br>product<br>simple |
+|`· products` | [string] |The list of unique identifiers of Products being in the Project. It is required if a payment type is equal to 'product' or 'key'.  |
+|`· platform_id` | string |The default platform identifier for which customer buys the in-game key. This field used only for a payment type 'key'. <br>**Enum values:** <br>steam<br>gog<br>uplay<br>origin<br>psn<br>xbox<br>nintendo<br>itch<br>egs |
+|`· token` | string |An encrypted string that represents certain details of your customer (such as the user ID, email and others), a game and purchase parameters.  The token encrypted parameters override the corresponding parameters in an order object even the required parameters.  |
+|`· user` ||   |
+|`·· external_id` | string |The user unique identifier on the merchant side.  |
+|`·· name` | string |The user's name.  |
+|`·· email` | string |The user's email address.  |
+|`·· email_verified` | boolean |Whether the user's email address has been verified on the merchant side.  |
+|`·· phone` | string |The user's phone number.  |
+|`·· phone_verified` | boolean |Whether the user’s phone number has been verified on the merchant side.  |
+|`·· ip` | string |The user's IP address.  |
+|`·· locale` | string |The user's locale name. Two-letter language code by ISO 639-1, in lowercase.  |
+|`·· address` ||   |
+|`··· country` | string |The user's country. Two-letter language code by ISO 3166-1, in lowercase.  |
+|`··· city` | string |The user's city.  |
+|`··· postal_code` | string |The user's postal code.  |
+|`··· state` | string |The user's state code by ISO 3166-2.  |
+|`·· metadata` | object |A string-value description that you can attach to the user object.  It can be useful for storing additional information about your customer payment.  |
 
 ### Responses
 
@@ -328,26 +328,33 @@ Create a payment order with details about your customer and sales option data.
 }
 ```
 
-### 200 Object which contain data to render payment form
+### 200 An object with the identifier of the order and a PaySuper-hosted URL of a payment form.
 
 ||||
 |---|---|---|
-|- id |string|The unique identifier for the order.  |
-|- payment_form_url |string|The PaySuper-hosted URL of payment form.  |
+|`· id` |string|The unique identifier for the order.  |
+|`· payment_form_url` |string|The PaySuper-hosted URL of payment form.  |
 
-### 400 Object with error message
-
-||||
-|---|---|---|
-|- message |string|A description of the error.  |
-|- code |string|A status code of the error.  |
-
-### 500 Object with error message
+### 400 An error message object with a reason.
 
 ||||
 |---|---|---|
-|- message |string|A description of the error.  |
-|- code |string|A status code of the error.  |
+|`· message` |string|A description of the error.  |
+|`· code` |string|A status code of the error.  |
+
+### 401 An error message object with unauthorized reason.
+
+||||
+|---|---|---|
+|`· message` |string|A description of the error.  |
+|`· code` |string|A status code of the error.  |
+
+### 500 An error message object with a reason from PaySuper server.
+
+||||
+|---|---|---|
+|`· message` |string|A description of the error.  |
+|`· code` |string|A status code of the error.  |
 
 # Token
 
@@ -419,34 +426,34 @@ Create a token that encrypts certain details of your customer, a game and purcha
 
 |PARAMETER|TYPE|DESCRIPTION|
 |---|---|---|
-|**body**  <br><p style="color: red;">required</p> ||Data to process a payment.  |
-|**- user**  <br><p style="color: red;">required</p> ||   |
-|**-- id**  <br><p style="color: red;">required</p> | string |The user unique identifier on the merchant side.  |
-|**-- email** ||   |
-|**--- value**  <br><p style="color: red;">required</p> | string |The parameter value.  |
-|**--- verified** | boolean |Whether the value has been verified on the merchant side.  |
-|**-- phone** ||   |
-|**-- name** ||   |
-|**--- value**  <br><p style="color: red;">required</p> | string |The parameter value.  |
-|**-- ip** ||   |
-|**-- locale** ||   |
-|**-- address** ||   |
-|**--- country** | string |The user's country. Two-letter language code by ISO 3166-1, in lowercase.  |
-|**--- city** | string |The user's city.  |
-|**--- postal_code** | string |The user's postal code.  |
-|**--- state** | string |The user's state code by ISO 3166-2.  |
-|**-- metadata** | object |A string value description that you can attach to the user object.  It can be useful for storing additional information about your customer payment.  |
-|**- settings**  <br><p style="color: red;">required</p> ||   |
-|**-- project_id**  <br><p style="color: red;">required</p> | string |The ID of the Project found in your merchant account in the PaySuper Dashboard.  |
-|**-- return_url** ||   |
-|**--- success** | string |The redirect URL for the successful payment.  |
-|**--- fail** | string |The redirect URL for the failed payment.  |
-|**-- currency** | string |The currency of the order. Three-letter Currency Code ISO 4217, in uppercase.  If provided, the amount will be processed in this currency.  It is required for a simple checkout payment.  |
-|**-- amount** | number |The order amount as a positive number. It is required for a simple checkout payment.  |
-|**-- products_ids** | [string] |The list of unique identifiers of Products being in the Project. It is required if a payment type is equal to 'product' or 'key'.  |
-|**-- description** | string |The arbitrary order description.  |
-|**-- type**  <br><p style="color: red;">required</p> | string |The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the 'key' type,  as Virtual Items - the 'product' type, for a simple checkout - the 'simple' type. <br>**Enum values:** <br>simple<br>product<br>key |
-|**-- metadata** | object |A string value description that you can attach to the user object.  It can be useful for storing additional information about your customer payment.  |
+|`body`  <br><p style="color: red;">required</p> ||Data to process a payment.  |
+|`· user`  <br><p style="color: red;">required</p> ||   |
+|`·· id`  <br><p style="color: red;">required</p> | string |The user unique identifier on the merchant side.  |
+|`·· email` ||   |
+|`··· value`  <br><p style="color: red;">required</p> | string |The parameter value.  |
+|`··· verified` | boolean |Whether the value has been verified on the merchant side.  |
+|`·· phone` ||   |
+|`·· name` ||   |
+|`··· value`  <br><p style="color: red;">required</p> | string |The parameter value.  |
+|`·· ip` ||   |
+|`·· locale` ||   |
+|`·· address` ||   |
+|`··· country` | string |The user's country. Two-letter language code by ISO 3166-1, in lowercase.  |
+|`··· city` | string |The user's city.  |
+|`··· postal_code` | string |The user's postal code.  |
+|`··· state` | string |The user's state code by ISO 3166-2.  |
+|`·· metadata` | object |A string value description that you can attach to the user object.  It can be useful for storing additional information about your customer payment.  |
+|`· settings`  <br><p style="color: red;">required</p> ||   |
+|`·· project_id`  <br><p style="color: red;">required</p> | string |The ID of the Project found in your merchant account in the PaySuper Dashboard.  |
+|`·· return_url` ||   |
+|`··· success` | string |The redirect URL for the successful payment.  |
+|`··· fail` | string |The redirect URL for the failed payment.  |
+|`·· currency` | string |The currency of the order. Three-letter Currency Code ISO 4217, in uppercase.  If provided, the amount will be processed in this currency.  It is required for a simple checkout payment.  |
+|`·· amount` | number |The order amount as a positive number. It is required for a simple checkout payment.  |
+|`·· products_ids` | [string] |The list of unique identifiers of Products being in the Project. It is required if a payment type is equal to 'product' or 'key'.  |
+|`·· description` | string |The arbitrary order description.  |
+|`·· type`  <br><p style="color: red;">required</p> | string |The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the 'key' type,  as Virtual Items - the 'product' type, for a simple checkout - the 'simple' type. <br>**Enum values:** <br>simple<br>product<br>key |
+|`·· metadata` | object |A string value description that you can attach to the user object.  It can be useful for storing additional information about your customer payment.  |
 
 ### Responses
 
@@ -465,27 +472,27 @@ Create a token that encrypts certain details of your customer, a game and purcha
 
 ||||
 |---|---|---|
-|- token  <br><p style="color: red;">required</p> |string|A secure string which contains encrypted information about your customer and sales option data.  |
-|- payment_form_url |string|The PaySuper-hosted URL of payment form.  |
+|`· token`  <br><p style="color: red;">required</p> |string|A secure string which contains encrypted information about your customer and sales option data.  |
+|`· payment_form_url` |string|The PaySuper-hosted URL of payment form.  |
 
 ### 400 Invalid request data
 
 ||||
 |---|---|---|
-|- message |string|A description of the error.  |
-|- code |string|A status code of the error.  |
+|`· message` |string|A description of the error.  |
+|`· code` |string|A status code of the error.  |
 
 ### 404 Object not found
 
 ||||
 |---|---|---|
-|- message |string|A description of the error.  |
-|- code |string|A status code of the error.  |
+|`· message` |string|A description of the error.  |
+|`· code` |string|A status code of the error.  |
 
 ### 500 Some unknown error on server side
 
 ||||
 |---|---|---|
-|- message |string|A description of the error.  |
-|- code |string|A status code of the error.  |
+|`· message` |string|A description of the error.  |
+|`· code` |string|A status code of the error.  |
 

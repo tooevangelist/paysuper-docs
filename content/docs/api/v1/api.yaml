@@ -245,7 +245,7 @@ paths:
       summary: Create a payment order
       description: Create a payment order with details about your customer and sales option data.
       requestBody:
-        description: Order create data
+        description: Parameters to create a payment order.
         content:
           application/json:
             schema:
@@ -253,19 +253,25 @@ paths:
         required: true
       responses:
         200:
-          description: Object which contain data to render payment form
+          description: An object with the identifier of the order and a PaySuper-hosted URL of a payment form.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreateOrderResponse'
         400:
-          description: Object with error message
+          description: An error message object with a reason.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        401:
+          description: An error message object with unauthorized reason.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorMessage'
         500:
-          description: Object with error message
+          description: An error message object with a reason from PaySuper server.
           content:
             application/json:
               schema:
