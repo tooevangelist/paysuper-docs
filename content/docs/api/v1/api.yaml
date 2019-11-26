@@ -192,7 +192,7 @@ tags:
       |`·· city`|string|The user’s city.|
       |`·· postal_code`|string|The user’s postal code.|
       |`·· state`|string|The user’s state code by ISO 3166-2.|
-      |`· metadata`|string|A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer payment.|
+      |`· metadata`|string|A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment.|
       |`· notify_new_region`|boolean||
       |`· notify_new_region_email`|string||
       |`billing_address`||Details about user's billing addres. Has a non-empty value if the user was asked to fill it on a payment form. For all countries has a `country` value and for the USA has `country`, `state` and `zip`.|
@@ -284,7 +284,7 @@ paths:
       description: Create a token that encrypts certain details of your customer,
         a game and purchase parameters.
       requestBody:
-        description: Data to process a payment.
+        description: Parameters to create a token.
         content:
           application/json:
             schema:
@@ -855,7 +855,7 @@ components:
           properties: {}
           description: A string-value description that you can attach to the user
             object.  It can be useful for storing additional information about your
-            customer payment.
+            customer's payment.
     Order:
       required:
       - project
@@ -1960,23 +1960,28 @@ components:
           type: string
           description: The user unique identifier in the merchant project.
         email:
+          description: The user’s email address.
           $ref: '#/components/schemas/Token.ValueVerified'
         phone:
+          description: The user’s phone number.
           $ref: '#/components/schemas/Token.ValueVerified'
         name:
+          description: The user’s name.
           $ref: '#/components/schemas/Token.Value'
         ip:
+          description: The user’s IP address.
           $ref: '#/components/schemas/Token.Value'
         locale:
+          description: The user’s locale name. Two-letter language code by ISO 639-1, in lowercase.
           $ref: '#/components/schemas/Token.Value'
         address:
           $ref: '#/components/schemas/Order.BillingAddress'
         metadata:
           type: object
           properties: {}
-          description: A string value description that you can attach to the user
-            object.  It can be useful for storing additional information about your
-            customer payment.
+          description: A key-value description that you can attach to the user
+            object. It can be useful for storing additional information about your
+            customer's payment. The key and value have the string type.
     Token.Settings.ReturnUrl:
       type: object
       properties:
@@ -2029,9 +2034,9 @@ components:
         metadata:
           type: object
           properties: {}
-          description: A string value description that you can attach to the user
-            object.  It can be useful for storing additional information about your
-            customer payment.
+          description: A key-value description that you can attach to the user
+            object. It can be useful for storing additional information about your
+            customer's payment. The key and value have the string type.
     Token:
       required:
       - settings

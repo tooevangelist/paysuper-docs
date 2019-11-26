@@ -193,7 +193,7 @@ You can create a payment order with details about your customer and sales option
 |`·· city`|string|The user’s city.|
 |`·· postal_code`|string|The user’s postal code.|
 |`·· state`|string|The user’s state code by ISO 3166-2.|
-|`· metadata`|string|A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer payment.|
+|`· metadata`|string|A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment.|
 |`· notify_new_region`|boolean||
 |`· notify_new_region_email`|string||
 |`billing_address`||Details about user's billing addres. Has a non-empty value if the user was asked to fill it on a payment form. For all countries has a `country` value and for the USA has `country`, `state` and `zip`.|
@@ -313,7 +313,7 @@ Create a payment order with details about your customer and sales option data.
 |`··· city` | string |The user's city.  |
 |`··· postal_code` | string |The user's postal code.  |
 |`··· state` | string |The user's state code by ISO 3166-2.  |
-|`·· metadata` | object |A string-value description that you can attach to the user object.  It can be useful for storing additional information about your customer payment.  |
+|`·· metadata` | object |A string-value description that you can attach to the user object.  It can be useful for storing additional information about your customer's payment.  |
 
 ### Responses
 
@@ -426,7 +426,7 @@ Create a token that encrypts certain details of your customer, a game and purcha
 
 |PARAMETER|TYPE|DESCRIPTION|
 |---|---|---|
-|`body`  <br><p style="color: red;">required</p> ||Data to process a payment.  |
+|`body`  <br><p style="color: red;">required</p> ||Parameters to create a token.  |
 |`· user`  <br><p style="color: red;">required</p> ||   |
 |`·· id`  <br><p style="color: red;">required</p> | string |The user unique identifier in the merchant project.  |
 |`·· email` ||   |
@@ -442,7 +442,7 @@ Create a token that encrypts certain details of your customer, a game and purcha
 |`··· city` | string |The user's city.  |
 |`··· postal_code` | string |The user's postal code.  |
 |`··· state` | string |The user's state code by ISO 3166-2.  |
-|`·· metadata` | object |A string value description that you can attach to the user object.  It can be useful for storing additional information about your customer payment.  |
+|`·· metadata` | object |A key-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment. The key and value have the string type.  |
 |`· settings`  <br><p style="color: red;">required</p> ||   |
 |`·· project_id`  <br><p style="color: red;">required</p> | string |The ID of the Project found in your merchant account in the PaySuper Dashboard.  |
 |`·· return_url` ||   |
@@ -453,7 +453,7 @@ Create a token that encrypts certain details of your customer, a game and purcha
 |`·· products_ids` | [string] |The list of unique identifiers of Products being in the Project. It is required if a payment type is equal to 'product' or 'key'.  |
 |`·· description` | string |The arbitrary order description.  |
 |`·· type`  <br><p style="color: red;">required</p> | string |The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the 'key' type,  as Virtual Items - the 'product' type, for a simple checkout - the 'simple' type. <br>**Enum values:** <br>simple<br>product<br>key |
-|`·· metadata` | object |A string value description that you can attach to the user object.  It can be useful for storing additional information about your customer payment.  |
+|`·· metadata` | object |A key-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment. The key and value have the string type.  |
 
 ### Responses
 
