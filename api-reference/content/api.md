@@ -236,9 +236,21 @@ You can create a payment order with details about your customer and sales option
 > Code samples
 
 ```shell
-curl -X POST /api/v1/order \
+curl -X POST \
+  https://api.pay.super.com/api/v1/order \
   -H 'Content-Type: application/json' \
-  -H 'Accept: application/json'
+  -H 'X-API-SIGNATURE: YOUR_SECRET_KEY \
+  -d '{
+    "project": "5db16ae811bf0d0001fdfbd1",
+    "amount": 10,
+    "currency": "USD",
+    "type": "simple",
+  "user": {
+      "external_id": "58799f2c2564296bd2cb",
+      "email": "user.email@example.com",
+      "email_verified": true
+    }
+}'
 
 ```
 
@@ -298,7 +310,7 @@ Create a payment order with details about your customer and sales option data.
 |`· type`  <br><p style="color: red;">required</p> | string |The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the `key` type,  as Virtual Items - the `product` type, for a simple checkout - the `simple` type. <br>**Enum values:** <br>key<br>product<br>simple |
 |`· products` | [string] |The list of unique identifiers of Products being in the Project. It is required if a payment type is equal to 'product' or 'key'.  |
 |`· platform_id` | string |The default platform identifier for which customer buys the in-game key. This field used only for a payment type 'key'. <br>**Enum values:** <br>steam<br>gog<br>uplay<br>origin<br>psn<br>xbox<br>nintendo<br>itch<br>egs |
-|`· token` | string |An encrypted string that represents certain details of your customer (such as the user ID, email and others), a game and purchase parameters.  The token encrypted parameters override the corresponding parameters in an order object even the required parameters.  |
+|`· token` | string |An encrypted string that represents certain details of your customer (such as the user ID, email and others), a game and purchase parameters. The token overrides the corresponding parameters in an order object even the required parameters.  |
 |`· user` ||   |
 |`·· external_id` | string |The user unique identifier in the merchant project.  |
 |`·· name` | string |The user's name.  |
@@ -365,9 +377,31 @@ A token is an encrypted string that represents certain details of your customer 
 > Code samples
 
 ```shell
-curl -X POST /api/v1/tokens \
+curl -X POST \
+  https://api.pay.super.com/api/v1/tokens \
   -H 'Content-Type: application/json' \
-  -H 'Accept: application/json'
+  -H 'X-API-SIGNATURE: YOUR_SECRET_KEY \
+  -d '{
+      "settings": {
+          "project_id": "5dcd11bc218dc30001d7098f",
+          "amount": 10,
+          "currency": "USD",
+          "type": "simple"
+      },
+      "user": {
+          "id": "58799f2c2564296bd2cb",
+          "address": {
+            "city": "Almere",
+            "country": "NL",
+            "postal_code": "1326 PA",
+            "state": "Flevoland"
+          },
+          "email": {
+            "value": "user.email@example.com",
+            "verified": true
+          }
+      }
+}'
 
 ```
 

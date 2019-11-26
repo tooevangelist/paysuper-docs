@@ -251,6 +251,24 @@ paths:
             schema:
               $ref: '#/components/schemas/Order'
         required: true
+      x-code-samples:
+        - lang: 'shell'
+          source: |
+            curl -X POST \
+              https://api.pay.super.com/api/v1/order \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-SIGNATURE: YOUR_SECRET_KEY \
+              -d '{
+                "project": "5db16ae811bf0d0001fdfbd1",
+                "amount": 10,
+                "currency": "USD",
+                "type": "simple",
+              "user": {
+                  "external_id": "58799f2c2564296bd2cb",
+                  "email": "user.email@example.com",
+                  "email_verified": true
+                }
+            }'
       responses:
         200:
           description: An object with the unique identifier of the order and a PaySuper-hosted URL of a payment form.
@@ -290,6 +308,34 @@ paths:
             schema:
               $ref: '#/components/schemas/Token'
         required: true
+      x-code-samples:
+        - lang: 'shell'
+          source: |
+            curl -X POST \
+              https://api.pay.super.com/api/v1/tokens \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-SIGNATURE: YOUR_SECRET_KEY \
+              -d '{
+                  "settings": {
+                      "project_id": "5dcd11bc218dc30001d7098f",
+                      "amount": 10,
+                      "currency": "USD",
+                      "type": "simple"
+                  },
+                  "user": {
+                      "id": "58799f2c2564296bd2cb",
+                      "address": {
+                        "city": "Almere",
+                        "country": "NL",
+                        "postal_code": "1326 PA",
+                        "state": "Flevoland"
+                      },
+                      "email": {
+                        "value": "user.email@example.com",
+                        "verified": true
+                      }
+                  }
+            }'
       responses:
         200:
           description: An object with a token string and a PaySuper-hosted URL of a payment form.
@@ -927,7 +973,7 @@ components:
           type: string
           description: An encrypted string that represents certain details of your
             customer (such as the user ID, email and others), a game and purchase
-            parameters.  The token encrypted parameters override the corresponding
+            parameters. The token overrides the corresponding
             parameters in an order object even the required parameters.
         user:
           $ref: '#/components/schemas/Order.User'
