@@ -175,9 +175,6 @@ In most cases, webhooks are triggered by user actions on your website or by back
     "canceled": false,
     "cancellation": null,
     "refunded": false,
-    "refunded_at": {
-      "seconds": -62135596800
-    },
     "receipt_email": "user.email@example.com",
     "receipt_phone": "",
     "receipt_number": "",
