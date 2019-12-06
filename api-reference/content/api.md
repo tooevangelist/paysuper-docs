@@ -36,8 +36,10 @@ You can create a payment order with details about your customer and sales option
   "description": "A summary for the purchase",
   "created_at": "2019-07-10T14:27:54.691Z",
   "canceled": false,
+  "canceled_at": "",
   "cancellation": null,
   "refunded": false,
+  "refunded_at": "",
   "receipt_email": "user.email@example.com",
   "receipt_phone": "",
   "receipt_number": "",
@@ -180,7 +182,7 @@ You can create a payment order with details about your customer and sales option
 |`·· city`|string|The user’s city.|
 |`·· postal_code`|string|The user’s postal code.|
 |`·· state`|string|The user’s state code by ISO 3166-2.|
-|`· metadata`|string|A key-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment. The key and value have the string type.|
+|`· metadata`|object|A key-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment. The key and value have the string type.|
 |`· notify_new_region`|boolean|Has the value `true` if a user confirmed to receive the PaySuper newsletter about the beginning of payment acceptance in new regions.|
 |`· notify_new_region_email`|string|The customer's email for a newsletter about the beginning of payment acceptance in new regions.|
 |`billing_address`||Details about a user's billing addres. Has a non-empty value if the user was asked to fill it on a payment form. For all countries has a `country` value and for the USA has `country`, `state` and `zip`.|
