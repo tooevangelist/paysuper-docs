@@ -82,14 +82,6 @@ const paySuper = new PaySuper({
 
 {{< tab "Virtual Currency" >}}
 
-ПРИМЕР КОДА ПРОСИТЬ У ДИМЫ или АНДРЕЯ кода реализуют
-
-{{< highlight javascript >}}
-const paySuper = new PaySuper({
-    
-});
-{{< /highlight >}}
-
 {{< /tab >}}
 {{< /tabs >}}
 
