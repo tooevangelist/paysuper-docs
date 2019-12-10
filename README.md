@@ -54,7 +54,7 @@ If you have an idea of how to improve PaySuper (or any of the product parts, inc
 
 We feel that a welcoming community is important and we ask that you follow the PaySuper's [Open Source Code of Conduct](https://github.com/paysuper/code-of-conduct/blob/master/README.md) in all interactions with the community.	
 
-If you have a question and can't find the answer yourself, you can [raise an issue](../../issues/new?assignees=&labels=&template=support-request.md&title=I+have+a+question+about+%3Cthis+and+that%3E+%5BSupport%5D) and describe what exactly you're trying to do. We'll do our best to reply in a meaningful time.
+If you have a question and can't find the answer in the docs, we consider it a bug in our documentation. Please [raise an issue](../../issues/new?assignees=&labels=&template=bug_report.md&title=) and describe what exactly you're trying to do and were are our docs not good enough. We'll do our best to reply in a meaningful time.
 
 We feel that a welcoming community is important and we ask that you follow PaySuper's [Open Source Code of Conduct](https://github.com/paysuper/code-of-conduct/blob/master/README.md) in all interactions with the community.
 
