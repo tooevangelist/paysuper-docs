@@ -47,13 +47,19 @@ Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
 ```
 
-## Contributing
+## Contributing, Support, Feature Requests
+If you like our documentation then you can put a ⭐️ on it and perhaps contribute new examples or help us keep it up to date.
 
-If you like this project then you can put a ⭐️ on it.
+If you have an idea of how to improve PaySuper (or any of the product parts, including the documentation) or have general feedback, you're welcome to submit a [feature request](../../issues/new?assignees=&labels=&template=feature_request.md&title=). 
 
-We welcome contributions to PaySuper of any kind including documentation, suggestions, bug reports, pull requests etc. We would love to hear from you. In general, we follow the "fork-and-pull" Git workflow.
+We feel that a welcoming community is important and we ask that you follow the PaySuper's [Open Source Code of Conduct](https://github.com/paysuper/code-of-conduct/blob/master/README.md) in all interactions with the community.	
 
-Pull requests shall only contain changes to the actual documentation. You can use the [PaySuper Glossary](https://docs.pay.super.com/docs/glossary) to describe your ideas.
+If you have a question and can't find the answer yourself, you can [raise an issue](../../issues/new?assignees=&labels=&template=support-request.md&title=I+have+a+question+about+%3Cthis+and+that%3E+%5BSupport%5D) and describe what exactly you're trying to do. We'll do our best to reply in a meaningful time.
+
+We feel that a welcoming community is important and we ask that you follow PaySuper's [Open Source Code of Conduct](https://github.com/paysuper/code-of-conduct/blob/master/README.md) in all interactions with the community.
+
+PaySuper welcomes contributions from anyone and everyone. Please refer to [our contribution guide to learn more](CONTRIBUTING.md).
+
 
 ## License
 
