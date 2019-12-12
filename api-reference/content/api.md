@@ -182,7 +182,7 @@ You can create a payment order with details about your customer and sales option
 |`·· city`|string|The user’s city.|
 |`·· postal_code`|string|The user’s postal code.|
 |`·· state`|string|The user’s state code by ISO 3166-2.|
-|`· metadata`|object|A key-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment. The key and value have the string type.|
+|`· metadata`|object|A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment.|
 |`· notify_new_region`|boolean|Has the value `true` if a user confirmed to receive the PaySuper newsletter about the beginning of payment acceptance in new regions.|
 |`· notify_new_region_email`|string|The customer's email for a newsletter about the beginning of payment acceptance in new regions.|
 |`billing_address`||Details about a user's billing addres. Has a non-empty value if the user was asked to fill it on a payment form. For all countries has a `country` value and for the USA has `country`, `state` and `zip`.|
@@ -219,7 +219,7 @@ You can create a payment order with details about your customer and sales option
 |`· name`|string|A localized name of the object.|
 |`· description`|string|A localized description of the object.|
 |`· images`|string[]|Image urls associated with the object.|
-|`· metadata`|object|A set of key-value pairs that attached to an object on creating a product.|
+|`· metadata`|object|A string-value description that attached to an object on creating a product.|
 |`· code`|string|An activation code of the object. Can be ommited if the order is not processed or type of the order does not equal `key`.|
 |`· platform`|string|A platform for an activation code. Can be ommited if the order is not processed or type of the order does not equal `key`.|
 |`refund`|object|Details about a refund.|
@@ -229,7 +229,7 @@ You can create a payment order with details about your customer and sales option
 |`· code`|string|The PaySuper internal identity for the refund reason.|
 |`· receipt_number`|string|The unique identifier of the refund receipt.|
 |`· receipt_url`|string|The URL in PaySuper service for online access to given refund receipt.|
-|`metadata`|object|A set of key-value pairs of description that you can attach to the order object. It can be useful for storing additional information about your customer payment..|
+|`metadata`|object|A string-value description that you can attach to the order object. It can be useful for storing additional information about your customer payment.|
 |`original_amount`|float|The order amount excluding any taxes and commissions.|
 |`country`|string|Two-letter language code by ISO 3166-1, in uppercase.|
 |`type`|string|The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the `key` type, as Virtual Items - the `product` type, for a simple checkout - the `simple` type. **Enum values:** key, products, simple.|
@@ -332,7 +332,7 @@ Create a payment order with details about your customer and sales option data.
 |`··· city` | string |The user's city.  |
 |`··· postal_code` | string |The user's postal code.  |
 |`··· state` | string |The user's state code by ISO 3166-2.  |
-|`·· metadata` | object |A key-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment. The key and value have the string type.  |
+|`·· metadata` | object |A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment.  |
 
 ### Responses
 
@@ -487,7 +487,7 @@ Create a token that encrypts certain details of your customer, a game and purcha
 |`··· city` | string |The user's city.  |
 |`··· postal_code` | string |The user's postal code.  |
 |`··· state` | string |The user's state code by ISO 3166-2.  |
-|`·· metadata` | object |A key-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment. The key and value have the string type.  |
+|`·· metadata` | object |A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment.  |
 |`· settings`  <br><p style="color: red;">required</p> ||   |
 |`·· project_id`  <br><p style="color: red;">required</p> | string |The ID of the Project found in your merchant account in the PaySuper Dashboard.  |
 |`·· return_url` ||   |
@@ -498,7 +498,7 @@ Create a token that encrypts certain details of your customer, a game and purcha
 |`·· products_ids` | [string] |The list of unique identifiers of Products being in the Project. It is required if a payment type is equal to 'product' or 'key'.  |
 |`·· description` | string |The arbitrary order description.  |
 |`·· type`  <br><p style="color: red;">required</p> | string |The order type. It depends on your sales option (Game Keys, Virtual Items, the simple checkout). For products created as Game Keys use the 'key' type,  as Virtual Items - the 'product' type, for a simple checkout - the 'simple' type. <br>**Enum values:** <br>simple<br>product<br>key |
-|`·· metadata` | object |A key-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment. The key and value have the string type.  |
+|`·· metadata` | object |A string-value description that you can attach to the user object. It can be useful for storing additional information about your customer's payment.  |
 
 ### Responses
 
